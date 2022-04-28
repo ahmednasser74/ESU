@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/src/colors.dart';
 
-class TextFieldWidget extends StatefulWidget {
+class AuthTextFieldWidget extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType inputType;
   final String? hint;
@@ -12,7 +12,7 @@ class TextFieldWidget extends StatefulWidget {
   final String? Function(String? v)? validator;
   final String? labelText;
 
-  TextFieldWidget({
+  AuthTextFieldWidget({
     required this.controller,
     required this.inputType,
     this.prefixIcon,
@@ -24,10 +24,10 @@ class TextFieldWidget extends StatefulWidget {
   });
 
   @override
-  _TextFieldWidgetState createState() => _TextFieldWidgetState();
+  _AuthTextFieldWidgetState createState() => _AuthTextFieldWidgetState();
 }
 
-class _TextFieldWidgetState extends State<TextFieldWidget> {
+class _AuthTextFieldWidgetState extends State<AuthTextFieldWidget> {
   late bool passwordVisibility;
 
   @override

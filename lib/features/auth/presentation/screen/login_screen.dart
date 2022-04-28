@@ -1,6 +1,8 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
+import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
+import 'package:boilerplate/features/auth/presentation/widgets/auth_text_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,7 +12,6 @@ import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/custom_button.dart';
 import '../../../../core/src/widgets/loading_indicator_widget.dart';
 import '../../../../core/utils/validator.dart';
-import '../widgets/text_field_widget.dart';
 
 class LoginScreen extends GetView<LoginController> {
   @override
@@ -47,7 +48,7 @@ class LoginScreen extends GetView<LoginController> {
                 SizedBox(height: .06.sh),
                 Column(
                   children: [
-                    TextFieldWidget(
+                    AuthTextFieldWidget(
                       controller: controller.userNameTEC,
                       labelText: LocalizationKeys.userName.tr,
                       inputType: TextInputType.text,
@@ -58,7 +59,7 @@ class LoginScreen extends GetView<LoginController> {
                       validator: CustomValidator.userNameValidation,
                     ),
                     SizedBox(height: .02.sh),
-                    TextFieldWidget(
+                    AuthTextFieldWidget(
                       controller: controller.passwordTEC,
                       labelText: LocalizationKeys.password.tr,
                       inputType: TextInputType.visiblePassword,
@@ -74,13 +75,12 @@ class LoginScreen extends GetView<LoginController> {
                 SizedBox(height: .04.sh),
                 AppButton(
                   title: LocalizationKeys.login.tr,
-                  marginHorizontal: .08.sh,
                   onPressed: controller.login,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: .08.sh),
                 AppButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.registerAcademicInfo),
                   backgroundColor: Colors.transparent,
                   child: RichText(
                     textAlign: TextAlign.center,

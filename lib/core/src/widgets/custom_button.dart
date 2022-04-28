@@ -17,6 +17,7 @@ class AppButton extends StatelessWidget {
   final FontWeight? fontWeight;
   final Widget? child;
   final Color textColor, backgroundColor, borderColor;
+  final Size? minimumSize;
 
   AppButton({
     required this.onPressed,
@@ -35,6 +36,7 @@ class AppButton extends StatelessWidget {
     this.borderColor = Colors.transparent,
     this.borderRadius = 10,
     this.fontWeight,
+    this.minimumSize,
   });
 
   @override
@@ -42,7 +44,9 @@ class AppButton extends StatelessWidget {
     final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: marginHorizontal, vertical: marginVertical),
+        horizontal: marginHorizontal,
+        vertical: marginVertical,
+      ),
       child: OutlinedButton(
         onPressed: onPressed,
         child: child ??
@@ -60,6 +64,7 @@ class AppButton extends StatelessWidget {
             horizontal: paddingHorizontal,
             vertical: paddingVertical,
           ),
+          minimumSize: minimumSize,
           side: BorderSide(color: borderColor),
           backgroundColor: backgroundColor,
           elevation: elevation,

@@ -80,13 +80,11 @@ class CustomsThemes {
         ),
       ),
     ),
-    appBarTheme: const AppBarTheme(
-      centerTitle: true,
+    appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0,
-      titleSpacing: 0,
       titleTextStyle: TextStyle(
-        fontSize: 18,
+        fontSize: 18.sp,
         fontFamily: fontFamily,
         color: Colors.black,
       ),
