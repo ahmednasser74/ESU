@@ -7,9 +7,12 @@ class AuthDropDownButton extends StatefulWidget {
     Key? key,
     required this.list,
     required this.onChangeValue,
+    this.isDense = false,
   }) : super(key: key);
+
   final List<String> list;
   final void Function(String value) onChangeValue;
+  final bool isDense;
 
   @override
   State<AuthDropDownButton> createState() => _AuthDropDownButtonState();
@@ -31,7 +34,7 @@ class _AuthDropDownButtonState extends State<AuthDropDownButton> {
         }
       },
       hint: Text('Select'),
-      isDense: false,
+      isDense: widget.isDense,
       icon: Icon(Icons.keyboard_arrow_down_rounded),
       elevation: 2,
       dropdownColor: Colors.white,

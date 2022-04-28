@@ -1,12 +1,14 @@
 import 'package:boilerplate/features/auth/presentation/screen/login_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/register_academic_information_screen.dart';
+import 'package:boilerplate/features/auth/presentation/screen/register_personal_information_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/splash_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 class Routes {
   static const String splashScreen = '/splashScreen',
       loginScreen = '/loginScreen',
-      registerAcademicInfo = '/registerAcademicInfo';
+      registerAcademicInfo = '/registerAcademicInfo',
+      registerPersonalInfo = '/registerPersonalInfo';
 
   static List<GetPage> setScreens() {
     return <GetPage>[
@@ -15,6 +17,10 @@ class Routes {
       GetPage(
         name: registerAcademicInfo,
         page: () => RegisterAcademicInfoScreen(),
+      ),
+      GetPage(
+        name: registerPersonalInfo,
+        page: () => RegisterPersonalInfoScreen(),
       ),
     ];
   }

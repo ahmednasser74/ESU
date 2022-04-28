@@ -1,8 +1,11 @@
+import 'package:boilerplate/core/const/list_const.dart';
+import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class RegisterAcademicInfoScreen extends StatefulWidget {
   const RegisterAcademicInfoScreen({Key? key}) : super(key: key);
@@ -32,22 +35,13 @@ class _RegisterAcademicInfoScreenState
               Spacer(),
               TitleRequiredFieldWidget(title: 'Current Certificate'),
               AuthDropDownButton(
-                list: ['Secondary School', 'Bachelor', 'Master'],
+                list: ListConst.certificateList,
                 onChangeValue: (value) => print(value),
               ),
               SizedBox(height: 18.h),
               TitleRequiredFieldWidget(title: 'Program'),
               AuthDropDownButton(
-                list: [
-                  'Bachelor of Project Management',
-                  'Master of Project Management',
-                  'Bachelor of Management',
-                  'Master of Management',
-                  'Master of Risk Management',
-                  'Ph.D. in Project Management',
-                  'Master of Science in Cybersecurity',
-                  'Master of Science in Cybersecurity (Non-IT Background)',
-                ],
+                list: ListConst.programList,
                 onChangeValue: (value) => print(value),
               ),
               Spacer(),
@@ -58,6 +52,7 @@ class _RegisterAcademicInfoScreenState
                   } else {
                     print('Not validate');
                   }
+                  Get.toNamed(Routes.registerPersonalInfo);
                 },
                 title: 'Next',
                 minimumSize: Size(double.infinity, 30),

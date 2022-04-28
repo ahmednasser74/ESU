@@ -55,7 +55,7 @@ class CustomsThemes {
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+        borderSide: BorderSide(color: Colors.black54, width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
       focusedBorder: OutlineInputBorder(
