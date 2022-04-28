@@ -9,7 +9,6 @@ class CustomsThemes {
   static const String fontFamily = 'Din';
 
   static final defaultThemeData = ThemeData(
-    /// Dialog Color
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: MaterialColor(
         AppColors.primaryColor.value,
@@ -30,13 +29,12 @@ class CustomsThemes {
       primary: AppColors.primaryColor,
       secondary: AppColors.primaryColor,
     ),
-
+    fontFamily: fontFamily,
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
     ),
-
     primaryColor: AppColors.primaryColor,
     backgroundColor: Colors.white,
     iconTheme: IconThemeData(
@@ -48,7 +46,7 @@ class CustomsThemes {
       filled: true,
       fillColor: Colors.grey.shade50,
       hintStyle: const TextStyle(
-        fontFamily: 'din',
+        fontFamily: fontFamily,
         color: Colors.grey,
         height: 1.4,
       ),
@@ -96,13 +94,13 @@ class CustomsThemes {
         color: AppColors.primaryColor,
       ),
     ),
-
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
           TextStyle(
             fontSize: 16.sp,
             color: Colors.green,
+            fontFamily: fontFamily,
           ),
         ),
         // overlayColor: MaterialStateProperty.all(

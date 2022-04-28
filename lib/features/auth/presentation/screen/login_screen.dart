@@ -1,5 +1,4 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +23,21 @@ class LoginScreen extends GetView<LoginController> {
           body: Form(
             key: controller.loginFormKey,
             child: ListView(
-              padding: EdgeInsets.only(top: .10.sh, left: 10, right: 10),
+              padding: EdgeInsets.only(top: .06.sh, left: 10, right: 10),
               children: [
+                Align(
+                  alignment: AlignmentDirectional.topEnd,
+                  child: AppButton(
+                    onPressed: controller.changeLanguage,
+                    backgroundColor: Colors.transparent,
+                    borderColor: AppColors.primaryColor,
+                    child: Text(
+                      controller.translateController.appLocale == 'ar'
+                          ? 'English'
+                          : 'العربية',
+                    ),
+                  ),
+                ),
                 SizedBox(height: .02.sh),
                 Center(
                   child: Assets.images.appIcon.image(
@@ -35,22 +47,6 @@ class LoginScreen extends GetView<LoginController> {
                 SizedBox(height: .06.sh),
                 Column(
                   children: [
-                    TextButton(
-                      onPressed: () => Get.find<TranslationController>()
-                          .changeLanguage('ar'),
-                      child: Text(
-                        'AR',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () => Get.find<TranslationController>()
-                          .changeLanguage('en'),
-                      child: Text(
-                        'EN',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
                     TextFieldWidget(
                       controller: controller.userNameTEC,
                       labelText: LocalizationKeys.userName.tr,
@@ -75,9 +71,10 @@ class LoginScreen extends GetView<LoginController> {
                     ),
                   ],
                 ),
+                SizedBox(height: .04.sh),
                 AppButton(
                   title: LocalizationKeys.login.tr,
-                  marginHorizontal: .02.sh,
+                  marginHorizontal: .08.sh,
                   onPressed: controller.login,
                   fontWeight: FontWeight.bold,
                 ),
@@ -89,12 +86,16 @@ class LoginScreen extends GetView<LoginController> {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       text: LocalizationKeys.doNotHaveAccount.tr,
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'din',
+                      ),
                       children: [
                         TextSpan(
                           text: LocalizationKeys.signUp.tr,
                           style: TextStyle(
                             color: AppColors.primaryColor,
+                            fontFamily: 'din',
                           ),
                         ),
                       ],

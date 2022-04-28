@@ -31,7 +31,7 @@ class AppButton extends StatelessWidget {
     this.marginVertical = 0,
     this.textColor = AppColors.whiteColor,
     this.fonSize = 20,
-    this.fontFamily = 'alfa',
+    this.fontFamily = 'din',
     this.borderColor = Colors.transparent,
     this.borderRadius = 10,
     this.fontWeight,
