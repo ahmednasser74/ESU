@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
+import 'package:boilerplate/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,8 +31,23 @@ class _RegisterAcademicInfoScreenState
             children: [
               Spacer(),
               TitleRequiredFieldWidget(title: 'Current Certificate'),
-              MyStatefulWidget(
+              AuthDropDownButton(
                 list: ['Secondary School', 'Bachelor', 'Master'],
+                onChangeValue: (value) => print(value),
+              ),
+              SizedBox(height: 18.h),
+              TitleRequiredFieldWidget(title: 'Program'),
+              AuthDropDownButton(
+                list: [
+                  'Bachelor of Project Management',
+                  'Master of Project Management',
+                  'Bachelor of Management',
+                  'Master of Management',
+                  'Master of Risk Management',
+                  'Ph.D. in Project Management',
+                  'Master of Science in Cybersecurity',
+                  'Master of Science in Cybersecurity (Non-IT Background)',
+                ],
                 onChangeValue: (value) => print(value),
               ),
               Spacer(),
@@ -54,104 +69,3 @@ class _RegisterAcademicInfoScreenState
     );
   }
 }
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({
-    Key? key,
-    required this.list,
-    required this.onChangeValue,
-  }) : super(key: key);
-  final List<String> list;
-  final void Function(String value) onChangeValue;
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  String? dropdownValue;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
-      value: dropdownValue,
-      validator: (value) {
-        if (dropdownValue == null) {
-          return 'This field is required';
-        } else {
-          return null;
-        }
-      },
-      icon: const Icon(Icons.keyboard_arrow_down_rounded),
-      hint: Text('Select'),
-      elevation: 2,
-      dropdownColor: Colors.white,
-      style: const TextStyle(color: AppColors.primaryColor),
-      isDense: true,
-      onChanged: (newValue) {
-        widget.onChangeValue(newValue!);
-        setState(() => dropdownValue = newValue);
-      },
-      items: widget.list.map<DropdownMenuItem<String>>((value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Padding(
-            padding: EdgeInsetsDirectional.only(end: .45.sw),
-            child: Text(
-              value,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-        );
-      }).toList(),
-    );
-  }
-}
-//    return FormField(
-//       builder: (field) {
-//         return InputDecorator(
-//           decoration: InputDecoration(
-//             errorText: field.isValid ? 'this field is required' : null,
-//             enabledBorder: field.isValid
-//                 ? OutlineInputBorder(
-//                     borderSide: BorderSide(color: Colors.red, width: 1.0),
-//                     borderRadius: BorderRadius.all(Radius.circular(12.0)),
-//                   )
-//                 : null,
-//           ),
-//           child: DropdownButtonFormField<String>(
-//             value: dropdownValue,
-//             validator: (value) {
-//               if (dropdownValue == null) {
-//                 return 'This field is required';
-//               } else {
-//                 return null;
-//               }
-//             },
-//
-//             icon: const Icon(Icons.keyboard_arrow_down_rounded),
-//             hint: Text('Select'),
-//             elevation: 2,
-//             dropdownColor: Colors.white,
-//             style: const TextStyle(color: AppColors.primaryColor),
-//             isDense: true,
-//             onChanged: (newValue) {
-//               widget.onChangeValue(newValue!);
-//               setState(() => dropdownValue = newValue);
-//             },
-//             items: widget.list.map<DropdownMenuItem<String>>((value) {
-//               return DropdownMenuItem<String>(
-//                 value: value,
-//                 child: Padding(
-//                   padding: EdgeInsetsDirectional.only(end: .45.sw),
-//                   child: Text(
-//                     value,
-//                     style: TextStyle(fontWeight: FontWeight.bold),
-//                   ),
-//                 ),
-//               );
-//             }).toList(),
-//           ),
-//         );
-//       },
-//     );
