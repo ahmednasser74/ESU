@@ -35,12 +35,15 @@ dependencies:
   # toast for user
   fluttertoast: ^8.0.9
   #  responsive screen
-  flutter_screenutil: ^5.4.0+1
+  flutter_screenutil: ^5.5.0
   # model creation
   json_serializable: ^6.2.0
   # network
   dio: ^4.0.6
   pretty_dio_logger: ^1.1.1
+  #  file picker
+  file_picker: ^4.5.1
+  country_picker: ^2.0.14
 
 dev_dependencies:
   build_runner: ^2.1.10

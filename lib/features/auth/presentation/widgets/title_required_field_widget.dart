@@ -17,10 +17,14 @@ class TitleRequiredFieldWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: TextStyle(fontSize: titleSize ?? 16.sp),
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: .8.sw),
+            child: Text(
+              title,
+              style: TextStyle(fontSize: titleSize ?? 16.sp),
+            ),
           ),
           Visibility(
             visible: isRequired,
