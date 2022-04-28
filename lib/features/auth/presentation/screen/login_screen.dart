@@ -1,7 +1,8 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
+import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
+import 'package:boilerplate/features/auth/presentation/widgets/auth_text_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,6 @@ import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/custom_button.dart';
 import '../../../../core/src/widgets/loading_indicator_widget.dart';
 import '../../../../core/utils/validator.dart';
-import '../widgets/text_field_widget.dart';
 
 class LoginScreen extends GetView<LoginController> {
   @override
@@ -24,8 +24,21 @@ class LoginScreen extends GetView<LoginController> {
           body: Form(
             key: controller.loginFormKey,
             child: ListView(
-              padding: EdgeInsets.only(top: .10.sh, left: 10, right: 10),
+              padding: EdgeInsets.only(top: .06.sh, left: 10, right: 10),
               children: [
+                Align(
+                  alignment: AlignmentDirectional.topEnd,
+                  child: AppButton(
+                    onPressed: controller.changeLanguage,
+                    backgroundColor: Colors.transparent,
+                    borderColor: AppColors.primaryColor,
+                    child: Text(
+                      controller.translateController.appLocale == 'ar'
+                          ? 'English'
+                          : 'العربية',
+                    ),
+                  ),
+                ),
                 SizedBox(height: .02.sh),
                 Center(
                   child: Assets.images.appIcon.image(
@@ -35,23 +48,7 @@ class LoginScreen extends GetView<LoginController> {
                 SizedBox(height: .06.sh),
                 Column(
                   children: [
-                    TextButton(
-                      onPressed: () => Get.find<TranslationController>()
-                          .changeLanguage('ar'),
-                      child: Text(
-                        'AR',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () => Get.find<TranslationController>()
-                          .changeLanguage('en'),
-                      child: Text(
-                        'EN',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    TextFieldWidget(
+                    AuthTextFieldWidget(
                       controller: controller.userNameTEC,
                       labelText: LocalizationKeys.userName.tr,
                       inputType: TextInputType.text,
@@ -62,7 +59,7 @@ class LoginScreen extends GetView<LoginController> {
                       validator: CustomValidator.userNameValidation,
                     ),
                     SizedBox(height: .02.sh),
-                    TextFieldWidget(
+                    AuthTextFieldWidget(
                       controller: controller.passwordTEC,
                       labelText: LocalizationKeys.password.tr,
                       inputType: TextInputType.visiblePassword,
@@ -75,26 +72,30 @@ class LoginScreen extends GetView<LoginController> {
                     ),
                   ],
                 ),
+                SizedBox(height: .04.sh),
                 AppButton(
                   title: LocalizationKeys.login.tr,
-                  marginHorizontal: .02.sh,
                   onPressed: controller.login,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: .08.sh),
                 AppButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.registerAcademicInfo),
                   backgroundColor: Colors.transparent,
                   child: RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       text: LocalizationKeys.doNotHaveAccount.tr,
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'din',
+                      ),
                       children: [
                         TextSpan(
                           text: LocalizationKeys.signUp.tr,
                           style: TextStyle(
                             color: AppColors.primaryColor,
+                            fontFamily: 'din',
                           ),
                         ),
                       ],

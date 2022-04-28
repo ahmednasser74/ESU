@@ -18,6 +18,7 @@ class LoginController extends GetxController {
   final LogoutUseCase logoutUseCase;
   final IsOnlineUseCase isOnlineUseCase;
   RxBool _loadingIndicator = false.obs;
+  late TranslationController translateController;
 
   LoginController({
     required this.loginUseCase,
@@ -32,7 +33,7 @@ class LoginController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    Get.find<TranslationController>();
+    translateController = Get.find<TranslationController>();
   }
 
   Future<void> login() async {
@@ -67,6 +68,14 @@ class LoginController extends GetxController {
       }
     } else {
       Get.toNamed('');
+    }
+  }
+
+  void changeLanguage() {
+    if (translateController.appLocale == 'en') {
+      translateController.changeLanguage('ar');
+    } else if (translateController.appLocale == 'ar') {
+      translateController.changeLanguage('en');
     }
   }
 
