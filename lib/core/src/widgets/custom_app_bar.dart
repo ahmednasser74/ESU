@@ -11,7 +11,7 @@ class CustomAppBar extends StatelessWidget {
   final String centerTitle;
   final Color iconsColor, backgroundColor;
 
-  CustomAppBar({
+  const CustomAppBar({
     required this.centerTitle,
     this.endIcon,
     this.iconsColor = AppColors.primaryColor,
@@ -24,7 +24,7 @@ class CustomAppBar extends StatelessWidget {
     return AppBar(
       actions: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 14),
           child: SizedBox(
             width: .08.sw,
             height: .08.sh,

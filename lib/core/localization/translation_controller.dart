@@ -6,7 +6,7 @@ class TranslationController extends GetxController {
   var appLocale = 'en';
   @override
   void onInit() async {
-    appLocale = await SharedPrefs.instance.getLanguageSelected();
+    appLocale = SharedPrefs.instance.getLanguageSelected();
     Get.updateLocale(Locale(appLocale));
     super.onInit();
   }

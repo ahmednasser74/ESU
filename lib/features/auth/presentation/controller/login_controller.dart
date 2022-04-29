@@ -13,11 +13,12 @@ import '../../domin/usecases/logout_usecase.dart';
 class LoginController extends GetxController {
   final TextEditingController userNameTEC = TextEditingController(text: ''),
       passwordTEC = TextEditingController(text: '');
-  final loginFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+
   final LoginUseCase loginUseCase;
   final LogoutUseCase logoutUseCase;
   final IsOnlineUseCase isOnlineUseCase;
-  RxBool _loadingIndicator = false.obs;
+  final RxBool _loadingIndicator = false.obs;
   late TranslationController translateController;
 
   LoginController({

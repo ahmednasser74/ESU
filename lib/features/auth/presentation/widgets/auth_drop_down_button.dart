@@ -33,12 +33,12 @@ class _AuthDropDownButtonState extends State<AuthDropDownButton> {
           return null;
         }
       },
-      hint: Text('Select'),
+      hint: const Text('Select'),
       isDense: widget.isDense,
-      icon: Icon(Icons.keyboard_arrow_down_rounded),
+      icon: const Icon(Icons.keyboard_arrow_down_rounded),
       elevation: 2,
       dropdownColor: Colors.white,
-      decoration: InputDecoration(),
+      decoration: const InputDecoration(),
       style: const TextStyle(color: AppColors.primaryColor),
       onChanged: (newValue) {
         widget.onChangeValue(newValue!);
@@ -47,12 +47,12 @@ class _AuthDropDownButtonState extends State<AuthDropDownButton> {
       items: widget.list.map<DropdownMenuItem<String>>((value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Container(
+          child: SizedBox(
             width: .7.sw,
             child: Text(
               value,
               maxLines: 2,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
         );

@@ -6,7 +6,7 @@ part 'auth_model.g.dart';
 
 @JsonSerializable()
 class AuthModel extends AuthEntity {
-  AuthModel({
+  const AuthModel({
     required String firstName,
     required String lastName,
     required String Gender,

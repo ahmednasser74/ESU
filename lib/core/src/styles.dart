@@ -7,22 +7,22 @@ class CustomStyle {
     hintStyle: TextStyle(color: Colors.grey, fontSize: 14.sp),
     hintText: 'Enter your phone number...',
     filled: true,
-    labelStyle: TextStyle(color: Colors.transparent),
-    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-    border: OutlineInputBorder(
+    labelStyle: const TextStyle(color: Colors.transparent),
+    contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+    border: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(12.0)),
     ),
-    enabledBorder: OutlineInputBorder(
+    enabledBorder: const OutlineInputBorder(
       borderSide: BorderSide(color: Colors.transparent, width: 1.0),
       borderRadius: BorderRadius.all(Radius.circular(12.0)),
     ),
-    focusedBorder: OutlineInputBorder(
+    focusedBorder: const OutlineInputBorder(
       borderSide: BorderSide(color: Colors.transparent, width: 2.0),
       borderRadius: BorderRadius.all(Radius.circular(12.0)),
     ),
   );
 
-  static final InputDecoration couponInputDecoration = InputDecoration(
+  static const InputDecoration couponInputDecoration = InputDecoration(
     hintText: 'Coupon...',
     fillColor: Color(0xFFEF9A9A),
     filled: true,
@@ -44,7 +44,7 @@ class CustomStyle {
   static final BoxDecoration containerShadowDecoration = BoxDecoration(
     color: Colors.white,
     borderRadius: BorderRadius.circular(10),
-    boxShadow: [
+    boxShadow: const [
       BoxShadow(
         color: Colors.black12,
         blurRadius: 6,

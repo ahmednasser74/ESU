@@ -23,7 +23,7 @@ class _RegisterAcademicInfoScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Academic Information'),
+        title: const Text('Academic Information'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
@@ -32,19 +32,19 @@ class _RegisterAcademicInfoScreenState
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(),
-              TitleRequiredFieldWidget(title: 'Current Certificate'),
+              const Spacer(),
+              const TitleRequiredFieldWidget(title: 'Current Certificate'),
               AuthDropDownButton(
                 list: ListConst.certificateList,
                 onChangeValue: (value) => print(value),
               ),
               SizedBox(height: 18.h),
-              TitleRequiredFieldWidget(title: 'Program'),
+              const TitleRequiredFieldWidget(title: 'Program'),
               AuthDropDownButton(
                 list: ListConst.programList,
                 onChangeValue: (value) => print(value),
               ),
-              Spacer(),
+              const Spacer(),
               AppButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
@@ -55,7 +55,7 @@ class _RegisterAcademicInfoScreenState
                   Get.toNamed(Routes.registerPersonalInfo);
                 },
                 title: 'Next',
-                minimumSize: Size(double.infinity, 30),
+                minimumSize: const Size(double.infinity, 30),
               ),
             ],
           ),

@@ -35,9 +35,10 @@ class AuthRepositoryImp implements AuthRepository {
   @override
   Future<bool> isUserLogIn() async {
     final userToken = await userLocalDataSource.getUserToken();
-    if (userToken != null)
+    if (userToken != null) {
       return true;
-    else
+    } else {
       return false;
+    }
   }
 }

@@ -18,7 +18,7 @@ class Routes {
       GetPage(name: loginScreen, page: () => LoginScreen()),
       GetPage(
         name: registerAcademicInfo,
-        page: () => RegisterAcademicInfoScreen(),
+        page: () => const RegisterAcademicInfoScreen(),
       ),
       GetPage(
         name: registerPersonalInfo,

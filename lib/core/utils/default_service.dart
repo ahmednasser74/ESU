@@ -22,7 +22,7 @@ class DefaultGetConnect extends GetConnect {
 
   Future<Response> getData({required String path}) async {
     final response = await httpClient.get(
-      '$path',
+      path,
       headers: headers,
     );
     return response;
@@ -30,7 +30,7 @@ class DefaultGetConnect extends GetConnect {
 
   Future<Response> postData(String path, {Map<String, dynamic>? data}) async {
     final response = await httpClient.post(
-      '$path',
+      path,
       query: data,
       headers: headers,
     );
@@ -39,7 +39,7 @@ class DefaultGetConnect extends GetConnect {
 
   Future<Response> putData(String path, {Map<String, dynamic>? data}) async {
     final response = await httpClient.put(
-      '$path',
+      path,
       query: data,
       headers: headers,
     );

@@ -9,14 +9,14 @@ class RegisterFileUploadsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Files Upload')),
+      appBar: AppBar(title: const Text('Files Upload')),
       body: Padding(
         padding: const EdgeInsets.all(18),
         child: Form(
           key: formKey,
           child: SingleChildScrollView(
             child: Column(
-              children: [
+              children: const [
                 TitleRequiredFieldWidget(
                   title: 'A copy of your ID or passport',
                 ),

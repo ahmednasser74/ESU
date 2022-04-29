@@ -20,7 +20,7 @@ class AuthLocalDataSourceImp implements AuthLocalDataSource {
 
   @override
   Future<String?> getUserToken() async {
-    return await sharedPreferences.getString(prefsUserToken);
+    return sharedPreferences.getString(prefsUserToken);
   }
 
   @override

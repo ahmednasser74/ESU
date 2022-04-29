@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/src/colors.dart';
 
 class AuthTextFieldWidget extends StatefulWidget {
-  final TextEditingController controller;
-  final TextInputType inputType;
+  final TextEditingController? controller;
+  final TextInputType? inputType;
   final String? hint;
   final bool obscureText;
   final Widget? suffixIcon;
@@ -12,16 +12,17 @@ class AuthTextFieldWidget extends StatefulWidget {
   final String? Function(String? v)? validator;
   final String? labelText;
 
-  AuthTextFieldWidget({
-    required this.controller,
-    required this.inputType,
+  const AuthTextFieldWidget({
+    Key? key,
+    this.controller,
+    this.inputType,
     this.prefixIcon,
     this.hint,
     this.obscureText = false,
     this.suffixIcon,
     this.validator,
     this.labelText,
-  });
+  }) : super(key: key);
 
   @override
   _AuthTextFieldWidgetState createState() => _AuthTextFieldWidgetState();
