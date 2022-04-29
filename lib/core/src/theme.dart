@@ -50,7 +50,8 @@ class CustomsThemes {
         color: Colors.grey,
         height: 1.4,
       ),
-      contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+      contentPadding:
+          const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
       border: const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
@@ -104,13 +105,13 @@ class CustomsThemes {
         // overlayColor: MaterialStateProperty.all(
         //   Colors.transparent,
         // ),
-        foregroundColor: MaterialStateProperty.all(
-          AppColors.primaryColor,
-        ),
-
-        backgroundColor: MaterialStateProperty.all(
-          AppColors.primaryColor,
-        ),
+        // foregroundColor: MaterialStateProperty.all(
+        //   Colors.green,
+        // ),
+        //
+        // backgroundColor: MaterialStateProperty.all(
+        //   Colors.red,
+        // ),
       ),
     ),
   );

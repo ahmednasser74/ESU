@@ -33,7 +33,7 @@ class LoginScreen extends GetView<LoginController> {
                     backgroundColor: Colors.transparent,
                     borderColor: AppColors.primaryColor,
                     child: Text(
-                      controller.translateController.appLocale == 'ar'
+                      controller.translateController?.appLocale == 'ar'
                           ? 'English'
                           : 'العربية',
                     ),

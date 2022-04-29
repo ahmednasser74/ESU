@@ -2,8 +2,9 @@ import 'package:boilerplate/core/const/list_const.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/features/auth/presentation/register_personal_info_properties.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/auth_drop_down_button.dart';
+import 'package:boilerplate/features/auth/presentation/widgets/country_picker_field_widget.dart';
+import 'package:boilerplate/features/auth/presentation/widgets/date_picker_field_widget.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,11 +29,13 @@ class RegisterPersonalInfoScreen extends StatelessWidget
                 validator: emailValidator,
                 keyboardType: TextInputType.emailAddress,
               ),
-              const TitleRequiredFieldWidget(title: 'Your first name (English)'),
+              const TitleRequiredFieldWidget(
+                  title: 'Your first name (English)'),
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(title: 'Your second name (English)'),
+              const TitleRequiredFieldWidget(
+                  title: 'Your second name (English)'),
               TextFormField(
                 validator: nameValidator,
               ),
@@ -44,7 +47,8 @@ class RegisterPersonalInfoScreen extends StatelessWidget
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(title: 'Your second name (Arabic)'),
+              const TitleRequiredFieldWidget(
+                  title: 'Your second name (Arabic)'),
               TextFormField(
                 validator: nameValidator,
               ),
@@ -52,7 +56,8 @@ class RegisterPersonalInfoScreen extends StatelessWidget
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(title: 'National ID/Passport Number*'),
+              const TitleRequiredFieldWidget(
+                  title: 'National ID/Passport Number*'),
               TextFormField(
                 validator: nationalIdValidator,
                 keyboardType: TextInputType.number,
@@ -63,6 +68,11 @@ class RegisterPersonalInfoScreen extends StatelessWidget
                 keyboardType: TextInputType.phone,
               ),
               const TitleRequiredFieldWidget(title: 'Date of Birth'),
+              DatePickerFieldWidget(
+                dateCallBack: (dateCallBack) {
+                  print('dateCallBack = $dateCallBack');
+                },
+              ),
               const TitleRequiredFieldWidget(title: 'Gender'),
               AuthDropDownButton(
                 list: const ['Male', 'Female'],
@@ -70,7 +80,7 @@ class RegisterPersonalInfoScreen extends StatelessWidget
                 onChangeValue: (value) => print(value),
               ),
               const TitleRequiredFieldWidget(title: 'Country'),
-              CountryPickerField(
+              CountryPickerFieldWidget(
                 countryNameCallBack: (countryName) {
                   print('countryName = $countryName');
                 },
@@ -113,51 +123,6 @@ class RegisterPersonalInfoScreen extends StatelessWidget
           ),
         ),
       ),
-    );
-  }
-}
-
-class CountryPickerField extends StatefulWidget {
-  const CountryPickerField({
-    Key? key,
-    required this.countryNameCallBack,
-  }) : super(key: key);
-  final void Function(String? countryName) countryNameCallBack;
-
-  @override
-  State<CountryPickerField> createState() => _CountryPickerFieldState();
-}
-
-class _CountryPickerFieldState extends State<CountryPickerField> {
-  final countryNameTEC = TextEditingController();
-  String? countryName;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: countryNameTEC,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      readOnly: true,
-      onTap: () {
-        showCountryPicker(
-          context: context,
-          countryListTheme: CountryListThemeData(
-            bottomSheetHeight: .8.sw,
-          ),
-          onSelect: (Country country) {
-            countryNameTEC.text = country.name;
-            setState(() => countryName = country.name);
-            widget.countryNameCallBack(countryName);
-          },
-        );
-      },
-      validator: (value) {
-        if (countryName == null) {
-          return 'This field is required';
-        } else {
-          return null;
-        }
-      },
     );
   }
 }
