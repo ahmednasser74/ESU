@@ -1,18 +1,20 @@
 import 'package:boilerplate/core/const/list_const.dart';
+import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
-import 'package:boilerplate/features/auth/presentation/register_personal_info_properties.dart';
+import 'package:boilerplate/features/auth/presentation/validator_properties.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/country_picker_field_widget.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/date_picker_field_widget.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class RegisterPersonalInfoScreen extends StatelessWidget
-    with RegisterPersonalInfoProperties {
+    with ValidatorProperties {
   RegisterPersonalInfoScreen({Key? key}) : super(key: key);
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +115,7 @@ class RegisterPersonalInfoScreen extends StatelessWidget
                   } else {
                     print('Not validate');
                   }
-                  // Get.toNamed(Routes.registerFileUploadScreen);
+                  Get.toNamed(Routes.registerFileUploadScreen);
                 },
                 title: 'Next',
                 minimumSize: const Size(double.infinity, 30),

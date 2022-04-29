@@ -1,4 +1,4 @@
-mixin RegisterPersonalInfoProperties {
+mixin ValidatorProperties {
   String? addressValidator(String? v) {
     if (v!.isEmpty) {
       return 'This field is required';
