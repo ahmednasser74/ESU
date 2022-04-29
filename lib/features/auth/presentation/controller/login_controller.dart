@@ -1,5 +1,4 @@
 import 'package:boilerplate/core/localization/translation_controller.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:flutter/material.dart'
     show FormState, GlobalKey, TextEditingController;
 import 'package:flutter/widgets.dart';
@@ -55,7 +54,6 @@ class LoginController extends GetxController {
           _loadingIndicator.value = false;
         } catch (e) {
           _loadingIndicator.value = false;
-          HelperMethods.showToast(msg: 'Exception: ${e.toString()}');
         }
       }
     } else {

@@ -1,8 +1,11 @@
 import 'dart:io';
 
+import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class DatePickerFieldWidget extends StatefulWidget {
   const DatePickerFieldWidget({
@@ -25,7 +28,7 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
       readOnly: true,
       validator: (value) {
         if (dateTimeTEC.text.isEmpty) {
-          return 'This field is required';
+          return LocalizationKeys.thisFieldIsRequired.tr;
         } else {
           return null;
         }
@@ -38,11 +41,11 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
 
   Future<void> _androidDatePicker(BuildContext context) async {
     final picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2100),
-    );
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now(),
+        lastDate: DateTime(2100),
+        locale: Locale(SharedPrefs.instance.getLanguageSelected()));
     if (picked != null && picked != DateTime.now()) {
       widget.dateCallBack(picked);
       dateTimeTEC.text = '${picked.day} / ${picked.month} / ${picked.year}';

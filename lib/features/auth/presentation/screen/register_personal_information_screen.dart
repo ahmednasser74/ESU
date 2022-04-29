@@ -1,4 +1,5 @@
 import 'package:boilerplate/core/const/list_const.dart';
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/features/auth/presentation/validator_properties.dart';
@@ -19,57 +20,71 @@ class RegisterPersonalInfoScreen extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Personal Information')),
+      appBar: AppBar(title: Text(LocalizationKeys.personalInformation.tr)),
       body: Form(
         key: formKey,
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: ListView(
+          child: Column(
             children: [
-              const TitleRequiredFieldWidget(title: 'Email'),
+              TitleRequiredFieldWidget(title: LocalizationKeys.email.tr),
               TextFormField(
                 validator: emailValidator,
                 keyboardType: TextInputType.emailAddress,
               ),
-              const TitleRequiredFieldWidget(
-                  title: 'Your first name (English)'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourFirstNameEnglish.tr,
+              ),
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(
-                  title: 'Your second name (English)'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourSecondNameEnglish.tr,
+              ),
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(title: 'Your last name (English)'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourLastNameEnglish.tr,
+              ),
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(title: 'Your first name (Arabic)'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourFirstNameArabic.tr,
+              ),
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(
-                  title: 'Your second name (Arabic)'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourSecondNameArabic.tr,
+              ),
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(title: 'Your last name (Arabic)'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourLastNameArabic.tr,
+              ),
               TextFormField(
                 validator: nameValidator,
               ),
-              const TitleRequiredFieldWidget(
-                  title: 'National ID/Passport Number*'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.nationalIdPassportNumber.tr,
+              ),
               TextFormField(
                 validator: nationalIdValidator,
                 keyboardType: TextInputType.number,
               ),
-              const TitleRequiredFieldWidget(title: 'Mobile Number'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.mobileNumber.tr,
+              ),
               TextFormField(
                 validator: phoneValidator,
                 keyboardType: TextInputType.phone,
               ),
-              const TitleRequiredFieldWidget(title: 'Date of Birth'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.dateOfBirth.tr,
+              ),
               DatePickerFieldWidget(
                 dateCallBack: (dateCallBack) {
                   print('dateCallBack = $dateCallBack');
@@ -77,33 +92,37 @@ class RegisterPersonalInfoScreen extends StatelessWidget
               ),
               const TitleRequiredFieldWidget(title: 'Gender'),
               AuthDropDownButton(
-                list: const ['Male', 'Female'],
+                list: [LocalizationKeys.male.tr, LocalizationKeys.female.tr],
                 isDense: true,
                 onChangeValue: (value) => print(value),
               ),
-              const TitleRequiredFieldWidget(title: 'Country'),
+              TitleRequiredFieldWidget(title: LocalizationKeys.country.tr),
               CountryPickerFieldWidget(
                 countryNameCallBack: (countryName) {
                   print('countryName = $countryName');
                 },
               ),
-              const TitleRequiredFieldWidget(title: 'Nationality'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.nationality.tr,
+              ),
               AuthDropDownButton(
                 list: ListConst.nationalityList,
                 isDense: true,
                 onChangeValue: (value) => print(value),
               ),
-              const TitleRequiredFieldWidget(
-                title: 'Your job',
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourJob.tr,
                 isRequired: false,
               ),
               TextFormField(),
-              const TitleRequiredFieldWidget(
-                title: 'Your Company',
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.yourCompany.tr,
                 isRequired: false,
               ),
               TextFormField(),
-              const TitleRequiredFieldWidget(title: 'Current Address'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.currentAddress.tr,
+              ),
               TextFormField(
                 validator: addressValidator,
               ),
@@ -117,7 +136,7 @@ class RegisterPersonalInfoScreen extends StatelessWidget
                   }
                   Get.toNamed(Routes.registerFileUploadScreen);
                 },
-                title: 'Next',
+                title: LocalizationKeys.next.tr,
                 minimumSize: const Size(double.infinity, 30),
               ),
               SizedBox(height: 18.h),

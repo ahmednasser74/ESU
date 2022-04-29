@@ -1,12 +1,13 @@
-import 'dart:io';
-
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
+import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
-import 'package:boilerplate/features/auth/presentation/file_properties.dart';
+import 'package:boilerplate/core/utils/helper_methods.dart';
+import 'package:boilerplate/features/auth/presentation/widgets/file_picker_widget.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:get/get.dart';
 
 class RegisterFileUploadsScreen extends StatelessWidget {
   RegisterFileUploadsScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Files Upload')),
+      appBar: AppBar(title: Text(LocalizationKeys.filesUpload.tr)),
       body: Form(
         key: formKey,
         child: SingleChildScrollView(
@@ -24,27 +25,30 @@ class RegisterFileUploadsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TitleRequiredFieldWidget(
-                title: 'A copy of your ID or passport',
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.copyOfYourIdOrPassport.tr,
               ),
               FilePickerWidget(fileCallBack: (file) {}),
-              const TitleRequiredFieldWidget(
-                title: 'A copy of the academic certificate',
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.copyOfTheAcademicCertificate.tr,
               ),
               FilePickerWidget(fileCallBack: (file) {}),
-              const TitleRequiredFieldWidget(title: 'A copy of transcript'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.copyOfTranscript.tr,
+              ),
               FilePickerWidget(fileCallBack: (file) {}),
-              const TitleRequiredFieldWidget(
-                title: 'A copy of the students contract with the university',
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys
+                    .copyOfTheStudentsContractWithTheUniversity.tr,
                 titleSize: 18,
               ),
               InkWell(
-                onTap: () async => await _launchUrl(
+                onTap: () async => await HelperMethod.launchToBrowser(
                   'https://esu.ac.ae/wp-content/uploads/2021/10/pro_con.pdf',
                 ),
-                child: const Text(
-                  '(Bachelor/Master contract download link)',
-                  style: TextStyle(
+                child: Text(
+                  LocalizationKeys.bachelorMasterContractDownloadLink.tr,
+                  style: const TextStyle(
                     color: AppColors.primaryColor,
                     decoration: TextDecoration.underline,
                   ),
@@ -52,26 +56,27 @@ class RegisterFileUploadsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               InkWell(
-                onTap: () async => await _launchUrl(
+                onTap: () async => await HelperMethod.launchToBrowser(
                   'https://esu.ac.ae/wp-content/uploads/2021/11/phd_co_04.pdf',
                 ),
-                child: const Text(
-                  '(PHD contract download link)',
-                  style: TextStyle(
+                child: Text(
+                  LocalizationKeys.phdContractDownloadLink.tr,
+                  style: const TextStyle(
                     color: AppColors.primaryColor,
                     decoration: TextDecoration.underline,
                   ),
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
-                'The contract must be signed handwritten and on all pages!',
-                style: TextStyle(color: Colors.red, fontSize: 13),
+              Text(
+                LocalizationKeys
+                    .theContractMustBeSignedHandwrittenAndOnAllPages.tr,
+                style: const TextStyle(color: Colors.red, fontSize: 13),
               ),
               const SizedBox(height: 8),
               FilePickerWidget(fileCallBack: (file) {}),
               const SizedBox(height: 8),
-              const TitleRequiredFieldWidget(title: 'Upload CV'),
+              TitleRequiredFieldWidget(title: LocalizationKeys.uploadCv.tr),
               FilePickerWidget(fileCallBack: (file) {}),
               SizedBox(height: 30.h),
               AppButton(
@@ -81,8 +86,9 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                   } else {
                     print('Not validate');
                   }
+                  Get.toNamed(Routes.submitRegistrationScreen);
                 },
-                title: 'Next',
+                title: LocalizationKeys.next.tr,
                 minimumSize: const Size(double.infinity, 30),
               ),
               SizedBox(height: 18.h),
@@ -90,54 +96,6 @@ class RegisterFileUploadsScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Future<void> _launchUrl(String url) async {
-    final uri = Uri.parse(url);
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $uri';
-    }
-  }
-}
-
-class FilePickerWidget extends StatefulWidget {
-  const FilePickerWidget({
-    Key? key,
-    required this.fileCallBack,
-  }) : super(key: key);
-  final void Function(File?) fileCallBack;
-
-  @override
-  State<FilePickerWidget> createState() => _FilePickerWidgetState();
-}
-
-class _FilePickerWidgetState extends State<FilePickerWidget>
-    with FileProperties {
-  final fileTEC = TextEditingController(text: '');
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      readOnly: true,
-      controller: fileTEC,
-      decoration: const InputDecoration(hintText: 'Select File'),
-      onTap: () async {
-        final file = await pickedFile();
-        if (file != null) {
-          final fileSize = await getFileSize(filepath: file.path, decimals: 1);
-          final fileName = file.path.split('/').last;
-          fileTEC.text = '$fileName - $fileSize';
-          widget.fileCallBack(file);
-        }
-      },
-      validator: (value) {
-        if (fileTEC.text.isEmpty) {
-          return 'This file is required';
-        } else {
-          return null;
-        }
-      },
     );
   }
 }
