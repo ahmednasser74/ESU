@@ -1,6 +1,8 @@
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 class AuthDropDownButton extends StatefulWidget {
   const AuthDropDownButton({
@@ -28,12 +30,12 @@ class _AuthDropDownButtonState extends State<AuthDropDownButton> {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) {
         if (value == null) {
-          return 'This field is required';
+          return LocalizationKeys.thisFieldIsRequired.tr;
         } else {
           return null;
         }
       },
-      hint: const Text('Select'),
+      hint: Text(LocalizationKeys.select.tr),
       isDense: widget.isDense,
       icon: const Icon(Icons.keyboard_arrow_down_rounded),
       elevation: 2,

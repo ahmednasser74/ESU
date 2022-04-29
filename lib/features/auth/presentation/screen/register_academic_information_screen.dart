@@ -1,4 +1,5 @@
 import 'package:boilerplate/core/const/list_const.dart';
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/auth_drop_down_button.dart';
@@ -23,7 +24,7 @@ class _RegisterAcademicInfoScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Academic Information'),
+        title: Text(LocalizationKeys.academicInformation.tr),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
@@ -33,13 +34,14 @@ class _RegisterAcademicInfoScreenState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-              const TitleRequiredFieldWidget(title: 'Current Certificate'),
+              TitleRequiredFieldWidget(
+                  title: LocalizationKeys.currentCertificate.tr),
               AuthDropDownButton(
                 list: ListConst.certificateList,
                 onChangeValue: (value) => print(value),
               ),
               SizedBox(height: 18.h),
-              const TitleRequiredFieldWidget(title: 'Program'),
+              TitleRequiredFieldWidget(title: LocalizationKeys.program.tr),
               AuthDropDownButton(
                 list: ListConst.programList,
                 onChangeValue: (value) => print(value),
@@ -54,7 +56,7 @@ class _RegisterAcademicInfoScreenState
                   }
                   Get.toNamed(Routes.registerPersonalInfo);
                 },
-                title: 'Next',
+                title: LocalizationKeys.next.tr,
                 minimumSize: const Size(double.infinity, 30),
               ),
             ],
