@@ -37,7 +37,7 @@ class CustomsThemes {
     ),
     primaryColor: AppColors.primaryColor,
     backgroundColor: Colors.white,
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: AppColors.primaryColor,
     ),
     scaffoldBackgroundColor: Colors.white,
@@ -50,15 +50,16 @@ class CustomsThemes {
         color: Colors.grey,
         height: 1.4,
       ),
-      contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-      border: OutlineInputBorder(
+      contentPadding:
+          const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+      border: const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+      enabledBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.black54, width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
-      focusedBorder: OutlineInputBorder(
+      focusedBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.primaryColor, width: 2.0),
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
@@ -88,7 +89,7 @@ class CustomsThemes {
         fontFamily: fontFamily,
         color: Colors.black,
       ),
-      iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: AppColors.primaryColor,
       ),
     ),
@@ -104,13 +105,13 @@ class CustomsThemes {
         // overlayColor: MaterialStateProperty.all(
         //   Colors.transparent,
         // ),
-        foregroundColor: MaterialStateProperty.all(
-          AppColors.primaryColor,
-        ),
-
-        backgroundColor: MaterialStateProperty.all(
-          AppColors.primaryColor,
-        ),
+        // foregroundColor: MaterialStateProperty.all(
+        //   Colors.green,
+        // ),
+        //
+        // backgroundColor: MaterialStateProperty.all(
+        //   Colors.red,
+        // ),
       ),
     ),
   );

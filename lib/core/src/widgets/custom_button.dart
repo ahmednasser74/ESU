@@ -19,7 +19,7 @@ class AppButton extends StatelessWidget {
   final Color textColor, backgroundColor, borderColor;
   final Size? minimumSize;
 
-  AppButton({
+  const AppButton({
     required this.onPressed,
     this.title,
     this.alignment = Alignment.center,

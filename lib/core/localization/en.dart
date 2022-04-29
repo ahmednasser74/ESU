@@ -4,6 +4,6 @@ const Map<String, String> en = {
   LocalizationKeys.login: "Login",
   LocalizationKeys.password: "Password",
   LocalizationKeys.userName: "User name",
-  LocalizationKeys.doNotHaveAccount: "Don\'t have an account ?\n",
+  LocalizationKeys.doNotHaveAccount: "Don't have an account ?\n",
   LocalizationKeys.signUp: "SignUp!",
 };

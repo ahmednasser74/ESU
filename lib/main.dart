@@ -1,4 +1,3 @@
-import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +16,7 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.grey,
     statusBarBrightness: Brightness.dark,
     systemNavigationBarColor: Colors.black,
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),
         translations: Translation(),
-        fallbackLocale: Locale('en'),
+        fallbackLocale: const Locale('en'),
         locale: Locale(SharedPrefs.instance.getLanguageSelected()),
         builder: (context, widget) => MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),

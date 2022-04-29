@@ -13,12 +13,13 @@ import '../../domin/usecases/logout_usecase.dart';
 class LoginController extends GetxController {
   final TextEditingController userNameTEC = TextEditingController(text: ''),
       passwordTEC = TextEditingController(text: '');
-  final loginFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+
   final LoginUseCase loginUseCase;
   final LogoutUseCase logoutUseCase;
   final IsOnlineUseCase isOnlineUseCase;
-  RxBool _loadingIndicator = false.obs;
-  late TranslationController translateController;
+  final RxBool _loadingIndicator = false.obs;
+  TranslationController? translateController;
 
   LoginController({
     required this.loginUseCase,
@@ -33,7 +34,9 @@ class LoginController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    translateController = Get.find<TranslationController>();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      translateController = Get.find<TranslationController>();
+    });
   }
 
   Future<void> login() async {
@@ -72,10 +75,10 @@ class LoginController extends GetxController {
   }
 
   void changeLanguage() {
-    if (translateController.appLocale == 'en') {
-      translateController.changeLanguage('ar');
-    } else if (translateController.appLocale == 'ar') {
-      translateController.changeLanguage('en');
+    if (translateController!.appLocale == 'en') {
+      translateController!.changeLanguage('ar');
+    } else if (translateController!.appLocale == 'ar') {
+      translateController!.changeLanguage('en');
     }
   }
 

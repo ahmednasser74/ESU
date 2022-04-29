@@ -19,7 +19,7 @@ class AuthRemoteDataSourceImp extends DefaultGetConnect
       return data;
     } else {
       print('statusCode = ${response.statusCode}');
-      throw SocketException('Error Loading seller-menu');
+      throw const SocketException('Error Loading seller-menu');
     }
   }
 }

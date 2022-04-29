@@ -33,7 +33,7 @@ class LoginScreen extends GetView<LoginController> {
                     backgroundColor: Colors.transparent,
                     borderColor: AppColors.primaryColor,
                     child: Text(
-                      controller.translateController.appLocale == 'ar'
+                      controller.translateController?.appLocale == 'ar'
                           ? 'English'
                           : 'العربية',
                     ),
@@ -52,7 +52,7 @@ class LoginScreen extends GetView<LoginController> {
                       controller: controller.userNameTEC,
                       labelText: LocalizationKeys.userName.tr,
                       inputType: TextInputType.text,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.person_outline,
                         color: AppColors.primaryColor,
                       ),
@@ -64,7 +64,7 @@ class LoginScreen extends GetView<LoginController> {
                       labelText: LocalizationKeys.password.tr,
                       inputType: TextInputType.visiblePassword,
                       obscureText: true,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.lock_outline,
                         color: AppColors.primaryColor,
                       ),
@@ -86,14 +86,14 @@ class LoginScreen extends GetView<LoginController> {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       text: LocalizationKeys.doNotHaveAccount.tr,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontFamily: 'din',
                       ),
                       children: [
                         TextSpan(
                           text: LocalizationKeys.signUp.tr,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppColors.primaryColor,
                             fontFamily: 'din',
                           ),

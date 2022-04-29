@@ -10,8 +10,8 @@ class LoadingIndicatorWidget extends StatelessWidget {
       height: 100,
       width: 100,
       decoration: CustomStyle.containerShadowDecoration,
-      padding: EdgeInsets.all(14),
-      child: Center(
+      padding: const EdgeInsets.all(14),
+      child: const Center(
         child: CircularProgressIndicator(
           color: AppColors.primaryColor,
         ),
