@@ -2,8 +2,8 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/auth/presentation/widgets/submit_registration_check_box_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';
 
 class SubmitRegistrationScreen extends StatefulWidget {
@@ -58,12 +58,12 @@ class _SubmitRegistrationScreenState extends State<SubmitRegistrationScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 8.h),
                     Text(
                       LocalizationKeys.weRecommendToUseEmail.tr,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.primaryColor,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -73,25 +73,21 @@ class _SubmitRegistrationScreenState extends State<SubmitRegistrationScreen> {
               const SizedBox(height: 14),
               Row(
                 children: [
-                  Expanded(
-                    child: SubmitRegistrationCheckBoxWidget(
-                      value: isApproved,
-                      onChanged: (v) {
-                        isApproved = v;
-                      },
-                    ),
+                  Checkbox(
+                    value: isApproved,
+                    onChanged: (v) => setState(() => isApproved = v!),
                   ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () => HelperMethod.launchToBrowser(
-                        'https://esu.ac.ae/index.php/admissions',
-                      ),
-                      child: Text(
-                        LocalizationKeys.termsAndCondition.tr,
-                        style: const TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: AppColors.primaryColor,
-                        ),
+                  Text(LocalizationKeys.iReadAndAgree.tr),
+                  SizedBox(width: 4.w),
+                  InkWell(
+                    onTap: () => HelperMethod.launchToBrowser(
+                      'https://esu.ac.ae/index.php/admissions',
+                    ),
+                    child: Text(
+                      LocalizationKeys.termsAndCondition.tr,
+                      style: const TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                   ),
@@ -101,7 +97,7 @@ class _SubmitRegistrationScreenState extends State<SubmitRegistrationScreen> {
               AppButton(
                 onPressed: () {
                   if (isApproved) {
-                    HelperMethod.showToast(msg: 'success');
+                    HelperMethod.showToast(msg: LocalizationKeys.success.tr);
                   } else {
                     HelperMethod.showToast(
                       msg: LocalizationKeys.mustToApproveOnTermsAndCondition.tr,

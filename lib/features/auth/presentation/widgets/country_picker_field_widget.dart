@@ -27,7 +27,7 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
         showCountryPicker(
           context: context,
           countryListTheme: CountryListThemeData(
-            bottomSheetHeight: .8.sw,
+            bottomSheetHeight: .2.sw,
           ),
           onSelect: (Country country) {
             countryNameTEC.text = country.name;

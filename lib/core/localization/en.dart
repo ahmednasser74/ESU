@@ -59,6 +59,7 @@ const Map<String, String> en = {
   LocalizationKeys.termsAndCondition: 'The terms and conditions of admission',
   LocalizationKeys.mustToApproveOnTermsAndCondition:
       'Must to approve on terms and condition',
+  LocalizationKeys.success: 'Success',
   LocalizationKeys.submit: 'Submit',
 
   ///global

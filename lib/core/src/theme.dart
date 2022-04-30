@@ -1,35 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'colors.dart';
 
 class CustomsThemes {
   CustomsThemes();
 
-  static const String fontFamily = 'Din';
-
   static final defaultThemeData = ThemeData(
-    colorScheme: ColorScheme.fromSwatch(
-      primarySwatch: MaterialColor(
-        AppColors.primaryColor.value,
-        const {
-          50: AppColors.primaryColor,
-          100: AppColors.primaryColor,
-          200: AppColors.primaryColor,
-          300: AppColors.primaryColor,
-          400: AppColors.primaryColor,
-          500: AppColors.primaryColor,
-          600: AppColors.primaryColor,
-          700: AppColors.primaryColor,
-          800: AppColors.primaryColor,
-          900: AppColors.primaryColor,
-        },
-      ),
-    ).copyWith(
-      primary: AppColors.primaryColor,
-      secondary: AppColors.primaryColor,
-    ),
-    fontFamily: fontFamily,
+    // colorScheme: ColorScheme.fromSwatch(
+    //   primarySwatch: MaterialColor(
+    //     AppColors.primaryColor.value,
+    //     const {
+    //       50: AppColors.primaryColor,
+    //       100: AppColors.primaryColor,
+    //       200: AppColors.primaryColor,
+    //       300: AppColors.primaryColor,
+    //       400: AppColors.primaryColor,
+    //       500: AppColors.primaryColor,
+    //       600: AppColors.primaryColor,
+    //       700: AppColors.primaryColor,
+    //       800: AppColors.primaryColor,
+    //       900: AppColors.primaryColor,
+    //     },
+    //   ),
+    // ).copyWith(
+    //   primary: AppColors.primaryColor,
+    //   secondary: AppColors.primaryColor,
+    // ),
+    fontFamily: 'din',
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -46,7 +43,7 @@ class CustomsThemes {
       filled: true,
       fillColor: Colors.grey.shade50,
       hintStyle: const TextStyle(
-        fontFamily: fontFamily,
+        fontFamily: 'din',
         color: Colors.grey,
         height: 1.4,
       ),
@@ -85,8 +82,8 @@ class CustomsThemes {
       backgroundColor: Colors.white,
       elevation: 0,
       titleTextStyle: TextStyle(
-        fontSize: 18.sp,
-        fontFamily: fontFamily,
+        fontSize: 18,
+        fontFamily: 'din',
         color: Colors.black,
       ),
       iconTheme: const IconThemeData(
@@ -97,9 +94,9 @@ class CustomsThemes {
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
           TextStyle(
-            fontSize: 16.sp,
+            fontSize: 16,
             color: Colors.green,
-            fontFamily: fontFamily,
+            fontFamily: 'din',
           ),
         ),
         // overlayColor: MaterialStateProperty.all(

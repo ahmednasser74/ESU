@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'core/localization/translation.dart';
 import 'core/src/routes.dart';
@@ -40,10 +40,13 @@ class MyApp extends StatelessWidget {
         translations: Translation(),
         fallbackLocale: const Locale('en'),
         locale: Locale(SharedPrefs.instance.getLanguageSelected()),
-        builder: (context, widget) => MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-          child: widget ?? Container(),
-        ),
+        builder: (context, widget) {
+          ScreenUtil.setContext(context);
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: widget ?? Container(),
+          );
+        },
       ),
     );
   }
