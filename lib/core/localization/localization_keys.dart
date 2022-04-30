@@ -58,6 +58,7 @@ class LocalizationKeys {
   static const String iReadAndAgree = 'iReadAndAgree';
   static const String mustToApproveOnTermsAndCondition =
       'must to approve on terms and condition';
+  static const String success = 'success';
   static const String submit = 'submit';
 
   ///global

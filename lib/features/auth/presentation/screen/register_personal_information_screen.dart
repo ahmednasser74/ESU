@@ -90,7 +90,9 @@ class RegisterPersonalInfoScreen extends StatelessWidget
                   print('dateCallBack = $dateCallBack');
                 },
               ),
-              const TitleRequiredFieldWidget(title: 'Gender'),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.gender.tr,
+              ),
               AuthDropDownButton(
                 list: [LocalizationKeys.male.tr, LocalizationKeys.female.tr],
                 isDense: true,

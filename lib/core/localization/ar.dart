@@ -4,7 +4,7 @@ const Map<String, String> ar = {
   ///login
   LocalizationKeys.login: "تسجل الدخول",
   LocalizationKeys.password: "كلمة السر",
-  LocalizationKeys.userName: "اسم المستخدم",
+  LocalizationKeys.userName: "أسم المستخدم",
   LocalizationKeys.doNotHaveAccount: "ليس لديك حساب ؟\n",
   LocalizationKeys.signUp: "انشاء حساب",
 
@@ -39,7 +39,7 @@ const Map<String, String> ar = {
   ///files upload
   LocalizationKeys.filesUpload: 'تحميل الملفات',
   LocalizationKeys.copyOfYourIdOrPassport: 'نسخة من جواز سفرك',
-  LocalizationKeys.copyOfTheAcademicCertificate: 'نسخة من الشهادة الاكاديمية',
+  LocalizationKeys.copyOfTheAcademicCertificate: 'نسخة من الشهادة الأكاديمية',
   LocalizationKeys.copyOfTranscript: ' A copy of transcript',
   LocalizationKeys.copyOfTheStudentsContractWithTheUniversity:
       'نسخة من عقد الطالب مع الجامعة',
@@ -52,13 +52,14 @@ const Map<String, String> ar = {
   LocalizationKeys.selectFile: 'أختر الملف',
 
   ///submit registration
-  LocalizationKeys.submitRegistration: 'تاكيد التسجيل',
+  LocalizationKeys.submitRegistration: 'تأكيد التسجيل',
   LocalizationKeys.weRecommendToUseEmail:
       'نوصي بعدم استخدام البريد الإلكتروني من شركة (hotmail.com) ، لأن لديهم مشكلة مع بعض رسائل البريد الإلكتروني التي لا يتم إرسالها إليهم.',
   LocalizationKeys.iReadAndAgree: 'قرأت وأوافق على',
   LocalizationKeys.termsAndCondition: 'شروط وأحكام القبول',
   LocalizationKeys.mustToApproveOnTermsAndCondition:
       'يجب الموافقة علي الشروط و الأحكام',
+  LocalizationKeys.success: 'تم بنجاح',
   LocalizationKeys.submit: 'تسجيل',
 
   ///global
