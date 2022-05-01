@@ -11,129 +11,128 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Container(
-            height: 140.h,
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              color: AppColors.primaryColor,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.whiteColor,
-                      width: 2,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Assets.icons.profileIcon.image(
-                      color: AppColors.whiteColor,
-                      height: 30.h,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10.h),
-                const Text(
-                  'Hello',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  'Ahmed Nasser',
-                  style: TextStyle(color: Colors.white, fontSize: 18.sp),
-                )
-              ],
-            ),
+    return Column(
+      children: [
+        Container(
+          height: 180.h,
+          alignment: Alignment.center,
+          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+          decoration: const BoxDecoration(
+            color: AppColors.primaryColor,
           ),
-          ListView(
-            shrinkWrap: true,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ListTile(
-                title: const Text('Profile'),
-                leading: Assets.icons.profileIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 18.h,
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: AppColors.whiteColor,
+                    width: 2,
+                  ),
                 ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.toNamed(Routes.profileScreen);
-                },
-              ),
-              ListTile(
-                title: const Text('Notifications'),
-                leading: Assets.icons.notificationIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 20.h,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Assets.icons.profileIcon.image(
+                    color: AppColors.whiteColor,
+                    height: 30.h,
+                  ),
                 ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.toNamed(Routes.notificationScreen);
-                },
               ),
-              ListTile(
-                title: const Text('Finance'),
-                leading: Assets.icons.financeIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 24.h,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.toNamed(Routes.financeScreen);
-                },
+              SizedBox(height: 10.h),
+              const Text(
+                'Hello',
+                style: TextStyle(color: Colors.white),
               ),
-              ListTile(
-                title: const Text('Letters'),
-                leading: Assets.icons.letterIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 22.h,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.toNamed(Routes.lettersScreen);
-                },
-              ),
-              ListTile(
-                title: const Text('Transcript'),
-                leading: Assets.icons.transcriptIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 20.h,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.toNamed(Routes.transcriptScreen);
-                },
-              ),
-              ListTile(
-                title: const Text('Settings'),
-                leading: Assets.icons.settingIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 20.h,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.toNamed(Routes.settingsScreen);
-                },
-              ),
-              ListTile(
-                title: Text(LocalizationKeys.logout.tr),
-                leading: Assets.icons.logout.image(
-                  color: AppColors.primaryColor,
-                  height: 20.h,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
+              Text(
+                'Ahmed Nasser',
+                style: TextStyle(color: Colors.white, fontSize: 18.sp),
+              )
             ],
           ),
-        ],
-      ),
+        ),
+        ListView(
+          shrinkWrap: true,
+          children: [
+            ListTile(
+              title: const Text('Profile'),
+              leading: Assets.icons.profileIcon.image(
+                color: AppColors.primaryColor,
+                height: 18.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.profileScreen);
+              },
+            ),
+            ListTile(
+              title: const Text('Notifications'),
+              leading: Assets.icons.notificationIcon.image(
+                color: AppColors.primaryColor,
+                height: 20.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.notificationScreen);
+              },
+            ),
+            ListTile(
+              title: const Text('Finance'),
+              leading: Assets.icons.financeIcon.image(
+                color: AppColors.primaryColor,
+                height: 24.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.financeScreen);
+              },
+            ),
+            ListTile(
+              title: const Text('Letters'),
+              leading: Assets.icons.letterIcon.image(
+                color: AppColors.primaryColor,
+                height: 22.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.lettersScreen);
+              },
+            ),
+            ListTile(
+              title: const Text('Transcript'),
+              leading: Assets.icons.transcriptIcon.image(
+                color: AppColors.primaryColor,
+                height: 20.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.transcriptScreen);
+              },
+            ),
+            ListTile(
+              title: const Text('Settings'),
+              leading: Assets.icons.settingIcon.image(
+                color: AppColors.primaryColor,
+                height: 20.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.settingsScreen);
+              },
+            ),
+            ListTile(
+              title: Text(LocalizationKeys.logout.tr),
+              leading: Assets.icons.logout.image(
+                color: AppColors.primaryColor,
+                height: 20.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
