@@ -12,7 +12,7 @@ class SplashController extends GetxController {
     super.onInit();
     Future.delayed(
       const Duration(seconds: 1),
-      () => Get.off(() => LoginScreen()),
+      () => Get.off(() => const LoginScreen()),
     );
   }
 
@@ -23,6 +23,6 @@ class SplashController extends GetxController {
     // Get.offNamed('');
     // else
     //navigate to loginScreen
-    Get.off(LoginScreen());
+    Get.off(const LoginScreen());
   }
 }

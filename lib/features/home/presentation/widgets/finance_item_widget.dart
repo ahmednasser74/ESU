@@ -33,7 +33,7 @@ class FinanceItemWidget extends StatelessWidget {
             children: [
               Text(
                 '${LocalizationKeys.paid.tr} :',
-                style: TextStyle(color: AppColors.primaryColor),
+                style: const TextStyle(color: AppColors.primaryColor),
               ),
               SizedBox(width: 8.w),
               const Text('\$1,000.00'),

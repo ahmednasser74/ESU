@@ -32,7 +32,7 @@ class Routes {
   static List<GetPage> setScreens() {
     return <GetPage>[
       GetPage(name: splashScreen, page: () => SplashScreen()),
-      GetPage(name: loginScreen, page: () => LoginScreen()),
+      GetPage(name: loginScreen, page: () => const LoginScreen()),
       GetPage(
         name: registerAcademicInfo,
         page: () => const RegisterAcademicInfoScreen(),
