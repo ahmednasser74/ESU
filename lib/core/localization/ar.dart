@@ -115,6 +115,9 @@ const Map<String, String> ar = {
   //-------------------------------------------------------------------------
   ///Letters
   LocalizationKeys.letters: 'الخطابات',
+  LocalizationKeys.englishVersion: 'النسخة الانجليزية',
+  LocalizationKeys.arabicVersion: 'النسخة العربية',
+
   //-------------------------------------------------------------------------
   ///Transcript
   LocalizationKeys.transcript: 'السجل التراكيبي',

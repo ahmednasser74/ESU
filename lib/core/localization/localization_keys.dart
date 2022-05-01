@@ -116,6 +116,8 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///Letters
   static const String letters = 'letters';
+  static const String englishVersion = 'englishVersion';
+  static const String arabicVersion = 'arabicVersion';
 
   //-------------------------------------------------------------------------
   ///Transcript

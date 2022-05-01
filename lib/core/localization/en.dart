@@ -119,6 +119,9 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///Letters
   LocalizationKeys.letters: 'Letters',
+  LocalizationKeys.englishVersion: 'English Version',
+  LocalizationKeys.arabicVersion: 'Arabic Version',
+
   //-------------------------------------------------------------------------
   ///Transcript
   LocalizationKeys.transcript: 'Transcript',

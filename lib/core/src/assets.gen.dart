@@ -40,6 +40,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification_icon.png
   AssetGenImage get notificationIcon => const AssetGenImage('assets/icons/notification_icon.png');
 
+  /// File path: assets/icons/pdf.png
+  AssetGenImage get pdf => const AssetGenImage('assets/icons/pdf.png');
+
   /// File path: assets/icons/profile_icon.png
   AssetGenImage get profileIcon => const AssetGenImage('assets/icons/profile_icon.png');
 
