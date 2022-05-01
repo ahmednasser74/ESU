@@ -1,4 +1,5 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/utils/helper_methods.dart';
@@ -48,13 +49,16 @@ class _SubmitRegistrationScreenState extends State<SubmitRegistrationScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      child: const Icon(Icons.notifications_rounded, size: 30),
+                      child: Assets.icons.notificationIcon.image(
+                        height: 24.sp,
+                        color: AppColors.primaryColor,
+                      ),
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: AppColors.primaryColor,
-                          width: 2,
+                          width: 1.5,
                         ),
                       ),
                     ),
@@ -79,15 +83,17 @@ class _SubmitRegistrationScreenState extends State<SubmitRegistrationScreen> {
                   ),
                   Text(LocalizationKeys.iReadAndAgree.tr),
                   SizedBox(width: 4.w),
-                  InkWell(
-                    onTap: () => HelperMethod.launchToBrowser(
-                      'https://esu.ac.ae/index.php/admissions',
-                    ),
-                    child: Text(
-                      LocalizationKeys.termsAndCondition.tr,
-                      style: const TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: AppColors.primaryColor,
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => HelperMethod.launchToBrowser(
+                        'https://esu.ac.ae/index.php/admissions',
+                      ),
+                      child: Text(
+                        LocalizationKeys.termsAndCondition.tr,
+                        style: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: AppColors.primaryColor,
+                        ),
                       ),
                     ),
                   ),
