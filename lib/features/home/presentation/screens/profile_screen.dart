@@ -2,6 +2,7 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/mixin/validator_properties.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
+import 'package:boilerplate/core/src/widgets/app_text_field_widget.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/src/widgets/file_picker_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,63 +21,100 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            TextFormField(
+            AppTextFieldWidget(
               validator: nameValidator,
-              decoration: InputDecoration(
-                labelText: LocalizationKeys.fullNameEnglish.tr,
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Assets.icons.profileIcon.image(
-                    height: 8,
-                    color: AppColors.primaryColor,
-                  ),
+              labelText: LocalizationKeys.fullNameEnglish.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(12.sp),
+                child: Assets.icons.profileIcon.image(
+                  height: 8,
+                  color: AppColors.primaryColor,
                 ),
               ),
             ),
             SizedBox(height: 16.h),
-            TextFormField(
+            AppTextFieldWidget(
               validator: nameValidator,
-              decoration: InputDecoration(
-                labelText: LocalizationKeys.fullNameArabic.tr,
+              labelText: LocalizationKeys.fullNameArabic.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(12.sp),
+                child: Assets.icons.profileIcon.image(
+                  height: 8,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
             SizedBox(height: 16.h),
-            TextFormField(
+            AppTextFieldWidget(
               validator: nationalIdValidator,
-              decoration: InputDecoration(
-                labelText: LocalizationKeys.nationalIdPassportNumber.tr,
+              labelText: LocalizationKeys.nationalIdPassportNumber.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(10.sp),
+                child: Assets.icons.identity.image(
+                  height: 8,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
             SizedBox(height: 16.h),
-            TextFormField(
+            AppTextFieldWidget(
               validator: phoneValidator,
-              decoration: InputDecoration(
-                labelText: LocalizationKeys.mobileNumber.tr,
+              labelText: LocalizationKeys.mobileNumber.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(12.sp),
+                child: Assets.icons.mobile.image(
+                  height: 8,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
             SizedBox(height: 16.h),
-            TextFormField(
+            AppTextFieldWidget(
               validator: emailValidator,
-              decoration: InputDecoration(
-                labelText: LocalizationKeys.email.tr,
+              labelText: LocalizationKeys.email.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(12.sp),
+                child: Assets.icons.email.image(
+                  height: 8,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
             SizedBox(height: 16.h),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: LocalizationKeys.password.tr,
-              ),
-            ),
-            SizedBox(height: 16.h),
-            TextFormField(
+            AppTextFieldWidget(
               validator: passwordValidator,
-              decoration: InputDecoration(
-                labelText: LocalizationKeys.passwordConfirmation.tr,
+              labelText: LocalizationKeys.password.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(12.sp),
+                child: Assets.icons.lock.image(
+                  height: 8,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+            ),
+            SizedBox(height: 16.h),
+            AppTextFieldWidget(
+              validator: passwordValidator,
+              labelText: LocalizationKeys.passwordConfirmation.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(12.sp),
+                child: Assets.icons.lock.image(
+                  height: 8,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
             SizedBox(height: 16.h),
             FilePickerWidget(
               hint: LocalizationKeys.selectPhoto.tr,
+              prefixIcon: Padding(
+                padding: EdgeInsetsDirectional.all(12.w),
+                child: Assets.icons.addImage.image(
+                  height: 18,
+                  fit: BoxFit.fill,
+                  color: AppColors.primaryColor,
+                ),
+              ),
               fileCallBack: (file) {},
             ),
             SizedBox(height: 16.h),

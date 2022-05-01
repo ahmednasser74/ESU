@@ -3,7 +3,7 @@ import 'package:boilerplate/features/auth/presentation/controller/login_controll
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
 import 'package:get/get.dart';
 
-import 'injection_container.dart';
+import 'di.dart';
 
 class ControllerBinding extends Bindings {
   @override

@@ -10,9 +10,12 @@ class FilePickerWidget extends StatefulWidget {
     Key? key,
     required this.fileCallBack,
     this.hint,
+    this.prefixIcon,
   }) : super(key: key);
+
   final void Function(File?) fileCallBack;
   final String? hint;
+  final Widget? prefixIcon;
 
   @override
   State<FilePickerWidget> createState() => _FilePickerWidgetState();
@@ -29,6 +32,7 @@ class _FilePickerWidgetState extends State<FilePickerWidget>
       controller: fileTEC,
       decoration: InputDecoration(
         hintText: widget.hint ?? LocalizationKeys.selectFile.tr,
+        prefixIcon: widget.prefixIcon,
       ),
       onTap: () async {
         final file = await pickedFile();

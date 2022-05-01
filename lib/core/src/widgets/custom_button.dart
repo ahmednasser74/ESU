@@ -52,11 +52,12 @@ class AppButton extends StatelessWidget {
         child: child ??
             Text(
               title ?? '',
-              style: theme.textTheme.headline1?.copyWith(
+              style: TextStyle(
                 fontSize: fonSize.sp,
                 color: textColor,
                 fontFamily: fontFamily,
                 fontWeight: fontWeight,
+                height: 1.2,
               ),
             ),
         style: OutlinedButton.styleFrom(

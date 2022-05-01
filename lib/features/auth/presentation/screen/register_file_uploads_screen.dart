@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 class RegisterFileUploadsScreen extends StatelessWidget {
   RegisterFileUploadsScreen({Key? key}) : super(key: key);
 
-  final formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {

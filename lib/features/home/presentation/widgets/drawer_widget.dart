@@ -2,6 +2,7 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/routes.dart';
+import 'package:boilerplate/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,7 @@ class DrawerWidget extends StatelessWidget {
           shrinkWrap: true,
           children: [
             ListTile(
-              title: const Text('Profile'),
+              title: Text(LocalizationKeys.profile.tr),
               leading: Assets.icons.profileIcon.image(
                 color: AppColors.primaryColor,
                 height: 18.h,
@@ -66,7 +67,7 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Notifications'),
+              title: Text(LocalizationKeys.notification.tr),
               leading: Assets.icons.notificationIcon.image(
                 color: AppColors.primaryColor,
                 height: 20.h,
@@ -77,7 +78,7 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Finance'),
+              title: Text(LocalizationKeys.finance.tr),
               leading: Assets.icons.financeIcon.image(
                 color: AppColors.primaryColor,
                 height: 24.h,
@@ -88,7 +89,7 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Letters'),
+              title: Text(LocalizationKeys.letters.tr),
               leading: Assets.icons.letterIcon.image(
                 color: AppColors.primaryColor,
                 height: 22.h,
@@ -99,7 +100,7 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Transcript'),
+              title: Text(LocalizationKeys.transcript.tr),
               leading: Assets.icons.transcriptIcon.image(
                 color: AppColors.primaryColor,
                 height: 20.h,
@@ -110,7 +111,7 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Settings'),
+              title: Text(LocalizationKeys.settings.tr),
               leading: Assets.icons.settingIcon.image(
                 color: AppColors.primaryColor,
                 height: 20.h,
@@ -127,7 +128,11 @@ class DrawerWidget extends StatelessWidget {
                 height: 20.h,
               ),
               onTap: () {
-                Navigator.pop(context);
+                Get.back();
+                // Navigator.pushReplacement(context, MaterialPageRoute(builder:  (context) => LoginScreen()));
+                LogoutDialog(
+                  onTapLogout: () => Get.offAllNamed(Routes.loginScreen),
+                ).show(context);
               },
             ),
           ],
