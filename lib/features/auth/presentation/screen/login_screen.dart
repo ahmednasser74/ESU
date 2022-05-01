@@ -75,7 +75,10 @@ class LoginScreen extends GetView<LoginController> {
                 SizedBox(height: .04.sh),
                 AppButton(
                   title: LocalizationKeys.login.tr,
-                  onPressed: controller.login,
+                  onPressed: () {
+                    controller.login();
+                    Get.toNamed(Routes.homeScreen);
+                  },
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: .08.sh),

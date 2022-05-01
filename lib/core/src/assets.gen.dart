@@ -7,6 +7,25 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/finance_icon.png
+  AssetGenImage get financeIcon => const AssetGenImage('assets/icons/finance_icon.png');
+
+  /// File path: assets/icons/letter_icon.png
+  AssetGenImage get letterIcon => const AssetGenImage('assets/icons/letter_icon.png');
+
+  /// File path: assets/icons/notification_icon.png
+  AssetGenImage get notificationIcon => const AssetGenImage('assets/icons/notification_icon.png');
+
+  /// File path: assets/icons/profile_icon.png
+  AssetGenImage get profileIcon => const AssetGenImage('assets/icons/profile_icon.png');
+
+  /// File path: assets/icons/transcript_icon.png
+  AssetGenImage get transcriptIcon => const AssetGenImage('assets/icons/transcript_icon.png');
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -17,6 +36,7 @@ class $AssetsImagesGen {
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
