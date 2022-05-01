@@ -1,6 +1,4 @@
 import 'package:boilerplate/core/localization/translation_controller.dart';
-import 'package:flutter/material.dart'
-    show FormState, GlobalKey, TextEditingController;
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 

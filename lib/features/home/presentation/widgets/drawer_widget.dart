@@ -1,3 +1,4 @@
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/routes.dart';
@@ -106,6 +107,27 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.transcriptScreen);
+                },
+              ),
+              ListTile(
+                title: const Text('Settings'),
+                leading: Assets.icons.settingIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.settingsScreen);
+                },
+              ),
+              ListTile(
+                title: Text(LocalizationKeys.logout.tr),
+                leading: Assets.icons.logout.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
                 },
               ),
             ],

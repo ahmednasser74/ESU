@@ -53,7 +53,7 @@ class CustomsThemes {
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
       enabledBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black54, width: 1.0),
+        borderSide: BorderSide(color: Color(0xff51b9cb), width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
       focusedBorder: const OutlineInputBorder(
@@ -78,7 +78,7 @@ class CustomsThemes {
         ),
       ),
     ),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0,
       titleTextStyle: TextStyle(
@@ -86,14 +86,14 @@ class CustomsThemes {
         fontFamily: 'din',
         color: Colors.black,
       ),
-      iconTheme: const IconThemeData(
+      iconTheme: IconThemeData(
         color: AppColors.primaryColor,
       ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
-          TextStyle(
+          const TextStyle(
             fontSize: 16,
             color: Colors.green,
             fontFamily: 'din',

@@ -62,6 +62,31 @@ const Map<String, String> ar = {
   LocalizationKeys.success: 'تم بنجاح',
   LocalizationKeys.submit: 'تسجيل',
 
+  //-------------------------------------------------------------------------
+  ///Home
+  LocalizationKeys.home: 'الرئيسية',
+
+  //-------------------------------------------------------------------------
+  ///Profile
+  LocalizationKeys.profile: 'الملف الشخصي',
+  LocalizationKeys.passwordConfirmation: 'تأكيد كلمة المرور',
+  LocalizationKeys.fullNameEnglish: 'الأسم الكامل (بالانجليزية)',
+  LocalizationKeys.fullNameArabic: 'الأسم الكامل (بالعربية)',
+  LocalizationKeys.updateProfile: 'تحديث الملف الشخصي',
+  LocalizationKeys.selectPhoto: 'أختر الصورة',
+
+  //-------------------------------------------------------------------------
+  ///Notification
+  LocalizationKeys.notification: 'الإشعارات',
+  LocalizationKeys.noNotificationFound: 'لا يوجد إشعارات',
+  LocalizationKeys.all: 'الكل',
+  LocalizationKeys.unread: 'غير مقروء',
+  LocalizationKeys.read: 'مقروء',
+  LocalizationKeys.neww: 'جديد',
+  LocalizationKeys.filterByType: 'تصفية حسب النوع',
+
+  //-------------------------------------------------------------------------
   ///global
+  LocalizationKeys.logout: 'تسجيل الخروج',
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',
 };

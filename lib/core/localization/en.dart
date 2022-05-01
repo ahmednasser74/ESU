@@ -1,6 +1,7 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 
 const Map<String, String> en = {
+  //-------------------------------------------------------------------------
   ///login
   LocalizationKeys.login: "Login",
   LocalizationKeys.password: "Password",
@@ -8,6 +9,7 @@ const Map<String, String> en = {
   LocalizationKeys.doNotHaveAccount: "Don't have an account ?\n",
   LocalizationKeys.signUp: "SignUp!",
 
+  //-------------------------------------------------------------------------
   ///academic info
   LocalizationKeys.academicInformation: 'Academic Information',
   LocalizationKeys.currentCertificate: 'Current Certificate',
@@ -15,6 +17,7 @@ const Map<String, String> en = {
   LocalizationKeys.next: 'Next',
   LocalizationKeys.select: 'Select',
 
+  //-------------------------------------------------------------------------
   ///personal info
   LocalizationKeys.personalInformation: 'Personal Information',
   LocalizationKeys.email: 'Email',
@@ -36,6 +39,7 @@ const Map<String, String> en = {
   LocalizationKeys.yourCompany: 'Your Company',
   LocalizationKeys.currentAddress: 'Current Address',
 
+  //-------------------------------------------------------------------------
   ///files upload
   LocalizationKeys.filesUpload: 'Files Upload',
   LocalizationKeys.copyOfYourIdOrPassport: 'A copy of your ID or passport',
@@ -51,6 +55,7 @@ const Map<String, String> en = {
       'The contract must be signed handwritten and on all pages!',
   LocalizationKeys.uploadCv: 'Upload CV',
 
+  //-------------------------------------------------------------------------
   ///submit registration
   LocalizationKeys.submitRegistration: 'Submit Registration',
   LocalizationKeys.weRecommendToUseEmail:
@@ -62,6 +67,32 @@ const Map<String, String> en = {
   LocalizationKeys.success: 'Success',
   LocalizationKeys.submit: 'Submit',
 
+  //-------------------------------------------------------------------------
+  ///Home
+  LocalizationKeys.home: 'Home',
+
+  //-------------------------------------------------------------------------
+  ///Profile
+  LocalizationKeys.profile: 'Profile',
+  LocalizationKeys.passwordConfirmation: 'Password Confirmation',
+  LocalizationKeys.fullNameEnglish: 'Full Name (English)',
+  LocalizationKeys.fullNameArabic: 'Full Name (Arabic)',
+  LocalizationKeys.updateProfile: 'Update Profile',
+  LocalizationKeys.selectFile: 'Select File',
+  LocalizationKeys.selectPhoto: 'Select Photo',
+
+  //-------------------------------------------------------------------------
+  ///Notification
+  LocalizationKeys.notification: 'Notification',
+  LocalizationKeys.noNotificationFound: 'No Notification Found',
+  LocalizationKeys.filterByType: 'Filter By Type',
+  LocalizationKeys.all:'All',
+  LocalizationKeys.unread:'Unread',
+  LocalizationKeys.read:'Read',
+  LocalizationKeys.neww:'New',
+
+  //-------------------------------------------------------------------------
   ///global
+  LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',
 };

@@ -29,7 +29,7 @@ mixin ValidatorProperties {
   String? nationalIdValidator(String? v) {
     if (v!.isEmpty) {
       return 'This field is required';
-    } else if (isPhoneNumber(v)) {
+    } else if (v.length < 10) {
       return 'Enter right email format';
     }
     return null;
@@ -53,5 +53,20 @@ mixin ValidatorProperties {
   static bool isPhoneNumber(String s) {
     if (s.length < 16 && s.length > 7) return false;
     return true;
+  }
+
+   String? passwordValidator(String? value) {
+    String pattern =
+        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+    RegExp regExp = RegExp(pattern);
+    if (value!.isEmpty) {
+      return 'This field is required';
+    } else if (value.length < 8) {
+      return 'Password must be at least 8 characters';
+    } else if (!regExp.hasMatch(value)) {
+      return 'Password must contain one upper case and lower case letter,and special character';
+    } else {
+      return null;
+    }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/routes.dart';
@@ -7,13 +8,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
+  final _scaffoldkey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldkey,
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text(LocalizationKeys.home.tr),
+        leading: IconButton(
+          icon: Assets.icons.menu.image(height: 18.sp),
+          onPressed: () => _scaffoldkey.currentState!.openDrawer(),
+        ),
         actions: [
           IconButton(
             icon: Assets.icons.notificationIcon.image(

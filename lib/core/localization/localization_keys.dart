@@ -6,6 +6,7 @@ class LocalizationKeys {
   static const String doNotHaveAccount = 'doNotHaveAccount';
   static const String signUp = 'signUp';
 
+  //-------------------------------------------------------------------------
   /// academic info
   static const String academicInformation = 'academic Information';
   static const String currentCertificate = 'Current Certificate';
@@ -13,6 +14,7 @@ class LocalizationKeys {
   static const String next = 'next';
   static const String select = 'select';
 
+  //-------------------------------------------------------------------------
   ///personal info
   static const String personalInformation = 'personalInformation';
   static const String email = 'email';
@@ -34,6 +36,7 @@ class LocalizationKeys {
   static const String yourCompany = 'yourCompany';
   static const String currentAddress = 'currentAddress';
 
+  //-------------------------------------------------------------------------
   ///files upload
   static const String filesUpload = 'filesUpload';
   static const String copyOfYourIdOrPassport = 'copyOfYourIdOrPassport';
@@ -50,6 +53,7 @@ class LocalizationKeys {
   static const String uploadCv = 'uploadCv';
   static const String selectFile = 'selectFile';
 
+  //-------------------------------------------------------------------------
   ///submit registration
   static const String submitRegistration = 'Submit Registration';
   static const String weRecommendToUseEmail =
@@ -61,6 +65,31 @@ class LocalizationKeys {
   static const String success = 'success';
   static const String submit = 'submit';
 
+  //-------------------------------------------------------------------------
+  ///home
+  static const String home = 'home';
+
+  //-------------------------------------------------------------------------
+  ///Profile
+  static const String profile = 'profile';
+  static const String fullNameEnglish = 'fullNameEnglish';
+  static const String fullNameArabic = 'fullNameArabic';
+  static const String passwordConfirmation = 'passwordConfirmation';
+  static const String updateProfile = 'updateProfile';
+  static const String selectPhoto = 'selectPhoto';
+
+  //-------------------------------------------------------------------------
+  ///Notification
+  static const String notification = 'notification';
+  static const String noNotificationFound = 'noNotificationFound';
+  static const String filterByType = 'filterByType';
+  static const String all = 'all';
+  static const String unread = 'unread';
+  static const String read = 'read';
+  static const String neww = 'new';
+
+  //-------------------------------------------------------------------------
   ///global
+  static const String logout = 'logout';
   static const String thisFieldIsRequired = 'thisFieldIsRequired';
 }
