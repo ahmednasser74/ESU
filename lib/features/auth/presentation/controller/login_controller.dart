@@ -77,11 +77,4 @@ class LoginController extends GetxController {
       translateController!.changeLanguage('en');
     }
   }
-
-  @override
-  void onClose() {
-    userNameTEC.dispose();
-    passwordTEC.dispose();
-    super.onClose();
-  }
 }

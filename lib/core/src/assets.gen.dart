@@ -10,11 +10,23 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/add_image.png
+  AssetGenImage get addImage => const AssetGenImage('assets/icons/add_image.png');
+
+  /// File path: assets/icons/email.png
+  AssetGenImage get email => const AssetGenImage('assets/icons/email.png');
+
   /// File path: assets/icons/finance_icon.png
   AssetGenImage get financeIcon => const AssetGenImage('assets/icons/finance_icon.png');
 
+  /// File path: assets/icons/identity.png
+  AssetGenImage get identity => const AssetGenImage('assets/icons/identity.png');
+
   /// File path: assets/icons/letter_icon.png
   AssetGenImage get letterIcon => const AssetGenImage('assets/icons/letter_icon.png');
+
+  /// File path: assets/icons/lock.png
+  AssetGenImage get lock => const AssetGenImage('assets/icons/lock.png');
 
   /// File path: assets/icons/logout.png
   AssetGenImage get logout => const AssetGenImage('assets/icons/logout.png');
@@ -43,6 +55,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/app_icon.png
   AssetGenImage get appIcon => const AssetGenImage('assets/images/app_icon.png');
+
+  /// File path: assets/images/esu_title_logo.png
+  AssetGenImage get esuTitleLogo => const AssetGenImage('assets/images/esu_title_logo.png');
 }
 
 class Assets {

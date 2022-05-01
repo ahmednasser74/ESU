@@ -8,6 +8,16 @@ const Map<String, String> en = {
   LocalizationKeys.userName: "User name",
   LocalizationKeys.doNotHaveAccount: "Don't have an account ?\n",
   LocalizationKeys.signUp: "SignUp!",
+  LocalizationKeys.emailIsRequired: "Email is required",
+  LocalizationKeys.passwordIsRequired: "Password is required",
+  LocalizationKeys.passwordMustContain:
+      "Password must contain at least one uppercase, one lowercase, one number and one special character",
+  LocalizationKeys.enterValidEmailFormat: "Enter valid email format",
+  LocalizationKeys.enterValidFormat: "Enter valid format",
+  LocalizationKeys.atLeast3Characters: "At least 3 characters",
+  LocalizationKeys.atLeast6Characters: "At least 6 characters",
+  LocalizationKeys.atLeast8Characters: "At least 8 characters",
+  LocalizationKeys.atLeast10Characters: "At least 10 characters",
 
   //-------------------------------------------------------------------------
   ///academic info
@@ -70,6 +80,14 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///Home
   LocalizationKeys.home: 'Home',
+  LocalizationKeys.balance: 'Balance',
+  LocalizationKeys.totalAmount: 'Total Amount',
+  LocalizationKeys.totalAmountPaid: 'Total Amount Paid',
+  LocalizationKeys.totalAmountUnpaid: 'Total Amount Unpaid',
+  LocalizationKeys.programAmount: 'Program Amount',
+  LocalizationKeys.paidAmount: 'Paid Amount',
+  LocalizationKeys.unPaidAmount: 'UnPaid Amount',
+  LocalizationKeys.aed: 'AED',
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -86,13 +104,33 @@ const Map<String, String> en = {
   LocalizationKeys.notification: 'Notification',
   LocalizationKeys.noNotificationFound: 'No Notification Found',
   LocalizationKeys.filterByType: 'Filter By Type',
-  LocalizationKeys.all:'All',
-  LocalizationKeys.unread:'Unread',
-  LocalizationKeys.read:'Read',
-  LocalizationKeys.neww:'New',
+  LocalizationKeys.all: 'All',
+  LocalizationKeys.unread: 'Unread',
+  LocalizationKeys.read: 'Read',
+  LocalizationKeys.neww: 'New',
+  //-------------------------------------------------------------------------
+  ///Finance
+  LocalizationKeys.finance: 'Finance',
+  LocalizationKeys.status: 'Status',
+  LocalizationKeys.paid: 'Paid',
+  LocalizationKeys.total: 'Total',
+  LocalizationKeys.paidAt: 'Paid At',
+
+  //-------------------------------------------------------------------------
+  ///Letters
+  LocalizationKeys.letters: 'Letters',
+  //-------------------------------------------------------------------------
+  ///Transcript
+  LocalizationKeys.transcript: 'Transcript',
+
+  //-------------------------------------------------------------------------
+  ///Settings
+  LocalizationKeys.settings: 'Settings',
 
   //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',
+  LocalizationKeys.doYouWantToLogout: 'Do you want to logout?',
+  LocalizationKeys.cancel: 'Cancel',
 };

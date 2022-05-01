@@ -18,7 +18,7 @@ class RegisterAcademicInfoScreen extends StatefulWidget {
 
 class _RegisterAcademicInfoScreenState
     extends State<RegisterAcademicInfoScreen> {
-  final formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {

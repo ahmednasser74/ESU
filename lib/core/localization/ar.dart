@@ -7,6 +7,17 @@ const Map<String, String> ar = {
   LocalizationKeys.userName: "أسم المستخدم",
   LocalizationKeys.doNotHaveAccount: "ليس لديك حساب ؟\n",
   LocalizationKeys.signUp: "انشاء حساب",
+  LocalizationKeys.emailIsRequired: "البريد الإلكتروني مطلوب",
+  LocalizationKeys.passwordIsRequired: "كلمة السر مطلوبة",
+  LocalizationKeys.passwordMustContain:
+      "كلمة السر يجب أن تحتوي على حرف واحد على الأقل وأرقام وحروف خاصة",
+  LocalizationKeys.enterValidEmailFormat: "البريد الإلكتروني غير صحيح",
+  LocalizationKeys.enterValidFormat: "أدخل صيغة صحيحة",
+  LocalizationKeys.atLeast3Characters: "يجب أن تكون من 3 أحرف على الأقل",
+  LocalizationKeys.atLeast6Characters: "يجب أن تكون من 6 أحرف على الأقل",
+  LocalizationKeys.atLeast8Characters:
+      "يجب أن تكون كلمة السر من 8 أحرف على الأقل",
+  LocalizationKeys.atLeast10Characters: "يجب أن تكون من 10 أحرف على الأقل",
 
   ///academic info
   LocalizationKeys.academicInformation: 'معلومات الأكاديمية',
@@ -65,6 +76,14 @@ const Map<String, String> ar = {
   //-------------------------------------------------------------------------
   ///Home
   LocalizationKeys.home: 'الرئيسية',
+  LocalizationKeys.balance: 'الرصيد',
+  LocalizationKeys.totalAmount: 'المبلغ الإجمالي',
+  LocalizationKeys.totalAmountPaid: 'المبلغ الإجمالي المدفوع',
+  LocalizationKeys.totalAmountUnpaid: 'المبلغ الإجمالي الغير مدفوع',
+  LocalizationKeys.programAmount: 'المبلغ الإجمالي للبرنامج',
+  LocalizationKeys.paidAmount: 'المبلغ المدفوع',
+  LocalizationKeys.unPaidAmount: 'المبلغ الغير مدفوع',
+  LocalizationKeys.aed: 'درهم',
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -86,7 +105,28 @@ const Map<String, String> ar = {
   LocalizationKeys.filterByType: 'تصفية حسب النوع',
 
   //-------------------------------------------------------------------------
+  ///Finance
+  LocalizationKeys.finance: 'المالية',
+  LocalizationKeys.status: 'الحالة',
+  LocalizationKeys.paid: 'مدفوع',
+  LocalizationKeys.total: 'المبلغ الإجمالي',
+  LocalizationKeys.paidAt: ' تم الدفع في',
+
+  //-------------------------------------------------------------------------
+  ///Letters
+  LocalizationKeys.letters: 'الخطابات',
+  //-------------------------------------------------------------------------
+  ///Transcript
+  LocalizationKeys.transcript: 'السجل التراكيبي',
+
+  //-------------------------------------------------------------------------
+  ///Settings
+  LocalizationKeys.settings: 'الإعدادات',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'تسجيل الخروج',
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',
+  LocalizationKeys.cancel: 'إلغاء',
+  LocalizationKeys.doYouWantToLogout: 'هل تريد تسجيل الخروج؟',
 };

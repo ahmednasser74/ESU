@@ -16,7 +16,7 @@ class SubmitRegistrationScreen extends StatefulWidget {
 }
 
 class _SubmitRegistrationScreenState extends State<SubmitRegistrationScreen> {
-  final formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isApproved = false;
 
   @override

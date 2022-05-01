@@ -7,7 +7,7 @@ import 'core/localization/translation.dart';
 import 'core/src/routes.dart';
 import 'core/src/theme.dart';
 import 'core/utils/controller_binding.dart';
-import 'core/utils/injection_container.dart';
+import 'core/utils/di.dart';
 import 'core/utils/pref_util.dart';
 
 void main() async {

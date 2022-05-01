@@ -1,6 +1,8 @@
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class FinanceItemWidget extends StatelessWidget {
   const FinanceItemWidget({
@@ -29,40 +31,63 @@ class FinanceItemWidget extends StatelessWidget {
           SizedBox(height: 8.h),
           Row(
             children: [
-              const Text(
-                'Paid :',
+              Text(
+                '${LocalizationKeys.paid.tr} :',
                 style: TextStyle(color: AppColors.primaryColor),
               ),
               SizedBox(width: 8.w),
               const Text('\$1,000.00'),
               const Spacer(),
-              const Text(
-                'Status :',
-                style: TextStyle(color: AppColors.primaryColor),
+              Text(
+                '${LocalizationKeys.status.tr} :',
+                style: const TextStyle(color: AppColors.primaryColor),
               ),
               SizedBox(width: 8.w),
-              const Text('Paid'),
+               Text(LocalizationKeys.paid.tr),
             ],
           ),
           SizedBox(height: 8.h),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Paid At :',
-                style: TextStyle(color: AppColors.primaryColor),
+              RichText(
+                text: TextSpan(
+                  text: '${LocalizationKeys.paidAt.tr} : ',
+                  style: const TextStyle(
+                    color: AppColors.primaryColor,
+                    fontFamily: 'din',
+                  ),
+                  children: const [
+                    TextSpan(
+                      text: '12/12/2020',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'din',
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(width: 8.w),
-              const Text('12/12/2020'),
-              const Spacer(),
-              const Text(
-                'Total :',
-                style: TextStyle(color: AppColors.primaryColor),
+              RichText(
+                text: TextSpan(
+                  text: '${LocalizationKeys.total.tr} : ',
+                  style: const TextStyle(
+                    color: AppColors.primaryColor,
+                    fontFamily: 'din',
+                  ),
+                  children: const [
+                    TextSpan(
+                      text: '\$1,000.00',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'din',
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(width: 8.w),
-              const Text('\$1,000.00'),
             ],
           ),
-          SizedBox(height: 8.h),
         ],
       ),
     );

@@ -5,6 +5,15 @@ class LocalizationKeys {
   static const String password = 'password';
   static const String doNotHaveAccount = 'doNotHaveAccount';
   static const String signUp = 'signUp';
+  static const String emailIsRequired = 'emailIsRequired';
+  static const String passwordIsRequired = 'passwordIsRequired';
+  static const String atLeast8Characters = 'atleast8Characters';
+  static const String atLeast3Characters = 'atleast3Characters';
+  static const String atLeast6Characters = 'atleast6Characters';
+  static const String atLeast10Characters = 'atleast10Characters';
+  static const String passwordMustContain = 'passwordMustContain';
+  static const String enterValidEmailFormat = 'enterValidEmailFormat';
+  static const String enterValidFormat = 'enterValidFormat';
 
   //-------------------------------------------------------------------------
   /// academic info
@@ -68,6 +77,14 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///home
   static const String home = 'home';
+  static const String balance = 'balance';
+  static const String totalAmount = 'totalAmount';
+  static const String totalAmountPaid = 'totalAmountPaid';
+  static const String totalAmountUnpaid = 'totalAmountUnpaid';
+  static const String programAmount = 'programAmount';
+  static const String paidAmount = 'paidAmount';
+  static const String unPaidAmount = 'unPaidAmount';
+  static const String aed = 'AED';
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -89,7 +106,29 @@ class LocalizationKeys {
   static const String neww = 'new';
 
   //-------------------------------------------------------------------------
+  ///Finance
+  static const String finance = 'finance';
+  static const String paid = 'paid';
+  static const String paidAt = 'paidAt';
+  static const String total = 'total';
+  static const String status = 'status';
+
+  //-------------------------------------------------------------------------
+  ///Letters
+  static const String letters = 'letters';
+
+  //-------------------------------------------------------------------------
+  ///Transcript
+  static const String transcript = 'transcript';
+
+  //-------------------------------------------------------------------------
+  ///Settings
+  static const String settings = 'settings';
+
+  //-------------------------------------------------------------------------
   ///global
   static const String logout = 'logout';
   static const String thisFieldIsRequired = 'thisFieldIsRequired';
+  static const String cancel = 'cancel';
+  static const String doYouWantToLogout = 'doYouWantToLogout';
 }
