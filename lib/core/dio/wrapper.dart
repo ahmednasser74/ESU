@@ -43,8 +43,8 @@ class DioImpl extends DioHelper {
   }
 
   @override
-  Future<Response<T>> get<T>(
-    String url, {
+  Future<Response<T>> get<T>({
+    required String url,
     Map<String, dynamic>? queryParams,
     Options? options,
   }) =>
@@ -55,8 +55,8 @@ class DioImpl extends DioHelper {
       );
 
   @override
-  Future<Response<T>> post<T>(
-    String url, {
+  Future<Response<T>> post<T>({
+    required String url,
     dynamic data,
     Map<String, dynamic>? queryParams,
     Options? options,
@@ -69,8 +69,8 @@ class DioImpl extends DioHelper {
       );
 
   @override
-  Future<Response<T>> put<T>(
-    String url, {
+  Future<Response<T>> put<T>({
+    required String url,
     dynamic data,
     Map<String, dynamic>? queryParams,
     Options? options,
@@ -83,8 +83,8 @@ class DioImpl extends DioHelper {
       );
 
   @override
-  Future<Response<T>> delete<T>(
-    String url, {
+  Future<Response<T>> delete<T>({
+    required String url,
     dynamic data,
     Map<String, dynamic>? queryParams,
     Options? options,
