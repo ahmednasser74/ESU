@@ -2,9 +2,11 @@ class LocalizationKeys {
   ///login
   static const String login = 'login';
   static const String userName = 'userName';
+  static const String studentId = 'studentId';
   static const String password = 'password';
   static const String doNotHaveAccount = 'doNotHaveAccount';
   static const String signUp = 'signUp';
+  static const String admission = 'admission';
   static const String emailIsRequired = 'emailIsRequired';
   static const String passwordIsRequired = 'passwordIsRequired';
   static const String atLeast8Characters = 'atleast8Characters';

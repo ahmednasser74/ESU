@@ -3,7 +3,6 @@ import 'package:boilerplate/core/mixin/validator_properties.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/app_text_field_widget.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +26,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
           body: Form(
             key: controller.loginFormKey,
             child: ListView(
-              padding: EdgeInsets.only(top: .06.sh, left: 10, right: 10),
+              padding: EdgeInsets.only(top: .06.sh, left: 18, right: 18),
               children: [
                 Align(
                   alignment: AlignmentDirectional.topEnd,
@@ -52,10 +51,9 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 Column(
                   children: [
                     AppTextFieldWidget(
-                      controller: controller.userNameTEC,
-                      labelText: LocalizationKeys.userName.tr,
+                      controller: controller.studentIdTEC,
+                      labelText: LocalizationKeys.studentId.tr,
                       inputType: TextInputType.text,
-                      validator: emailValidator,
                       prefixIcon: const Icon(
                         Icons.person_outline,
                         color: AppColors.primaryColor,
@@ -65,7 +63,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     AppTextFieldWidget(
                       controller: controller.passwordTEC,
                       labelText: LocalizationKeys.password.tr,
-                      validator: passwordValidator,
+                      // validator: passwordValidator,
                       inputType: TextInputType.visiblePassword,
                       obscureText: true,
                       prefixIcon: const Icon(
@@ -78,14 +76,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 SizedBox(height: .04.sh),
                 AppButton(
                   title: LocalizationKeys.login.tr,
-                  onPressed: () async {
-                    if (controller.loginFormKey.currentState!.validate()) {
-                      await controller.login();
-                      Get.toNamed(Routes.homeScreen);
-                    } else {
-                      HelperMethod.showToast(msg: 'not valid');
-                    }
-                  },
+                  onPressed: controller.login,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: .08.sh),
@@ -102,7 +93,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                       ),
                       children: [
                         TextSpan(
-                          text: LocalizationKeys.signUp.tr,
+                          text: LocalizationKeys.admission.tr,
                           style: const TextStyle(
                             color: AppColors.primaryColor,
                             fontFamily: 'din',

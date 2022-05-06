@@ -4,23 +4,22 @@ class LoginResponseModel {
   LoginResponseModel({
     required this.status,
     required this.code,
-    required this.data,
+    this.data,
+    this.message,
   });
 
   final bool status;
   final int code;
-  final LoginDataResponseModel data;
+  final String? message;
+  final LoginDataResponseModel? data;
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
       LoginResponseModel(
         status: json["status"],
         code: json["code"],
-        data: LoginDataResponseModel.fromJson(json["data"]),
+        message: json["message"],
+        data: json["data"] != null
+            ? LoginDataResponseModel.fromJson(json["data"])
+            : null,
       );
-
-  Map<String, dynamic> toJson() => {
-        "status": status,
-        "code": code,
-        "data": data.toJson(),
-      };
 }

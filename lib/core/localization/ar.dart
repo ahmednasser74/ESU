@@ -5,8 +5,10 @@ const Map<String, String> ar = {
   LocalizationKeys.login: "تسجل الدخول",
   LocalizationKeys.password: "كلمة السر",
   LocalizationKeys.userName: "أسم المستخدم",
+  LocalizationKeys.studentId: "رقم الطالب",
   LocalizationKeys.doNotHaveAccount: "ليس لديك حساب ؟\n",
   LocalizationKeys.signUp: "انشاء حساب",
+  LocalizationKeys.admission: "التقديم",
   LocalizationKeys.emailIsRequired: "البريد الإلكتروني مطلوب",
   LocalizationKeys.passwordIsRequired: "كلمة السر مطلوبة",
   LocalizationKeys.passwordMustContain:

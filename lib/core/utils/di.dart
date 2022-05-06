@@ -12,6 +12,7 @@ import 'package:boilerplate/features/auth/data/repositories/auth_repository_imp.
 import 'package:boilerplate/features/auth/domin/repositories/auth_repository.dart';
 import 'package:boilerplate/features/auth/domin/usecases/admission_usecase.dart';
 import 'package:boilerplate/features/auth/domin/usecases/login_usecase.dart';
+import 'package:boilerplate/features/auth/domin/usecases/lookup_use_case.dart';
 import 'package:boilerplate/features/auth/presentation/controller/admission_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
@@ -53,14 +54,15 @@ class Injection {
     di.registerFactory<LoginController>(
       () => LoginController(
         loginUseCase: di(),
+      ),
+    );
+    di.registerFactory<AdmissionController>(
+      () => AdmissionController(
         admissionUseCase: di(),
       ),
     );
     di.registerFactory<SplashController>(
       () => SplashController(),
-    );
-    di.registerFactory<AdmissionController>(
-      () => AdmissionController(),
     );
 
     // Use cases
@@ -70,11 +72,13 @@ class Injection {
     di.registerLazySingleton<AdmissionUseCase>(
       () => AdmissionUseCase(authRepository: di()),
     );
+    di.registerLazySingleton<LookupUseCase>(
+      () => LookupUseCase(authRepository: di()),
+    );
 
     //repo
     di.registerLazySingleton<AuthRepository>(
       () => AuthRepositoryImp(
-        networkInformation: di(),
         userLocalDataSource: di(),
         userRemoteDataSource: di(),
       ),

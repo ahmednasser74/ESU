@@ -6,8 +6,10 @@ const Map<String, String> en = {
   LocalizationKeys.login: "Login",
   LocalizationKeys.password: "Password",
   LocalizationKeys.userName: "User name",
+  LocalizationKeys.studentId: "Student ID",
   LocalizationKeys.doNotHaveAccount: "Don't have an account ?\n",
   LocalizationKeys.signUp: "SignUp!",
+  LocalizationKeys.admission: "Admission",
   LocalizationKeys.emailIsRequired: "Email is required",
   LocalizationKeys.passwordIsRequired: "Password is required",
   LocalizationKeys.passwordMustContain:
