@@ -55,9 +55,9 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   Future<LookupResponseModel> getLookup({
     required LookupRequestModel requestModel,
   }) async {
-    final response = await dioHelper.post(
+    final response = await dioHelper.get(
       url: Endpoints.lookup,
-      data: requestModel.toJson(),
+      queryParams: requestModel.toJson(),
     );
     final json = response.data;
     final data = LookupResponseModel.fromJson(json);

@@ -135,4 +135,5 @@ class LocalizationKeys {
   static const String thisFieldIsRequired = 'thisFieldIsRequired';
   static const String cancel = 'cancel';
   static const String doYouWantToLogout = 'doYouWantToLogout';
+  static const String completeAllTheFields = 'completeAllTheFields';
 }

@@ -13,6 +13,7 @@ import 'package:boilerplate/features/auth/domin/repositories/auth_repository.dar
 import 'package:boilerplate/features/auth/domin/usecases/admission_usecase.dart';
 import 'package:boilerplate/features/auth/domin/usecases/login_usecase.dart';
 import 'package:boilerplate/features/auth/domin/usecases/lookup_use_case.dart';
+import 'package:boilerplate/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/admission_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
@@ -63,6 +64,9 @@ class Injection {
     );
     di.registerFactory<SplashController>(
       () => SplashController(),
+    );
+    di.registerFactory<AcademicInfoController>(
+      () => AcademicInfoController(lookupUseCase: di()),
     );
 
     // Use cases

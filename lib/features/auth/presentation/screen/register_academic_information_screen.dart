@@ -1,24 +1,17 @@
 import 'package:boilerplate/core/const/list_const.dart';
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
+import 'package:boilerplate/core/src/widgets/error_widget.dart';
+import 'package:boilerplate/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/auth_drop_down_button.dart';
+import 'package:boilerplate/features/auth/presentation/widgets/lookup_drop_down_button.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class RegisterAcademicInfoScreen extends StatefulWidget {
+class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
   const RegisterAcademicInfoScreen({Key? key}) : super(key: key);
-
-  @override
-  State<RegisterAcademicInfoScreen> createState() =>
-      _RegisterAcademicInfoScreenState();
-}
-
-class _RegisterAcademicInfoScreenState
-    extends State<RegisterAcademicInfoScreen> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,37 +22,36 @@ class _RegisterAcademicInfoScreenState
       body: Padding(
         padding: const EdgeInsets.all(18),
         child: Form(
-          key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Spacer(),
-              TitleRequiredFieldWidget(
-                  title: LocalizationKeys.currentCertificate.tr),
-              AuthDropDownButton(
-                list: ListConst.certificateList,
-                onChangeValue: (value) => print(value),
-              ),
-              SizedBox(height: 18.h),
-              TitleRequiredFieldWidget(title: LocalizationKeys.program.tr),
-              AuthDropDownButton(
-                list: ListConst.programList,
-                onChangeValue: (value) => print(value),
-              ),
-              const Spacer(),
-              AppButton(
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    print('validate');
-                  } else {
-                    print('Not validate');
-                  }
-                  Get.toNamed(Routes.registerPersonalInfo);
-                },
-                title: LocalizationKeys.next.tr,
-                minimumSize: const Size(double.infinity, 30),
-              ),
-            ],
+          key: controller.formKey,
+          child: controller.obx(
+            (state) => Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(),
+                TitleRequiredFieldWidget(
+                    title: LocalizationKeys.currentCertificate.tr),
+                TitleDropDownButton(
+                  list: ListConst.certificateList,
+                  onChangeValue: (value) => print(value),
+                ),
+                SizedBox(height: 18.h),
+                TitleRequiredFieldWidget(title: LocalizationKeys.program.tr),
+                LookupDropDownButton(
+                  list: state!,
+                  onChangeValue: (value) => print(value),
+                ),
+                const Spacer(),
+                AppButton(
+                  onPressed: controller.goToPersonalInfoScreen,
+                  title: LocalizationKeys.next.tr,
+                  minimumSize: const Size(double.infinity, 30),
+                ),
+              ],
+            ),
+            onError: (error) => AppErrorWidget(errorMessage: error),
+            onLoading: const Center(
+              child: CircularProgressIndicator(),
+            ),
           ),
         ),
       ),

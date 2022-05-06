@@ -93,7 +93,7 @@ class RegisterPersonalInfoScreen extends StatelessWidget
               TitleRequiredFieldWidget(
                 title: LocalizationKeys.gender.tr,
               ),
-              AuthDropDownButton(
+              TitleDropDownButton(
                 list: [LocalizationKeys.male.tr, LocalizationKeys.female.tr],
                 isDense: true,
                 onChangeValue: (value) => print(value),
@@ -107,7 +107,7 @@ class RegisterPersonalInfoScreen extends StatelessWidget
               TitleRequiredFieldWidget(
                 title: LocalizationKeys.nationality.tr,
               ),
-              AuthDropDownButton(
+              TitleDropDownButton(
                 list: ListConst.nationalityList,
                 isDense: true,
                 onChangeValue: (value) => print(value),

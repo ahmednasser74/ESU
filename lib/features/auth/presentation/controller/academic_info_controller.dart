@@ -1,7 +1,11 @@
 import 'package:boilerplate/core/const/lookup_const.dart';
+import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/src/routes.dart';
+import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:boilerplate/features/auth/data/model/request/lookup/lookup_request_model.dart';
 import 'package:boilerplate/features/auth/data/model/response/lookup/lookup_data_response_model.dart';
 import 'package:boilerplate/features/auth/domin/usecases/lookup_use_case.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AcademicInfoController extends GetxController
@@ -11,6 +15,7 @@ class AcademicInfoController extends GetxController
   });
 
   LookupUseCase lookupUseCase;
+  final formKey = GlobalKey<FormState>();
 
   @override
   void onInit() async {
@@ -34,5 +39,13 @@ class AcademicInfoController extends GetxController
         }
       },
     );
+  }
+
+  void goToPersonalInfoScreen() {
+    if (formKey.currentState!.validate()) {
+      Get.toNamed(Routes.registerPersonalInfo);
+    } else {
+      HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);
+    }
   }
 }

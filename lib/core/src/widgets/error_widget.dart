@@ -4,7 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 class AppErrorWidget extends StatelessWidget {
-  const AppErrorWidget({Key? key}) : super(key: key);
+  const AppErrorWidget({
+    Key? key,
+    this.errorMessage,
+  }) : super(key: key);
+  final String? errorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,7 @@ class AppErrorWidget extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height -
+            height: 1.sh -
                 MediaQuery.of(context).padding.top -
                 (AppBar().preferredSize.height * 2),
             child: Center(
@@ -21,8 +25,8 @@ class AppErrorWidget extends StatelessWidget {
                 width: double.infinity,
                 height: double.infinity,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 18.w,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -36,11 +40,12 @@ class AppErrorWidget extends StatelessWidget {
                       const SizedBox(
                         height: 12,
                       ),
-                      const Text(
-                        'حدث خطأ ما، تأكد من\nالإتصال بالإنترنت ثم أعد المحاولة',
+                      Text(
+                        errorMessage ??
+                            'حدث خطأ ما، تأكد من\nالإتصال بالإنترنت ثم أعد المحاولة',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           height: 1.4,
                         ),
                       ),

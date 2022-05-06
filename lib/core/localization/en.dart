@@ -138,4 +138,5 @@ const Map<String, String> en = {
   LocalizationKeys.thisFieldIsRequired: 'This field is required',
   LocalizationKeys.doYouWantToLogout: 'Do you want to logout?',
   LocalizationKeys.cancel: 'Cancel',
+  LocalizationKeys.completeAllTheFields: 'Complete all the fields',
 };

@@ -5,5 +5,6 @@ class AdmissionController extends GetxController {
   AdmissionController({
     required this.admissionUseCase,
   });
+
   final AdmissionUseCase admissionUseCase;
 }

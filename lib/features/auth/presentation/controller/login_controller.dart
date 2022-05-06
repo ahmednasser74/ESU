@@ -34,9 +34,7 @@ class LoginController extends GetxController {
     final isValid = loginFormKey.currentState?.validate() ?? false;
     if (!isValid) {
       HelperMethod.showToast(msg: 'Complete the form');
-      return;
-    }
-    if (isValid) {
+    } else {
       _loadingIndicator.value = true;
       final params = LoginRequestModel(
         studentId: studentIdTEC.text,
@@ -55,6 +53,7 @@ class LoginController extends GetxController {
           }
         },
       );
+      _loadingIndicator.value = false;
     }
   }
 

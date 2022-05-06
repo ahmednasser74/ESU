@@ -1,26 +1,28 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
+import 'package:boilerplate/features/auth/data/model/response/lookup/lookup_data_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 
-class TitleDropDownButton extends StatefulWidget {
-  const TitleDropDownButton({
+class LookupDropDownButton extends StatefulWidget {
+  const LookupDropDownButton({
     Key? key,
     required this.list,
     required this.onChangeValue,
     this.isDense = false,
   }) : super(key: key);
 
-  final List<String> list;
+  final List<LookupDataResponseModel> list;
   final void Function(String value) onChangeValue;
   final bool isDense;
 
   @override
-  State<TitleDropDownButton> createState() => _TitleDropDownButtonState();
+  State<LookupDropDownButton> createState() => _LookupDropDownButtonState();
 }
 
-class _TitleDropDownButtonState extends State<TitleDropDownButton> {
+class _LookupDropDownButtonState extends State<LookupDropDownButton> {
   String? dropdownValue;
 
   @override
@@ -41,21 +43,18 @@ class _TitleDropDownButtonState extends State<TitleDropDownButton> {
       elevation: 2,
       dropdownColor: Colors.white,
       decoration: const InputDecoration(),
-      style: const TextStyle(
-        color: AppColors.primaryColor,
-        fontFamily: 'din',
-      ),
+      style: const TextStyle(color: AppColors.primaryColor, fontFamily: 'din'),
       onChanged: (newValue) {
         widget.onChangeValue(newValue!);
         setState(() => dropdownValue = newValue);
       },
       items: widget.list.map<DropdownMenuItem<String>>((value) {
         return DropdownMenuItem<String>(
-          value: value,
+          value: Get.locale.toString() == 'en' ? value.name : value.nameAr,
           child: SizedBox(
             width: .7.sw,
             child: Text(
-              value,
+              Get.locale.toString() == 'en' ? value.name : value.nameAr,
               maxLines: 2,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,

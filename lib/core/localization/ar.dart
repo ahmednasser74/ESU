@@ -134,4 +134,5 @@ const Map<String, String> ar = {
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',
   LocalizationKeys.cancel: 'إلغاء',
   LocalizationKeys.doYouWantToLogout: 'هل تريد تسجيل الخروج؟',
+  LocalizationKeys.completeAllTheFields: 'يرجى تعبئة جميع الحقول',
 };

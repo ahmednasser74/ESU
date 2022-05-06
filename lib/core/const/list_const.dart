@@ -217,16 +217,16 @@ class ListConst {
     'القبائل النازحة',
   ];
 
-  static const List<String> programList = [
-    'Bachelor of Project Management',
-    'Master of Project Management',
-    'Bachelor of Management',
-    'Master of Management',
-    'Master of Risk Management',
-    'Ph.D. in Project Management',
-    'Master of Science in Cybersecurity',
-    'Master of Science in Cybersecurity (Non-IT Background)',
-  ];
+  // static const List<String> programList = [
+  //   'Bachelor of Project Management',
+  //   'Master of Project Management',
+  //   'Bachelor of Management',
+  //   'Master of Management',
+  //   'Master of Risk Management',
+  //   'Ph.D. in Project Management',
+  //   'Master of Science in Cybersecurity',
+  //   'Master of Science in Cybersecurity (Non-IT Background)',
+  // ];
 
   static const List<String> certificateList = [
     'Secondary School',
