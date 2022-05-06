@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,11 +41,11 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
 
   Future<void> _androidDatePicker(BuildContext context) async {
     final picked = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(1800),
-        lastDate: DateTime(2100),
-        locale: Locale(SharedPrefs.instance.getLanguageSelected()));
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1800),
+      lastDate: DateTime(2100),
+    );
     if (picked != null && picked != DateTime.now()) {
       widget.dateCallBack(picked);
       dateTimeTEC.text = '${picked.day} / ${picked.month} / ${picked.year}';
