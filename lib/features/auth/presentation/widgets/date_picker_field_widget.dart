@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,24 +10,24 @@ class DatePickerFieldWidget extends StatefulWidget {
   const DatePickerFieldWidget({
     Key? key,
     required this.dateCallBack,
-    required this.dateController,
   }) : super(key: key);
-  final void Function(DateTime? countryName) dateCallBack;
-  final TextEditingController dateController;
+  final void Function(DateTime) dateCallBack;
 
   @override
   _DateTimePickerWidgetState createState() => _DateTimePickerWidgetState();
 }
 
 class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
+  final dateTimeTEC = TextEditingController(text: '');
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: widget.dateController,
+      controller: dateTimeTEC,
       readOnly: true,
       // decoration: InputDecoration(labelText: LocalizationKeys.dateOfBirth.tr),
       validator: (value) {
-        if (widget.dateController.text.isEmpty) {
+        if (dateTimeTEC.text.isEmpty) {
           return LocalizationKeys.thisFieldIsRequired.tr;
         } else {
           return null;
@@ -42,15 +41,14 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
 
   Future<void> _androidDatePicker(BuildContext context) async {
     final picked = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(1800),
-        lastDate: DateTime(2100),
-        locale: Locale(SharedPrefs.instance.getLanguageSelected()));
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1800),
+      lastDate: DateTime(2100),
+    );
     if (picked != null && picked != DateTime.now()) {
       widget.dateCallBack(picked);
-      widget.dateController.text =
-          '${picked.day} / ${picked.month} / ${picked.year}';
+      dateTimeTEC.text = '${picked.day} / ${picked.month} / ${picked.year}';
     }
   }
 
@@ -67,7 +65,7 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
               mode: CupertinoDatePickerMode.date,
               onDateTimeChanged: (picked) {
                 widget.dateCallBack(picked);
-                widget.dateController.text =
+                dateTimeTEC.text =
                     '${picked.day} / ${picked.month} / ${picked.year}';
               },
               initialDateTime: DateTime.now(),

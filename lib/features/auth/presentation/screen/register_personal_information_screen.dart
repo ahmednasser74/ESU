@@ -96,10 +96,8 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
                   title: LocalizationKeys.dateOfBirth.tr,
                 ),
                 DatePickerFieldWidget(
-                  dateController: controller.birthDateController,
-                  dateCallBack: (dateCallBack) {
-                    print('dateCallBack = $dateCallBack');
-                  },
+                  dateCallBack: (dateCallBack) =>
+                      controller.birthDateController = dateCallBack,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.gender.tr,

@@ -4,6 +4,7 @@ import 'package:boilerplate/features/auth/presentation/screen/register_file_uplo
 import 'package:boilerplate/features/auth/presentation/screen/register_personal_information_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/splash_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/submit_registration_screen.dart';
+import 'package:boilerplate/features/auth/presentation/screen/successful_admission_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/home_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/letters_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/notification_screen.dart';
@@ -27,6 +28,7 @@ class Routes {
       lettersScreen = '/lettersScreen',
       transcriptScreen = '/transcriptScreen',
       settingsScreen = '/settingsScreen',
+      successfulAdmissionScreen = '/successfulAdmissionScreen',
       registerPersonalInfo = '/registerPersonalInfo';
 
   static List<GetPage> setScreens() {
@@ -56,6 +58,10 @@ class Routes {
       GetPage(name: lettersScreen, page: () => const LettersScreen()),
       GetPage(name: notificationScreen, page: () => const NotificationScreen()),
       GetPage(name: settingsScreen, page: () => const SettingScreen()),
+      GetPage(
+        name: successfulAdmissionScreen,
+        page: () => const SuccessfulAdmissionScreen(),
+      ),
     ];
   }
 }
