@@ -12,7 +12,7 @@ class AdmissionRequestModel {
   final String firstNameArabic;
   final String secondNameArabic;
   final String lastNameArabic;
-  final int nationalPassport;
+  final String nationalPassport;
   final String mobileNumber;
   final String birthDate;
   final String gender;

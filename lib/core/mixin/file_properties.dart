@@ -27,4 +27,33 @@ mixin FileProperties {
         ((bytes / pow(1024, i)).toStringAsFixed(decimals)) + ' ' + suffixes[i];
     return fileSize;
   }
+
+  Future<bool> isFileLowerThanTenMega({required String filepath}) async {
+    var file = File(filepath);
+    int bytes = await file.length();
+    if (bytes < 10485760) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  List<String> imageExtensions = [
+    '.apng',
+    '.avif',
+    '.gif',
+    '.jpg',
+    '.jpeg',
+    '.jfif',
+    '.pjpeg',
+    '.pjp',
+    '.png',
+    '.svg',
+    '.webp',
+  ];
+
+  bool fileIsImage({required String fileName}) {
+    String extension = "." + fileName.split('.').last;
+    return imageExtensions.contains(extension);
+  }
 }

@@ -100,6 +100,9 @@ const Map<String, String> en = {
   LocalizationKeys.updateProfile: 'Update Profile',
   LocalizationKeys.selectFile: 'Select File',
   LocalizationKeys.selectPhoto: 'Select Photo',
+  LocalizationKeys.maxFileSizeIsTenMegabytes: 'Max file size is 10 megabytes',
+  LocalizationKeys.sorryThisFileTypeIsNotAllowed:
+      'Sorry this file type is not allowed',
 
   //-------------------------------------------------------------------------
   ///Notification
@@ -139,4 +142,7 @@ const Map<String, String> en = {
   LocalizationKeys.doYouWantToLogout: 'Do you want to logout?',
   LocalizationKeys.cancel: 'Cancel',
   LocalizationKeys.completeAllTheFields: 'Complete all the fields',
+  LocalizationKeys.somethingWentWrong: 'Something went wrong',
+  LocalizationKeys.somethingWentWrongTryAgain:
+      'Something went wrong, try again',
 };

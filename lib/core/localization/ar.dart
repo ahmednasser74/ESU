@@ -63,6 +63,10 @@ const Map<String, String> ar = {
       'يجب توقيع العقد بخط اليد وعلى جميع الصفحات!',
   LocalizationKeys.uploadCv: 'تحميل السيرة الذاتية',
   LocalizationKeys.selectFile: 'أختر الملف',
+  LocalizationKeys.maxFileSizeIsTenMegabytes:
+      'الحجم الأقصى للملف هو 10 ميغابايت',
+  LocalizationKeys.sorryThisFileTypeIsNotAllowed:
+      'عذرا، هذا النوع من الملفات غير مسموح',
 
   ///submit registration
   LocalizationKeys.submitRegistration: 'تأكيد التسجيل',
@@ -135,4 +139,6 @@ const Map<String, String> ar = {
   LocalizationKeys.cancel: 'إلغاء',
   LocalizationKeys.doYouWantToLogout: 'هل تريد تسجيل الخروج؟',
   LocalizationKeys.completeAllTheFields: 'يرجى تعبئة جميع الحقول',
+  LocalizationKeys.somethingWentWrong: 'حدث خطأ ما',
+  LocalizationKeys.somethingWentWrongTryAgain: 'حدث خطأ ما، حاول مرة اخرى',
 };

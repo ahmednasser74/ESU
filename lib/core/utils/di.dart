@@ -14,9 +14,10 @@ import 'package:boilerplate/features/auth/domin/usecases/admission_usecase.dart'
 import 'package:boilerplate/features/auth/domin/usecases/login_usecase.dart';
 import 'package:boilerplate/features/auth/domin/usecases/lookup_use_case.dart';
 import 'package:boilerplate/features/auth/presentation/controller/academic_info_controller.dart';
-import 'package:boilerplate/features/auth/presentation/controller/admission_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
+import 'package:boilerplate/features/auth/presentation/controller/personal_info_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
+import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,8 +58,8 @@ class Injection {
         loginUseCase: di(),
       ),
     );
-    di.registerFactory<AdmissionController>(
-      () => AdmissionController(
+    di.registerFactory<SubmitAdmissionController>(
+      () => SubmitAdmissionController(
         admissionUseCase: di(),
       ),
     );
@@ -67,6 +68,9 @@ class Injection {
     );
     di.registerFactory<AcademicInfoController>(
       () => AcademicInfoController(lookupUseCase: di()),
+    );
+    di.registerFactory<PersonalInfoController>(
+      () => PersonalInfoController(lookupUseCase: di()),
     );
 
     // Use cases

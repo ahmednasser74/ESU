@@ -21,7 +21,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
     return Obx(
       () => ModalProgressHUD(
         inAsyncCall: controller.getLoadingIndicator,
-        progressIndicator: LoadingIndicatorWidget(),
+        progressIndicator: const LoadingIndicatorWidget(),
         child: Scaffold(
           body: Form(
             key: controller.loginFormKey,
@@ -43,8 +43,11 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 ),
                 SizedBox(height: .02.sh),
                 Center(
-                  child: Assets.images.appIcon.image(
-                    height: .24.sh,
+                  child: Hero(
+                    tag: 'splash_tag',
+                    child: Assets.images.appIcon.image(
+                      height: .24.sh,
+                    ),
                   ),
                 ),
                 SizedBox(height: .06.sh),

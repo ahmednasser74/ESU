@@ -1,20 +1,22 @@
+import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
-import '../colors.dart';
 import '../styles.dart';
 
 class LoadingIndicatorWidget extends StatelessWidget {
+  const LoadingIndicatorWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: 100,
-      decoration: CustomStyle.containerShadowDecoration,
-      padding: const EdgeInsets.all(14),
-      child: const Center(
-        child: CircularProgressIndicator(
-          color: AppColors.primaryColor,
-        ),
+    return Center(
+      child: Container(
+        height: 100.h,
+        width: 100.w,
+        decoration: CustomStyle.containerShadowDecoration,
+        padding: const EdgeInsets.all(14),
+        child: Lottie.asset(Assets.lottie.loading),
       ),
     );
   }

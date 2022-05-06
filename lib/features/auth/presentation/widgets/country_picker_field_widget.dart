@@ -32,7 +32,7 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
           onSelect: (Country country) {
             countryNameTEC.text = country.name;
             setState(() => countryName = country.name);
-            widget.countryNameCallBack(countryName);
+            widget.countryNameCallBack(country.countryCode);
           },
         );
       },

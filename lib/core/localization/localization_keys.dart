@@ -63,6 +63,9 @@ class LocalizationKeys {
       'theContractMustBeSignedHandwrittenAndOnAllPages';
   static const String uploadCv = 'uploadCv';
   static const String selectFile = 'selectFile';
+  static const String maxFileSizeIsTenMegabytes = 'maxFileSizeIsTenMegabytes';
+  static const String sorryThisFileTypeIsNotAllowed =
+      'sorryThisFileTypeIsNotAllowed';
 
   //-------------------------------------------------------------------------
   ///submit registration
@@ -136,4 +139,6 @@ class LocalizationKeys {
   static const String cancel = 'cancel';
   static const String doYouWantToLogout = 'doYouWantToLogout';
   static const String completeAllTheFields = 'completeAllTheFields';
+  static const String somethingWentWrong = 'somethingWentWrong';
+  static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
 }

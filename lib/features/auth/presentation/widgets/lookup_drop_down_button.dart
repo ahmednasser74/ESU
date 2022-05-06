@@ -15,7 +15,7 @@ class LookupDropDownButton extends StatefulWidget {
   }) : super(key: key);
 
   final List<LookupDataResponseModel> list;
-  final void Function(String value) onChangeValue;
+  final void Function(int value) onChangeValue;
   final bool isDense;
 
   @override
@@ -23,11 +23,11 @@ class LookupDropDownButton extends StatefulWidget {
 }
 
 class _LookupDropDownButtonState extends State<LookupDropDownButton> {
-  String? dropdownValue;
+  LookupDataResponseModel? dropdownValue;
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
+    return DropdownButtonFormField<LookupDataResponseModel>(
       value: dropdownValue,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) {
@@ -45,25 +45,27 @@ class _LookupDropDownButtonState extends State<LookupDropDownButton> {
       decoration: const InputDecoration(),
       style: const TextStyle(color: AppColors.primaryColor, fontFamily: 'din'),
       onChanged: (newValue) {
-        widget.onChangeValue(newValue!);
+        widget.onChangeValue(newValue!.id);
         setState(() => dropdownValue = newValue);
       },
-      items: widget.list.map<DropdownMenuItem<String>>((value) {
-        return DropdownMenuItem<String>(
-          value: Get.locale.toString() == 'en' ? value.name : value.nameAr,
-          child: SizedBox(
-            width: .7.sw,
-            child: Text(
-              Get.locale.toString() == 'en' ? value.name : value.nameAr,
-              maxLines: 2,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'din',
+      items: widget.list.map<DropdownMenuItem<LookupDataResponseModel>>(
+        (value) {
+          return DropdownMenuItem<LookupDataResponseModel>(
+            value: value,
+            child: SizedBox(
+              width: .7.sw,
+              child: Text(
+                Get.locale.toString() == 'en' ? value.name : value.nameAr,
+                maxLines: 2,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'din',
+                ),
               ),
             ),
-          ),
-        );
-      }).toList(),
+          );
+        },
+      ).toList(),
     );
   }
 }

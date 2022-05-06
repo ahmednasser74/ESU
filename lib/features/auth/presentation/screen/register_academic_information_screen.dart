@@ -2,6 +2,7 @@ import 'package:boilerplate/core/const/list_const.dart';
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/src/widgets/error_widget.dart';
+import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/lookup_drop_down_button.dart';
@@ -16,9 +17,7 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(LocalizationKeys.academicInformation.tr),
-      ),
+      appBar: AppBar(title: Text(LocalizationKeys.academicInformation.tr)),
       body: Padding(
         padding: const EdgeInsets.all(18),
         child: Form(
@@ -29,16 +28,18 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
               children: [
                 const Spacer(),
                 TitleRequiredFieldWidget(
-                    title: LocalizationKeys.currentCertificate.tr),
+                  title: LocalizationKeys.currentCertificate.tr,
+                ),
                 TitleDropDownButton(
                   list: ListConst.certificateList,
-                  onChangeValue: (value) => print(value),
+                  onChangeValue: (value) =>
+                      controller.currentCertificate = value,
                 ),
                 SizedBox(height: 18.h),
                 TitleRequiredFieldWidget(title: LocalizationKeys.program.tr),
                 LookupDropDownButton(
                   list: state!,
-                  onChangeValue: (value) => print(value),
+                  onChangeValue: (value) => controller.programId = value,
                 ),
                 const Spacer(),
                 AppButton(
@@ -49,9 +50,7 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
               ],
             ),
             onError: (error) => AppErrorWidget(errorMessage: error),
-            onLoading: const Center(
-              child: CircularProgressIndicator(),
-            ),
+            onLoading: const LoadingIndicatorWidget(),
           ),
         ),
       ),
