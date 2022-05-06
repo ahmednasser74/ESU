@@ -16,4 +16,8 @@ class LoginDataResponseModel {
           json["student"],
         ),
       );
+  Map<String, dynamic> toJson() => {
+        "token": token,
+        "student": student.toJson(),
+      };
 }

@@ -48,7 +48,7 @@ class SharedPrefs {
 
   //----------------------------------------------------------------------
   void saveUser({required LoginDataResponseModel loginModel}) {
-    prefs?.setString(SharedPrefsKeys.user, jsonEncode(loginModel));
+    prefs?.setString(SharedPrefsKeys.user, jsonEncode(loginModel.toJson()));
   }
 
   LoginResponseModel getUser() {
