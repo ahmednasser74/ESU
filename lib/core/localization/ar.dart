@@ -27,6 +27,9 @@ const Map<String, String> ar = {
   LocalizationKeys.program: 'برنامج',
   LocalizationKeys.next: 'التالي',
   LocalizationKeys.select: 'أختر',
+  LocalizationKeys.secondarySchool: 'المدرسة الثانوية',
+  LocalizationKeys.master: 'الدراسة العليا',
+  LocalizationKeys.bachelor: 'درجة الماجستير',
 
   ///personal info
   LocalizationKeys.personalInformation: 'المعلومات الشخضية',

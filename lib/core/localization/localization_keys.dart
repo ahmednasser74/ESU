@@ -24,6 +24,9 @@ class LocalizationKeys {
   static const String program = 'program';
   static const String next = 'next';
   static const String select = 'select';
+  static const String secondarySchool = 'secondarySchool';
+  static const String master = 'master';
+  static const String bachelor = 'bachelor';
 
   //-------------------------------------------------------------------------
   ///personal info

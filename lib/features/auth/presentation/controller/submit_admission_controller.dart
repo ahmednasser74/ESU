@@ -1,3 +1,6 @@
+import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/src/routes.dart';
+import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:boilerplate/features/auth/data/model/data_holder/academic_info_data_holder_model.dart';
 import 'package:boilerplate/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
 import 'package:boilerplate/features/auth/data/model/data_holder/personal_info_data_holder_model.dart';
@@ -15,52 +18,34 @@ class SubmitAdmissionController extends GetxController {
   late AcademicInformationDataHolderModel academicInfo;
   late PersonalInformationDataHolderModel personalInfo;
   late FileUploadDataHolder fileUploadInfo;
-  RxBool isApproved = false.obs;
+  RxBool isTermsAndConditionApproved = false.obs;
   RxBool loadingIndicator = false.obs;
 
   void submitAdmission() async {
-    print('submitAdmission ${academicInfo.currentCertificate}');
-    print('submitAdmission ${academicInfo.programId}');
-    print('personalInfo.firstNameEnglish ${personalInfo.firstNameEnglish}');
-    print('personalInfo.lastNameEnglish ${personalInfo.lastNameEnglish}');
-    print('personalInfo.secondNameEnglish ${personalInfo.secondNameEnglish}');
-    print('personalInfo.firstNameArabic ${personalInfo.firstNameArabic}');
-    print('personalInfo.secondNameArabic ${personalInfo.secondNameArabic}');
-    print('personalInfo.lastNameArabic ${personalInfo.lastNameArabic}');
-    print('personalInfo.nationalPassport ${personalInfo.nationalPassport}');
-    print('personalInfo.mobileNumber ${personalInfo.mobileNumber}');
-    print('personalInfo.birthDate ${personalInfo.birthDate}');
-    print('personalInfo.gender ${personalInfo.gender}');
-    print('personalInfo.countryId ${personalInfo.countryId}');
-    print('personalInfo.nationalityId ${personalInfo.nationalityId}');
-    print('personalInfo.yourJob ${personalInfo.yourJob}');
-    print('personalInfo.yourCompany ${personalInfo.yourCompany}');
-    print('personalInfo.currentAddress ${personalInfo.currentAddress}');
-
-    // loadingIndicator.value = true;
-    // if (isApproved.value == true) {
-    //   final response = await admissionUseCase(params: requestModel());
-    //   response.fold(
-    //     (l) {
-    //       loadingIndicator.value = false;
-    //       HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong.tr);
-    //     },
-    //     (r) {
-    //       if (r.status == true) {
-    //         HelperMethod.showToast(msg: LocalizationKeys.success.tr);
-    //         loadingIndicator.value = false;
-    //       } else {
-    //         HelperMethod.showToast(
-    //           msg: LocalizationKeys.somethingWentWrongTryAgain.tr,
-    //         );
-    //       }
-    //     },
-    //   );
-    // } else {
-    //   HelperMethod.showToast(
-    //     msg: LocalizationKeys.mustToApproveOnTermsAndCondition.tr,
-    //   );
-    // }
+    if (isTermsAndConditionApproved.value == true) {
+      loadingIndicator.value = true;
+      final response = await admissionUseCase(params: requestModel());
+      response.fold(
+        (l) {
+          loadingIndicator.value = false;
+          HelperMethod.showToast(msg: l!);
+        },
+        (r) {
+          if (r.status == true) {
+            HelperMethod.showToast(msg: LocalizationKeys.success.tr);
+            loadingIndicator.value = false;
+            Get.offAllNamed(Routes.successfulAdmissionScreen);
+          } else {
+            loadingIndicator.value = false;
+            HelperMethod.showToast(msg: r.message);
+          }
+        },
+      );
+    } else {
+      HelperMethod.showToast(
+        msg: LocalizationKeys.mustToApproveOnTermsAndCondition.tr,
+      );
+    }
   }
 
   AdmissionRequestModel requestModel() {

@@ -31,9 +31,16 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
                   title: LocalizationKeys.currentCertificate.tr,
                 ),
                 TitleDropDownButton(
-                  list: ListConst.certificateList,
-                  onChangeValue: (value) =>
-                      controller.currentCertificate = value,
+                  list: ListConst().certificateList,
+                  onChangeValue: (value) {
+                    if (value == ListConst().certificateList[0]) {
+                      controller.currentCertificate = 'secondary_school';
+                    } else if (value == ListConst().certificateList[1]) {
+                      controller.currentCertificate = 'bachelor';
+                    } else {
+                      controller.currentCertificate = 'master';
+                    }
+                  },
                 ),
                 SizedBox(height: 18.h),
                 TitleRequiredFieldWidget(title: LocalizationKeys.program.tr),

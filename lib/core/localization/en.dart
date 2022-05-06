@@ -28,6 +28,9 @@ const Map<String, String> en = {
   LocalizationKeys.program: 'Program',
   LocalizationKeys.next: 'Next',
   LocalizationKeys.select: 'Select',
+  LocalizationKeys.secondarySchool: 'Secondary School',
+  LocalizationKeys.master: 'Master',
+  LocalizationKeys.bachelor: 'Bachelor\'s',
 
   //-------------------------------------------------------------------------
   ///personal info

@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/routes.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/src/widgets/file_picker_widget.dart';
 import 'package:boilerplate/core/utils/helper_methods.dart';
+import 'package:boilerplate/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
+import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,6 +18,12 @@ class RegisterFileUploadsScreen extends StatelessWidget {
   RegisterFileUploadsScreen({Key? key}) : super(key: key);
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  late File nationalPassportFile;
+  late File latestAcademicQualificationFile;
+  late File transcriptFile;
+  late File contractFile;
+  late File? cvFile;
+  late int rule;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +40,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 title: LocalizationKeys.copyOfYourIdOrPassport.tr,
               ),
               FilePickerWidget(
-                fileCallBack: (file) {},
+                fileCallBack: (file) => nationalPassportFile = file,
                 hint: ' (image or .pdf)',
                 allowToPdf: true,
                 allowToImages: true,
@@ -39,7 +49,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 title: LocalizationKeys.copyOfTheAcademicCertificate.tr,
               ),
               FilePickerWidget(
-                fileCallBack: (file) {},
+                fileCallBack: (file) => latestAcademicQualificationFile = file,
                 hint: ' (image or .pdf)',
                 allowToPdf: true,
                 allowToImages: true,
@@ -48,7 +58,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 title: LocalizationKeys.copyOfTranscript.tr,
               ),
               FilePickerWidget(
-                fileCallBack: (file) {},
+                fileCallBack: (file) => transcriptFile = file,
                 hint: ' .pdf, .doc or .docx',
                 allowToPdf: true,
                 allowToDoc: true,
@@ -92,7 +102,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               FilePickerWidget(
-                fileCallBack: (file) {},
+                fileCallBack: (file) => contractFile = file,
                 hint: ' .pdf, .doc or .docx',
                 allowToPdf: true,
                 allowToDoc: true,
@@ -104,20 +114,13 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 isRequired: false,
               ),
               FilePickerWidget(
-                fileCallBack: (file) {},
+                fileCallBack: (file) => cvFile = file,
                 fieldIsRequired: false,
                 allowToPdf: true,
               ),
               SizedBox(height: 30.h),
               AppButton(
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    print('validate');
-                  } else {
-                    print('Not validate');
-                  }
-                  Get.toNamed(Routes.submitRegistrationScreen);
-                },
+                onPressed: onTapNext,
                 title: LocalizationKeys.next.tr,
                 minimumSize: const Size(double.infinity, 30),
               ),
@@ -127,5 +130,21 @@ class RegisterFileUploadsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void onTapNext() {
+    if (formKey.currentState!.validate()) {
+      final admissionController = Get.find<SubmitAdmissionController>();
+      admissionController.fileUploadInfo = FileUploadDataHolder(
+        nationalPassportFile: nationalPassportFile,
+        latestAcademicQualificationFile: latestAcademicQualificationFile,
+        transcriptFile: transcriptFile,
+        contractFile: contractFile,
+        rule: 1,
+      );
+      Get.toNamed(Routes.submitRegistrationScreen);
+    } else {
+      HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);
+    }
   }
 }

@@ -23,13 +23,13 @@ class PersonalInfoController extends GetxController
   final yourFirstNameArController = TextEditingController(text: '');
   final yourLastNameArController = TextEditingController(text: '');
   final yourSecondNameArController = TextEditingController(text: '');
-  final birthDateController = TextEditingController(text: '');
   final phoneNumberController = TextEditingController(text: '');
   final nationalPassportController = TextEditingController(text: '');
   final genderController = TextEditingController(text: '');
   final jobController = TextEditingController(text: '');
   final companyController = TextEditingController(text: '');
   final addressController = TextEditingController(text: '');
+  late DateTime birthDateController;
   late int countryId;
   late int nationalityId;
 
@@ -64,7 +64,6 @@ class PersonalInfoController extends GetxController
     } else {
       HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);
     }
-    Get.toNamed(Routes.registerFileUploadScreen);
   }
 
   void setData() {
@@ -79,7 +78,7 @@ class PersonalInfoController extends GetxController
       lastNameArabic: yourLastNameArController.text,
       nationalPassport: nationalPassportController.text,
       mobileNumber: phoneNumberController.text,
-      birthDate: birthDateController.text,
+      birthDate: birthDateController.toIso8601String(),
       gender: genderController.text,
       countryId: countryId,
       nationalityId: nationalityId,
