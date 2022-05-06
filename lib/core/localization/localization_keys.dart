@@ -2,9 +2,11 @@ class LocalizationKeys {
   ///login
   static const String login = 'login';
   static const String userName = 'userName';
+  static const String studentId = 'studentId';
   static const String password = 'password';
   static const String doNotHaveAccount = 'doNotHaveAccount';
   static const String signUp = 'signUp';
+  static const String admission = 'admission';
   static const String emailIsRequired = 'emailIsRequired';
   static const String passwordIsRequired = 'passwordIsRequired';
   static const String atLeast8Characters = 'atleast8Characters';
@@ -61,6 +63,9 @@ class LocalizationKeys {
       'theContractMustBeSignedHandwrittenAndOnAllPages';
   static const String uploadCv = 'uploadCv';
   static const String selectFile = 'selectFile';
+  static const String maxFileSizeIsTenMegabytes = 'maxFileSizeIsTenMegabytes';
+  static const String sorryThisFileTypeIsNotAllowed =
+      'sorryThisFileTypeIsNotAllowed';
 
   //-------------------------------------------------------------------------
   ///submit registration
@@ -133,4 +138,7 @@ class LocalizationKeys {
   static const String thisFieldIsRequired = 'thisFieldIsRequired';
   static const String cancel = 'cancel';
   static const String doYouWantToLogout = 'doYouWantToLogout';
+  static const String completeAllTheFields = 'completeAllTheFields';
+  static const String somethingWentWrong = 'somethingWentWrong';
+  static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
 }

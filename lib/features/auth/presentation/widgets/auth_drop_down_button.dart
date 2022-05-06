@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';
 
-class AuthDropDownButton extends StatefulWidget {
-  const AuthDropDownButton({
+class TitleDropDownButton extends StatefulWidget {
+  const TitleDropDownButton({
     Key? key,
     required this.list,
     required this.onChangeValue,
@@ -17,10 +17,10 @@ class AuthDropDownButton extends StatefulWidget {
   final bool isDense;
 
   @override
-  State<AuthDropDownButton> createState() => _AuthDropDownButtonState();
+  State<TitleDropDownButton> createState() => _TitleDropDownButtonState();
 }
 
-class _AuthDropDownButtonState extends State<AuthDropDownButton> {
+class _TitleDropDownButtonState extends State<TitleDropDownButton> {
   String? dropdownValue;
 
   @override
@@ -41,7 +41,10 @@ class _AuthDropDownButtonState extends State<AuthDropDownButton> {
       elevation: 2,
       dropdownColor: Colors.white,
       decoration: const InputDecoration(),
-      style: const TextStyle(color: AppColors.primaryColor),
+      style: const TextStyle(
+        color: AppColors.primaryColor,
+        fontFamily: 'din',
+      ),
       onChanged: (newValue) {
         widget.onChangeValue(newValue!);
         setState(() => dropdownValue = newValue);
@@ -54,7 +57,10 @@ class _AuthDropDownButtonState extends State<AuthDropDownButton> {
             child: Text(
               value,
               maxLines: 2,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'din',
+              ),
             ),
           ),
         );

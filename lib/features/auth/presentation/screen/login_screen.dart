@@ -21,12 +21,12 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
     return Obx(
       () => ModalProgressHUD(
         inAsyncCall: controller.getLoadingIndicator,
-        progressIndicator: LoadingIndicatorWidget(),
+        progressIndicator: const LoadingIndicatorWidget(),
         child: Scaffold(
           body: Form(
             key: controller.loginFormKey,
             child: ListView(
-              padding: EdgeInsets.only(top: .06.sh, left: 10, right: 10),
+              padding: EdgeInsets.only(top: .06.sh, left: 18, right: 18),
               children: [
                 Align(
                   alignment: AlignmentDirectional.topEnd,
@@ -43,18 +43,20 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 ),
                 SizedBox(height: .02.sh),
                 Center(
-                  child: Assets.images.appIcon.image(
-                    height: .24.sh,
+                  child: Hero(
+                    tag: 'splash_tag',
+                    child: Assets.images.appIcon.image(
+                      height: .24.sh,
+                    ),
                   ),
                 ),
                 SizedBox(height: .06.sh),
                 Column(
                   children: [
                     AppTextFieldWidget(
-                      controller: controller.userNameTEC,
-                      labelText: LocalizationKeys.userName.tr,
+                      controller: controller.studentIdTEC,
+                      labelText: LocalizationKeys.studentId.tr,
                       inputType: TextInputType.text,
-                      validator: emailValidator,
                       prefixIcon: const Icon(
                         Icons.person_outline,
                         color: AppColors.primaryColor,
@@ -64,7 +66,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     AppTextFieldWidget(
                       controller: controller.passwordTEC,
                       labelText: LocalizationKeys.password.tr,
-                      validator: passwordValidator,
+                      // validator: passwordValidator,
                       inputType: TextInputType.visiblePassword,
                       obscureText: true,
                       prefixIcon: const Icon(
@@ -77,15 +79,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 SizedBox(height: .04.sh),
                 AppButton(
                   title: LocalizationKeys.login.tr,
-                  onPressed: () {
-                    // if (controller.loginFormKey.currentState!.validate()) {
-                    //   HelperMethod.showToast(msg: 'validate');
-                    // } else {
-                    //   HelperMethod.showToast(msg: 'not valid');
-                    // }
-                    controller.login();
-                    Get.toNamed(Routes.homeScreen);
-                  },
+                  onPressed: controller.login,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: .08.sh),
@@ -102,7 +96,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                       ),
                       children: [
                         TextSpan(
-                          text: LocalizationKeys.signUp.tr,
+                          text: LocalizationKeys.admission.tr,
                           style: const TextStyle(
                             color: AppColors.primaryColor,
                             fontFamily: 'din',

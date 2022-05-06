@@ -1,30 +1,25 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
 
 abstract class AuthLocalDataSource {
-  Future<bool> saveUserToken(String userToken);
-  Future<String?> getUserToken();
-  Future<bool> deleteUserToken();
-}
+  void saveUserToken(String userToken);
 
-const prefsUserToken = 'prefsUserToken';
+  String? getUserToken();
+
+  void clearCache();
+}
 
 class AuthLocalDataSourceImp implements AuthLocalDataSource {
   const AuthLocalDataSourceImp({required this.sharedPreferences});
 
-  final SharedPreferences sharedPreferences;
+  final SharedPrefs sharedPreferences;
 
   @override
-  Future<bool> saveUserToken(String userToken) {
-    return sharedPreferences.setString(prefsUserToken, userToken);
-  }
+  void saveUserToken(String userToken) =>
+      sharedPreferences.saveToken(token: userToken);
 
   @override
-  Future<String?> getUserToken() async {
-    return sharedPreferences.getString(prefsUserToken);
-  }
+  String? getUserToken() => sharedPreferences.getToken();
 
   @override
-  Future<bool> deleteUserToken() async {
-    return await sharedPreferences.remove(prefsUserToken);
-  }
+  void clearCache() => sharedPreferences.removeAllKeys();
 }

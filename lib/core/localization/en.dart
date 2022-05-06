@@ -6,8 +6,10 @@ const Map<String, String> en = {
   LocalizationKeys.login: "Login",
   LocalizationKeys.password: "Password",
   LocalizationKeys.userName: "User name",
+  LocalizationKeys.studentId: "Student ID",
   LocalizationKeys.doNotHaveAccount: "Don't have an account ?\n",
   LocalizationKeys.signUp: "SignUp!",
+  LocalizationKeys.admission: "Admission",
   LocalizationKeys.emailIsRequired: "Email is required",
   LocalizationKeys.passwordIsRequired: "Password is required",
   LocalizationKeys.passwordMustContain:
@@ -98,6 +100,9 @@ const Map<String, String> en = {
   LocalizationKeys.updateProfile: 'Update Profile',
   LocalizationKeys.selectFile: 'Select File',
   LocalizationKeys.selectPhoto: 'Select Photo',
+  LocalizationKeys.maxFileSizeIsTenMegabytes: 'Max file size is 10 megabytes',
+  LocalizationKeys.sorryThisFileTypeIsNotAllowed:
+      'Sorry this file type is not allowed',
 
   //-------------------------------------------------------------------------
   ///Notification
@@ -136,4 +141,8 @@ const Map<String, String> en = {
   LocalizationKeys.thisFieldIsRequired: 'This field is required',
   LocalizationKeys.doYouWantToLogout: 'Do you want to logout?',
   LocalizationKeys.cancel: 'Cancel',
+  LocalizationKeys.completeAllTheFields: 'Complete all the fields',
+  LocalizationKeys.somethingWentWrong: 'Something went wrong',
+  LocalizationKeys.somethingWentWrongTryAgain:
+      'Something went wrong, try again',
 };

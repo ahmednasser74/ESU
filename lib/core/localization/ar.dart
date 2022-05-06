@@ -5,8 +5,10 @@ const Map<String, String> ar = {
   LocalizationKeys.login: "تسجل الدخول",
   LocalizationKeys.password: "كلمة السر",
   LocalizationKeys.userName: "أسم المستخدم",
+  LocalizationKeys.studentId: "رقم الطالب",
   LocalizationKeys.doNotHaveAccount: "ليس لديك حساب ؟\n",
   LocalizationKeys.signUp: "انشاء حساب",
+  LocalizationKeys.admission: "التقديم",
   LocalizationKeys.emailIsRequired: "البريد الإلكتروني مطلوب",
   LocalizationKeys.passwordIsRequired: "كلمة السر مطلوبة",
   LocalizationKeys.passwordMustContain:
@@ -61,6 +63,10 @@ const Map<String, String> ar = {
       'يجب توقيع العقد بخط اليد وعلى جميع الصفحات!',
   LocalizationKeys.uploadCv: 'تحميل السيرة الذاتية',
   LocalizationKeys.selectFile: 'أختر الملف',
+  LocalizationKeys.maxFileSizeIsTenMegabytes:
+      'الحجم الأقصى للملف هو 10 ميغابايت',
+  LocalizationKeys.sorryThisFileTypeIsNotAllowed:
+      'عذرا، هذا النوع من الملفات غير مسموح',
 
   ///submit registration
   LocalizationKeys.submitRegistration: 'تأكيد التسجيل',
@@ -132,4 +138,7 @@ const Map<String, String> ar = {
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',
   LocalizationKeys.cancel: 'إلغاء',
   LocalizationKeys.doYouWantToLogout: 'هل تريد تسجيل الخروج؟',
+  LocalizationKeys.completeAllTheFields: 'يرجى تعبئة جميع الحقول',
+  LocalizationKeys.somethingWentWrong: 'حدث خطأ ما',
+  LocalizationKeys.somethingWentWrongTryAgain: 'حدث خطأ ما، حاول مرة اخرى',
 };

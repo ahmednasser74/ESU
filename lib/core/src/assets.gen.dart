@@ -10,6 +10,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/add_file.png
+  AssetGenImage get addFile => const AssetGenImage('assets/icons/add_file.png');
+
   /// File path: assets/icons/add_image.png
   AssetGenImage get addImage => const AssetGenImage('assets/icons/add_image.png');
 
@@ -63,11 +66,25 @@ class $AssetsImagesGen {
   AssetGenImage get esuTitleLogo => const AssetGenImage('assets/images/esu_title_logo.png');
 }
 
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/error.json
+  String get error => 'assets/lottie/error.json';
+
+  /// File path: assets/lottie/loading.json
+  String get loading => 'assets/lottie/loading.json';
+
+  /// File path: assets/lottie/no_internet.json
+  String get noInternet => 'assets/lottie/no_internet.json';
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class AssetGenImage extends AssetImage {

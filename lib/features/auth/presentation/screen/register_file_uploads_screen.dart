@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class RegisterFileUploadsScreen extends StatelessWidget {
   RegisterFileUploadsScreen({Key? key}) : super(key: key);
 
@@ -28,15 +29,31 @@ class RegisterFileUploadsScreen extends StatelessWidget {
               TitleRequiredFieldWidget(
                 title: LocalizationKeys.copyOfYourIdOrPassport.tr,
               ),
-              FilePickerWidget(fileCallBack: (file) {}),
+              FilePickerWidget(
+                fileCallBack: (file) {},
+                hint: ' (image or .pdf)',
+                allowToPdf: true,
+                allowToImages: true,
+              ),
               TitleRequiredFieldWidget(
                 title: LocalizationKeys.copyOfTheAcademicCertificate.tr,
               ),
-              FilePickerWidget(fileCallBack: (file) {}),
+              FilePickerWidget(
+                fileCallBack: (file) {},
+                hint: ' (image or .pdf)',
+                allowToPdf: true,
+                allowToImages: true,
+              ),
               TitleRequiredFieldWidget(
                 title: LocalizationKeys.copyOfTranscript.tr,
               ),
-              FilePickerWidget(fileCallBack: (file) {}),
+              FilePickerWidget(
+                fileCallBack: (file) {},
+                hint: ' .pdf, .doc or .docx',
+                allowToPdf: true,
+                allowToDoc: true,
+                allowToDocx: true,
+              ),
               TitleRequiredFieldWidget(
                 title: LocalizationKeys
                     .copyOfTheStudentsContractWithTheUniversity.tr,
@@ -74,10 +91,23 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 style: const TextStyle(color: Colors.red, fontSize: 13),
               ),
               const SizedBox(height: 8),
-              FilePickerWidget(fileCallBack: (file) {}),
+              FilePickerWidget(
+                fileCallBack: (file) {},
+                hint: ' .pdf, .doc or .docx',
+                allowToPdf: true,
+                allowToDoc: true,
+                allowToDocx: true,
+              ),
               const SizedBox(height: 8),
-              TitleRequiredFieldWidget(title: LocalizationKeys.uploadCv.tr),
-              FilePickerWidget(fileCallBack: (file) {}),
+              TitleRequiredFieldWidget(
+                title: LocalizationKeys.uploadCv.tr,
+                isRequired: false,
+              ),
+              FilePickerWidget(
+                fileCallBack: (file) {},
+                fieldIsRequired: false,
+                allowToPdf: true,
+              ),
               SizedBox(height: 30.h),
               AppButton(
                 onPressed: () {

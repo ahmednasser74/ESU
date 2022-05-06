@@ -1,32 +1,26 @@
 import 'package:boilerplate/core/localization/translation_controller.dart';
+import 'package:boilerplate/core/src/routes.dart';
+import 'package:boilerplate/core/utils/helper_methods.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:boilerplate/features/auth/data/model/request/login/login_request_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/usecases/usecase.dart';
-import '../../domin/usecases/is_online_usecase.dart';
 import '../../domin/usecases/login_usecase.dart';
-import '../../domin/usecases/logout_usecase.dart';
 
 class LoginController extends GetxController {
-  final TextEditingController userNameTEC = TextEditingController(text: ''),
-      passwordTEC = TextEditingController(text: '');
-  GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  LoginController({required this.loginUseCase});
 
   final LoginUseCase loginUseCase;
-  final LogoutUseCase logoutUseCase;
-  final IsOnlineUseCase isOnlineUseCase;
-  final RxBool _loadingIndicator = false.obs;
-  TranslationController? translateController;
 
-  LoginController({
-    required this.loginUseCase,
-    required this.logoutUseCase,
-    required this.isOnlineUseCase,
-  });
+  final TextEditingController studentIdTEC = TextEditingController(text: ''),
+      passwordTEC = TextEditingController(text: '');
+  final loginFormKey = GlobalKey<FormState>();
+
+  TranslationController? translateController;
+  final RxBool _loadingIndicator = false.obs;
 
   get getLoadingIndicator => _loadingIndicator.value;
-
-  Future<bool> get isOnline async => isOnlineUseCase(params: NoParams());
 
   @override
   void onInit() async {
@@ -37,36 +31,29 @@ class LoginController extends GetxController {
   }
 
   Future<void> login() async {
-    final isOnline = await isOnlineUseCase(params: NoParams());
-    if (isOnline) {
-      final isValid = loginFormKey.currentState?.validate() ?? false;
-      if (isValid) {
-        _loadingIndicator.value = true;
-        try {
-          final params = LoginParams(
-            userName: userNameTEC.text,
-            password: passwordTEC.text,
-          );
-          await loginUseCase(params: params);
-          Get.offNamed('');
-          _loadingIndicator.value = false;
-        } catch (e) {
-          _loadingIndicator.value = false;
-        }
-      }
+    final isValid = loginFormKey.currentState?.validate() ?? false;
+    if (!isValid) {
+      HelperMethod.showToast(msg: 'Complete the form');
     } else {
-      print('network disconnected');
-    }
-  }
-
-  Future<void> logout() async {
-    if (await isOnline) {
-      final isLogout = await logoutUseCase(params: NoParams());
-      if (isLogout) {
-        Get.offAllNamed('');
-      }
-    } else {
-      Get.toNamed('');
+      _loadingIndicator.value = true;
+      final params = LoginRequestModel(
+        studentId: studentIdTEC.text,
+        password: passwordTEC.text,
+      );
+      final response = await loginUseCase(params: params);
+      response.fold(
+        (l) => HelperMethod.showToast(msg: l ?? 'Something went wrong'),
+        (r) {
+          if (r.status == true) {
+            SharedPrefs.instance.saveToken(token: r.data!.token);
+            SharedPrefs.instance.saveUser(loginModel: r.data!);
+            Get.offNamed(Routes.homeScreen);
+          } else {
+            HelperMethod.showToast(msg: r.message!);
+          }
+        },
+      );
+      _loadingIndicator.value = false;
     }
   }
 
