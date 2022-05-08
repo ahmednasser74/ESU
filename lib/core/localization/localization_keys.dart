@@ -127,6 +127,8 @@ class LocalizationKeys {
   static const String letters = 'letters';
   static const String englishVersion = 'englishVersion';
   static const String arabicVersion = 'arabicVersion';
+  static const String noLettersFound = 'noLettersFound';
+  static const String letterPdfViewer = 'letterPdfViewer';
 
   //-------------------------------------------------------------------------
   ///Transcript
@@ -135,6 +137,7 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///Settings
   static const String settings = 'settings';
+  static const String language = 'language';
 
   //-------------------------------------------------------------------------
   ///study plans

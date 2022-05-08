@@ -127,6 +127,8 @@ const Map<String, String> ar = {
   LocalizationKeys.letters: 'الخطابات',
   LocalizationKeys.englishVersion: 'النسخة الانجليزية',
   LocalizationKeys.arabicVersion: 'النسخة العربية',
+  LocalizationKeys.noLettersFound: 'لا يوجد خطابات',
+  LocalizationKeys.letterPdfViewer: 'مستعرض الخطابات',
 
   //-------------------------------------------------------------------------
   ///Transcript
@@ -135,6 +137,7 @@ const Map<String, String> ar = {
   //-------------------------------------------------------------------------
   ///Settings
   LocalizationKeys.settings: 'الإعدادات',
+  LocalizationKeys.language: 'اللغة',
 
   //-------------------------------------------------------------------------
   ///study plans

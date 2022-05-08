@@ -130,6 +130,8 @@ const Map<String, String> en = {
   LocalizationKeys.letters: 'Letters',
   LocalizationKeys.englishVersion: 'English Version',
   LocalizationKeys.arabicVersion: 'Arabic Version',
+  LocalizationKeys.noLettersFound: 'No Letters Found',
+  LocalizationKeys.letterPdfViewer: 'Letter Pdf Viewer',
 
   //-------------------------------------------------------------------------
   ///Transcript
@@ -138,6 +140,7 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///Settings
   LocalizationKeys.settings: 'Settings',
+  LocalizationKeys.language: 'Language',
 
   //-------------------------------------------------------------------------
   ///study plans
