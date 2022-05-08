@@ -112,6 +112,7 @@ class LocalizationKeys {
   static const String unread = 'unread';
   static const String read = 'read';
   static const String neww = 'new';
+  static const String markAllAsRead = 'markAllAsRead';
 
   //-------------------------------------------------------------------------
   ///Finance
@@ -136,6 +137,10 @@ class LocalizationKeys {
   static const String settings = 'settings';
 
   //-------------------------------------------------------------------------
+  ///study plans
+  static const String studyPlans = 'studyPlans';
+
+  //-------------------------------------------------------------------------
   ///global
   static const String logout = 'logout';
   static const String thisFieldIsRequired = 'thisFieldIsRequired';
@@ -144,4 +149,5 @@ class LocalizationKeys {
   static const String completeAllTheFields = 'completeAllTheFields';
   static const String somethingWentWrong = 'somethingWentWrong';
   static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
+  static const String hello = 'hello';
 }

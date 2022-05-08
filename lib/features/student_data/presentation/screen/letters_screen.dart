@@ -1,10 +1,11 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/features/home/presentation/widgets/letter_item_widget.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/widgets/letter_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class LettersScreen extends StatelessWidget {
+class LettersScreen extends GetView<LettersController> {
   const LettersScreen({Key? key}) : super(key: key);
 
   @override

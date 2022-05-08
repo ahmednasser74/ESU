@@ -2,6 +2,7 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/routes.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:boilerplate/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,13 +42,17 @@ class DrawerWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10.h),
-              const Text(
-                'Hello',
-                style: TextStyle(color: Colors.white),
-              ),
               Text(
-                'Ahmed Nasser',
-                style: TextStyle(color: Colors.white, fontSize: 18.sp),
+                LocalizationKeys.hello.tr,
+                style: const TextStyle(color: Colors.white),
+              ),
+              SizedBox(height: 6.h),
+              Text(
+                Get.locale.toString() == 'en'
+                    ? SharedPrefs.instance.getUser().student.nameEn
+                    : SharedPrefs.instance.getUser().student.nameAr,
+                style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                textAlign: TextAlign.center,
               )
             ],
           ),
@@ -111,6 +116,17 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             ListTile(
+              title: Text(LocalizationKeys.studyPlans.tr),
+              leading: Assets.icons.studyPlan.image(
+                color: AppColors.primaryColor,
+                height: 20.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.studyPlanScreen);
+              },
+            ),
+            ListTile(
               title: Text(LocalizationKeys.settings.tr),
               leading: Assets.icons.settingIcon.image(
                 color: AppColors.primaryColor,
@@ -129,9 +145,11 @@ class DrawerWidget extends StatelessWidget {
               ),
               onTap: () {
                 Get.back();
-                // Navigator.pushReplacement(context, MaterialPageRoute(builder:  (context) => LoginScreen()));
                 LogoutDialog(
-                  onTapLogout: () => Get.offAllNamed(Routes.loginScreen),
+                  onTapLogout: () {
+                    SharedPrefs.instance.removeAllKeys();
+                    Get.offAllNamed(Routes.loginScreen);
+                  },
                 ).show(context);
               },
             ),
