@@ -10,6 +10,7 @@ import 'package:boilerplate/features/home/presentation/screens/notification_scre
 import 'package:boilerplate/features/home/presentation/screens/profile_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/setting_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/letters_screen.dart';
+import 'package:boilerplate/features/student_data/presentation/screen/study_plans_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/transcript_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -29,6 +30,7 @@ class Routes {
       transcriptScreen = '/transcriptScreen',
       settingsScreen = '/settingsScreen',
       successfulAdmissionScreen = '/successfulAdmissionScreen',
+      studyPlanScreen = '/studyPlanScreen',
       registerPersonalInfo = '/registerPersonalInfo';
 
   static List<GetPage> setScreens() {
@@ -62,6 +64,7 @@ class Routes {
         name: successfulAdmissionScreen,
         page: () => const SuccessfulAdmissionScreen(),
       ),
+      GetPage(name: studyPlanScreen, page: () => const StudyPlansScreen()),
     ];
   }
 }

@@ -137,6 +137,10 @@ const Map<String, String> ar = {
   LocalizationKeys.settings: 'الإعدادات',
 
   //-------------------------------------------------------------------------
+  ///study plans
+  LocalizationKeys.studyPlans: 'خطط الدراسة',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'تسجيل الخروج',
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',
@@ -145,4 +149,5 @@ const Map<String, String> ar = {
   LocalizationKeys.completeAllTheFields: 'يرجى تعبئة جميع الحقول',
   LocalizationKeys.somethingWentWrong: 'حدث خطأ ما',
   LocalizationKeys.somethingWentWrongTryAgain: 'حدث خطأ ما، حاول مرة اخرى',
+  LocalizationKeys.hello: 'مرحبا',
 };

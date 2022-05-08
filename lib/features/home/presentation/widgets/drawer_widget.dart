@@ -42,13 +42,17 @@ class DrawerWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10.h),
-              const Text(
-                'Hello',
-                style: TextStyle(color: Colors.white),
-              ),
               Text(
-                'Ahmed Nasser',
-                style: TextStyle(color: Colors.white, fontSize: 18.sp),
+                LocalizationKeys.hello.tr,
+                style: const TextStyle(color: Colors.white),
+              ),
+              SizedBox(height: 6.h),
+              Text(
+                Get.locale.toString() == 'en'
+                    ? SharedPrefs.instance.getUser().student.nameEn
+                    : SharedPrefs.instance.getUser().student.nameAr,
+                style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                textAlign: TextAlign.center,
               )
             ],
           ),
@@ -109,6 +113,17 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
                 Get.toNamed(Routes.transcriptScreen);
+              },
+            ),
+            ListTile(
+              title: Text(LocalizationKeys.studyPlans.tr),
+              leading: Assets.icons.studyPlan.image(
+                color: AppColors.primaryColor,
+                height: 20.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.studyPlanScreen);
               },
             ),
             ListTile(

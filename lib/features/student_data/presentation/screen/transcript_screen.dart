@@ -21,19 +21,6 @@ class TranscriptScreen extends GetView<TranscriptController> {
         controller: controller.pdfViewerController,
         headers: controller.headers,
       ),
-      // body: Column(
-      //   children: [
-      //     Expanded(
-      //       child: ListView.separated(
-      //         itemCount: 10,
-      //         padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 6.h),
-      //         separatorBuilder: (context, index) => SizedBox(height: 12.h),
-      //         itemBuilder: (context, index) =>
-      //             TranscriptItemWidget(index: index),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

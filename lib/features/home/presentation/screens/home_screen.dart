@@ -30,13 +30,6 @@ class HomeScreen extends StatelessWidget {
             ),
             onPressed: () => Get.toNamed(Routes.notificationScreen),
           ),
-          IconButton(
-            icon: Assets.icons.profileIcon.image(
-              color: AppColors.primaryColor,
-              height: 18.h,
-            ),
-            onPressed: () => Get.toNamed(Routes.profileScreen),
-          ),
         ],
       ),
       drawer: const Drawer(child: DrawerWidget()),

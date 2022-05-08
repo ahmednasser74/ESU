@@ -4,8 +4,8 @@ import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TranscriptItemWidget extends StatelessWidget {
-  const TranscriptItemWidget({
+class StudyPlanstItemWidget extends StatelessWidget {
+  const StudyPlanstItemWidget({
     Key? key,
     required this.index,
   }) : super(key: key);

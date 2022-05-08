@@ -21,6 +21,7 @@ import 'package:boilerplate/features/auth/presentation/controller/submit_admissi
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -120,6 +121,7 @@ class Injection {
     di.registerFactory<LettersController>(() => LettersController());
     di.registerFactory<TranscriptController>(() => TranscriptController());
     di.registerFactory<FinanceController>(() => FinanceController());
+    di.registerFactory<StudyPlansController>(() => StudyPlansController());
   }
 
   static void _dioHelper() {

@@ -52,6 +52,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/setting_icon.png
   AssetGenImage get settingIcon => const AssetGenImage('assets/icons/setting_icon.png');
 
+  /// File path: assets/icons/study_plan.png
+  AssetGenImage get studyPlan => const AssetGenImage('assets/icons/study_plan.png');
+
   /// File path: assets/icons/transcript_icon.png
   AssetGenImage get transcriptIcon => const AssetGenImage('assets/icons/transcript_icon.png');
 }

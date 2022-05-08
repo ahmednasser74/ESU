@@ -140,6 +140,10 @@ const Map<String, String> en = {
   LocalizationKeys.settings: 'Settings',
 
   //-------------------------------------------------------------------------
+  ///study plans
+  LocalizationKeys.studyPlans: 'Study Plans',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',
@@ -149,4 +153,5 @@ const Map<String, String> en = {
   LocalizationKeys.somethingWentWrong: 'Something went wrong',
   LocalizationKeys.somethingWentWrongTryAgain:
       'Something went wrong, try again',
+  LocalizationKeys.hello: 'Hello',
 };

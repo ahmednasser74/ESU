@@ -8,6 +8,7 @@ import 'package:boilerplate/features/auth/presentation/controller/submit_admissi
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get/get.dart';
 
@@ -38,5 +39,6 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<LettersController>(), fenix: true);
     Get.lazyPut(() => Injection.di<TranscriptController>(), fenix: true);
     Get.lazyPut(() => Injection.di<FinanceController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<StudyPlansController>(), fenix: true);
   }
 }

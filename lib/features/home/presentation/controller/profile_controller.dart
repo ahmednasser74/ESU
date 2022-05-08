@@ -26,9 +26,7 @@ class ProfileController extends GetxController with FileProperties {
     nationalPassportController.text = student.nationalPassport;
     mobileController.text = student.mobile;
     emailController.text = student.email;
-    photoUrl =
-        'https://turbo-shipping.turbo-eg.com/assets/admin/images/portrait/small/avatar-s-11.jpg';
-    // photoUrl = student.photo;
+    photoUrl = student.photo;
   }
 
   Future<void> pickPhoto({required ImageSource source}) async {
