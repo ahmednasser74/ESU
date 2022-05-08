@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:image_picker/image_picker.dart';
 
 mixin FileProperties {
   Future<File?> pickedFile() async {
@@ -55,5 +56,17 @@ mixin FileProperties {
   bool fileIsImage({required String fileName}) {
     String extension = "." + fileName.split('.').last;
     return imageExtensions.contains(extension);
+  }
+
+  Future<String?> pickedImage({required ImageSource source}) async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: source,
+      imageQuality: 50,
+    );
+    if (pickedFile == null) {
+      return null;
+    }
+    final path = pickedFile.path;
+    return path;
   }
 }

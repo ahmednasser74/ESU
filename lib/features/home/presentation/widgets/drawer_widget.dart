@@ -2,6 +2,7 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/routes.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:boilerplate/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -129,9 +130,11 @@ class DrawerWidget extends StatelessWidget {
               ),
               onTap: () {
                 Get.back();
-                // Navigator.pushReplacement(context, MaterialPageRoute(builder:  (context) => LoginScreen()));
                 LogoutDialog(
-                  onTapLogout: () => Get.offAllNamed(Routes.loginScreen),
+                  onTapLogout: () {
+                    SharedPrefs.instance.removeAllKeys();
+                    Get.offAllNamed(Routes.loginScreen);
+                  },
                 ).show(context);
               },
             ),

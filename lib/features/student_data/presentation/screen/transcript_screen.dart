@@ -1,10 +1,11 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/features/home/presentation/widgets/transcript_item_widget.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/widgets/transcript_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class TranscriptScreen extends StatelessWidget {
+class TranscriptScreen extends GetView<TranscriptController> {
   const TranscriptScreen({Key? key}) : super(key: key);
 
   @override

@@ -1,5 +1,4 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/features/home/presentation/widgets/notification_filter_widget.dart';
 import 'package:boilerplate/features/home/presentation/widgets/notification_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,15 +13,25 @@ class NotificationScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(LocalizationKeys.notification.tr),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: Text(LocalizationKeys.markAllAsRead.tr),
+        icon: const Icon(Icons.check),
+      ),
       body: Column(
         children: [
-          NotificationFilterWidget(
-            onChange: (value) {},
-          ),
+          // NotificationFilterWidget(
+          //   onChange: (value) {},
+          // ),
           Expanded(
             child: ListView.separated(
-              itemCount: 10,
-              padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+              itemCount: 18,
+              padding: EdgeInsetsDirectional.only(
+                start: 18.w,
+                end: 18.w,
+                top: 14.h,
+                bottom: .1.sh,
+              ),
               separatorBuilder: (context, index) => SizedBox(height: 14.h),
               itemBuilder: (context, index) => const NotificationItemWidget(),
             ),

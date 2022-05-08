@@ -112,6 +112,7 @@ class LocalizationKeys {
   static const String unread = 'unread';
   static const String read = 'read';
   static const String neww = 'new';
+  static const String markAllAsRead = 'markAllAsRead';
 
   //-------------------------------------------------------------------------
   ///Finance

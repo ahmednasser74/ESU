@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:boilerplate/core/const/shared_prefs_keys.dart';
 import 'package:boilerplate/features/auth/data/model/response/login/login_data_response_model.dart';
-import 'package:boilerplate/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
@@ -51,8 +50,8 @@ class SharedPrefs {
     prefs?.setString(SharedPrefsKeys.user, jsonEncode(loginModel.toJson()));
   }
 
-  LoginResponseModel getUser() {
-    return LoginResponseModel.fromJson(
+  LoginDataResponseModel getUser() {
+    return LoginDataResponseModel.fromJson(
       jsonDecode(prefs?.getString(SharedPrefsKeys.user) ?? ''),
     );
   }

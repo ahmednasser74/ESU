@@ -56,7 +56,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     AppTextFieldWidget(
                       controller: controller.studentIdTEC,
                       labelText: LocalizationKeys.studentId.tr,
-                      inputType: TextInputType.text,
+                      inputType: TextInputType.number,
                       prefixIcon: const Icon(
                         Icons.person_outline,
                         color: AppColors.primaryColor,

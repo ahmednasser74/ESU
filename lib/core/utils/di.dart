@@ -18,6 +18,10 @@ import 'package:boilerplate/features/auth/presentation/controller/login_controll
 import 'package:boilerplate/features/auth/presentation/controller/personal_info_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
+import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,6 +33,8 @@ class Injection {
     await _core();
     _authCycle();
     _dioHelper();
+    _homeCycle();
+    _studentDataCycle();
   }
 
   static Future<void> _core() async {
@@ -102,6 +108,18 @@ class Injection {
     di.registerLazySingleton<NetworkInformation>(
       () => NetworkInformationImp(internetConnectionChecker: di()),
     );
+  }
+
+  static void _homeCycle() {
+    // Controller
+    di.registerFactory<ProfileController>(() => ProfileController());
+  }
+
+  static void _studentDataCycle() {
+    // Controller
+    di.registerFactory<LettersController>(() => LettersController());
+    di.registerFactory<TranscriptController>(() => TranscriptController());
+    di.registerFactory<FinanceController>(() => FinanceController());
   }
 
   static void _dioHelper() {
