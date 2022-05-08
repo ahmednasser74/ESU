@@ -1,4 +1,6 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/src/widgets/error_widget.dart';
+import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/widgets/letter_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +14,18 @@ class LettersScreen extends GetView<LettersController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(LocalizationKeys.letters.tr)),
-      body: ListView.separated(
-        itemCount: 10,
-        padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 6.h),
-        separatorBuilder: (context, index) => SizedBox(height: 14.h),
-        itemBuilder: (context, index) => const LetterItemWidget(),
+      body: controller.obx(
+        (list) => ListView.separated(
+          itemCount: list?.length ?? 0,
+          padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 6.h),
+          separatorBuilder: (context, index) => SizedBox(height: 14.h),
+          itemBuilder: (context, index) => LetterItemWidget(
+            letter: list!.elementAt(index),
+          ),
+        ),
+        onError: (e) => AppErrorWidget(errorMessage: e),
+        onLoading: const LoadingIndicatorWidget(),
+        onEmpty: Text(LocalizationKeys.noLettersFound.tr),
       ),
     );
   }
