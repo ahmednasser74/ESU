@@ -137,6 +137,7 @@ const Map<String, String> ar = {
   //-------------------------------------------------------------------------
   ///Settings
   LocalizationKeys.settings: 'الإعدادات',
+  LocalizationKeys.language: 'اللغة',
 
   //-------------------------------------------------------------------------
   ///study plans

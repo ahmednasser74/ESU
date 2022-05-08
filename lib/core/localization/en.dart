@@ -140,6 +140,7 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///Settings
   LocalizationKeys.settings: 'Settings',
+  LocalizationKeys.language: 'Language',
 
   //-------------------------------------------------------------------------
   ///study plans

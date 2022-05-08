@@ -1,4 +1,5 @@
 import 'package:boilerplate/core/dio/dio_request_handling.dart';
+import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:boilerplate/features/auth/presentation/screen/login_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/home_screen.dart';
@@ -11,6 +12,7 @@ class SplashController extends GetxController {
     super.onInit();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       Get.find<DioRequestHandlingController>();
+      Get.find<TranslationController>();
     });
     Future.delayed(const Duration(seconds: 1), splashNavigation);
   }

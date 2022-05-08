@@ -19,6 +19,7 @@ import 'package:boilerplate/features/auth/presentation/controller/personal_info_
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
+import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
 import 'package:boilerplate/features/student_data/data/datasource/student_data_remote_data_source.dart';
 import 'package:boilerplate/features/student_data/data/repository/student_data_repository_imp.dart';
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
@@ -120,6 +121,7 @@ class Injection {
   static void _homeCycle() {
     // Controller
     di.registerFactory<ProfileController>(() => ProfileController());
+    di.registerFactory<SettingController>(() => SettingController());
   }
 
   static void _studentDataCycle() {

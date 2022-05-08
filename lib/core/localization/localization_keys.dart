@@ -137,6 +137,7 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///Settings
   static const String settings = 'settings';
+  static const String language = 'language';
 
   //-------------------------------------------------------------------------
   ///study plans
