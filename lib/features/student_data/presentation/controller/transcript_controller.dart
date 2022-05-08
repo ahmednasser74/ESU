@@ -1,5 +1,3 @@
 import 'package:get/get.dart';
 
-class TranscriptController extends GetxController{
-
-}
+class TranscriptController extends GetxController {}
