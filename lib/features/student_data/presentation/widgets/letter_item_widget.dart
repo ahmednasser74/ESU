@@ -44,8 +44,9 @@ class LetterItemWidget extends StatelessWidget {
             children: [
               Expanded(
                 child: AppButton(
-                  onPressed: () =>
-                      Get.to(LetterPdfViewerScreen(id: letter.id, lang: 'en')),
+                  onPressed: () => Get.to(
+                    LetterPdfViewerScreen(id: letter.id, lang: 'en'),
+                  ),
                   child: Row(
                     children: [
                       Assets.icons.pdf.image(height: 20.h),

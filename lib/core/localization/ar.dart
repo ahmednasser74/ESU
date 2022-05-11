@@ -113,6 +113,8 @@ const Map<String, String> ar = {
   LocalizationKeys.neww: 'جديد',
   LocalizationKeys.filterByType: 'تصفية حسب النوع',
   LocalizationKeys.markAllAsRead: 'تحديد الكل كمقروء',
+  LocalizationKeys.failedMarkAllAsRead: 'فشلت عملية تحديد الكل كمقروء',
+  LocalizationKeys.successMarkAllAsRead: 'تم تحديد الكل كمقروء',
 
   //-------------------------------------------------------------------------
   ///Finance

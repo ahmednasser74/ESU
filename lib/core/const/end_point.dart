@@ -1,5 +1,5 @@
- class Endpoints {
-  static const String baseUrl = 'https://sisv2.esu.ac.ae/api/';
+class Endpoints {
+  static const String baseUrl = 'https://sis.esu.ac.ae/api/';
 
 //-----------------------------------------------------------------------
   ///Auth
@@ -16,12 +16,11 @@
   ///notifications
   static const String notification = 'notifications/all';
   static const String updateNewToUnread = 'notifications/update-new-to-unread';
-  static const String markAsRead = 'notifications/mark-as-read';
-  static const String markAllAsRead = 'notifications/mark-all-as-read';
+  static const String markNotificationAsRead = 'notifications/mark-as-read';
+  static const String markAllNotificationsAsRead =
+      'notifications/mark-all-as-read';
 //-----------------------------------------------------------------------
   ///letters
   static const String letters = 'letters';
   static const String lettersShow = 'letters/';
-
-
 }

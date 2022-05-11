@@ -1,4 +1,5 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/src/widgets/app_empty_widget.dart';
 import 'package:boilerplate/core/src/widgets/error_widget.dart';
 import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
@@ -25,7 +26,7 @@ class LettersScreen extends GetView<LettersController> {
         ),
         onError: (e) => AppErrorWidget(errorMessage: e),
         onLoading: const LoadingIndicatorWidget(),
-        onEmpty: Text(LocalizationKeys.noLettersFound.tr),
+        onEmpty: AppEmptyWidget(title: LocalizationKeys.noLettersFound.tr),
       ),
     );
   }

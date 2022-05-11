@@ -75,6 +75,9 @@ class $AssetsLottieGen {
   /// File path: assets/lottie/celelbration.json
   String get celelbration => 'assets/lottie/celelbration.json';
 
+  /// File path: assets/lottie/empty.json
+  String get empty => 'assets/lottie/empty.json';
+
   /// File path: assets/lottie/error.json
   String get error => 'assets/lottie/error.json';
 

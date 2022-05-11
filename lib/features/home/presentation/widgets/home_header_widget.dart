@@ -1,6 +1,7 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class HomeHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final student = SharedPrefs.instance.getUser().student;
     return Stack(
       children: [
         Container(
@@ -36,7 +38,7 @@ class HomeHeaderWidget extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'Ahmed Mohamed Nasser',
+                Get.locale.toString() == 'ar' ? student.nameAr : student.nameEn,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18.sp,
@@ -49,9 +51,9 @@ class HomeHeaderWidget extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               SizedBox(height: 4.h),
-              const Text(
-                '923123987345',
-                style: TextStyle(color: Colors.white),
+              Text(
+                student.academicId,
+                style: const TextStyle(color: Colors.white),
               ),
               SizedBox(height: 2.h),
               const Divider(color: Colors.black45),

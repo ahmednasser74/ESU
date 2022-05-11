@@ -25,7 +25,7 @@ class AuthRepositoryImp implements AuthRepository {
   @override
   Future<Either<String?, AdmissionResponseModel>> admission({
     required AdmissionRequestModel requestModel,
-  }) async {
+  }) {
     return _responseHandling<AdmissionResponseModel>(
       onSuccess: () async => await userRemoteDataSource.admission(
         requestModel: requestModel,
@@ -36,7 +36,7 @@ class AuthRepositoryImp implements AuthRepository {
   @override
   Future<Either<String?, LoginResponseModel>> login({
     required LoginRequestModel requestModel,
-  }) async {
+  }) {
     return _responseHandling<LoginResponseModel>(
       onSuccess: () async => await userRemoteDataSource.login(
         requestModel: requestModel,
@@ -47,7 +47,7 @@ class AuthRepositoryImp implements AuthRepository {
   @override
   Future<Either<String?, LookupResponseModel>> getLookup({
     required LookupRequestModel requestModel,
-  }) async {
+  }) {
     return _responseHandling<LookupResponseModel>(
       onSuccess: () async => await userRemoteDataSource.getLookup(
         requestModel: requestModel,

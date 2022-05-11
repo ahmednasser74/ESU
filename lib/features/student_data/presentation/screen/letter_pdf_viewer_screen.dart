@@ -1,3 +1,4 @@
+import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
@@ -18,17 +19,16 @@ class LetterPdfViewerScreen extends StatefulWidget {
 }
 
 class _LetterPdfViewerScreenState extends State<LetterPdfViewerScreen> {
+  late String pdfPath;
   final headers = {
     'Accept': 'application/json',
     'Authorization': 'Bearer ${SharedPrefs.instance.getToken()}',
   };
-  late String pdfPath;
 
   @override
   void initState() {
     super.initState();
-    pdfPath =
-        'https://sisv2.esu.ac.ae/api/letters/${widget.id}?lang=${widget.lang}';
+    pdfPath = '${Endpoints.baseUrl}letters/${widget.id}?lang=${widget.lang}';
   }
 
   @override

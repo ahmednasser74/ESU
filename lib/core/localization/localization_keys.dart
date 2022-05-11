@@ -113,6 +113,8 @@ class LocalizationKeys {
   static const String read = 'read';
   static const String neww = 'new';
   static const String markAllAsRead = 'markAllAsRead';
+  static const String failedMarkAllAsRead = 'failedMarkAllAsRead';
+  static const String successMarkAllAsRead = 'successMarkAllAsRead';
 
   //-------------------------------------------------------------------------
   ///Finance

@@ -117,6 +117,8 @@ const Map<String, String> en = {
   LocalizationKeys.read: 'Read',
   LocalizationKeys.neww: 'New',
   LocalizationKeys.markAllAsRead: 'Mark All As Read',
+  LocalizationKeys.failedMarkAllAsRead: 'Failed Mark All As Read',
+  LocalizationKeys.successMarkAllAsRead: 'Success Mark All As Read',
   //-------------------------------------------------------------------------
   ///Finance
   LocalizationKeys.finance: 'Finance',
