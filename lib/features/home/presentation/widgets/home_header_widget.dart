@@ -15,7 +15,7 @@ class HomeHeaderWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 190.h,
+          height: .28.sh,
           width: double.infinity,
           margin: EdgeInsets.only(top: 45.h, left: 18.w, right: 18.w),
           padding: EdgeInsets.only(
@@ -60,14 +60,16 @@ class HomeHeaderWidget extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          LocalizationKeys.programAmount.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                        const Text('\$1.000'),
-                      ],
+                    child: FittedBox(
+                      child: Column(
+                        children: [
+                          Text(
+                            LocalizationKeys.programAmount.tr,
+                            textAlign: TextAlign.center,
+                          ),
+                          const Text('\$1.000'),
+                        ],
+                      ),
                     ),
                   ),
                   Container(
@@ -77,14 +79,16 @@ class HomeHeaderWidget extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 6.w),
                   ),
                   Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          LocalizationKeys.paidAmount.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                        const Text('\$500'),
-                      ],
+                    child: FittedBox(
+                      child: Column(
+                        children: [
+                          Text(
+                            LocalizationKeys.paidAmount.tr,
+                            textAlign: TextAlign.center,
+                          ),
+                          const Text('\$500'),
+                        ],
+                      ),
                     ),
                   ),
                   Container(
@@ -94,14 +98,16 @@ class HomeHeaderWidget extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 6.w),
                   ),
                   Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          LocalizationKeys.unPaidAmount.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                        const Text('\$300'),
-                      ],
+                    child: FittedBox(
+                      child: Column(
+                        children: [
+                          Text(
+                            LocalizationKeys.unPaidAmount.tr,
+                            textAlign: TextAlign.center,
+                          ),
+                          const Text('\$300'),
+                        ],
+                      ),
                     ),
                   ),
                 ],
