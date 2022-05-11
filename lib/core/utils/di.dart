@@ -18,6 +18,13 @@ import 'package:boilerplate/features/auth/presentation/controller/login_controll
 import 'package:boilerplate/features/auth/presentation/controller/personal_info_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
+import 'package:boilerplate/features/home/data/datasources/home_remote_data_source.dart';
+import 'package:boilerplate/features/home/data/repositories/home_repository_imp.dart';
+import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
+import 'package:boilerplate/features/home/domin/usecases/mark_all_notification_as_read_usecase.dart';
+import 'package:boilerplate/features/home/domin/usecases/mark_single_notification_as_read_usecase.dart';
+import 'package:boilerplate/features/home/domin/usecases/notification_usecase.dart';
+import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
 import 'package:boilerplate/features/student_data/data/datasource/student_data_remote_data_source.dart';
@@ -122,6 +129,34 @@ class Injection {
     // Controller
     di.registerFactory<ProfileController>(() => ProfileController());
     di.registerFactory<SettingController>(() => SettingController());
+    di.registerFactory<NotificationController>(
+      () => NotificationController(
+        getNotificationUseCase: di(),
+        markAllNotificationAsReadUseCase: di(),
+        markSingleNotificationAsReadUseCase: di(),
+      ),
+    );
+
+    // Use cases
+    di.registerLazySingleton<GetNotificationUseCase>(
+      () => GetNotificationUseCase(repository: di()),
+    );
+    di.registerLazySingleton<MarkAllNotificationAsReadUseCase>(
+      () => MarkAllNotificationAsReadUseCase(repository: di()),
+    );
+    di.registerLazySingleton<MarkSingleNotificationAsReadUseCase>(
+      () => MarkSingleNotificationAsReadUseCase(repository: di()),
+    );
+
+    //repo
+    di.registerLazySingleton<HomeRepository>(
+      () => HomeRepositoryImp(remoteDataSource: di()),
+    );
+
+    // Data sources
+    di.registerLazySingleton<HomeRemoteDataSource>(
+      () => HomeRemoteDataSourceImp(dioHelper: di()),
+    );
   }
 
   static void _studentDataCycle() {

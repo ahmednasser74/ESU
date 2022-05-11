@@ -10,17 +10,17 @@ import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  final _scaffoldkey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldkey,
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(LocalizationKeys.home.tr),
         leading: IconButton(
           icon: Assets.icons.menu.image(height: 20.sp),
-          onPressed: () => _scaffoldkey.currentState!.openDrawer(),
+          onPressed: () => _scaffoldKey.currentState!.openDrawer(),
         ),
         actions: [
           IconButton(
@@ -108,6 +108,7 @@ class HomeItemWidget extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 10.h),
             Text(
               amount,
               style: TextStyle(

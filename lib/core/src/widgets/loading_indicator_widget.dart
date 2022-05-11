@@ -10,13 +10,15 @@ class LoadingIndicatorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        height: 100.h,
-        width: 100.w,
-        decoration: CustomStyle.containerShadowDecoration,
-        padding: const EdgeInsets.all(14),
-        child: Lottie.asset(Assets.lottie.loading),
+    return Scaffold(
+      body: Center(
+        child: Container(
+          height: 100.h,
+          width: 100.w,
+          decoration: CustomStyle.containerShadowDecoration,
+          padding: const EdgeInsets.all(14),
+          child: Lottie.asset(Assets.lottie.loading),
+        ),
       ),
     );
   }
