@@ -1,3 +1,4 @@
+import 'package:boilerplate/core/utils/notification_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,6 +24,7 @@ void main() async {
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
   await Injection.init();
+  await NotificationHelper.instance.init();
   runApp(MyApp());
 }
 
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder: (c) => GetMaterialApp(
+      builder: (c, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ESU',
         theme: CustomsThemes.defaultThemeData,
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
         fallbackLocale: const Locale('en'),
         locale: Locale(SharedPrefs.instance.getLanguageSelected()),
         builder: (context, widget) {
-          ScreenUtil.setContext(context);
+          // ScreenUtil.setContext(context);
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
             child: widget ?? Container(),
