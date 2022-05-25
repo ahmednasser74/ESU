@@ -25,7 +25,7 @@ class LoginController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       translateController = Get.find<TranslationController>();
     });
   }

@@ -1,6 +1,6 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/features/student_data/data/models/response/letters_data_response_model.dart';
+import 'package:boilerplate/features/student_data/data/models/response/letters/letters_data_response_model.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:get/get.dart';
 

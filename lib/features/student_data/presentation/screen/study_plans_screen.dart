@@ -1,4 +1,7 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/src/widgets/app_empty_widget.dart';
+import 'package:boilerplate/core/src/widgets/error_widget.dart';
+import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/widgets/study_plans_item_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,18 +15,32 @@ class StudyPlansScreen extends GetView<StudyPlansController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(LocalizationKeys.studyPlans.tr)),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.separated(
-              itemCount: 10,
-              padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 6.h),
-              separatorBuilder: (context, index) => SizedBox(height: 12.h),
-              itemBuilder: (context, index) =>
-                  StudyPlanstItemWidget(index: index),
+      body: controller.obx(
+        (state) => Column(
+          children: [
+            Text(
+              '${state?.programName}',
+              style: TextStyle(fontSize: 14.sp),
             ),
-          ),
-        ],
+            SizedBox(height: 12.h),
+            Expanded(
+              child: ListView.separated(
+                itemCount: state?.programData.length ?? 0,
+                padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
+                separatorBuilder: (context, index) => SizedBox(height: 12.h),
+                itemBuilder: (context, index) {
+                  final item = state?.programData.elementAt(index);
+                  return StudyPlansItemWidget(
+                    programData: item!,
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+        onError: (e) => AppErrorWidget(errorMessage: e),
+        onLoading: const LoadingIndicatorWidget(),
+        onEmpty: AppEmptyWidget(title: LocalizationKeys.noStudyPlansFound.tr),
       ),
     );
   }

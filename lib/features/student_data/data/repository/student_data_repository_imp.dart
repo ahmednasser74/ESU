@@ -1,7 +1,8 @@
 import 'package:boilerplate/core/network/network_information.dart';
 import 'package:boilerplate/core/utils/di.dart';
 import 'package:boilerplate/features/student_data/data/datasource/student_data_remote_data_source.dart';
-import 'package:boilerplate/features/student_data/data/models/response/letters.dart';
+import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
+import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -15,6 +16,13 @@ class StudentDataRepositoryImp implements StudentDataRepository {
   Future<Either<String?, LettersResponseModel>> getLetters() {
     return _responseHandling<LettersResponseModel>(
       onSuccess: () async => await remoteDataSource.getLetters(),
+    );
+  }
+
+  @override
+  Future<Either<String?, StudyPlansResponseModel>> getStudyPlans() async {
+    return _responseHandling<StudyPlansResponseModel>(
+      onSuccess: () async => await remoteDataSource.getStudyPlans(),
     );
   }
 }

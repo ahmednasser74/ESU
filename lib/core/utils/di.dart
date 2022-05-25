@@ -30,6 +30,7 @@ import 'package:boilerplate/features/home/presentation/controller/setting_contro
 import 'package:boilerplate/features/student_data/data/datasource/student_data_remote_data_source.dart';
 import 'package:boilerplate/features/student_data/data/repository/student_data_repository_imp.dart';
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
+import 'package:boilerplate/features/student_data/domain/usecase/Study_plans_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
@@ -166,11 +167,16 @@ class Injection {
     );
     di.registerFactory<TranscriptController>(() => TranscriptController());
     di.registerFactory<FinanceController>(() => FinanceController());
-    di.registerFactory<StudyPlansController>(() => StudyPlansController());
+    di.registerFactory<StudyPlansController>(
+      () => StudyPlansController(studyPlansUseCase: di()),
+    );
 
     //Use cases
     di.registerLazySingleton<LettersUseCase>(
       () => LettersUseCase(studentDataRepository: di()),
+    );
+    di.registerLazySingleton<StudyPlansUseCase>(
+      () => StudyPlansUseCase(studentDataRepository: di()),
     );
 
     //repo

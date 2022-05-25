@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/student_data/data/models/response/letters.dart';
+import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:dartz/dartz.dart';
 

@@ -34,6 +34,9 @@ class NotificationController extends GetxController
       (r) {
         if (r.status) {
           change(r.data, status: RxStatus.success());
+          if (r.data.isEmpty) {
+            change(null, status: RxStatus.empty());
+          }
         } else {
           change(null, status: RxStatus.error());
         }

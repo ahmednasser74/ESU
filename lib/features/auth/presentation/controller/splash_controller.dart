@@ -10,7 +10,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.find<DioRequestHandlingController>();
       Get.find<TranslationController>();
     });

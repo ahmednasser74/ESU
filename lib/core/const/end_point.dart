@@ -1,5 +1,6 @@
 class Endpoints {
-  static const String baseUrl = 'https://sis.esu.ac.ae/api/';
+  // static const String baseUrl = 'https://sis.esu.ac.ae/api/';
+  static const String baseUrl = 'https://sisdev.esu.ac.ae/api/';
 
 //-----------------------------------------------------------------------
   ///Auth

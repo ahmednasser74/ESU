@@ -144,6 +144,7 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///study plans
   static const String studyPlans = 'studyPlans';
+  static const String noStudyPlansFound = 'noStudyPlansFound';
 
   //-------------------------------------------------------------------------
   ///global

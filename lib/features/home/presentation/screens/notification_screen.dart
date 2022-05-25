@@ -45,7 +45,12 @@ class NotificationScreen extends GetView<NotificationController> {
       ),
       onLoading: const LoadingIndicatorWidget(),
       onError: (error) => AppErrorWidget(errorMessage: error.toString()),
-      onEmpty: AppEmptyWidget(title: LocalizationKeys.noNotificationFound.tr),
+      onEmpty: Scaffold(
+        appBar: AppBar(
+          title: Text(LocalizationKeys.notification.tr),
+        ),
+        body: AppEmptyWidget(title: LocalizationKeys.noNotificationFound.tr),
+      ),
     );
   }
 }
