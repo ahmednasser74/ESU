@@ -5,10 +5,10 @@ class CustomRichText extends StatelessWidget {
   const CustomRichText({
     Key? key,
     required this.title,
-    required this.titleValue,
+    required this.value,
   }) : super(key: key);
   final String title;
-  final String titleValue;
+  final String value;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class CustomRichText extends StatelessWidget {
         ),
         children: [
           TextSpan(
-            text: titleValue,
+            text: value,
             style: const TextStyle(
               color: Colors.black,
               fontFamily: 'din',

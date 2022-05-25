@@ -145,6 +145,9 @@ const Map<String, String> ar = {
   ///study plans
   LocalizationKeys.studyPlans: 'خطط الدراسة',
   LocalizationKeys.noStudyPlansFound: 'لا يوجد خطط الدراسة',
+  LocalizationKeys.hours: 'ساعات',
+  LocalizationKeys.code: 'الكود',
+  LocalizationKeys.prerequisites: 'المقدمات',
 
   //-------------------------------------------------------------------------
   ///global

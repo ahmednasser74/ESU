@@ -148,6 +148,9 @@ const Map<String, String> en = {
   ///study plans
   LocalizationKeys.studyPlans: 'Study Plans',
   LocalizationKeys.noStudyPlansFound: 'No Study Plans Found',
+  LocalizationKeys.hours: 'Hours',
+  LocalizationKeys.code: 'Code',
+  LocalizationKeys.prerequisites: 'Prerequisites',
 
   //-------------------------------------------------------------------------
   ///global

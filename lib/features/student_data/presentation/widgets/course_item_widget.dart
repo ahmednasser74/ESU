@@ -1,3 +1,4 @@
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/course_item_response_model.dart';
@@ -38,7 +39,7 @@ class CourseItemWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Text(
-              '#${course.code}',
+              Get.locale.toString() == 'en' ? course.name : course.nameAr,
               style: const TextStyle(color: Colors.white),
             ),
           ),
@@ -49,47 +50,75 @@ class CourseItemWidget extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Center(
-                  child: Text(
-                    Get.locale.toString() == 'en' ? course.name : course.nameAr,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                    ),
-                  ),
-                ),
                 SizedBox(height: 4.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     CustomRichText(
-                      title: 'Hours : ',
-                      titleValue: '4',
+                      title: '${LocalizationKeys.hours.tr} : ',
+                      value: '${course.hours}',
                     ),
                     CustomRichText(
-                      title: 'Grade : ',
-                      titleValue: 'A',
+                      title: '${LocalizationKeys.code.tr} : ',
+                      value: course.code,
                     ),
                   ],
                 ),
                 SizedBox(height: 6.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    CustomRichText(
-                      title: 'Marks : ',
-                      titleValue: '0',
-                    ),
-                    CustomRichText(
-                      title: 'Points : ',
-                      titleValue: '1',
-                    ),
-                  ],
+                Text(LocalizationKeys.prerequisites.tr),
+                SizedBox(height: 6.h),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Wrap(
+                    direction: Axis.horizontal,
+                    textDirection: TextDirection.ltr,
+                    spacing: 8.w,
+                    children: [
+                      'course1',
+                      'course2',
+                      'course3',
+                      'course1',
+                      'course1',
+                    ]
+                        .map(
+                          (prerequisite) => PrerequisiteItemWidget(
+                            title: prerequisite,
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
               ],
             ),
           )
         ],
       ),
+    );
+  }
+}
+
+class PrerequisiteItemWidget extends StatelessWidget {
+  const PrerequisiteItemWidget({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 8.w,
+        vertical: 4.h,
+      ),
+      margin: EdgeInsets.symmetric(vertical: 4.h),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: AppColors.primaryColor.withOpacity(.8),
+        ),
+        borderRadius: BorderRadius.circular(12.r),
+      ),
+      child: Text(title, textAlign: TextAlign.start),
     );
   }
 }
