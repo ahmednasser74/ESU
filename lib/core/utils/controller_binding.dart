@@ -1,8 +1,10 @@
 import 'package:boilerplate/core/dio/dio_request_handling.dart';
 import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/academic_info_controller.dart';
+import 'package:boilerplate/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/personal_info_controller.dart';
+import 'package:boilerplate/features/auth/presentation/controller/reset_password_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
@@ -30,6 +32,8 @@ class ControllerBinding extends Bindings {
     ///auth
     Get.lazyPut(() => Injection.di<SplashController>(), fenix: true);
     Get.lazyPut(() => Injection.di<LoginController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<ForgetPasswordController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<ResetPasswordController>(), fenix: true);
     Get.lazyPut(() => Injection.di<SubmitAdmissionController>(), fenix: true);
     Get.lazyPut(() => Injection.di<AcademicInfoController>(), fenix: true);
     Get.lazyPut(() => Injection.di<PersonalInfoController>(), fenix: true);

@@ -11,11 +11,15 @@ import 'package:boilerplate/features/auth/data/datasources/auth_remote_data_sour
 import 'package:boilerplate/features/auth/data/repositories/auth_repository_imp.dart';
 import 'package:boilerplate/features/auth/domin/repositories/auth_repository.dart';
 import 'package:boilerplate/features/auth/domin/usecases/admission_usecase.dart';
+import 'package:boilerplate/features/auth/domin/usecases/forget_password_usecase.dart';
 import 'package:boilerplate/features/auth/domin/usecases/login_usecase.dart';
 import 'package:boilerplate/features/auth/domin/usecases/lookup_use_case.dart';
+import 'package:boilerplate/features/auth/domin/usecases/reset_password_usecase.dart';
 import 'package:boilerplate/features/auth/presentation/controller/academic_info_controller.dart';
+import 'package:boilerplate/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/login_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/personal_info_controller.dart';
+import 'package:boilerplate/features/auth/presentation/controller/reset_password_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:boilerplate/features/home/data/datasources/home_remote_data_source.dart';
@@ -97,6 +101,12 @@ class Injection {
     di.registerFactory<PersonalInfoController>(
       () => PersonalInfoController(lookupUseCase: di()),
     );
+    di.registerFactory<ForgetPasswordController>(
+      () => ForgetPasswordController(forgetPasswordUseCase: di()),
+    );
+    di.registerFactory<ResetPasswordController>(
+      () => ResetPasswordController(resetPasswordUseCase: di()),
+    );
 
     // Use cases
     di.registerLazySingleton<LoginUseCase>(
@@ -107,6 +117,12 @@ class Injection {
     );
     di.registerLazySingleton<LookupUseCase>(
       () => LookupUseCase(authRepository: di()),
+    );
+    di.registerLazySingleton<ForgetPasswordUseCase>(
+      () => ForgetPasswordUseCase(authRepository: di()),
+    );
+    di.registerLazySingleton<ResetPasswordUseCase>(
+      () => ResetPasswordUseCase(authRepository: di()),
     );
 
     //repo

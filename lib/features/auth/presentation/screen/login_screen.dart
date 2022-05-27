@@ -76,7 +76,20 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     ),
                   ],
                 ),
-                SizedBox(height: .04.sh),
+                SizedBox(height: .015.sh),
+                InkWell(
+                  onTap: () => Get.toNamed(Routes.forgetPasswordScreen),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: const Text(
+                      'Forget Password ?',
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: .02.sh),
                 AppButton(
                   title: LocalizationKeys.login.tr,
                   onPressed: controller.login,

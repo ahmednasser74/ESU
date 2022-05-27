@@ -1,8 +1,12 @@
 import 'package:boilerplate/core/utils/di.dart';
 import 'package:boilerplate/features/auth/data/model/request/admission/admission_request_model.dart';
+import 'package:boilerplate/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
+import 'package:boilerplate/features/auth/data/model/request/forget_password/reset_password_request_model.dart';
 import 'package:boilerplate/features/auth/data/model/request/login/login_request_model.dart';
 import 'package:boilerplate/features/auth/data/model/request/lookup/lookup_request_model.dart';
 import 'package:boilerplate/features/auth/data/model/response/admission/admission_response_model.dart';
+import 'package:boilerplate/features/auth/data/model/response/forget_password/forget_password_reponse_model.dart';
+import 'package:boilerplate/features/auth/data/model/response/forget_password/reset_password_reponse_model.dart';
 import 'package:boilerplate/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:boilerplate/features/auth/data/model/response/lookup/lookup_respone_model.dart';
 import 'package:dartz/dartz.dart';
@@ -50,6 +54,28 @@ class AuthRepositoryImp implements AuthRepository {
   }) {
     return _responseHandling<LookupResponseModel>(
       onSuccess: () async => await userRemoteDataSource.getLookup(
+        requestModel: requestModel,
+      ),
+    );
+  }
+
+  @override
+  Future<Either<String?, ForgetPasswordResponseModel>> forgetPassword({
+    required ForgetPasswordRequestModel requestModel,
+  }) async {
+    return _responseHandling<ForgetPasswordResponseModel>(
+      onSuccess: () async => await userRemoteDataSource.forgetPassword(
+        requestModel: requestModel,
+      ),
+    );
+  }
+
+  @override
+  Future<Either<String?, ResetPasswordResponseModel>> resetPassword({
+    required ResetPasswordRequestModel requestModel,
+  }) async {
+    return _responseHandling<ResetPasswordResponseModel>(
+      onSuccess: () async => await userRemoteDataSource.resetPassword(
         requestModel: requestModel,
       ),
     );

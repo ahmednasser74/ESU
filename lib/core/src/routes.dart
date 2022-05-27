@@ -1,7 +1,9 @@
+import 'package:boilerplate/features/auth/presentation/screen/forget_password_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/login_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/register_academic_information_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/register_file_uploads_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/register_personal_information_screen.dart';
+import 'package:boilerplate/features/auth/presentation/screen/reset_password_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/splash_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/submit_registration_screen.dart';
 import 'package:boilerplate/features/auth/presentation/screen/successful_admission_screen.dart';
@@ -19,6 +21,8 @@ import '../../features/student_data/presentation/screen/finance_screen.dart';
 class Routes {
   static const String splashScreen = '/splashScreen',
       loginScreen = '/loginScreen',
+      forgetPasswordScreen = '/forgetPasswordScreen',
+      resetPasswordScreen = '/resetPasswordScreen',
       registerAcademicInfo = '/registerAcademicInfo',
       registerFileUploadScreen = '/registerFileUploadScreen',
       submitRegistrationScreen = '/submitRegistrationScreen',
@@ -37,6 +41,14 @@ class Routes {
     return <GetPage>[
       GetPage(name: splashScreen, page: () => const SplashScreen()),
       GetPage(name: loginScreen, page: () => const LoginScreen()),
+      GetPage(
+        name: forgetPasswordScreen,
+        page: () => const ForgetPasswordScreen(),
+      ),
+      GetPage(
+        name: resetPasswordScreen,
+        page: () => const ResetPasswordScreen(),
+      ),
       GetPage(
         name: registerAcademicInfo,
         page: () => const RegisterAcademicInfoScreen(),

@@ -6,6 +6,8 @@ class Endpoints {
   ///Auth
   static const String admission = 'admission';
   static const String login = 'login';
+  static const String forgetPassword = 'forgot-password';
+  static const String resetPassword = 'reset-password';
 
 //-----------------------------------------------------------------------
   ///lookup
