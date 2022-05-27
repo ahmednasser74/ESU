@@ -7,25 +7,25 @@ class FinancePayUrlResponseModel {
 
   final bool status;
   final int code;
-  final FinancePayDateResponseModel data;
+  final FinancePayDataResponseModel data;
 
   factory FinancePayUrlResponseModel.fromJson(Map<String, dynamic> json) =>
       FinancePayUrlResponseModel(
         status: json["status"],
         code: json["code"],
-        data: FinancePayDateResponseModel.fromJson(json['data']),
+        data: FinancePayDataResponseModel.fromJson(json['data']),
       );
 }
 
-class FinancePayDateResponseModel {
-  FinancePayDateResponseModel({
+class FinancePayDataResponseModel {
+  FinancePayDataResponseModel({
     required this.url,
   });
 
   final String url;
 
-  factory FinancePayDateResponseModel.fromJson(Map<String, dynamic> json) =>
-      FinancePayDateResponseModel(
+  factory FinancePayDataResponseModel.fromJson(Map<String, dynamic> json) =>
+      FinancePayDataResponseModel(
         url: json['url'],
       );
 }
