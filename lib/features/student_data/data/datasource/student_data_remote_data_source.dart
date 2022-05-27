@@ -40,7 +40,7 @@ class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
 
   @override
   Future<FinancePayUrlResponseModel> getPayFinanceUrl() async {
-    final response = await dioHelper.get(url: Endpoints.finance);
+    final response = await dioHelper.get(url: Endpoints.financePay);
     return FinancePayUrlResponseModel.fromJson(response.data);
   }
 }

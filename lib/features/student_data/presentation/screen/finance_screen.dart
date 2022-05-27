@@ -31,7 +31,7 @@ class FinanceScreen extends GetView<FinanceController> {
         ),
         onError: (e) => AppErrorWidget(errorMessage: e),
         onLoading: const LoadingIndicatorWidget(),
-        onEmpty: AppEmptyWidget(title: LocalizationKeys.noStudyPlansFound.tr),
+        onEmpty: const AppEmptyWidget(title: 'No data found'),
       ),
     );
   }
