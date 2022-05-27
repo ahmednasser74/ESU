@@ -15,10 +15,18 @@ class FinanceScreen extends GetView<FinanceController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(LocalizationKeys.finance.tr)),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: controller.getFinancePayUrl,
-        label: const Text('Pay'),
-        icon: const Icon(Icons.attach_money),
+      floatingActionButton: Obx(
+        () => FloatingActionButton.extended(
+          onPressed: controller.loadingPaymentGateway.value
+              ? () {}
+              : controller.getFinancePayUrl,
+          label: controller.loadingPaymentGateway.value
+              ? const Text('Wait..')
+              : const Text('Pay'),
+          icon: controller.loadingPaymentGateway.value
+              ? const CircularProgressIndicator(color: Colors.white)
+              : const Icon(Icons.attach_money),
+        ),
       ),
       body: controller.obx(
         (state) => ListView.separated(
