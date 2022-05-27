@@ -65,27 +65,30 @@ class CourseItemWidget extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 6.h),
-                Text(LocalizationKeys.prerequisites.tr),
-                SizedBox(height: 6.h),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Wrap(
-                    direction: Axis.horizontal,
-                    textDirection: TextDirection.ltr,
-                    spacing: 8.w,
+                Visibility(
+                  visible: course.prerequisite.isNotEmpty,
+                  child: Column(
                     children: [
-                      'course1',
-                      'course2',
-                      'course3',
-                      'course1',
-                      'course1',
-                    ]
-                        .map(
-                          (prerequisite) => PrerequisiteItemWidget(
-                            title: prerequisite,
-                          ),
-                        )
-                        .toList(),
+                      Text(LocalizationKeys.prerequisites.tr),
+                      SizedBox(height: 6.h),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          textDirection: TextDirection.ltr,
+                          spacing: 8.w,
+                          children: course.prerequisite
+                              .map(
+                                (prerequisite) => PrerequisiteItemWidget(
+                                  title: Get.locale.toString() == 'en'
+                                      ? prerequisite.name
+                                      : prerequisite.nameAr,
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
