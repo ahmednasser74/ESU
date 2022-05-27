@@ -4,6 +4,7 @@ class LocalizationKeys {
   static const String userName = 'userName';
   static const String studentId = 'studentId';
   static const String password = 'password';
+  static const String changePassword = 'changePassword';
   static const String doNotHaveAccount = 'doNotHaveAccount';
   static const String signUp = 'signUp';
   static const String admission = 'admission';

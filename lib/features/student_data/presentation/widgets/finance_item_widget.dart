@@ -1,5 +1,7 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
+import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
+import 'package:boilerplate/features/student_data/data/models/response/finance/finance_data_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -7,7 +9,9 @@ import 'package:get/get.dart';
 class FinanceItemWidget extends StatelessWidget {
   const FinanceItemWidget({
     Key? key,
+    required this.finance,
   }) : super(key: key);
+  final FinanceDataResponseModel finance;
 
   @override
   Widget build(BuildContext context) {
@@ -27,64 +31,46 @@ class FinanceItemWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text('Excuse for Mid-Term - Final Exams'),
+          FittedBox(child: Text(finance.item)),
           SizedBox(height: 8.h),
           Row(
             children: [
-              Text(
-                '${LocalizationKeys.paid.tr} :',
-                style: const TextStyle(color: AppColors.primaryColor),
+              CustomRichText(
+                title: '${LocalizationKeys.paid.tr} : ',
+                value: finance.paidAmount.toString(),
               ),
-              SizedBox(width: 8.w),
-              const Text('\$1,000.00'),
               const Spacer(),
-              Text(
-                '${LocalizationKeys.status.tr} :',
-                style: const TextStyle(color: AppColors.primaryColor),
+              CustomRichText(
+                title: '${LocalizationKeys.status.tr} : ',
+                value: finance.status,
               ),
-              SizedBox(width: 8.w),
-               Text(LocalizationKeys.paid.tr),
             ],
           ),
           SizedBox(height: 8.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              RichText(
-                text: TextSpan(
-                  text: '${LocalizationKeys.paidAt.tr} : ',
-                  style: const TextStyle(
-                    color: AppColors.primaryColor,
-                    fontFamily: 'din',
-                  ),
-                  children: const [
-                    TextSpan(
-                      text: '12/12/2020',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'din',
-                      ),
-                    ),
-                  ],
-                ),
+              CustomRichText(
+                title: '${LocalizationKeys.paidAt.tr} : ',
+                value: finance.paidAt ?? finance.status,
               ),
-              RichText(
-                text: TextSpan(
-                  text: '${LocalizationKeys.total.tr} : ',
-                  style: const TextStyle(
-                    color: AppColors.primaryColor,
-                    fontFamily: 'din',
-                  ),
-                  children: const [
-                    TextSpan(
-                      text: '\$1,000.00',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'din',
-                      ),
-                    ),
-                  ],
-                ),
+              CustomRichText(
+                title: '${LocalizationKeys.total.tr} : ',
+                value: finance.total.toString(),
+              ),
+            ],
+          ),
+          SizedBox(height: 8.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomRichText(
+                title: 'Due date : ',
+                value: finance.dueDate,
+              ),
+              CustomRichText(
+                title: 'Remaining : ',
+                value: finance.remaining.toString(),
               ),
             ],
           ),

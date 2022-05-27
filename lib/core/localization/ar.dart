@@ -4,6 +4,7 @@ const Map<String, String> ar = {
   ///login
   LocalizationKeys.login: "تسجل الدخول",
   LocalizationKeys.password: "كلمة السر",
+  LocalizationKeys.changePassword: "تغير كلمة السر",
   LocalizationKeys.userName: "أسم المستخدم",
   LocalizationKeys.studentId: "رقم الطالب",
   LocalizationKeys.doNotHaveAccount: "ليس لديك حساب ؟\n",

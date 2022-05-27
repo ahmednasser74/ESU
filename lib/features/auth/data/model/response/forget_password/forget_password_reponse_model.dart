@@ -17,7 +17,7 @@ class ForgetPasswordResponseModel {
         statusCode: json["code"],
         message: json["message"],
         data: ForgetPasswordDataResponseModel.fromJson(
-          json["student"],
+          json["data"],
         ),
       );
 }

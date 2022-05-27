@@ -35,6 +35,8 @@ import 'package:boilerplate/features/student_data/data/datasource/student_data_r
 import 'package:boilerplate/features/student_data/data/repository/student_data_repository_imp.dart';
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/Study_plans_use_case.dart';
+import 'package:boilerplate/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
+import 'package:boilerplate/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
@@ -182,7 +184,12 @@ class Injection {
       () => LettersController(lettersUseCase: di()),
     );
     di.registerFactory<TranscriptController>(() => TranscriptController());
-    di.registerFactory<FinanceController>(() => FinanceController());
+    di.registerFactory<FinanceController>(
+      () => FinanceController(
+        financeUseCase: di(),
+        financePayUrlUseCase: di(),
+      ),
+    );
     di.registerFactory<StudyPlansController>(
       () => StudyPlansController(studyPlansUseCase: di()),
     );
@@ -193,6 +200,12 @@ class Injection {
     );
     di.registerLazySingleton<StudyPlansUseCase>(
       () => StudyPlansUseCase(studentDataRepository: di()),
+    );
+    di.registerLazySingleton<FinanceUseCase>(
+      () => FinanceUseCase(studentDataRepository: di()),
+    );
+    di.registerLazySingleton<FinancePayUrlUseCase>(
+      () => FinancePayUrlUseCase(studentDataRepository: di()),
     );
 
     //repo

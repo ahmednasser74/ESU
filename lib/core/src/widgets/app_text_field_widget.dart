@@ -11,6 +11,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final Widget? prefixIcon;
   final String? Function(String? v)? validator;
   final String? labelText;
+  final AutovalidateMode? autovalidateMode;
 
   const AppTextFieldWidget({
     Key? key,
@@ -22,6 +23,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.suffixIcon,
     this.validator,
     this.labelText,
+    this.autovalidateMode,
   }) : super(key: key);
 
   @override
@@ -45,6 +47,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
       validator: widget.validator,
       keyboardType: widget.inputType,
       textInputAction: TextInputAction.next,
+      autovalidateMode: widget.autovalidateMode,
       decoration: InputDecoration(
         hintText: widget.hint,
         labelText: widget.labelText,

@@ -22,8 +22,14 @@ class Endpoints {
   static const String markNotificationAsRead = 'notifications/mark-as-read';
   static const String markAllNotificationsAsRead =
       'notifications/mark-all-as-read';
+
 //-----------------------------------------------------------------------
   ///letters
   static const String letters = 'letters';
   static const String lettersShow = 'letters/';
+
+//-----------------------------------------------------------------------
+  ///finance
+  static const String finance = 'finance/invoices';
+  static const String financePay = 'finance/pay/6088';
 }

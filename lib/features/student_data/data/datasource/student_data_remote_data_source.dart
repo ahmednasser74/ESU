@@ -1,5 +1,7 @@
 import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
+import 'package:boilerplate/features/student_data/data/models/response/finance/finance_pay_response_model.dart';
+import 'package:boilerplate/features/student_data/data/models/response/finance/finance_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 
@@ -7,6 +9,10 @@ abstract class StudentDataRemoteDataSource {
   Future<LettersResponseModel> getLetters();
 
   Future<StudyPlansResponseModel> getStudyPlans();
+
+  Future<FinanceResponseModel> getFinance();
+
+  Future<FinancePayUrlResponseModel> getPayFinanceUrl();
 }
 
 class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
@@ -24,5 +30,17 @@ class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
   Future<StudyPlansResponseModel> getStudyPlans() async {
     final response = await dioHelper.get(url: Endpoints.planOfStudy);
     return StudyPlansResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<FinanceResponseModel> getFinance() async {
+    final response = await dioHelper.get(url: Endpoints.finance);
+    return FinanceResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<FinancePayUrlResponseModel> getPayFinanceUrl() async {
+    final response = await dioHelper.get(url: Endpoints.finance);
+    return FinancePayUrlResponseModel.fromJson(response.data);
   }
 }

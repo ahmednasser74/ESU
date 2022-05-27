@@ -40,9 +40,12 @@ class HelperMethod {
         ),
       );
 
-  static Future<void> launchToBrowser(String url) async {
+  static Future<void> launchToBrowser(
+    String url, {
+    LaunchMode mode = LaunchMode.externalApplication,
+  }) async {
     final uri = Uri.parse(url);
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(uri, mode: mode)) {
       throw 'Could not launch $uri';
     }
   }

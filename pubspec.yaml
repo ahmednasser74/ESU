@@ -59,6 +59,8 @@ dependencies:
   firebase_messaging: ^11.2.5
   firebase_remote_config: ^0.10.0+5
   flutter_local_notifications: ^9.2.0
+  # date format
+  intl: ^0.17.0
 
 dev_dependencies:
   build_runner: ^2.1.10
