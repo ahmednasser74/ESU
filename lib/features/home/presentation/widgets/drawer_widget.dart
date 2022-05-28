@@ -116,6 +116,17 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             ListTile(
+              title: const Text('Student Card'),
+              leading: Assets.icons.identity.image(
+                color: AppColors.primaryColor,
+                height: 20.h,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed(Routes.studentCardScreen);
+              },
+            ),
+            ListTile(
               title: Text(LocalizationKeys.studyPlans.tr),
               leading: Assets.icons.studyPlan.image(
                 color: AppColors.primaryColor,
