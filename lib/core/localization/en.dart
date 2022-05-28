@@ -22,6 +22,7 @@ const Map<String, String> en = {
   LocalizationKeys.atLeast8Characters: "At least 8 characters",
   LocalizationKeys.atLeast10Characters: "At least 10 characters",
   LocalizationKeys.forgetPassword: "Forget Password ?",
+  LocalizationKeys.enterEmail: "Enter Email",
   LocalizationKeys.resetPassword: "Reset Password",
   LocalizationKeys.enterCode: "Enter Code",
   LocalizationKeys.verificationCode: "Verification Code",

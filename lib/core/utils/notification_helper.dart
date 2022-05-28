@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,20 +13,16 @@ class NotificationHelper {
     final messaging = FirebaseMessaging.instance;
     await messaging.requestPermission();
     messaging.subscribeToTopic('all');
-    const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('@drawable/launch_background');
-    const initializationSettingsIOS = IOSInitializationSettings(
-      requestSoundPermission: false,
-      requestBadgePermission: false,
-      requestAlertPermission: false,
-    );
 
-    const initializationSettings = InitializationSettings(
-      android: initializationSettingsAndroid,
-      // iOS: initializationSettingsIOS,
-    );
     await FlutterLocalNotificationsPlugin().initialize(
-      initializationSettings,
+      const InitializationSettings(
+        android: AndroidInitializationSettings('@drawable/launch_background'),
+        iOS: IOSInitializationSettings(
+          requestSoundPermission: false,
+          requestBadgePermission: false,
+          requestAlertPermission: false,
+        ),
+      ),
       onSelectNotification: _onTapLocalNotification,
     );
     _listenOnMessageAndFireLocalNotification();
@@ -53,25 +51,23 @@ class NotificationHelper {
       debugPrint('body = ${event.notification!.body}');
       debugPrint('data = ${event.data.toString()}');
 
-      final androidPlatformChannelSpecifics = AndroidNotificationDetails(
-        event.messageId ?? '',
-        'all',
-        channelDescription: 'description',
-        priority: Priority.high,
-        importance: Importance.max,
-      );
-      const iosNotificationDetails = IOSNotificationDetails(
-        presentSound: true,
-        presentBadge: true,
-        presentAlert: true,
-        badgeNumber: 0,
-      );
-      NotificationDetails platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics,
-        iOS: iosNotificationDetails,
+      NotificationDetails platformChannelSpecifics = const NotificationDetails(
+        android: AndroidNotificationDetails(
+          'default_notification_channel',
+          'Basic Notifications',
+          importance: Importance.max,
+          priority: Priority.high,
+          ticker: 'ESU Notification',
+        ),
+        iOS: IOSNotificationDetails(
+          presentSound: true,
+          presentBadge: true,
+          presentAlert: true,
+          badgeNumber: 0,
+        ),
       );
       await FlutterLocalNotificationsPlugin().show(
-        0,
+        Random().nextInt(100),
         event.notification!.title,
         event.notification!.body,
         platformChannelSpecifics,

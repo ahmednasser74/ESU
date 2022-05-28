@@ -17,7 +17,7 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Forget Password')),
+      appBar: AppBar(title: Text(LocalizationKeys.enterEmail.tr)),
       body: Obx(
         () => ModalProgressHUD(
           inAsyncCall: controller.loadingIndicator.value,

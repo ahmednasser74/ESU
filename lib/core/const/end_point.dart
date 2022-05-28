@@ -32,6 +32,7 @@ class Endpoints {
   ///finance
   static const String finance = 'finance/invoices';
   static const String financePay = 'finance/pay/6088';
+
 //-----------------------------------------------------------------------
   ///public services
   static const String faq = 'faq';

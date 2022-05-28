@@ -18,6 +18,7 @@ class LocalizationKeys {
   static const String enterValidEmailFormat = 'enterValidEmailFormat';
   static const String enterValidFormat = 'enterValidFormat';
   static const String forgetPassword = 'forgetPassword';
+  static const String enterEmail = 'enterEmail';
   static const String resetPassword = 'resetPassword';
   static const String enterCode = 'enterCode';
   static const String verificationCode = 'verificationCode';

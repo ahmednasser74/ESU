@@ -22,6 +22,7 @@ const Map<String, String> ar = {
       "يجب أن تكون كلمة السر من 8 أحرف على الأقل",
   LocalizationKeys.atLeast10Characters: "يجب أن تكون من 10 أحرف على الأقل",
   LocalizationKeys.forgetPassword: "هل نسيت كلمة المرور؟",
+  LocalizationKeys.enterEmail: "أدخل البريد الإلكتروني",
   LocalizationKeys.resetPassword: "إعادة تعيين كلمة المرور",
   LocalizationKeys.enterCode: "أدخل الكود",
   LocalizationKeys.verificationCode: "كود التحقق",
