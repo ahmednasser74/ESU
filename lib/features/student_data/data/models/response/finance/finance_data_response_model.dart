@@ -8,7 +8,7 @@ class FinanceDataResponseModel {
     required this.status,
     required this.originalStatus,
     this.paidAt,
-    required this.dueDate,
+    this.dueDate,
   });
 
   final int id;
@@ -19,7 +19,7 @@ class FinanceDataResponseModel {
   final String status;
   final String originalStatus;
   final String? paidAt;
-  final String dueDate;
+  final String? dueDate;
 
   factory FinanceDataResponseModel.fromJson(Map<String, dynamic> json) =>
       FinanceDataResponseModel(

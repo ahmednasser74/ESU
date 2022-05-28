@@ -138,6 +138,9 @@ class LocalizationKeys {
   static const String waiting = 'waiting';
   static const String pay = 'pay';
   static const String noDataFound = 'noDataFound';
+  static const String dueDate = 'dueDate';
+  static const String remaining = 'remaining';
+  static const String notPutTillNow = 'notPutTillNow';
 
   //-------------------------------------------------------------------------
   ///Letters

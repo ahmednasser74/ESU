@@ -65,11 +65,11 @@ class FinanceItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomRichText(
-                title: 'Due date : ',
-                value: finance.dueDate,
+                title: '${LocalizationKeys.dueDate.tr} : ',
+                value: finance.dueDate ?? LocalizationKeys.notPutTillNow.tr,
               ),
               CustomRichText(
-                title: 'Remaining : ',
+                title: '${LocalizationKeys.remaining.tr} : ',
                 value: finance.remaining.toString(),
               ),
             ],
