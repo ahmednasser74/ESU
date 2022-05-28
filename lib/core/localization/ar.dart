@@ -171,6 +171,9 @@ const Map<String, String> ar = {
   ///student card
   LocalizationKeys.studentCard: 'بطاقة الطالب',
   LocalizationKeys.studentName: 'أسم الطالب',
+  //-------------------------------------------------------------------------
+  ///FAQ
+  LocalizationKeys.faq: 'الأسئلة الشائعة',
 
   //-------------------------------------------------------------------------
   ///global

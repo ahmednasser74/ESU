@@ -391,6 +391,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.0"
+  flutter_html:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: de0d1f24d0378beeef2619b1d4260492da94e912
+      url: "https://github.com/Sub6Resources/flutter_html.git"
+    source: git
+    version: "3.0.0-alpha.3"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -674,6 +683,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.0-nullsafety-1"
+  numerus:
+    dependency: transitive
+    description:
+      name: numerus
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.1"
   octo_image:
     dependency: transitive
     description:

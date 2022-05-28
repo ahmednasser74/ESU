@@ -9,6 +9,7 @@ import 'package:boilerplate/features/auth/presentation/screen/submit_registratio
 import 'package:boilerplate/features/auth/presentation/screen/successful_admission_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/home_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/notification_screen.dart';
+import 'package:boilerplate/features/home/presentation/screens/popular_question_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/profile_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/setting_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/letters_screen.dart';
@@ -37,6 +38,7 @@ class Routes {
       successfulAdmissionScreen = '/successfulAdmissionScreen',
       studyPlanScreen = '/studyPlanScreen',
       studentCardScreen = '/studentCardScreen',
+      popularQuestionScreen = '/popularQuestionScreen',
       registerPersonalInfo = '/registerPersonalInfo';
 
   static List<GetPage> setScreens() {
@@ -66,6 +68,10 @@ class Routes {
       GetPage(
         name: submitRegistrationScreen,
         page: () => const SubmitRegistrationScreen(),
+      ),
+      GetPage(
+        name: popularQuestionScreen,
+        page: () => const PopularQuestionScreen(),
       ),
       GetPage(name: homeScreen, page: () => HomeScreen()),
       GetPage(name: transcriptScreen, page: () => const TranscriptScreen()),

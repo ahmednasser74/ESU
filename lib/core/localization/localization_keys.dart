@@ -173,6 +173,10 @@ class LocalizationKeys {
   static const String studentName = 'studentName';
 
   //-------------------------------------------------------------------------
+  ///FAQ
+  static const String faq = 'faq';
+
+  //-------------------------------------------------------------------------
   ///global
   static const String logout = 'logout';
   static const String thisFieldIsRequired = 'thisFieldIsRequired';

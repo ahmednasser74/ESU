@@ -175,6 +175,10 @@ const Map<String, String> en = {
   LocalizationKeys.studentName: 'Student Name',
 
   //-------------------------------------------------------------------------
+  ///FAQ
+  LocalizationKeys.faq: 'FAQ',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',

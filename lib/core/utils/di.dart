@@ -29,6 +29,7 @@ import 'package:boilerplate/features/home/domin/usecases/mark_all_notification_a
 import 'package:boilerplate/features/home/domin/usecases/mark_single_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/notification_usecase.dart';
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
+import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
 import 'package:boilerplate/features/student_data/data/datasource/student_data_remote_data_source.dart';
@@ -148,6 +149,9 @@ class Injection {
     // Controller
     di.registerFactory<ProfileController>(() => ProfileController());
     di.registerFactory<SettingController>(() => SettingController());
+    di.registerFactory<PopularQuestionController>(
+      () => PopularQuestionController(),
+    );
     di.registerFactory<NotificationController>(
       () => NotificationController(
         getNotificationUseCase: di(),

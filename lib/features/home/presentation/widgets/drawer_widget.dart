@@ -57,114 +57,126 @@ class DrawerWidget extends StatelessWidget {
             ],
           ),
         ),
-        ListView(
-          shrinkWrap: true,
-          children: [
-            ListTile(
-              title: Text(LocalizationKeys.profile.tr),
-              leading: Assets.icons.profileIcon.image(
-                color: AppColors.primaryColor,
-                height: 18.h,
+        Expanded(
+          child: ListView(
+            children: [
+              ListTile(
+                title: Text(LocalizationKeys.profile.tr),
+                leading: Assets.icons.profileIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 18.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.profileScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.profileScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.notification.tr),
-              leading: Assets.icons.notificationIcon.image(
-                color: AppColors.primaryColor,
-                height: 20.h,
+              ListTile(
+                title: Text(LocalizationKeys.notification.tr),
+                leading: Assets.icons.notificationIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.notificationScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.notificationScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.finance.tr),
-              leading: Assets.icons.financeIcon.image(
-                color: AppColors.primaryColor,
-                height: 24.h,
+              ListTile(
+                title: Text(LocalizationKeys.finance.tr),
+                leading: Assets.icons.financeIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 24.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.financeScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.financeScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.letters.tr),
-              leading: Assets.icons.letterIcon.image(
-                color: AppColors.primaryColor,
-                height: 22.h,
+              ListTile(
+                title: Text(LocalizationKeys.letters.tr),
+                leading: Assets.icons.letterIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 22.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.lettersScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.lettersScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.transcript.tr),
-              leading: Assets.icons.transcriptIcon.image(
-                color: AppColors.primaryColor,
-                height: 20.h,
+              ListTile(
+                title: Text(LocalizationKeys.transcript.tr),
+                leading: Assets.icons.transcriptIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.transcriptScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.transcriptScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.studentCard.tr),
-              leading: Assets.icons.identity.image(
-                color: AppColors.primaryColor,
-                height: 20.h,
+              ListTile(
+                title: Text(LocalizationKeys.studentCard.tr),
+                leading: Assets.icons.identity.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.studentCardScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.studentCardScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.studyPlans.tr),
-              leading: Assets.icons.studyPlan.image(
-                color: AppColors.primaryColor,
-                height: 20.h,
+              ListTile(
+                title: Text(LocalizationKeys.studyPlans.tr),
+                leading: Assets.icons.studyPlan.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.studyPlanScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.studyPlanScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.settings.tr),
-              leading: Assets.icons.settingIcon.image(
-                color: AppColors.primaryColor,
-                height: 20.h,
+              ListTile(
+                title: Text(LocalizationKeys.settings.tr),
+                leading: Assets.icons.settingIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.settingsScreen);
+                },
               ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(Routes.settingsScreen);
-              },
-            ),
-            ListTile(
-              title: Text(LocalizationKeys.logout.tr),
-              leading: Assets.icons.logout.image(
-                color: AppColors.primaryColor,
-                height: 20.h,
+              ListTile(
+                title: Text(LocalizationKeys.faq.tr),
+                leading: const Icon(
+                  Icons.info_outlined,
+                  color: AppColors.primaryColor,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.popularQuestionScreen);
+                },
               ),
-              onTap: () {
-                Get.back();
-                LogoutDialog(
-                  onTapLogout: () {
-                    SharedPrefs.instance.removeAllKeys();
-                    Get.offAllNamed(Routes.loginScreen);
-                  },
-                ).show(context);
-              },
-            ),
-          ],
+              ListTile(
+                title: Text(LocalizationKeys.logout.tr),
+                leading: Assets.icons.logout.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Get.back();
+                  LogoutDialog(
+                    onTapLogout: () {
+                      SharedPrefs.instance.removeAllKeys();
+                      Get.offAllNamed(Routes.loginScreen);
+                    },
+                  ).show(context);
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );
