@@ -2,9 +2,12 @@ import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
 import 'package:boilerplate/core/models/response/generic_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
+import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_response_model.dart';
 
 abstract class HomeRemoteDataSource {
   Future<NotificationResponseModel> getNotifications();
+
+  Future<PopularQuestionResponseModel> getPopularQuestion();
 
   Future<GenericResponseModel> markAllNotificationsAsRead();
 
@@ -40,5 +43,13 @@ class HomeRemoteDataSourceImp implements HomeRemoteDataSource {
       url: '${Endpoints.markNotificationAsRead}/$id',
     );
     return GenericResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<PopularQuestionResponseModel> getPopularQuestion() async {
+    final response = await dioHelper.post(
+      url: Endpoints.faq,
+    );
+    return PopularQuestionResponseModel.fromJson(response.data);
   }
 }
