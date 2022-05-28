@@ -21,8 +21,8 @@ class FinanceScreen extends GetView<FinanceController> {
               ? () {}
               : controller.getFinancePayUrl,
           label: controller.loadingPaymentGateway.value
-              ? const Text('Wait..')
-              : const Text('Pay'),
+              ? Text(LocalizationKeys.waiting.tr)
+              : Text(LocalizationKeys.pay.tr),
           icon: controller.loadingPaymentGateway.value
               ? const CircularProgressIndicator(color: Colors.white)
               : const Icon(Icons.attach_money),
@@ -39,7 +39,7 @@ class FinanceScreen extends GetView<FinanceController> {
         ),
         onError: (e) => AppErrorWidget(errorMessage: e),
         onLoading: const LoadingIndicatorWidget(),
-        onEmpty: const AppEmptyWidget(title: 'No data found'),
+        onEmpty: AppEmptyWidget(title: LocalizationKeys.noDataFound.tr),
       ),
     );
   }

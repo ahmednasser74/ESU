@@ -23,7 +23,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.suffixIcon,
     this.validator,
     this.labelText,
-    this.autovalidateMode,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   }) : super(key: key);
 
   @override

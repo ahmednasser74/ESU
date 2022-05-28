@@ -57,6 +57,13 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                       controller: controller.studentIdTEC,
                       labelText: LocalizationKeys.studentId.tr,
                       inputType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return LocalizationKeys.thisFieldIsRequired.tr;
+                        } else {
+                          return null;
+                        }
+                      },
                       prefixIcon: const Icon(
                         Icons.person_outline,
                         color: AppColors.primaryColor,
@@ -66,7 +73,15 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     AppTextFieldWidget(
                       controller: controller.passwordTEC,
                       labelText: LocalizationKeys.password.tr,
-                      // validator: passwordValidator,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return LocalizationKeys.thisFieldIsRequired.tr;
+                        } else if (value.length < 8) {
+                          return LocalizationKeys.atLeast8Characters.tr;
+                        } else {
+                          return null;
+                        }
+                      },
                       inputType: TextInputType.visiblePassword,
                       obscureText: true,
                       prefixIcon: const Icon(
@@ -81,9 +96,9 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                   onTap: () => Get.toNamed(Routes.forgetPasswordScreen),
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: const Text(
-                      'Forget Password ?',
-                      style: TextStyle(
+                    child: Text(
+                      LocalizationKeys.forgetPassword.tr,
+                      style: const TextStyle(
                         color: AppColors.primaryColor,
                       ),
                     ),

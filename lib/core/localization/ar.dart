@@ -21,6 +21,17 @@ const Map<String, String> ar = {
   LocalizationKeys.atLeast8Characters:
       "يجب أن تكون كلمة السر من 8 أحرف على الأقل",
   LocalizationKeys.atLeast10Characters: "يجب أن تكون من 10 أحرف على الأقل",
+  LocalizationKeys.forgetPassword: "هل نسيت كلمة المرور؟",
+  LocalizationKeys.resetPassword: "إعادة تعيين كلمة المرور",
+  LocalizationKeys.enterCode: "أدخل الكود",
+  LocalizationKeys.verificationCode: "كود التحقق",
+  LocalizationKeys.passwordConfirmationNotMatchedWithPassword:
+      "كلمة المرور غير متطابقة",
+  LocalizationKeys.congratulationYouHaveSuccessfullyChangedYourPassword:
+      "تهانينا! تم تغيير كلمة المرور بنجاح",
+  LocalizationKeys.goToLogin: "الذهاب إلى تسجيل الدخول",
+  LocalizationKeys.verificationCodeSentToEmail:
+      "تم إرسال كود التحقيق إلى البريد الإلكتروني",
 
   ///academic info
   LocalizationKeys.academicInformation: 'معلومات الأكاديمية',
@@ -124,6 +135,8 @@ const Map<String, String> ar = {
   LocalizationKeys.paid: 'مدفوع',
   LocalizationKeys.total: 'المبلغ الإجمالي',
   LocalizationKeys.paidAt: ' تم الدفع في',
+  LocalizationKeys.waiting: 'الرجاء الانتظار',
+  LocalizationKeys.noDataFound: 'لا يوجد بيانات',
 
   //-------------------------------------------------------------------------
   ///Letters
@@ -149,6 +162,11 @@ const Map<String, String> ar = {
   LocalizationKeys.hours: 'ساعات',
   LocalizationKeys.code: 'الكود',
   LocalizationKeys.prerequisites: 'المقدمات',
+
+  //-------------------------------------------------------------------------
+  ///student card
+  LocalizationKeys.studentCard: 'بطاقة الطالب',
+  LocalizationKeys.studentName: 'أسم الطالب',
 
   //-------------------------------------------------------------------------
   ///global

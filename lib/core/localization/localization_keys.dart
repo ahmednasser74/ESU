@@ -17,6 +17,17 @@ class LocalizationKeys {
   static const String passwordMustContain = 'passwordMustContain';
   static const String enterValidEmailFormat = 'enterValidEmailFormat';
   static const String enterValidFormat = 'enterValidFormat';
+  static const String forgetPassword = 'forgetPassword';
+  static const String resetPassword = 'resetPassword';
+  static const String enterCode = 'enterCode';
+  static const String verificationCode = 'verificationCode';
+  static const String passwordConfirmationNotMatchedWithPassword =
+      'passwordConfirmationNotMatchedWithPassword';
+  static const String goToLogin = 'goToLogin';
+  static const String congratulationYouHaveSuccessfullyChangedYourPassword =
+      'congratulationYouHaveSuccessfullyChangedYourPassword';
+  static const String verificationCodeSentToEmail =
+      'verificationCodeSentToEmail';
 
   //-------------------------------------------------------------------------
   /// academic info
@@ -124,6 +135,9 @@ class LocalizationKeys {
   static const String paidAt = 'paidAt';
   static const String total = 'total';
   static const String status = 'status';
+  static const String waiting = 'waiting';
+  static const String pay = 'pay';
+  static const String noDataFound = 'noDataFound';
 
   //-------------------------------------------------------------------------
   ///Letters
@@ -149,6 +163,11 @@ class LocalizationKeys {
   static const String hours = 'hours';
   static const String code = 'code';
   static const String prerequisites = 'prerequisite';
+
+  //-------------------------------------------------------------------------
+  ///student card
+  static const String studentCard = 'studentCard';
+  static const String studentName = 'studentName';
 
   //-------------------------------------------------------------------------
   ///global

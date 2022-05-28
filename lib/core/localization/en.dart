@@ -21,8 +21,18 @@ const Map<String, String> en = {
   LocalizationKeys.atLeast6Characters: "At least 6 characters",
   LocalizationKeys.atLeast8Characters: "At least 8 characters",
   LocalizationKeys.atLeast10Characters: "At least 10 characters",
-
-  //-------------------------------------------------------------------------
+  LocalizationKeys.forgetPassword: "Forget Password ?",
+  LocalizationKeys.resetPassword: "Reset Password",
+  LocalizationKeys.enterCode: "Enter Code",
+  LocalizationKeys.verificationCode: "Verification Code",
+  LocalizationKeys.passwordConfirmationNotMatchedWithPassword:
+      "Password confirmation not matched with password",
+  LocalizationKeys.congratulationYouHaveSuccessfullyChangedYourPassword:
+      'Congratulation! You have successfully changed your password',
+  LocalizationKeys.goToLogin: 'Go to login',
+  LocalizationKeys.verificationCodeSentToEmail:
+      'Verification code sent to email',
+//-------------------------------------------------------------------------
   ///academic info
   LocalizationKeys.academicInformation: 'Academic Information',
   LocalizationKeys.currentCertificate: 'Current Certificate',
@@ -127,6 +137,8 @@ const Map<String, String> en = {
   LocalizationKeys.paid: 'Paid',
   LocalizationKeys.total: 'Total',
   LocalizationKeys.paidAt: 'Paid At',
+  LocalizationKeys.waiting: 'Waiting...',
+  LocalizationKeys.noDataFound: 'No Data Found',
 
   //-------------------------------------------------------------------------
   ///Letters
@@ -152,6 +164,11 @@ const Map<String, String> en = {
   LocalizationKeys.hours: 'Hours',
   LocalizationKeys.code: 'Code',
   LocalizationKeys.prerequisites: 'Prerequisites',
+
+  //-------------------------------------------------------------------------
+  ///student card
+  LocalizationKeys.studentCard: 'Student Card',
+  LocalizationKeys.studentName: 'Student Name',
 
   //-------------------------------------------------------------------------
   ///global

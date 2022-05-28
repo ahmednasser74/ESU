@@ -1,3 +1,4 @@
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
 import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
@@ -13,7 +14,7 @@ class StudentCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final student = SharedPrefs.instance.getUser().student;
     return Scaffold(
-      appBar: AppBar(title: const Text('Student Card')),
+      appBar: AppBar(title: Text(LocalizationKeys.studentCard.tr)),
       body: Stack(
         children: [
           Center(child: Assets.images.studentId.image()),
@@ -39,14 +40,14 @@ class StudentCardScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomRichText(
-                      title: 'Name : \n',
+                      title: '${LocalizationKeys.studentName.tr} : \n',
                       value: Get.locale.toString() == 'ar'
                           ? student.nameAr
                           : student.nameEn,
                     ),
                     SizedBox(height: 8.h),
                     CustomRichText(
-                      title: 'Student ID : ',
+                      title: '${LocalizationKeys.studentId.tr} : ',
                       value: student.id.toString(),
                     ),
                   ],

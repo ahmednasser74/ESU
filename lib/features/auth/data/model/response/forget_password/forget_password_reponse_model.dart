@@ -9,16 +9,18 @@ class ForgetPasswordResponseModel {
   final bool status;
   final int statusCode;
   final String message;
-  final ForgetPasswordDataResponseModel data;
+  final ForgetPasswordDataResponseModel? data;
 
   factory ForgetPasswordResponseModel.fromJson(Map<String, dynamic> json) =>
       ForgetPasswordResponseModel(
         status: json["status"],
         statusCode: json["code"],
         message: json["message"],
-        data: ForgetPasswordDataResponseModel.fromJson(
-          json["data"],
-        ),
+        data: json["data"] == null
+            ? null
+            : ForgetPasswordDataResponseModel.fromJson(
+                json["data"],
+              ),
       );
 }
 

@@ -19,87 +19,92 @@ class ResetPasswordScreen extends GetView<ResetPasswordController>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Reset Password')),
+      appBar: AppBar(title: Text(LocalizationKeys.resetPassword.tr)),
       body: Obx(
         () => ModalProgressHUD(
           inAsyncCall: controller.loadingIndicator.value,
           // progressIndicator: const LoadingIndicatorWidget(),
           child: Form(
             key: controller.formKey,
-            child: Padding(
+            child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 18.w),
-              child: ListView(
-                children: [
-                  SizedBox(height: .06.sh),
-                  Assets.images.appIcon.image(
-                    height: .24.sh,
-                  ),
-                  SizedBox(height: .03.sh),
-                  AppTextFieldWidget(
-                    controller: controller.verificationCodeTEC,
-                    labelText: 'Verification Code',
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.all(12.sp),
-                      child: Assets.icons.lock.image(
-                        height: 8,
-                        color: AppColors.primaryColor,
-                      ),
+              children: [
+                SizedBox(height: .06.sh),
+                Center(
+                  child: Text(
+                    LocalizationKeys.verificationCodeSentToEmail.tr,
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                      color: AppColors.primaryColor,
                     ),
                   ),
-                  SizedBox(height: .03.sh),
-                  AppTextFieldWidget(
-                    controller: controller.passwordTEC,
-                    labelText: LocalizationKeys.password.tr,
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.all(12.sp),
-                      child: Assets.icons.lock.image(
-                        height: 8,
-                        color: AppColors.primaryColor,
-                      ),
+                ),
+                SizedBox(height: .03.sh),
+                AppTextFieldWidget(
+                  controller: controller.verificationCodeTEC,
+                  labelText: LocalizationKeys.verificationCode.tr,
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(12.sp),
+                    child: Assets.icons.lock.image(
+                      height: 8,
+                      color: AppColors.primaryColor,
                     ),
                   ),
-                  SizedBox(height: .03.sh),
-                  AppTextFieldWidget(
-                    controller: controller.passwordConfirmationTEC,
-                    labelText: LocalizationKeys.changePassword.tr,
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.all(12.sp),
-                      child: Assets.icons.lock.image(
-                        height: 8,
-                        color: AppColors.primaryColor,
-                      ),
+                ),
+                SizedBox(height: .03.sh),
+                AppTextFieldWidget(
+                  controller: controller.passwordTEC,
+                  labelText: LocalizationKeys.password.tr,
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(12.sp),
+                    child: Assets.icons.lock.image(
+                      height: 8,
+                      color: AppColors.primaryColor,
                     ),
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please Re-Enter New Password";
-                      } else if (value.length < 8) {
-                        return "Password must be atleast 8 characters long";
-                      } else if (value.trim() !=
-                          controller.passwordTEC.text.trim()) {
-                        return "Password must be same as above";
-                      } else {
-                        return null;
-                      }
-                    },
                   ),
-                  SizedBox(height: .03.sh),
-                  AppButton(
-                    onPressed: () async {
-                      await controller.forgerPassword();
-                      if (controller.changePasswordSuccess.value) {
-                        showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (_) => const SuccessResetPasswordDialog(),
-                        );
-                      }
-                    },
-                    title: LocalizationKeys.changePassword.tr,
-                    minimumSize: Size(double.infinity, 30.h),
+                ),
+                SizedBox(height: .03.sh),
+                AppTextFieldWidget(
+                  controller: controller.passwordConfirmationTEC,
+                  labelText: LocalizationKeys.changePassword.tr,
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(12.sp),
+                    child: Assets.icons.lock.image(
+                      height: 8,
+                      color: AppColors.primaryColor,
+                    ),
                   ),
-                ],
-              ),
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return LocalizationKeys.thisFieldIsRequired.tr;
+                    } else if (value.length < 8) {
+                      return LocalizationKeys.atLeast8Characters.tr;
+                    } else if (value.trim() !=
+                        controller.passwordTEC.text.trim()) {
+                      return LocalizationKeys
+                          .passwordConfirmationNotMatchedWithPassword.tr;
+                    } else {
+                      return null;
+                    }
+                  },
+                ),
+                SizedBox(height: .03.sh),
+                AppButton(
+                  onPressed: () async {
+                    await controller.forgerPassword();
+                    if (controller.changePasswordSuccess.value) {
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (_) => const SuccessResetPasswordDialog(),
+                      );
+                    }
+                  },
+                  title: LocalizationKeys.changePassword.tr,
+                  minimumSize: Size(double.infinity, 30.h),
+                ),
+              ],
             ),
           ),
         ),
@@ -148,7 +153,8 @@ class _SuccessResetPasswordDialogState
               children: [
                 const SizedBox(height: 20),
                 Text(
-                  'Congratulation you have successfully changed your password',
+                  LocalizationKeys
+                      .congratulationYouHaveSuccessfullyChangedYourPassword.tr,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
@@ -157,7 +163,7 @@ class _SuccessResetPasswordDialogState
                   onPressed: () {
                     Get.offAllNamed(Routes.loginScreen);
                   },
-                  title: 'Go to Login',
+                  title: LocalizationKeys.goToLogin.tr,
                   minimumSize: Size(120.w, 40),
                 ),
               ],

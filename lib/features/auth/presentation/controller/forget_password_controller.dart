@@ -4,6 +4,7 @@ import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:boilerplate/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
 import 'package:boilerplate/features/auth/domin/usecases/forget_password_usecase.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 class ForgetPasswordController extends GetxController {
@@ -33,10 +34,13 @@ class ForgetPasswordController extends GetxController {
         ),
         (r) {
           if (r.status == true) {
-            verificationCode = r.data.code;
+            verificationCode = r.data!.code;
             Get.toNamed(Routes.resetPasswordScreen);
           }
-          HelperMethod.showToast(msg: r.message);
+          HelperMethod.showToast(
+            msg: r.message,
+            toastLength: Toast.LENGTH_LONG,
+          );
         },
       );
       loadingIndicator.value = false;
