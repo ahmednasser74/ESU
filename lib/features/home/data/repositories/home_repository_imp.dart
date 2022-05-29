@@ -1,6 +1,7 @@
 import 'package:boilerplate/core/models/response/generic_model.dart';
 import 'package:boilerplate/core/utils/di.dart';
 import 'package:boilerplate/features/home/data/datasources/home_remote_data_source.dart';
+import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
 import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -33,11 +34,15 @@ class HomeRepositoryImp implements HomeRepository {
     required int id,
   }) {
     return _responseHandling<GenericResponseModel>(
-      onSuccess: () async {
-        return await remoteDataSource.markSingleNotificationAsRead(
-          id: id,
-        );
-      },
+      onSuccess: () async =>
+          await remoteDataSource.markSingleNotificationAsRead(id: id),
+    );
+  }
+
+  @override
+  Future<Either<String?, HomeResponseModel>> getHomeData() {
+    return _responseHandling<HomeResponseModel>(
+      onSuccess: () async => await remoteDataSource.getHomeData(),
     );
   }
 }

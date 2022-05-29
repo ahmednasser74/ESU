@@ -2,12 +2,17 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:boilerplate/features/home/data/models/response/home/home_data_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
-  const HomeHeaderWidget({Key? key}) : super(key: key);
+  const HomeHeaderWidget({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
+  final HomeDataResponseModel data;
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +51,9 @@ class HomeHeaderWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 4.h),
-              const Text(
-                'Master Of Project Management',
-                style: TextStyle(color: Colors.white),
+              Text(
+                data.program,
+                style: const TextStyle(color: Colors.white),
               ),
               SizedBox(height: 4.h),
               Text(
@@ -67,7 +72,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             LocalizationKeys.programAmount.tr,
                             textAlign: TextAlign.center,
                           ),
-                          const Text('\$1.000'),
+                          Text('\$${data.programCost}'),
                         ],
                       ),
                     ),
@@ -86,7 +91,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             LocalizationKeys.paidAmount.tr,
                             textAlign: TextAlign.center,
                           ),
-                          const Text('\$500'),
+                          Text('\$${data.paid}'),
                         ],
                       ),
                     ),
@@ -105,7 +110,7 @@ class HomeHeaderWidget extends StatelessWidget {
                             LocalizationKeys.unPaidAmount.tr,
                             textAlign: TextAlign.center,
                           ),
-                          const Text('\$300'),
+                          Text('\$${data.unpaid}'),
                         ],
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:boilerplate/core/dio/dio_helper.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -22,6 +23,8 @@ class DioImpl extends DioHelper {
     this.onRequest,
     this.onError,
   }) {
+    final local = SharedPrefs.instance.getLanguageSelected();
+    print('language selected: $local');
     _client = Dio()
       ..interceptors.addAll([
         PrettyDioLogger(
@@ -39,7 +42,12 @@ class DioImpl extends DioHelper {
         ),
       ])
       ..options.baseUrl = baseURL
-      ..options.headers.addAll({'Accept': 'application/json'});
+      ..options.headers.addAll(
+        {
+          'Accept': 'application/json',
+          'locale': SharedPrefs.instance.getLanguageSelected(),
+        },
+      );
   }
 
   @override

@@ -31,9 +31,12 @@ class Endpoints {
 //-----------------------------------------------------------------------
   ///finance
   static const String finance = 'finance/invoices';
-  static const String financePay = 'finance/pay/6088';
+  static const String financePay = 'finance/pay';
 
 //-----------------------------------------------------------------------
   ///public services
   static const String faq = 'faq';
+  static const String home = 'home';
+  static const String checkFiles = 'check-files';
+  static const String editProfile = 'edit-profile';
 }

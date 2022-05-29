@@ -89,6 +89,7 @@ class ProfileScreen extends GetView<ProfileController>
             SizedBox(height: 20.h),
             AppTextFieldWidget(
               controller: controller.fullNameEnController,
+              readOnly: true,
               validator: nameValidator,
               labelText: LocalizationKeys.fullNameEnglish.tr,
               prefixIcon: Padding(
@@ -102,6 +103,7 @@ class ProfileScreen extends GetView<ProfileController>
             SizedBox(height: 16.h),
             AppTextFieldWidget(
               controller: controller.fullNameArController,
+              readOnly: true,
               validator: nameValidator,
               labelText: LocalizationKeys.fullNameArabic.tr,
               prefixIcon: Padding(
@@ -115,6 +117,7 @@ class ProfileScreen extends GetView<ProfileController>
             SizedBox(height: 16.h),
             AppTextFieldWidget(
               controller: controller.nationalPassportController,
+              readOnly: true,
               validator: nationalIdValidator,
               labelText: LocalizationKeys.nationalIdPassportNumber.tr,
               prefixIcon: Padding(
@@ -128,6 +131,7 @@ class ProfileScreen extends GetView<ProfileController>
             SizedBox(height: 16.h),
             AppTextFieldWidget(
               controller: controller.mobileController,
+              readOnly: true,
               validator: phoneValidator,
               labelText: LocalizationKeys.mobileNumber.tr,
               prefixIcon: Padding(
@@ -141,6 +145,7 @@ class ProfileScreen extends GetView<ProfileController>
             SizedBox(height: 16.h),
             AppTextFieldWidget(
               controller: controller.emailController,
+              readOnly: true,
               validator: emailValidator,
               labelText: LocalizationKeys.email.tr,
               prefixIcon: Padding(
@@ -177,8 +182,7 @@ class ProfileScreen extends GetView<ProfileController>
                 ),
               ),
             ),
-            SizedBox(height: 16.h),
-            SizedBox(height: 16.h),
+            SizedBox(height: 34.h),
             AppButton(
               title: LocalizationKeys.updateProfile.tr,
               onPressed: () {},

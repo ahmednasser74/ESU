@@ -7,6 +7,7 @@ import 'package:boilerplate/features/auth/presentation/controller/personal_info_
 import 'package:boilerplate/features/auth/presentation/controller/reset_password_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
 import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
+import 'package:boilerplate/features/home/presentation/controller/home_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
@@ -42,6 +43,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<ProfileController>(), fenix: true);
     Get.lazyPut(() => Injection.di<SettingController>(), fenix: true);
     Get.lazyPut(() => Injection.di<NotificationController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<HomeController>(), fenix: true);
     //-----------------------------------------------------------------------
     ///student data
     Get.lazyPut(() => Injection.di<LettersController>(), fenix: true);

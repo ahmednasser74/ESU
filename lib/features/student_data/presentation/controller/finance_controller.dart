@@ -16,7 +16,7 @@ class FinanceController extends GetxController
 
   final FinanceUseCase financeUseCase;
   final FinancePayUrlUseCase financePayUrlUseCase;
-  RxBool loadingPaymentGateway = false.obs;
+  bool loadingPaymentGateway = false;
 
   @override
   void onInit() {
@@ -45,13 +45,14 @@ class FinanceController extends GetxController
     );
   }
 
-  void getFinancePayUrl() async {
-    loadingPaymentGateway.value = true;
-    final finance = await financePayUrlUseCase(params: NoParams());
+  void payInvoiceUrl({required int invoiceId}) async {
+    loadingPaymentGateway = true;
+    update();
+    final finance = await financePayUrlUseCase(params: invoiceId);
     finance.fold(
       (l) => HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong),
       (r) {
-        if (r.status == true) {
+        if (r.status) {
           HelperMethod.launchToBrowser(
             r.data.url,
             mode: LaunchMode.inAppWebView,
@@ -61,6 +62,7 @@ class FinanceController extends GetxController
         }
       },
     );
-    loadingPaymentGateway.value = false;
+    loadingPaymentGateway = false;
+    update();
   }
 }

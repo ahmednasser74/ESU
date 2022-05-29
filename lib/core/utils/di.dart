@@ -25,9 +25,11 @@ import 'package:boilerplate/features/auth/presentation/controller/submit_admissi
 import 'package:boilerplate/features/home/data/datasources/home_remote_data_source.dart';
 import 'package:boilerplate/features/home/data/repositories/home_repository_imp.dart';
 import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
+import 'package:boilerplate/features/home/domin/usecases/home_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_all_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_single_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/notification_usecase.dart';
+import 'package:boilerplate/features/home/presentation/controller/home_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
@@ -152,6 +154,9 @@ class Injection {
     di.registerFactory<PopularQuestionController>(
       () => PopularQuestionController(),
     );
+    di.registerFactory<HomeController>(
+      () => HomeController(homeUseCase: di()),
+    );
     di.registerFactory<NotificationController>(
       () => NotificationController(
         getNotificationUseCase: di(),
@@ -163,6 +168,9 @@ class Injection {
     // Use cases
     di.registerLazySingleton<GetNotificationUseCase>(
       () => GetNotificationUseCase(repository: di()),
+    );
+    di.registerLazySingleton<HomeUseCase>(
+      () => HomeUseCase(repository: di()),
     );
     di.registerLazySingleton<MarkAllNotificationAsReadUseCase>(
       () => MarkAllNotificationAsReadUseCase(repository: di()),

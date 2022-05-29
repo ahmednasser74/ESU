@@ -1,7 +1,7 @@
 import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
-import 'package:boilerplate/features/student_data/data/models/response/finance/finance_pay_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/finance/finance_response_model.dart';
+import 'package:boilerplate/features/student_data/data/models/response/invoice_pay/invoice_pay.dart';
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 
@@ -12,7 +12,7 @@ abstract class StudentDataRemoteDataSource {
 
   Future<FinanceResponseModel> getFinance();
 
-  Future<FinancePayUrlResponseModel> getPayFinanceUrl();
+  Future<InvoicePayResponseModel> getPayInvoiceUrl({required int invoiceId});
 }
 
 class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
@@ -39,8 +39,12 @@ class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
   }
 
   @override
-  Future<FinancePayUrlResponseModel> getPayFinanceUrl() async {
-    final response = await dioHelper.get(url: Endpoints.financePay);
-    return FinancePayUrlResponseModel.fromJson(response.data);
+  Future<InvoicePayResponseModel> getPayInvoiceUrl({
+    required int invoiceId,
+  }) async {
+    final response = await dioHelper.get(
+      url: '${Endpoints.financePay}/$invoiceId',
+    );
+    return InvoicePayResponseModel.fromJson(response.data);
   }
 }
