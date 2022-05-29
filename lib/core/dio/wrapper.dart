@@ -1,6 +1,7 @@
 import 'package:boilerplate/core/dio/dio_helper.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:dio/dio.dart';
+import 'package:get/get.dart' hide Response;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'interceptors/app_interceptor.dart';
@@ -23,8 +24,6 @@ class DioImpl extends DioHelper {
     this.onRequest,
     this.onError,
   }) {
-    final local = SharedPrefs.instance.getLanguageSelected();
-    print('language selected: $local');
     _client = Dio()
       ..interceptors.addAll([
         PrettyDioLogger(
@@ -42,12 +41,10 @@ class DioImpl extends DioHelper {
         ),
       ])
       ..options.baseUrl = baseURL
-      ..options.headers.addAll(
-        {
-          'Accept': 'application/json',
-          'locale': SharedPrefs.instance.getLanguageSelected(),
-        },
-      );
+      ..options.headers.addAll({
+        'Accept': 'application/json',
+        'locale': Get.find<TranslationController>().appLocale,
+      });
   }
 
   @override
@@ -59,7 +56,9 @@ class DioImpl extends DioHelper {
       _client.get(
         url,
         queryParameters: queryParams,
-        options: options,
+        options: Options(
+          headers: {'locale': Get.find<TranslationController>().appLocale},
+        ),
       );
 
   @override
@@ -73,7 +72,9 @@ class DioImpl extends DioHelper {
         url,
         data: data,
         queryParameters: queryParams,
-        options: options,
+        options: Options(
+          headers: {'locale': Get.find<TranslationController>().appLocale},
+        ),
       );
 
   @override
