@@ -13,6 +13,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final String? labelText;
   final AutovalidateMode? autovalidateMode;
   final bool readOnly;
+  final void Function(String? v)? onChanged;
 
   const AppTextFieldWidget({
     Key? key,
@@ -26,6 +27,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.validator,
     this.labelText,
     this.autovalidateMode = AutovalidateMode.onUserInteraction,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -49,6 +51,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
       validator: widget.validator,
       keyboardType: widget.inputType,
       readOnly: widget.readOnly,
+      onChanged: widget.onChanged,
       textInputAction: TextInputAction.next,
       autovalidateMode: widget.autovalidateMode,
       decoration: InputDecoration(
