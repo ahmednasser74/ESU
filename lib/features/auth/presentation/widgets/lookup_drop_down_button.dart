@@ -4,7 +4,6 @@ import 'package:boilerplate/features/auth/data/model/response/lookup/lookup_data
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/get_utils.dart';
 
 class LookupDropDownButton extends StatefulWidget {
   const LookupDropDownButton({

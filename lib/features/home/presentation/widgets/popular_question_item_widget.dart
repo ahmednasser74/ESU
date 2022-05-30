@@ -141,7 +141,7 @@ class _AnswerPopularQuestionWidgetState
                 offset: const Offset(0, 4),
               ),
             ],
-            color: Color(0xffaeddf3),
+            color: const Color(0xffaeddf3),
           ),
           child: Html(
             data: widget.answer,
