@@ -60,20 +60,17 @@ class NotificationController extends GetxController
       params: NoParams(),
     );
     notification.fold(
-      (l) => HelperMethod.showToast(
-        msg: LocalizationKeys.failedMarkAllAsRead.tr,
-        gravity: ToastGravity.TOP,
-      ),
+      (l) => HelperMethod.showToast(msg: l!, gravity: ToastGravity.TOP),
       (r) {
         if (r.status) {
           getNotification();
           HelperMethod.showToast(
-            msg: LocalizationKeys.successMarkAllAsRead.tr,
+            msg: r.message ?? LocalizationKeys.successMarkAllAsRead.tr,
             gravity: ToastGravity.TOP,
           );
         } else {
           HelperMethod.showToast(
-            msg: LocalizationKeys.failedMarkAllAsRead.tr,
+            msg: r.message ?? LocalizationKeys.failedMarkAllAsRead.tr,
             gravity: ToastGravity.TOP,
           );
         }

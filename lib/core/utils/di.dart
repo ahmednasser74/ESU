@@ -25,6 +25,8 @@ import 'package:boilerplate/features/auth/presentation/controller/submit_admissi
 import 'package:boilerplate/features/home/data/datasources/home_remote_data_source.dart';
 import 'package:boilerplate/features/home/data/repositories/home_repository_imp.dart';
 import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
+import 'package:boilerplate/features/home/domin/usecases/check_edit_profile_files_usecase.dart';
+import 'package:boilerplate/features/home/domin/usecases/edit_profile_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/home_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_all_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_single_notification_as_read_usecase.dart';
@@ -149,7 +151,12 @@ class Injection {
 
   static void _homeCycle() {
     // Controller
-    di.registerFactory<ProfileController>(() => ProfileController());
+    di.registerFactory<ProfileController>(
+      () => ProfileController(
+        checkEditProfileFilesUseCase: di(),
+        editProfileUseCase: di(),
+      ),
+    );
     di.registerFactory<SettingController>(() => SettingController());
     di.registerFactory<PopularQuestionController>(
       () => PopularQuestionController(),
@@ -177,6 +184,12 @@ class Injection {
     );
     di.registerLazySingleton<MarkSingleNotificationAsReadUseCase>(
       () => MarkSingleNotificationAsReadUseCase(repository: di()),
+    );
+    di.registerLazySingleton<CheckEditProfileFilesUseCase>(
+      () => CheckEditProfileFilesUseCase(repository: di()),
+    );
+    di.registerLazySingleton<EditProfileUseCase>(
+      () => EditProfileUseCase(repository: di()),
     );
 
     //repo
