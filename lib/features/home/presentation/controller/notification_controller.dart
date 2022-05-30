@@ -19,6 +19,7 @@ class NotificationController extends GetxController
   final GetNotificationUseCase getNotificationUseCase;
   final MarkSingleNotificationAsReadUseCase markSingleNotificationAsReadUseCase;
   final MarkAllNotificationAsReadUseCase markAllNotificationAsReadUseCase;
+  RxBool waitingMarkAllAsRead = false.obs;
 
   @override
   void onInit() async {
@@ -45,14 +46,7 @@ class NotificationController extends GetxController
   }
 
   Future<void> markSingleNotificationAsRead({required int id}) async {
-    final notification = await markSingleNotificationAsReadUseCase(params: id);
-    notification.fold(
-      (l) {},
-      (r) {
-        if (r.status) {
-        } else {}
-      },
-    );
+    await markSingleNotificationAsReadUseCase(params: id);
   }
 
   Future<void> markAllNotificationAsRead() async {
@@ -63,7 +57,6 @@ class NotificationController extends GetxController
       (l) => HelperMethod.showToast(msg: l!, gravity: ToastGravity.TOP),
       (r) {
         if (r.status) {
-          getNotification();
           HelperMethod.showToast(
             msg: r.message ?? LocalizationKeys.successMarkAllAsRead.tr,
             gravity: ToastGravity.TOP,

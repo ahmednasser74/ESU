@@ -37,7 +37,7 @@ class NotificationScreen extends GetView<NotificationController> {
           separatorBuilder: (context, index) => SizedBox(height: 14.h),
           itemBuilder: (context, index) => NotificationItemWidget(
             notification: notifications.elementAt(index),
-            onTap: () => controller.markSingleNotificationAsRead(
+            onTapItem: () => controller.markSingleNotificationAsRead(
               id: notifications.elementAt(index).id,
             ),
           ),
