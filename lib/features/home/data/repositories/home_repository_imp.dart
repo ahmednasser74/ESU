@@ -1,6 +1,8 @@
 import 'package:boilerplate/core/models/response/generic_model.dart';
 import 'package:boilerplate/core/utils/di.dart';
 import 'package:boilerplate/features/home/data/datasources/home_remote_data_source.dart';
+import 'package:boilerplate/features/home/data/models/request/edit_profile_request_model.dart';
+import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
 import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
@@ -43,6 +45,25 @@ class HomeRepositoryImp implements HomeRepository {
   Future<Either<String?, HomeResponseModel>> getHomeData() {
     return _responseHandling<HomeResponseModel>(
       onSuccess: () async => await remoteDataSource.getHomeData(),
+    );
+  }
+
+  @override
+  Future<Either<String?, CheckEditProfileFilesResponseModel>>
+      checkEditProfileFiles() {
+    return _responseHandling<CheckEditProfileFilesResponseModel>(
+      onSuccess: () async => await remoteDataSource.checkEditProfileFiles(),
+    );
+  }
+
+  @override
+  Future<Either<String?, GenericResponseModel>> editProfile({
+    required EditProfileRequestModel requestModel,
+  }) {
+    return _responseHandling<GenericResponseModel>(
+      onSuccess: () async => await remoteDataSource.editProfile(
+        requestModel: requestModel,
+      ),
     );
   }
 }

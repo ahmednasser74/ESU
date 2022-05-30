@@ -69,7 +69,7 @@ const Map<String, String> ar = {
   LocalizationKeys.filesUpload: 'تحميل الملفات',
   LocalizationKeys.copyOfYourIdOrPassport: 'نسخة من جواز سفرك',
   LocalizationKeys.copyOfTheAcademicCertificate: 'نسخة من الشهادة الأكاديمية',
-  LocalizationKeys.copyOfTranscript: ' A copy of transcript',
+  LocalizationKeys.copyOfTranscript: 'نسخة من النسخة الأرشيفية',
   LocalizationKeys.copyOfTheStudentsContractWithTheUniversity:
       'نسخة من عقد الطالب مع الجامعة',
   LocalizationKeys.bachelorMasterContractDownloadLink:

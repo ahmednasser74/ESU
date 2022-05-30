@@ -1,14 +1,23 @@
 import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
 import 'package:boilerplate/core/models/response/generic_model.dart';
+import 'package:boilerplate/features/home/data/models/request/edit_profile_request_model.dart';
+import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_response_model.dart';
+import 'package:dio/dio.dart';
 
 abstract class HomeRemoteDataSource {
   Future<NotificationResponseModel> getNotifications();
 
   Future<PopularQuestionResponseModel> getPopularQuestion();
+
+  Future<CheckEditProfileFilesResponseModel> checkEditProfileFiles();
+
+  Future<GenericResponseModel> editProfile({
+    required EditProfileRequestModel requestModel,
+  });
 
   Future<HomeResponseModel> getHomeData();
 
@@ -62,5 +71,22 @@ class HomeRemoteDataSourceImp implements HomeRemoteDataSource {
       url: Endpoints.home,
     );
     return HomeResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<CheckEditProfileFilesResponseModel> checkEditProfileFiles() async {
+    final response = await dioHelper.get(url: Endpoints.checkFiles);
+    return CheckEditProfileFilesResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<GenericResponseModel> editProfile({
+    required EditProfileRequestModel requestModel,
+  }) async {
+    final response = await dioHelper.post(
+      url: Endpoints.editProfile,
+      data: FormData.fromMap(await requestModel.toJson()),
+    );
+    return GenericResponseModel.fromJson(response.data);
   }
 }

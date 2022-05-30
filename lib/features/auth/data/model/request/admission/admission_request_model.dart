@@ -80,12 +80,8 @@ class AdmissionRequestModel {
         'f[latest_academic_qualification_file]': await MultipartFile.fromFile(
           latestAcademicQualificationFile.path,
         ),
-        'f[transcript_file]': await MultipartFile.fromFile(
-          transcriptFile.path,
-        ),
-        'f[contract_file]': await MultipartFile.fromFile(
-          contractFile.path,
-        ),
+        'f[transcript_file]': await MultipartFile.fromFile(transcriptFile.path),
+        'f[contract_file]': await MultipartFile.fromFile(contractFile.path),
         'f[cv]': cvFile == null
             ? null
             : await MultipartFile.fromFile(
