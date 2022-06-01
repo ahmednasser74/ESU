@@ -9,6 +9,7 @@ class FinanceDataResponseModel {
     required this.originalStatus,
     this.paidAt,
     this.dueDate,
+    this.isLoadingToPaymentGateway = false,
   });
 
   final int id;
@@ -20,6 +21,7 @@ class FinanceDataResponseModel {
   final String originalStatus;
   final String? paidAt;
   final String? dueDate;
+  bool isLoadingToPaymentGateway;
 
   factory FinanceDataResponseModel.fromJson(Map<String, dynamic> json) =>
       FinanceDataResponseModel(

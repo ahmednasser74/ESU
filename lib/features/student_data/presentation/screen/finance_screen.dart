@@ -19,9 +19,10 @@ class FinanceScreen extends GetView<FinanceController> {
         (state) => ListView.separated(
           itemCount: state?.length ?? 0,
           padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
-          separatorBuilder: (context, index) => SizedBox(height: 14.h),
-          itemBuilder: (context, index) => FinanceItemWidget(
+          separatorBuilder: (_, index) => SizedBox(height: 14.h),
+          itemBuilder: (_, index) => FinanceItemWidget(
             finance: state!.elementAt(index),
+            index: index,
           ),
         ),
         onError: (e) => AppErrorWidget(errorMessage: e),

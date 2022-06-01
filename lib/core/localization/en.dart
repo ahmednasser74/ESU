@@ -144,6 +144,7 @@ const Map<String, String> en = {
   LocalizationKeys.dueDate: 'Due Date',
   LocalizationKeys.remaining: 'Remaining',
   LocalizationKeys.notPutTillNow: 'Not Put Till Now',
+  LocalizationKeys.waitingForPayment: 'Waiting For Payment GateWay',
 
   //-------------------------------------------------------------------------
   ///Letters
