@@ -60,7 +60,9 @@ class FinanceController extends GetxController
           await HelperMethod.launchToBrowser(
             r.data.url,
             mode: LaunchMode.inAppWebView,
-          );
+          ).then((value) {
+            print('DDDDDOOOONNNNNNEEEEE');
+          });
         } else {
           HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong);
         }
