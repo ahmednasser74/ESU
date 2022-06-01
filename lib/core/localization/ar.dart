@@ -142,6 +142,7 @@ const Map<String, String> ar = {
   LocalizationKeys.dueDate: 'تاريخ الاستحقاق',
   LocalizationKeys.remaining: 'المتبقي',
   LocalizationKeys.notPutTillNow: 'لم يتم تحديد حتى الآن',
+  LocalizationKeys.waitingForPayment: 'الرجاء الانتظار حتى لفتح بوابة الدفع',
 
   //-------------------------------------------------------------------------
   ///Letters
