@@ -80,7 +80,7 @@ class FinanceItemWidget extends StatelessWidget {
           ),
           SizedBox(height: 8.h),
           Visibility(
-            // visible: finance.originalStatus == 'unpaid',
+            visible: finance.originalStatus == 'unpaid',
             child: GetBuilder<FinanceController>(
               builder: (controller) => OutlinedButton.icon(
                 style: OutlinedButton.styleFrom(
