@@ -1,7 +1,7 @@
 import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
 import 'package:boilerplate/features/student_data/data/models/response/finance/finance_response_model.dart';
-import 'package:boilerplate/features/student_data/data/models/response/invoice_pay/invoice_pay.dart';
+import 'package:boilerplate/features/student_data/data/models/response/invoice_pay/invoice_pay_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 

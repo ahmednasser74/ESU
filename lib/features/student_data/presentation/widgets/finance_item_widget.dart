@@ -11,11 +11,14 @@ class FinanceItemWidget extends StatelessWidget {
   const FinanceItemWidget({
     Key? key,
     required this.finance,
+    required this.index,
   }) : super(key: key);
+  final int index;
   final FinanceDataResponseModel finance;
 
   @override
   Widget build(BuildContext context) {
+    bool isLoadingPayment = finance.isLoadingToPaymentGateway;
     return Container(
       padding: EdgeInsets.only(left: 18.w, right: 18.w, top: 12.h, bottom: 6.h),
       decoration: BoxDecoration(
@@ -88,14 +91,24 @@ class FinanceItemWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                 ),
-                onPressed: controller.loadingPaymentGateway
+                onPressed: isLoadingPayment
                     ? () {}
-                    : () => controller.payInvoiceUrl(invoiceId: finance.id),
-                label: controller.loadingPaymentGateway
+                    : () async => await controller.payInvoiceUrl(
+                          invoiceId: finance.id,
+                          index: index,
+                        ),
+                label: isLoadingPayment
                     ? Text(LocalizationKeys.waiting.tr)
                     : Text(LocalizationKeys.pay.tr),
-                icon: controller.loadingPaymentGateway
-                    ? const CircularProgressIndicator(color: Colors.white)
+                icon: isLoadingPayment
+                    ? SizedBox(
+                        height: 12.h,
+                        width: 12.w,
+                        child: const CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                          strokeWidth: 1.5,
+                        ),
+                      )
                     : const Icon(Icons.attach_money),
               ),
             ),

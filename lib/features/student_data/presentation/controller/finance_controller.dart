@@ -16,7 +16,7 @@ class FinanceController extends GetxController
 
   final FinanceUseCase financeUseCase;
   final FinancePayUrlUseCase financePayUrlUseCase;
-  bool loadingPaymentGateway = false;
+  List<FinanceDataResponseModel> financeList = [];
 
   @override
   void onInit() {
@@ -33,7 +33,8 @@ class FinanceController extends GetxController
           if (r.data.isEmpty) {
             change(null, status: RxStatus.empty());
           } else {
-            change(r.data, status: RxStatus.success());
+            financeList = r.data;
+            change(financeList, status: RxStatus.success());
           }
         } else {
           change(
@@ -45,24 +46,29 @@ class FinanceController extends GetxController
     );
   }
 
-  void payInvoiceUrl({required int invoiceId}) async {
-    loadingPaymentGateway = true;
+  Future<void> payInvoiceUrl({
+    required int invoiceId,
+    required int index,
+  }) async {
+    financeList.elementAt(index).isLoadingToPaymentGateway = true;
     update();
     final finance = await financePayUrlUseCase(params: invoiceId);
     finance.fold(
       (l) => HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong),
-      (r) {
+      (r) async {
         if (r.status) {
-          HelperMethod.launchToBrowser(
+          await HelperMethod.launchToBrowser(
             r.data.url,
             mode: LaunchMode.inAppWebView,
-          );
+          ).then((value) {
+            print('DDDDDOOOONNNNNNEEEEE');
+          });
         } else {
           HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong);
         }
       },
     );
-    loadingPaymentGateway = false;
+    financeList.elementAt(index).isLoadingToPaymentGateway = false;
     update();
   }
 }
