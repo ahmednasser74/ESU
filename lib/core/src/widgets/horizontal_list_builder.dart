@@ -4,18 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HorizontalListBuilder extends StatelessWidget {
   final IndexedWidgetBuilder itemBuilder;
   final int itemCount;
-  final double heightList;
+  final double? heightList;
 
   const HorizontalListBuilder({
     required this.itemBuilder,
     required this.itemCount,
-    this.heightList = 18,
+    this.heightList = 25,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: (heightList / 100).sh,
+      height: heightList ?? (heightList! / 100).sh,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

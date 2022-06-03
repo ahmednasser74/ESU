@@ -12,7 +12,10 @@ import 'package:boilerplate/features/home/presentation/screens/notification_scre
 import 'package:boilerplate/features/home/presentation/screens/popular_question_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/profile_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/setting_screen.dart';
+import 'package:boilerplate/features/student_data/presentation/screen/access_to_moodle_screen.dart';
+import 'package:boilerplate/features/student_data/presentation/screen/lecture_table_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/letters_screen.dart';
+import 'package:boilerplate/features/student_data/presentation/screen/schedule_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/student_card_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/study_plans_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/transcript_screen.dart';
@@ -39,6 +42,9 @@ class Routes {
       studyPlanScreen = '/studyPlanScreen',
       studentCardScreen = '/studentCardScreen',
       popularQuestionScreen = '/popularQuestionScreen',
+      scheduleScreen = '/scheduleScreen',
+      accessToMoodleScreen = '/accessToMoodleScreen',
+      lectureTableScreen = '/lectureTableScreen',
       registerPersonalInfo = '/registerPersonalInfo';
 
   static List<GetPage> setScreens() {
@@ -80,12 +86,18 @@ class Routes {
       GetPage(name: lettersScreen, page: () => const LettersScreen()),
       GetPage(name: notificationScreen, page: () => const NotificationScreen()),
       GetPage(name: settingsScreen, page: () => const SettingScreen()),
+      GetPage(name: scheduleScreen, page: () => const ScheduleScreen()),
+      GetPage(name: studyPlanScreen, page: () => const StudyPlansScreen()),
+      GetPage(name: studentCardScreen, page: () => const StudentCardScreen()),
+      GetPage(
+        name: accessToMoodleScreen,
+        page: () => const AccessToMoodleScreen(),
+      ),
+      GetPage(name: lectureTableScreen, page: () => const LectureTableScreen()),
       GetPage(
         name: successfulAdmissionScreen,
         page: () => const SuccessfulAdmissionScreen(),
       ),
-      GetPage(name: studyPlanScreen, page: () => const StudyPlansScreen()),
-      GetPage(name: studentCardScreen, page: () => const StudentCardScreen()),
     ];
   }
 }

@@ -139,6 +139,39 @@ class DrawerWidget extends StatelessWidget {
                   },
                 ),
                 ListTile(
+                  title: Text('Access To Moodle'),
+                  leading: Assets.icons.accessToMoodle.image(
+                    color: AppColors.primaryColor,
+                    height: 20.h,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Get.toNamed(Routes.accessToMoodleScreen);
+                  },
+                ),
+                ListTile(
+                  title: Text('Lecture Table'),
+                  leading: Assets.icons.lecture.image(
+                    color: AppColors.primaryColor,
+                    height: 20.h,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Get.toNamed(Routes.lectureTableScreen);
+                  },
+                ),
+                ListTile(
+                  title: Text('Schedule'),
+                  leading: Assets.icons.schedule.image(
+                    color: AppColors.primaryColor,
+                    height: 20.h,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Get.toNamed(Routes.scheduleScreen);
+                  },
+                ),
+                ListTile(
                   title: Text(LocalizationKeys.settings.tr),
                   leading: Assets.icons.settingIcon.image(
                     color: AppColors.primaryColor,

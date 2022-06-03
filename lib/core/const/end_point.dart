@@ -39,4 +39,7 @@ class Endpoints {
   static const String home = 'home';
   static const String checkFiles = 'check-files';
   static const String editProfile = 'edit-profile';
+  static const String lectureTable = 'lecture-table';
+  static const String schedule = 'schedule';
+  static const String accessToMoodle = 'access-to-moodle';
 }
