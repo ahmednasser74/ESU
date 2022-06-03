@@ -6,24 +6,28 @@ class CustomRichText extends StatelessWidget {
     Key? key,
     required this.title,
     required this.value,
+    this.fontSize = 14.0,
   }) : super(key: key);
   final String title;
   final String value;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
         text: title,
-        style: const TextStyle(
+        style: TextStyle(
           color: AppColors.primaryColor,
           fontFamily: 'din',
+          fontSize: fontSize,
         ),
         children: [
           TextSpan(
             text: value,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.black,
+              fontSize: fontSize,
               fontFamily: 'din',
             ),
           ),

@@ -89,19 +89,26 @@ class LectureTableItemWidget extends StatelessWidget {
             ),
           ),
           SizedBox(height: 6.h),
-          CustomRichText(
-            title: 'Course Code: ',
-            value: course.courseCode,
-          ),
-          SizedBox(height: 6.h),
-          CustomRichText(
-            title: 'Doctor Name: ',
-            value: course.doctorName,
+          Row(
+            children: [
+              CustomRichText(
+                title: 'Course Code: ',
+                value: course.courseCode,
+                fontSize: 12.sp,
+              ),
+              const Spacer(),
+              CustomRichText(
+                title: 'Doctor Name: ',
+                value: course.doctorName,
+                fontSize: 12.sp,
+              ),
+            ],
           ),
           SizedBox(height: 6.h),
           CustomRichText(
             title: 'weekly_lecture: ',
             value: course.weeklyLecture.trim(),
+            fontSize: 12.sp,
           ),
           Visibility(
             visible: course.note != null,
@@ -111,6 +118,7 @@ class LectureTableItemWidget extends StatelessWidget {
                 CustomRichText(
                   title: 'note: ',
                   value: course.note ?? '',
+                  fontSize: 12.sp,
                 ),
               ],
             ),

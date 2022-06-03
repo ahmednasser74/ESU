@@ -21,7 +21,6 @@ class ScheduleScreen extends GetView<ScheduleController> {
           padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
           separatorBuilder: (_, index) => SizedBox(height: 14.h),
           itemBuilder: (_, index) => Container(
-            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.r),
               color: Colors.white,
@@ -34,7 +33,10 @@ class ScheduleScreen extends GetView<ScheduleController> {
                 ),
               ],
             ),
-            child: Image.network(state!.data.elementAt(index)),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12.r),
+              child: Image.network(state!.data.elementAt(index)),
+            ),
           ),
         ),
         onError: (e) => AppErrorWidget(errorMessage: e),
