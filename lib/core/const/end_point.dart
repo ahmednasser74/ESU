@@ -2,14 +2,14 @@ class Endpoints {
   // static const String baseUrl = 'https://sis.esu.ac.ae/api/';
   static const String baseUrl = 'https://sisdev.esu.ac.ae/api/';
 
-//-----------------------------------------------------------------------
+  //-----------------------------------------------------------------------
   ///Auth
   static const String admission = 'admission';
   static const String login = 'login';
   static const String forgetPassword = 'forgot-password';
   static const String resetPassword = 'reset-password';
 
-//-----------------------------------------------------------------------
+  //-----------------------------------------------------------------------
   ///lookup
   static const String lookup = 'lookup/get';
   static const String transcript = 'transcript';
@@ -23,17 +23,22 @@ class Endpoints {
   static const String markAllNotificationsAsRead =
       'notifications/mark-all-as-read';
 
-//-----------------------------------------------------------------------
+  //-----------------------------------------------------------------------
   ///letters
   static const String letters = 'letters';
   static const String lettersShow = 'letters/';
 
-//-----------------------------------------------------------------------
+  //-----------------------------------------------------------------------
   ///finance
   static const String finance = 'finance/invoices';
   static const String financePay = 'finance/pay';
 
-//-----------------------------------------------------------------------
+  //-----------------------------------------------------------------------
+  ///term registration
+  static const String termRegistration = 'registration/term';
+  static const String termPay = 'registration/term/pay';
+
+  //-----------------------------------------------------------------------
   ///public services
   static const String faq = 'faq';
   static const String home = 'home';
