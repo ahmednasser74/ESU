@@ -178,6 +178,27 @@ const Map<String, String> ar = {
   LocalizationKeys.faq: 'الأسئلة الشائعة',
 
   //-------------------------------------------------------------------------
+  ///access to moodle
+  LocalizationKeys.accessToMoodle: 'الوصول إلى مودل',
+  LocalizationKeys.goToMoodle: 'الذهاب إلى مودل',
+  LocalizationKeys.moodleUrl: 'رابط مودل',
+  LocalizationKeys.playVideo: 'تشغيل الفيديو',
+
+  //-------------------------------------------------------------------------
+  ///lecture table
+  LocalizationKeys.lectureTable: 'المحاضرات',
+  LocalizationKeys.noLectureFound: 'لا يوجد محاضرات',
+  LocalizationKeys.lecture: 'المحاضرة',
+  LocalizationKeys.doctorName: 'أسم الطبيب',
+  LocalizationKeys.weeklyLecture: 'المحاضرة الأسبوعية',
+  LocalizationKeys.note: 'ملاحظة',
+  LocalizationKeys.courseCode: 'كود المادة',
+
+  //-------------------------------------------------------------------------
+  ///schedule
+  LocalizationKeys.schedule: 'جدول المحاضرات',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'تسجيل الخروج',
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',

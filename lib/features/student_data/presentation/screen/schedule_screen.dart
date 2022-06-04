@@ -14,7 +14,7 @@ class ScheduleScreen extends GetView<ScheduleController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Schedule')),
+      appBar: AppBar(title: Text(LocalizationKeys.schedule.tr)),
       body: controller.obx(
         (state) => ListView.separated(
           itemCount: state?.data.length ?? 0,

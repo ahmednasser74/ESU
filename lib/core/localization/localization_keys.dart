@@ -188,4 +188,25 @@ class LocalizationKeys {
   static const String somethingWentWrong = 'somethingWentWrong';
   static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
   static const String hello = 'hello';
+
+  //-------------------------------------------------------------------------
+  ///access to moodle
+  static const String accessToMoodle = 'accessToMoodle';
+  static const String goToMoodle = 'goToMoodle';
+  static const String moodleUrl = 'moodleUrl';
+  static const String playVideo = 'playVideo';
+
+  //-------------------------------------------------------------------------
+  ///lecture table
+  static const String lectureTable = 'lectureTable';
+  static const String noLectureFound = 'noLectureFound';
+  static const String lecture = 'lecture';
+  static const String doctorName = 'doctorName';
+  static const String weeklyLecture = 'weeklyLecture';
+  static const String note = 'note';
+  static const String courseCode = 'courseCode';
+
+  //-------------------------------------------------------------------------
+  ///schedule
+  static const String schedule = 'schedule';
 }

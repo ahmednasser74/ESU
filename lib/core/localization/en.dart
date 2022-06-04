@@ -181,6 +181,27 @@ const Map<String, String> en = {
   LocalizationKeys.faq: 'FAQ',
 
   //-------------------------------------------------------------------------
+  ///access to moodle
+  LocalizationKeys.accessToMoodle: 'Access To Moodle',
+  LocalizationKeys.goToMoodle: 'Go To Moodle',
+  LocalizationKeys.moodleUrl: 'Moodle Url',
+  LocalizationKeys.playVideo: 'Play Video',
+
+  //-------------------------------------------------------------------------
+  ///lecture table
+  LocalizationKeys.lectureTable: 'Lecture Table',
+  LocalizationKeys.noLectureFound: 'No Lecture Found',
+  LocalizationKeys.lecture: 'Lecture',
+  LocalizationKeys.doctorName: 'Doctor Name',
+  LocalizationKeys.weeklyLecture: 'Weekly Lecture',
+  LocalizationKeys.note: 'Note',
+  LocalizationKeys.courseCode: 'Course Code',
+
+  //-------------------------------------------------------------------------
+  ///schedule
+  LocalizationKeys.schedule: 'Schedule',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',

@@ -139,7 +139,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: Text('Access To Moodle'),
+                  title: Text(LocalizationKeys.accessToMoodle.tr),
                   leading: Assets.icons.accessToMoodle.image(
                     color: AppColors.primaryColor,
                     height: 20.h,
@@ -150,7 +150,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: Text('Lecture Table'),
+                  title: Text(LocalizationKeys.lectureTable.tr),
                   leading: Assets.icons.lecture.image(
                     color: AppColors.primaryColor,
                     height: 20.h,
@@ -161,7 +161,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: Text('Schedule'),
+                  title: Text(LocalizationKeys.schedule.tr),
                   leading: Assets.icons.schedule.image(
                     color: AppColors.primaryColor,
                     height: 20.h,
@@ -184,9 +184,9 @@ class DrawerWidget extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(LocalizationKeys.faq.tr),
-                  leading: const Icon(
-                    Icons.info_outlined,
+                  leading: Assets.icons.faq.image(
                     color: AppColors.primaryColor,
+                    height: 20.h,
                   ),
                   onTap: () {
                     Navigator.pop(context);
