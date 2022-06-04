@@ -17,12 +17,10 @@ class DrawerWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 180.h,
+            height: 160.h,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-            decoration: const BoxDecoration(
-              color: AppColors.primaryColor,
-            ),
+            color: AppColors.primaryColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -139,6 +137,39 @@ class DrawerWidget extends StatelessWidget {
                   },
                 ),
                 ListTile(
+                  title: Text(LocalizationKeys.accessToMoodle.tr),
+                  leading: Assets.icons.accessToMoodle.image(
+                    color: AppColors.primaryColor,
+                    height: 22.h,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Get.toNamed(Routes.accessToMoodleScreen);
+                  },
+                ),
+                ListTile(
+                  title: Text(LocalizationKeys.lectureTable.tr),
+                  leading: Assets.icons.lecture.image(
+                    color: AppColors.primaryColor,
+                    height: 20.h,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Get.toNamed(Routes.lectureTableScreen);
+                  },
+                ),
+                ListTile(
+                  title: Text(LocalizationKeys.schedule.tr),
+                  leading: Assets.icons.schedule.image(
+                    color: AppColors.primaryColor,
+                    height: 20.h,
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Get.toNamed(Routes.scheduleScreen);
+                  },
+                ),
+                ListTile(
                   title: Text(LocalizationKeys.settings.tr),
                   leading: Assets.icons.settingIcon.image(
                     color: AppColors.primaryColor,
@@ -151,9 +182,9 @@ class DrawerWidget extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(LocalizationKeys.faq.tr),
-                  leading: const Icon(
-                    Icons.info_outlined,
+                  leading: Assets.icons.faq.image(
                     color: AppColors.primaryColor,
+                    height: 26.h,
                   ),
                   onTap: () {
                     Navigator.pop(context);

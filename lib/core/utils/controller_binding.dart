@@ -11,8 +11,11 @@ import 'package:boilerplate/features/home/presentation/controller/home_controlle
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/access_to_moodle_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/lecture_table_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/schedule_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get/get.dart';
@@ -50,5 +53,8 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<TranscriptController>(), fenix: true);
     Get.lazyPut(() => Injection.di<FinanceController>(), fenix: true);
     Get.lazyPut(() => Injection.di<StudyPlansController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<ScheduleController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<AccessToMoodleController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<LectureTableController>(), fenix: true);
   }
 }

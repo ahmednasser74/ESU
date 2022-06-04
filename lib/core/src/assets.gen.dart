@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/access_to_moodle.png
+  AssetGenImage get accessToMoodle => const AssetGenImage('assets/icons/access_to_moodle.png');
+
   /// File path: assets/icons/add_file.png
   AssetGenImage get addFile => const AssetGenImage('assets/icons/add_file.png');
 
@@ -21,11 +24,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email.png
   AssetGenImage get email => const AssetGenImage('assets/icons/email.png');
 
+  /// File path: assets/icons/faq.png
+  AssetGenImage get faq => const AssetGenImage('assets/icons/faq.png');
+
   /// File path: assets/icons/finance_icon.png
   AssetGenImage get financeIcon => const AssetGenImage('assets/icons/finance_icon.png');
 
   /// File path: assets/icons/identity.png
   AssetGenImage get identity => const AssetGenImage('assets/icons/identity.png');
+
+  /// File path: assets/icons/lecture.png
+  AssetGenImage get lecture => const AssetGenImage('assets/icons/lecture.png');
 
   /// File path: assets/icons/letter_icon.png
   AssetGenImage get letterIcon => const AssetGenImage('assets/icons/letter_icon.png');
@@ -50,6 +59,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/profile_icon.png
   AssetGenImage get profileIcon => const AssetGenImage('assets/icons/profile_icon.png');
+
+  /// File path: assets/icons/schedule.png
+  AssetGenImage get schedule => const AssetGenImage('assets/icons/schedule.png');
 
   /// File path: assets/icons/setting_icon.png
   AssetGenImage get settingIcon => const AssetGenImage('assets/icons/setting_icon.png');

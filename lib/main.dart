@@ -2,6 +2,7 @@ import 'package:boilerplate/core/utils/notification_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'core/localization/translation.dart';
@@ -25,10 +26,12 @@ void main() async {
   ));
   await Injection.init();
   await NotificationHelper.instance.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

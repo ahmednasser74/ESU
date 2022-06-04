@@ -138,6 +138,7 @@ const Map<String, String> ar = {
   LocalizationKeys.paidAt: ' تم الدفع في',
   LocalizationKeys.waiting: 'الرجاء الانتظار',
   LocalizationKeys.pay: 'دفع',
+  LocalizationKeys.payment: 'الدفع',
   LocalizationKeys.noDataFound: 'لا يوجد بيانات',
   LocalizationKeys.dueDate: 'تاريخ الاستحقاق',
   LocalizationKeys.remaining: 'المتبقي',
@@ -176,6 +177,27 @@ const Map<String, String> ar = {
   //-------------------------------------------------------------------------
   ///FAQ
   LocalizationKeys.faq: 'الأسئلة الشائعة',
+
+  //-------------------------------------------------------------------------
+  ///access to moodle
+  LocalizationKeys.accessToMoodle: 'الوصول إلى مودل',
+  LocalizationKeys.goToMoodle: 'الذهاب إلى مودل',
+  LocalizationKeys.moodleUrl: 'رابط مودل',
+  LocalizationKeys.playVideo: 'تشغيل الفيديو',
+
+  //-------------------------------------------------------------------------
+  ///lecture table
+  LocalizationKeys.lectureTable: 'المحاضرات',
+  LocalizationKeys.noLectureFound: 'لا يوجد محاضرات',
+  LocalizationKeys.lecture: 'المحاضرة',
+  LocalizationKeys.doctorName: 'أسم الطبيب',
+  LocalizationKeys.weeklyLecture: 'المحاضرة الأسبوعية',
+  LocalizationKeys.note: 'ملاحظة',
+  LocalizationKeys.courseCode: 'كود المادة',
+
+  //-------------------------------------------------------------------------
+  ///schedule
+  LocalizationKeys.schedule: 'جدول المحاضرات',
 
   //-------------------------------------------------------------------------
   ///global

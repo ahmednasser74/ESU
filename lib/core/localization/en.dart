@@ -140,6 +140,7 @@ const Map<String, String> en = {
   LocalizationKeys.paidAt: 'Paid At',
   LocalizationKeys.waiting: 'Waiting...',
   LocalizationKeys.pay: 'Pay',
+  LocalizationKeys.payment: 'Payment',
   LocalizationKeys.noDataFound: 'No Data Found',
   LocalizationKeys.dueDate: 'Due Date',
   LocalizationKeys.remaining: 'Remaining',
@@ -179,6 +180,27 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///FAQ
   LocalizationKeys.faq: 'FAQ',
+
+  //-------------------------------------------------------------------------
+  ///access to moodle
+  LocalizationKeys.accessToMoodle: 'Access To Moodle',
+  LocalizationKeys.goToMoodle: 'Go To Moodle',
+  LocalizationKeys.moodleUrl: 'Moodle Url',
+  LocalizationKeys.playVideo: 'Play Video',
+
+  //-------------------------------------------------------------------------
+  ///lecture table
+  LocalizationKeys.lectureTable: 'Lecture Table',
+  LocalizationKeys.noLectureFound: 'No Lecture Found',
+  LocalizationKeys.lecture: 'Lecture',
+  LocalizationKeys.doctorName: 'Doctor Name',
+  LocalizationKeys.weeklyLecture: 'Weekly Lecture',
+  LocalizationKeys.note: 'Note',
+  LocalizationKeys.courseCode: 'Course Code',
+
+  //-------------------------------------------------------------------------
+  ///schedule
+  LocalizationKeys.schedule: 'Schedule',
 
   //-------------------------------------------------------------------------
   ///global

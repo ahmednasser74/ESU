@@ -4,8 +4,8 @@ import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:boilerplate/features/student_data/data/models/response/finance/finance_data_response_model.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_use_case.dart';
+import 'package:boilerplate/features/student_data/presentation/widgets/finance_item_widget.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class FinanceController extends GetxController
     with StateMixin<List<FinanceDataResponseModel>> {
@@ -25,6 +25,7 @@ class FinanceController extends GetxController
   }
 
   void getFinance() async {
+    change(null, status: RxStatus.loading());
     final finance = await financeUseCase(params: NoParams());
     finance.fold(
       (l) => change(null, status: RxStatus.error(l!)),
@@ -57,12 +58,8 @@ class FinanceController extends GetxController
       (l) => HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong),
       (r) async {
         if (r.status) {
-          await HelperMethod.launchToBrowser(
-            r.data.url,
-            mode: LaunchMode.inAppWebView,
-          ).then((value) {
-            print('DDDDDOOOONNNNNNEEEEE');
-          });
+          Get.to(() => WebViewExample(paymentUrl: r.data.url));
+          // await HelperMethod.launchToBrowser(r.data.url);
         } else {
           HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong);
         }
