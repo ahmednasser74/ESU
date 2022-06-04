@@ -178,9 +178,7 @@ class ProfileScreen extends GetView<ProfileController>
                       AppTextFieldWidget(
                         controller: controller.passwordTEC,
                         labelText: LocalizationKeys.password.tr,
-                        onChanged: (value) => controller.editProfile(
-                          password: value,
-                        ),
+                        onChanged: (value) => controller.password = value,
                         prefixIcon: Padding(
                           padding: EdgeInsets.all(12.sp),
                           child: Assets.icons.lock.image(
@@ -192,9 +190,8 @@ class ProfileScreen extends GetView<ProfileController>
                       SizedBox(height: 16.h),
                       AppTextFieldWidget(
                         controller: controller.confirmPasswordTEC,
-                        onChanged: (value) => controller.editProfile(
-                          password: value,
-                        ),
+                        onChanged: (value) =>
+                            controller.passwordConfirm = value,
                         validator: (value) {
                           if (controller.passwordTEC.text.isEmpty) {
                             return null;
@@ -267,9 +264,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
                 title: LocalizationKeys.copyOfYourIdOrPassport.tr,
               ),
               FilePickerWidget(
-                fileCallBack: (file) => controller.editProfile(
-                  nationalPassportFile: file,
-                ),
+                fileCallBack: (file) => controller.nationalPassportFile = file,
                 hint: ' (image or .pdf)',
                 allowToPdf: true,
                 allowToImages: true,
@@ -287,9 +282,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
                 title: LocalizationKeys.copyOfTranscript.tr,
               ),
               FilePickerWidget(
-                fileCallBack: (file) => controller.editProfile(
-                  transcriptFile: file,
-                ),
+                fileCallBack: (file) => controller.transcriptFile = file,
                 hint: ' .pdf, .doc or .docx',
                 allowToPdf: true,
                 allowToDoc: true,
@@ -308,9 +301,8 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
                 title: LocalizationKeys.copyOfTheAcademicCertificate.tr,
               ),
               FilePickerWidget(
-                fileCallBack: (file) => controller.editProfile(
-                  latestAcademicQualificationFile: file,
-                ),
+                fileCallBack: (file) =>
+                    controller.latestAcademicQualificationFile = file,
                 hint: ' (image or .pdf)',
                 allowToPdf: true,
                 allowToImages: true,
@@ -330,9 +322,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
                 titleSize: 18,
               ),
               FilePickerWidget(
-                fileCallBack: (file) => controller.editProfile(
-                  contractFile: file,
-                ),
+                fileCallBack: (file) => controller.contractFile = file,
                 hint: ' .pdf, .doc or .docx',
                 allowToPdf: true,
                 allowToDoc: true,
@@ -352,9 +342,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
                 isRequired: false,
               ),
               FilePickerWidget(
-                fileCallBack: (file) => controller.editProfile(
-                  cvFile: file,
-                ),
+                fileCallBack: (file) => controller.cvFile = file,
                 fieldIsRequired: false,
                 allowToPdf: true,
               ),

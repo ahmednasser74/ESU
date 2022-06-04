@@ -37,6 +37,14 @@ class ProfileController extends GetxController with FileProperties {
   String errorMessage = '';
   CheckEditProfileFilesDataResponseModel? checkEditProfileData;
 
+  File? nationalPassportFile;
+  File? latestAcademicQualificationFile;
+  File? transcriptFile;
+  File? contractFile;
+  File? cvFile;
+  String? password;
+  String? passwordConfirm;
+
   @override
   void onInit() async {
     super.onInit();
@@ -57,15 +65,7 @@ class ProfileController extends GetxController with FileProperties {
     }
   }
 
-  Future<void> editProfile({
-    File? nationalPassportFile,
-    File? latestAcademicQualificationFile,
-    File? transcriptFile,
-    File? contractFile,
-    File? cvFile,
-    String? password,
-    String? passwordConfirm,
-  }) async {
+  Future<void> editProfile() async {
     final requestMode = EditProfileRequestModel(
       password: password,
       passwordConfirmation: passwordConfirm,
