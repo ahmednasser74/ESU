@@ -140,6 +140,7 @@ const Map<String, String> en = {
   LocalizationKeys.paidAt: 'Paid At',
   LocalizationKeys.waiting: 'Waiting...',
   LocalizationKeys.pay: 'Pay',
+  LocalizationKeys.payment: 'Payment',
   LocalizationKeys.noDataFound: 'No Data Found',
   LocalizationKeys.dueDate: 'Due Date',
   LocalizationKeys.remaining: 'Remaining',

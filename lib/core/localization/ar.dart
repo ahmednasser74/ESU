@@ -138,6 +138,7 @@ const Map<String, String> ar = {
   LocalizationKeys.paidAt: ' تم الدفع في',
   LocalizationKeys.waiting: 'الرجاء الانتظار',
   LocalizationKeys.pay: 'دفع',
+  LocalizationKeys.payment: 'الدفع',
   LocalizationKeys.noDataFound: 'لا يوجد بيانات',
   LocalizationKeys.dueDate: 'تاريخ الاستحقاق',
   LocalizationKeys.remaining: 'المتبقي',

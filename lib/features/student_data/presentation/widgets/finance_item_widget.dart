@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
@@ -6,6 +8,7 @@ import 'package:boilerplate/features/student_data/presentation/controller/financ
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class FinanceItemWidget extends StatelessWidget {
   const FinanceItemWidget({
@@ -116,5 +119,45 @@ class FinanceItemWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class WebViewExample extends StatefulWidget {
+  const WebViewExample({
+    Key? key,
+    required this.paymentUrl,
+  }) : super(key: key);
+
+  final String paymentUrl;
+
+  @override
+  WebViewExampleState createState() => WebViewExampleState();
+}
+
+class WebViewExampleState extends State<WebViewExample> {
+  @override
+  void initState() {
+    super.initState();
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(LocalizationKeys.payment.tr)),
+      body: WebView(
+        initialUrl: widget.paymentUrl,
+        javascriptMode: JavascriptMode.unrestricted,
+        zoomEnabled: true,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    Future.delayed(Duration.zero, () {
+      Get.find<FinanceController>().getFinance();
+    });
   }
 }

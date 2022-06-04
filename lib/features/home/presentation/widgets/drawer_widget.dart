@@ -17,12 +17,10 @@ class DrawerWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 180.h,
+            height: 160.h,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-            decoration: const BoxDecoration(
-              color: AppColors.primaryColor,
-            ),
+            color: AppColors.primaryColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -142,7 +140,7 @@ class DrawerWidget extends StatelessWidget {
                   title: Text(LocalizationKeys.accessToMoodle.tr),
                   leading: Assets.icons.accessToMoodle.image(
                     color: AppColors.primaryColor,
-                    height: 20.h,
+                    height: 22.h,
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -186,7 +184,7 @@ class DrawerWidget extends StatelessWidget {
                   title: Text(LocalizationKeys.faq.tr),
                   leading: Assets.icons.faq.image(
                     color: AppColors.primaryColor,
-                    height: 20.h,
+                    height: 26.h,
                   ),
                   onTap: () {
                     Navigator.pop(context);

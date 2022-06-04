@@ -7,10 +7,8 @@ import 'package:boilerplate/core/src/widgets/app_text_field_widget.dart';
 import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/src/widgets/error_widget.dart';
-import 'package:boilerplate/core/src/widgets/file_picker_widget.dart';
-import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
-import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/widgets/forget_files_of_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -238,118 +236,6 @@ class ProfileScreen extends GetView<ProfileController>
           ),
         ),
       ),
-    );
-  }
-}
-
-class ForgetFilesOfProfileWidget extends StatelessWidget {
-  const ForgetFilesOfProfileWidget({
-    Key? key,
-    required this.state,
-    required this.controller,
-  }) : super(key: key);
-  final CheckEditProfileFilesDataResponseModel? state;
-  final ProfileController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ///passport
-        Visibility(
-          visible: state?.nationalPassportFile ?? false,
-          child: Column(
-            children: [
-              TitleRequiredFieldWidget(
-                title: LocalizationKeys.copyOfYourIdOrPassport.tr,
-              ),
-              FilePickerWidget(
-                fileCallBack: (file) => controller.nationalPassportFile = file,
-                hint: ' (image or .pdf)',
-                allowToPdf: true,
-                allowToImages: true,
-              ),
-            ],
-          ),
-        ),
-
-        ///transcript
-        Visibility(
-          visible: state?.transcriptFile ?? false,
-          child: Column(
-            children: [
-              TitleRequiredFieldWidget(
-                title: LocalizationKeys.copyOfTranscript.tr,
-              ),
-              FilePickerWidget(
-                fileCallBack: (file) => controller.transcriptFile = file,
-                hint: ' .pdf, .doc or .docx',
-                allowToPdf: true,
-                allowToDoc: true,
-                allowToDocx: true,
-              ),
-            ],
-          ),
-        ),
-
-        ///academic certificate
-        Visibility(
-          visible: state?.latestAcademicQualificationFile ?? false,
-          child: Column(
-            children: [
-              TitleRequiredFieldWidget(
-                title: LocalizationKeys.copyOfTheAcademicCertificate.tr,
-              ),
-              FilePickerWidget(
-                fileCallBack: (file) =>
-                    controller.latestAcademicQualificationFile = file,
-                hint: ' (image or .pdf)',
-                allowToPdf: true,
-                allowToImages: true,
-              ),
-            ],
-          ),
-        ),
-
-        ///contract
-        Visibility(
-          visible: state?.contractFile ?? false,
-          child: Column(
-            children: [
-              TitleRequiredFieldWidget(
-                title: LocalizationKeys
-                    .copyOfTheStudentsContractWithTheUniversity.tr,
-                titleSize: 18,
-              ),
-              FilePickerWidget(
-                fileCallBack: (file) => controller.contractFile = file,
-                hint: ' .pdf, .doc or .docx',
-                allowToPdf: true,
-                allowToDoc: true,
-                allowToDocx: true,
-              ),
-            ],
-          ),
-        ),
-
-        ///cv
-        Visibility(
-          visible: state?.cv ?? false,
-          child: Column(
-            children: [
-              TitleRequiredFieldWidget(
-                title: LocalizationKeys.uploadCv.tr,
-                isRequired: false,
-              ),
-              FilePickerWidget(
-                fileCallBack: (file) => controller.cvFile = file,
-                fieldIsRequired: false,
-                allowToPdf: true,
-              ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
