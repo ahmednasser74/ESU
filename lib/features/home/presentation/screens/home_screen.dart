@@ -10,7 +10,6 @@ import 'package:boilerplate/features/home/presentation/widgets/home_header_widge
 import 'package:boilerplate/features/home/presentation/widgets/home_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends GetView<HomeController> {
