@@ -38,41 +38,44 @@ class HomeScreen extends GetView<HomeController> {
       ),
       drawer: const Drawer(child: DrawerWidget()),
       body: controller.obx(
-        (state) => Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            HomeHeaderWidget(data: state!.data!),
-            SizedBox(height: 20.h),
-            Row(
-              children: [
-                HomeItemWidget(
-                  color: Colors.blue,
-                  title: LocalizationKeys.balance.tr,
-                  amount: '\$${state.data!.balance}',
-                ),
-                HomeItemWidget(
-                  color: Colors.orange,
-                  title: LocalizationKeys.totalAmount.tr,
-                  amount: '\$${state.data!.total}',
-                ),
-              ],
-            ),
-            SizedBox(height: 20.h),
-            Row(
-              children: [
-                HomeItemWidget(
-                  color: Colors.green,
-                  title: LocalizationKeys.totalAmountPaid.tr,
-                  amount: '\$${state.data!.paid}',
-                ),
-                HomeItemWidget(
-                  color: Colors.red,
-                  title: LocalizationKeys.totalAmountUnpaid.tr,
-                  amount: '\$${state.data!.unpaid}',
-                ),
-              ],
-            ),
-          ],
+        (state) => RefreshIndicator(
+          onRefresh: () => controller.getHomeData(),
+          child: ListView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            children: [
+              HomeHeaderWidget(data: state!.data!),
+              SizedBox(height: 20.h),
+              Row(
+                children: [
+                  HomeItemWidget(
+                    color: Colors.blue,
+                    title: LocalizationKeys.balance.tr,
+                    amount: '\$${state.data!.balance}',
+                  ),
+                  HomeItemWidget(
+                    color: Colors.orange,
+                    title: LocalizationKeys.totalAmount.tr,
+                    amount: '\$${state.data!.total}',
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.h),
+              Row(
+                children: [
+                  HomeItemWidget(
+                    color: Colors.green,
+                    title: LocalizationKeys.totalAmountPaid.tr,
+                    amount: '\$${state.data!.paid}',
+                  ),
+                  HomeItemWidget(
+                    color: Colors.red,
+                    title: LocalizationKeys.totalAmountUnpaid.tr,
+                    amount: '\$${state.data!.unpaid}',
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         onLoading: const LoadingIndicatorWidget(),
         onError: (error) => AppErrorWidget(errorMessage: error.toString()),
