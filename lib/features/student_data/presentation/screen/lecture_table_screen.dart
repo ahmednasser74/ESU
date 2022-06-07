@@ -1,6 +1,6 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/app_empty_widget.dart';
-import 'package:boilerplate/core/src/widgets/error_widget.dart';
 import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/lecture_table_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/widgets/lecture_table_item_widget.dart';
@@ -31,29 +31,50 @@ class LectureTableScreen extends GetView<LectureTableController> {
                     color: Colors.red.withOpacity(0.5),
                     spreadRadius: 1,
                     blurRadius: 5,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
               child: Text(
-                state!.data.generalNote,
+                state!.data!.generalNote,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14.sp),
               ),
             ),
             Expanded(
               child: ListView.separated(
-                itemCount: state.data.courses.length,
+                itemCount: state.data!.courses.length,
                 padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
                 separatorBuilder: (_, index) => SizedBox(height: 14.h),
                 itemBuilder: (_, index) => LectureTableItemWidget(
-                  course: state.data.courses.elementAt(index),
+                  course: state.data!.courses.elementAt(index),
                 ),
               ),
             ),
           ],
         ),
-        onError: (e) => AppErrorWidget(errorMessage: e),
+        onError: (e) => Padding(
+          padding: EdgeInsets.symmetric(horizontal: 18.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Icon(
+                Icons.warning_rounded,
+                color: AppColors.primaryColor,
+                size: 150.r,
+              ),
+              SizedBox(height: 8.h),
+              Center(
+                child: Text(
+                  e.toString(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18.sp),
+                ),
+              ),
+            ],
+          ),
+        ),
         onLoading: const LoadingIndicatorWidget(),
         onEmpty: AppEmptyWidget(title: LocalizationKeys.noLectureFound.tr),
       ),
