@@ -1,4 +1,5 @@
 import 'package:boilerplate/features/student_data/data/models/response/access_to_moodle/access_to_moodle_response_model.dart';
+import 'package:boilerplate/features/student_data/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/finance/finance_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/invoice_pay/invoice_pay_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
@@ -20,6 +21,9 @@ abstract class StudentDataRepository {
   Future<Either<String?, LectureTableResponseModel>> getLectureTable();
 
   Future<Either<String?, AccessToMoodleResponseModel>> getAccessToMoodle();
+
+  Future<Either<String?, AvailabilityTermRegistrationResponseModel>>
+      availabilityTermRegistration();
 
   Future<Either<String?, InvoicePayResponseModel>> getPayInvoiceUrl({
     required int invoiceId,

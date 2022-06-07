@@ -18,6 +18,7 @@ import 'package:boilerplate/features/student_data/presentation/screen/letters_sc
 import 'package:boilerplate/features/student_data/presentation/screen/schedule_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/student_card_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/study_plans_screen.dart';
+import 'package:boilerplate/features/student_data/presentation/screen/term_registration_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/transcript_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -41,6 +42,7 @@ class Routes {
       successfulAdmissionScreen = '/successfulAdmissionScreen',
       studyPlanScreen = '/studyPlanScreen',
       studentCardScreen = '/studentCardScreen',
+      termRegistrationScreen = '/termRegistrationScreen',
       popularQuestionScreen = '/popularQuestionScreen',
       scheduleScreen = '/scheduleScreen',
       accessToMoodleScreen = '/accessToMoodleScreen',
@@ -89,6 +91,10 @@ class Routes {
       GetPage(name: scheduleScreen, page: () => const ScheduleScreen()),
       GetPage(name: studyPlanScreen, page: () => const StudyPlansScreen()),
       GetPage(name: studentCardScreen, page: () => const StudentCardScreen()),
+      GetPage(
+        name: termRegistrationScreen,
+        page: () => const TermRegistrationScreen(),
+      ),
       GetPage(
         name: accessToMoodleScreen,
         page: () => const AccessToMoodleScreen(),
