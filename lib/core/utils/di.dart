@@ -41,6 +41,7 @@ import 'package:boilerplate/features/student_data/data/repository/student_data_r
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/Study_plans_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/access_to_moodle_use_case.dart';
+import 'package:boilerplate/features/student_data/domain/usecase/availability_term_registration_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/lecture_table_use_case.dart';
@@ -52,6 +53,7 @@ import 'package:boilerplate/features/student_data/presentation/controller/lectur
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/schedule_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/term_registration_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -233,6 +235,11 @@ class Injection {
     di.registerFactory<LectureTableController>(
       () => LectureTableController(lectureTableUseCase: di()),
     );
+    di.registerFactory<TermRegistrationController>(
+      () => TermRegistrationController(
+        availabilityTermRegistrationUseCase: di(),
+      ),
+    );
 
     //Use cases
     di.registerLazySingleton<LettersUseCase>(
@@ -255,6 +262,9 @@ class Injection {
     );
     di.registerLazySingleton<LectureTableUseCase>(
       () => LectureTableUseCase(studentDataRepository: di()),
+    );
+    di.registerLazySingleton<AvailabilityTermRegistrationUseCase>(
+      () => AvailabilityTermRegistrationUseCase(studentDataRepository: di()),
     );
 
     //repo

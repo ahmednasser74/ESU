@@ -180,17 +180,6 @@ class LocalizationKeys {
   static const String faq = 'faq';
 
   //-------------------------------------------------------------------------
-  ///global
-  static const String logout = 'logout';
-  static const String thisFieldIsRequired = 'thisFieldIsRequired';
-  static const String cancel = 'cancel';
-  static const String doYouWantToLogout = 'doYouWantToLogout';
-  static const String completeAllTheFields = 'completeAllTheFields';
-  static const String somethingWentWrong = 'somethingWentWrong';
-  static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
-  static const String hello = 'hello';
-
-  //-------------------------------------------------------------------------
   ///access to moodle
   static const String accessToMoodle = 'accessToMoodle';
   static const String goToMoodle = 'goToMoodle';
@@ -210,4 +199,23 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///schedule
   static const String schedule = 'schedule';
+
+  //-------------------------------------------------------------------------
+  ///term registration
+  static const String termRegistration = 'termRegistration';
+  static const String registerForTheTerm = 'registerForTheTerm';
+  static const String scholarshipPercentage = 'scholarshipPercentage';
+  static const String trimester = 'trimester';
+  static const String cost = 'cost';
+
+  //-------------------------------------------------------------------------
+  ///global
+  static const String logout = 'logout';
+  static const String thisFieldIsRequired = 'thisFieldIsRequired';
+  static const String cancel = 'cancel';
+  static const String doYouWantToLogout = 'doYouWantToLogout';
+  static const String completeAllTheFields = 'completeAllTheFields';
+  static const String somethingWentWrong = 'somethingWentWrong';
+  static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
+  static const String hello = 'hello';
 }

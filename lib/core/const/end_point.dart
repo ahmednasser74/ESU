@@ -35,8 +35,8 @@ class Endpoints {
 
   //-----------------------------------------------------------------------
   ///term registration
-  static const String termRegistration = 'registration/term';
-  static const String termPay = 'registration/term/pay';
+  static const String availabilityTermRegistration = 'registration/term';
+  static const String termRegisterPay = 'registration/term/pay';
 
   //-----------------------------------------------------------------------
   ///public services

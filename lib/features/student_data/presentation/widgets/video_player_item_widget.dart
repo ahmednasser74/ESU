@@ -1,70 +1,75 @@
+import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:video_player/video_player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayerItemWidget extends StatefulWidget {
-  const VideoPlayerItemWidget({
-    Key? key,
-    required this.videoUrl,
-  }) : super(key: key);
-
-  final String videoUrl;
+  const VideoPlayerItemWidget({Key? key, required this.videoId})
+      : super(key: key);
+  final String videoId;
 
   @override
-  _VideoPlayerItemWidgetState createState() => _VideoPlayerItemWidgetState();
+  VideoPlayerItemWidgetState createState() => VideoPlayerItemWidgetState();
 }
 
-class _VideoPlayerItemWidgetState extends State<VideoPlayerItemWidget> {
-  late VideoPlayerController _controller;
+class VideoPlayerItemWidgetState extends State<VideoPlayerItemWidget> {
+  late YoutubePlayerController _controller;
+  bool _isPlayerReady = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-      'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
-    )..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
+    _controller = YoutubePlayerController(
+      initialVideoId: widget.videoId,
+      flags: const YoutubePlayerFlags(autoPlay: false, mute: true),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _controller.value.isPlaying ? _controller.pause() : _controller.play();
-        setState(() {});
-      },
-      child: Container(
-        width: 200.w,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.r),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1.w,
-              blurRadius: 2.w,
-              offset: const Offset(0, 1), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Stack(
-          children: [
-            Center(
-              child: _controller.value.isInitialized
-                  ? AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: VideoPlayer(_controller),
-                    )
-                  : Container(),
-            ),
-            Center(
-              child: _controller.value.isPlaying
-                  ? const SizedBox()
-                  : Icon(Icons.play_arrow, size: 60.r),
-            ),
-          ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16.r),
+      child: SizedBox(
+        width: 300.w,
+        child: YoutubePlayerBuilder(
+          onExitFullScreen: () {
+            SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+          },
+          player: YoutubePlayer(
+            controller: _controller,
+            showVideoProgressIndicator: true,
+            progressIndicatorColor: Colors.blueAccent,
+            topActions: <Widget>[
+              const SizedBox(width: 8.0),
+              Expanded(
+                child: Text(
+                  _controller.metadata.title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                  size: 25.0,
+                ),
+                onPressed: () {},
+              ),
+            ],
+            onReady: () {
+              _isPlayerReady = true;
+            },
+            onEnded: (data) {
+              HelperMethod.showToast(msg: 'Video Ended!');
+            },
+          ),
+          builder: (_, child) => Container(),
         ),
       ),
     );
@@ -72,7 +77,13 @@ class _VideoPlayerItemWidgetState extends State<VideoPlayerItemWidget> {
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  void deactivate() {
+    _controller.pause();
+    super.deactivate();
   }
 }

@@ -203,6 +203,14 @@ const Map<String, String> en = {
   LocalizationKeys.schedule: 'Schedule',
 
   //-------------------------------------------------------------------------
+  ///term registration
+  LocalizationKeys.termRegistration: 'Term Registration',
+  LocalizationKeys.registerForTheTerm: 'Register For The Term',
+  LocalizationKeys.scholarshipPercentage: 'Scholarship Percentage',
+  LocalizationKeys.trimester: 'Trimester',
+  LocalizationKeys.cost: 'Cost',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',

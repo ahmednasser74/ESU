@@ -4,17 +4,22 @@ class LectureTableResponseModel {
   LectureTableResponseModel({
     required this.status,
     required this.code,
+    required this.message,
     required this.data,
   });
 
   final bool status;
   final int code;
-  final LectureTableDataResponseModel data;
+  final String? message;
+  final LectureTableDataResponseModel? data;
 
   factory LectureTableResponseModel.fromJson(Map<String, dynamic> json) =>
       LectureTableResponseModel(
         status: json["status"],
         code: json["code"],
-        data: LectureTableDataResponseModel.fromJson(json["data"]),
+        message: json["message"],
+        data: json["data"] == null
+            ? null
+            : LectureTableDataResponseModel.fromJson(json["data"]),
       );
 }

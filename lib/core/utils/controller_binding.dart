@@ -17,6 +17,7 @@ import 'package:boilerplate/features/student_data/presentation/controller/lectur
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/schedule_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
+import 'package:boilerplate/features/student_data/presentation/controller/term_registration_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get/get.dart';
 
@@ -56,5 +57,6 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<ScheduleController>(), fenix: true);
     Get.lazyPut(() => Injection.di<AccessToMoodleController>(), fenix: true);
     Get.lazyPut(() => Injection.di<LectureTableController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<TermRegistrationController>(), fenix: true);
   }
 }

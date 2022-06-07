@@ -19,20 +19,19 @@ class LectureTableController extends GetxController
   }
 
   void getLectureTable() async {
+    change(null, status: RxStatus.loading());
     final finance = await lectureTableUseCase(params: NoParams());
     finance.fold(
       (l) => change(null, status: RxStatus.error(l!)),
       (r) {
-        if (r.status == true) {
-          if (r.data.courses.isEmpty) {
-            change(null, status: RxStatus.empty());
-          } else {
-            change(r, status: RxStatus.success());
-          }
+        if (r.status == true && r.data != null) {
+          change(r, status: RxStatus.success());
         } else {
           change(
             null,
-            status: RxStatus.error(LocalizationKeys.somethingWentWrong.tr),
+            status: RxStatus.error(
+              r.message ?? LocalizationKeys.noDataFound.tr,
+            ),
           );
         }
       },

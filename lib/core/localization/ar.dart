@@ -200,6 +200,14 @@ const Map<String, String> ar = {
   LocalizationKeys.schedule: 'جدول المحاضرات',
 
   //-------------------------------------------------------------------------
+  ///term registration
+  LocalizationKeys.termRegistration: 'تسجيل الفصل الدراسي',
+  LocalizationKeys.registerForTheTerm: 'تسجيل الفصل الدراسي',
+  LocalizationKeys.scholarshipPercentage: 'نسبة المنحة الدراسية',
+  LocalizationKeys.trimester: 'الفصل الدراسي',
+  LocalizationKeys.cost: 'التكلفة',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'تسجيل الخروج',
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',

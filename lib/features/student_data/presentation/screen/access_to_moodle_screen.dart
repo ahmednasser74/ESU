@@ -59,7 +59,8 @@ class AccessToMoodleScreen extends GetView<AccessToMoodleController> {
                   itemCount: controller.videosList.length,
                   heightList: .30.sh,
                   itemBuilder: (_, index) => VideoPlayerItemWidget(
-                    videoUrl: controller.videosList.elementAt(index),
+                    videoId:
+                        controller.videosList.elementAt(index).split('/').last,
                   ),
                 ),
                 SizedBox(height: 12.h),
