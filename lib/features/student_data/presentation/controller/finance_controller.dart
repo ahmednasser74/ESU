@@ -59,7 +59,10 @@ class FinanceController extends GetxController
       (r) async {
         if (r.status) {
           Get.to(() => WebViewExample(paymentUrl: r.data.url));
-          // await HelperMethod.launchToBrowser(r.data.url);
+          // await HelperMethod.launchToBrowser(
+          //   r.data.url,
+          //   mode: LaunchMode.externalNonBrowserApplication,
+          // );
         } else {
           HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong);
         }

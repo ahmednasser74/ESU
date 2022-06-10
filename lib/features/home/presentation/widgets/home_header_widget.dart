@@ -8,15 +8,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
-  const HomeHeaderWidget({
+  HomeHeaderWidget({
     Key? key,
     required this.data,
   }) : super(key: key);
   final HomeDataResponseModel data;
+  final student = SharedPrefs.instance.getUser().student;
 
   @override
   Widget build(BuildContext context) {
-    final student = SharedPrefs.instance.getUser().student;
     return Stack(
       children: [
         Container(

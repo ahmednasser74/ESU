@@ -5,12 +5,14 @@ class AvailabilityTermRegistrationDataResponseModel {
     required this.trimester,
     required this.scholarship,
     required this.cost,
+    required this.termId,
   });
 
   final String item;
   final String program;
   final String trimester;
   final String scholarship;
+  final int termId;
   final int cost;
 
   factory AvailabilityTermRegistrationDataResponseModel.fromJson(
@@ -21,5 +23,6 @@ class AvailabilityTermRegistrationDataResponseModel {
         trimester: json["trimester"],
         scholarship: json["scholarship"],
         cost: json["cost"],
+        termId: json["trimester_id"],
       );
 }

@@ -2,12 +2,14 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/routes.dart';
+import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
 import 'package:boilerplate/core/src/widgets/error_widget.dart';
 import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/home/presentation/controller/home_controller.dart';
 import 'package:boilerplate/features/home/presentation/widgets/drawer_widget.dart';
 import 'package:boilerplate/features/home/presentation/widgets/home_header_widget.dart';
 import 'package:boilerplate/features/home/presentation/widgets/home_item_widget.dart';
+import 'package:boilerplate/features/home/presentation/widgets/redirect_to_profile_or_invoice_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -18,68 +20,79 @@ class HomeScreen extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        title: Text(LocalizationKeys.home.tr),
-        leading: IconButton(
-          icon: Assets.icons.menu.image(height: 20.sp),
-          onPressed: () => _scaffoldKey.currentState!.openDrawer(),
+    return controller.obx(
+      (state) => ConditionalBuilder(
+        condition: state!.data!.profileRedirect || state.data!.invoiceRedirect,
+        builder: (_) => RedirectToProfileOrInvoiceWidget(
+          redirectToInvoice: state.data!.invoiceRedirect,
+          redirectToProfile: state.data!.profileRedirect,
         ),
-        actions: [
-          IconButton(
-            icon: Assets.icons.notificationIcon.image(
-              color: AppColors.primaryColor,
-              height: 18.h,
-            ),
-            onPressed: () => Get.toNamed(Routes.notificationScreen),
-          ),
-        ],
-      ),
-      drawer: const Drawer(child: DrawerWidget()),
-      body: controller.obx(
-        (state) => RefreshIndicator(
+        fallback: (_) => RefreshIndicator(
           onRefresh: () => controller.getHomeData(),
           child: ListView(
             physics: const AlwaysScrollableScrollPhysics(),
             children: [
-              HomeHeaderWidget(data: state!.data!),
-              SizedBox(height: 20.h),
-              Row(
-                children: [
-                  HomeItemWidget(
-                    color: Colors.blue,
-                    title: LocalizationKeys.balance.tr,
-                    amount: '\$${state.data!.balance}',
+              Scaffold(
+                key: _scaffoldKey,
+                appBar: AppBar(
+                  title: Text(LocalizationKeys.home.tr),
+                  leading: IconButton(
+                    icon: Assets.icons.menu.image(height: 20.sp),
+                    onPressed: () => _scaffoldKey.currentState!.openDrawer(),
                   ),
-                  HomeItemWidget(
-                    color: Colors.orange,
-                    title: LocalizationKeys.totalAmount.tr,
-                    amount: '\$${state.data!.total}',
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.h),
-              Row(
-                children: [
-                  HomeItemWidget(
-                    color: Colors.green,
-                    title: LocalizationKeys.totalAmountPaid.tr,
-                    amount: '\$${state.data!.paid}',
-                  ),
-                  HomeItemWidget(
-                    color: Colors.red,
-                    title: LocalizationKeys.totalAmountUnpaid.tr,
-                    amount: '\$${state.data!.unpaid}',
-                  ),
-                ],
+                  actions: [
+                    IconButton(
+                      icon: Assets.icons.notificationIcon.image(
+                        color: AppColors.primaryColor,
+                        height: 18.h,
+                      ),
+                      onPressed: () => Get.toNamed(Routes.notificationScreen),
+                    ),
+                  ],
+                ),
+                drawer: const Drawer(child: DrawerWidget()),
+                body: Column(
+                  children: [
+                    HomeHeaderWidget(data: state.data!),
+                    SizedBox(height: 20.h),
+                    Row(
+                      children: [
+                        HomeItemWidget(
+                          color: Colors.blue,
+                          title: LocalizationKeys.balance.tr,
+                          amount: '\$${state.data!.balance}',
+                        ),
+                        HomeItemWidget(
+                          color: Colors.orange,
+                          title: LocalizationKeys.totalAmount.tr,
+                          amount: '\$${state.data!.total}',
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20.h),
+                    Row(
+                      children: [
+                        HomeItemWidget(
+                          color: Colors.green,
+                          title: LocalizationKeys.totalAmountPaid.tr,
+                          amount: '\$${state.data!.paid}',
+                        ),
+                        HomeItemWidget(
+                          color: Colors.red,
+                          title: LocalizationKeys.totalAmountUnpaid.tr,
+                          amount: '\$${state.data!.unpaid}',
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
-        onLoading: const LoadingIndicatorWidget(),
-        onError: (error) => AppErrorWidget(errorMessage: error.toString()),
       ),
+      onLoading: const LoadingIndicatorWidget(),
+      onError: (error) => AppErrorWidget(errorMessage: error.toString()),
     );
   }
 }
