@@ -123,7 +123,10 @@ class ProfileController extends GetxController with FileProperties {
         if (r.status) {
           checkEditProfileData = r.data;
         } else {
-          isError = true;
+          HelperMethod.showToast(
+            msg: r.message!,
+            toastLength: Toast.LENGTH_LONG,
+          );
         }
       },
     );

@@ -14,6 +14,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final AutovalidateMode? autovalidateMode;
   final bool readOnly;
   final void Function(String? v)? onChanged;
+  final bool dispose;
 
   const AppTextFieldWidget({
     Key? key,
@@ -23,6 +24,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.hint,
     this.obscureText = false,
     this.readOnly = false,
+    this.dispose = true,
     this.suffixIcon,
     this.validator,
     this.labelText,
@@ -75,7 +77,9 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
 
   @override
   void dispose() {
-    if (widget.controller != null) widget.controller!.dispose();
+    if (widget.controller != null && widget.dispose) {
+      widget.controller!.dispose();
+    }
     super.dispose();
   }
 }

@@ -4,13 +4,13 @@ class CheckEditProfileFilesResponseModel {
   final bool status;
   final int code;
   final String? message;
-  final CheckEditProfileFilesDataResponseModel data;
+  final CheckEditProfileFilesDataResponseModel? data;
 
   CheckEditProfileFilesResponseModel({
     required this.status,
     required this.code,
-    required this.data,
-    required this.message,
+    this.data,
+    this.message,
   });
 
   factory CheckEditProfileFilesResponseModel.fromJson(
@@ -20,6 +20,8 @@ class CheckEditProfileFilesResponseModel {
         status: json["status"],
         code: json["code"],
         message: json["message"],
-        data: CheckEditProfileFilesDataResponseModel.fromJson(json["data"]),
+        data: json["data"] == null
+            ? null
+            : CheckEditProfileFilesDataResponseModel.fromJson(json["data"]),
       );
 }

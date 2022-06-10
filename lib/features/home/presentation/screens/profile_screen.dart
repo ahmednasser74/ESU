@@ -16,8 +16,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class ProfileScreen extends GetView<ProfileController>
-    with ValidatorProperties {
+class ProfileScreen extends StatelessWidget with ValidatorProperties {
   const ProfileScreen({Key? key}) : super(key: key);
 
   String getFirstChar(String name) => name.isNotEmpty
@@ -29,8 +28,8 @@ class ProfileScreen extends GetView<ProfileController>
     return Scaffold(
       appBar: AppBar(title: Text(LocalizationKeys.profile.tr)),
       body: GetBuilder<ProfileController>(
-        builder: (c) => ConditionalBuilder(
-          condition: c.isLoadingUpdateProfile,
+        builder: (controller) => ConditionalBuilder(
+          condition: controller.isLoadingUpdateProfile,
           builder: (context) => Center(
             child: Container(
               height: 100.h,
@@ -41,14 +40,16 @@ class ProfileScreen extends GetView<ProfileController>
             ),
           ),
           fallback: (context) => ConditionalBuilder(
-            condition: c.isError,
-            builder: (context) => AppErrorWidget(errorMessage: c.errorMessage),
+            condition: controller.isError,
+            builder: (context) => AppErrorWidget(
+              errorMessage: controller.errorMessage,
+            ),
             fallback: (context) => SingleChildScrollView(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
               child: Form(
                 key: controller.formKey,
                 child: ModalProgressHUD(
-                  inAsyncCall: c.isLoadingUpdateProfile,
+                  inAsyncCall: controller.isLoadingUpdateProfile,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -121,6 +122,7 @@ class ProfileScreen extends GetView<ProfileController>
                         controller: controller.fullNameEnTEC,
                         readOnly: true,
                         validator: nameValidator,
+                        dispose: false,
                         labelText: LocalizationKeys.fullNameEnglish.tr,
                         prefixIcon: Padding(
                           padding: EdgeInsets.all(12.sp),
@@ -134,6 +136,7 @@ class ProfileScreen extends GetView<ProfileController>
                       AppTextFieldWidget(
                         controller: controller.fullNameArTEC,
                         readOnly: true,
+                        dispose: false,
                         validator: nameValidator,
                         labelText: LocalizationKeys.fullNameArabic.tr,
                         prefixIcon: Padding(
@@ -148,6 +151,7 @@ class ProfileScreen extends GetView<ProfileController>
                       AppTextFieldWidget(
                         controller: controller.mobileTEC,
                         readOnly: true,
+                        dispose: false,
                         validator: phoneValidator,
                         labelText: LocalizationKeys.mobileNumber.tr,
                         prefixIcon: Padding(
@@ -162,6 +166,7 @@ class ProfileScreen extends GetView<ProfileController>
                       AppTextFieldWidget(
                         controller: controller.emailTEC,
                         readOnly: true,
+                        dispose: false,
                         validator: emailValidator,
                         labelText: LocalizationKeys.email.tr,
                         prefixIcon: Padding(
@@ -177,6 +182,7 @@ class ProfileScreen extends GetView<ProfileController>
                         controller: controller.passwordTEC,
                         labelText: LocalizationKeys.password.tr,
                         onChanged: (value) => controller.password = value,
+                        dispose: false,
                         prefixIcon: Padding(
                           padding: EdgeInsets.all(12.sp),
                           child: Assets.icons.lock.image(
@@ -190,6 +196,7 @@ class ProfileScreen extends GetView<ProfileController>
                         controller: controller.confirmPasswordTEC,
                         onChanged: (value) =>
                             controller.passwordConfirm = value,
+                        dispose: false,
                         validator: (value) {
                           if (controller.passwordTEC.text.isEmpty) {
                             return null;
@@ -220,7 +227,7 @@ class ProfileScreen extends GetView<ProfileController>
                       SizedBox(height: 8.h),
                       ForgetFilesOfProfileWidget(
                         controller: controller,
-                        state: c.checkEditProfileData,
+                        state: controller.checkEditProfileData,
                       ),
                       SizedBox(height: 18.h),
                       AppButton(
