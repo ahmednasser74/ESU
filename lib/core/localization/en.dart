@@ -105,6 +105,12 @@ const Map<String, String> en = {
   LocalizationKeys.paidAmount: 'Paid Amount',
   LocalizationKeys.unPaidAmount: 'UnPaid Amount',
   LocalizationKeys.aed: 'AED',
+  LocalizationKeys.goToProfile: 'Go to Profile',
+  LocalizationKeys.goToInvoice: 'Go to Invoice',
+  LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess:
+      'You must complete profile files to complete any process',
+  LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess:
+      'You must pay invoice to complete any process',
 
   //-------------------------------------------------------------------------
   ///Profile

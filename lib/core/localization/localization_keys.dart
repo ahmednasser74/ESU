@@ -106,6 +106,12 @@ class LocalizationKeys {
   static const String paidAmount = 'paidAmount';
   static const String unPaidAmount = 'unPaidAmount';
   static const String aed = 'AED';
+  static const String goToInvoice = 'goToInvoice';
+  static const String goToProfile = 'goToProfile';
+  static const String youMustPayInvoiceToCompleteAnyProcess =
+      'You must pay invoice to complete any process';
+  static const String youMustCompleteProfileFilesToCompleteAnyProcess =
+      'You must complete profile files to complete any process';
 
   //-------------------------------------------------------------------------
   ///Profile

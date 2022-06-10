@@ -8,6 +8,8 @@ class HomeDataResponseModel {
     required this.unpaid,
     required this.balance,
     required this.total,
+    required this.invoiceRedirect,
+    required this.profileRedirect,
   });
 
   final String program;
@@ -18,6 +20,8 @@ class HomeDataResponseModel {
   final int unpaid;
   final int balance;
   final int total;
+  final bool profileRedirect;
+  final bool invoiceRedirect;
 
   factory HomeDataResponseModel.fromJson(Map<String, dynamic> json) =>
       HomeDataResponseModel(
@@ -29,5 +33,7 @@ class HomeDataResponseModel {
         unpaid: json["unpaid"],
         balance: json["balance"],
         total: json["total"],
+        invoiceRedirect: json["invoices_redirect"],
+        profileRedirect: json["profile_redirect"],
       );
 }

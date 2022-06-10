@@ -106,6 +106,12 @@ const Map<String, String> ar = {
   LocalizationKeys.paidAmount: 'المبلغ المدفوع',
   LocalizationKeys.unPaidAmount: 'المبلغ الغير مدفوع',
   LocalizationKeys.aed: 'درهم',
+  LocalizationKeys.goToProfile: 'الذهاب إلى الملف الشخصي',
+  LocalizationKeys.goToInvoice: 'الذهاب إلى الفاتورة',
+  LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess:
+      'يجب تحميل الملفات الشخصية لتكملة أي عملية',
+  LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess:
+      'يجب دفع الفاتورة لتكملة أي عملية',
 
   //-------------------------------------------------------------------------
   ///Profile
