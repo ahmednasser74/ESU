@@ -48,6 +48,7 @@ import 'package:boilerplate/features/student_data/domain/usecase/finance_use_cas
 import 'package:boilerplate/features/student_data/domain/usecase/lecture_table_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/schedule_use_case.dart';
+import 'package:boilerplate/features/student_data/domain/usecase/term_register_pay_use_case.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/access_to_moodle_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/lecture_table_controller.dart';
@@ -242,6 +243,7 @@ class Injection {
     di.registerFactory<TermRegistrationController>(
       () => TermRegistrationController(
         availabilityTermRegistrationUseCase: di(),
+        termRegisterPayUseCase: di(),
       ),
     );
 
@@ -266,6 +268,9 @@ class Injection {
     );
     di.registerLazySingleton<LectureTableUseCase>(
       () => LectureTableUseCase(studentDataRepository: di()),
+    );
+    di.registerLazySingleton<TermRegisterPayUseCase>(
+      () => TermRegisterPayUseCase(studentDataRepository: di()),
     );
     di.registerLazySingleton<AvailabilityTermRegistrationUseCase>(
       () => AvailabilityTermRegistrationUseCase(studentDataRepository: di()),

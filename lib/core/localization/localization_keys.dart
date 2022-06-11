@@ -224,4 +224,8 @@ class LocalizationKeys {
   static const String somethingWentWrong = 'somethingWentWrong';
   static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
   static const String hello = 'hello';
+  static const String done = 'done';
+  static const String failed = 'failed';
+  static const String congratulations = 'congratulations';
+  static const String successfullyDone = 'successfullyDone';
 }
