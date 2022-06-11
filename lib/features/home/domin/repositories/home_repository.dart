@@ -3,6 +3,7 @@ import 'package:boilerplate/features/home/data/models/request/edit_profile_reque
 import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
+import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class HomeRepository {
@@ -15,6 +16,8 @@ abstract class HomeRepository {
   Future<Either<String?, GenericResponseModel>> markSingleNotificationAsRead({
     required int id,
   });
+
+  Future<Either<String?, PopularQuestionResponseModel>> getPopularQuestion();
 
   Future<Either<String?, CheckEditProfileFilesResponseModel>>
       checkEditProfileFiles();

@@ -5,6 +5,7 @@ import 'package:boilerplate/features/home/data/models/request/edit_profile_reque
 import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
+import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
 import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -64,6 +65,13 @@ class HomeRepositoryImp implements HomeRepository {
       onSuccess: () async => await remoteDataSource.editProfile(
         requestModel: requestModel,
       ),
+    );
+  }
+
+  @override
+  Future<Either<String?, PopularQuestionResponseModel>> getPopularQuestion() {
+    return _responseHandling<PopularQuestionResponseModel>(
+      onSuccess: () async => await remoteDataSource.getPopularQuestion(),
     );
   }
 }

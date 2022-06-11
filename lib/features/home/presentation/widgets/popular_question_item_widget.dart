@@ -1,156 +1,79 @@
+import 'package:boilerplate/core/src/colors.dart';
+import 'package:boilerplate/core/src/widgets/keep_live_widget.dart';
 import 'package:boilerplate/core/utils/helper_methods.dart';
+import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_response_model.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PopularQuestionItemWidget extends StatefulWidget {
+class PopularQuestionItemWidget extends StatelessWidget {
   const PopularQuestionItemWidget({
     Key? key,
-    required this.index,
-    required this.isExpanded,
+    required this.question,
   }) : super(key: key);
-
-  final int index;
-  final bool isExpanded;
-
-  @override
-  State<PopularQuestionItemWidget> createState() =>
-      _PopularQuestionItemWidgetState();
-}
-
-class _PopularQuestionItemWidgetState extends State<PopularQuestionItemWidget>
-    with TickerProviderStateMixin {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 8,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: const Radius.circular(8),
-              topRight: const Radius.circular(8),
-              bottomLeft:
-                  widget.isExpanded ? Radius.zero : const Radius.circular(8),
-              bottomRight:
-                  widget.isExpanded ? Radius.zero : const Radius.circular(8),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 0,
-                blurRadius: 4,
-                offset: const Offset(0, 2),
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  'widget.popularQuestion.question!',
-                  style: TextStyle(
-                    color: widget.isExpanded
-                        ? Theme.of(context).primaryColor
-                        : Colors.black,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Icon(
-                widget.isExpanded
-                    ? Icons.keyboard_arrow_down_rounded
-                    : Icons.keyboard_arrow_left_rounded,
-                color: Colors.grey,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        Visibility(
-          visible: widget.isExpanded,
-          child: AnswerPopularQuestionWidget(
-            isExpanded: widget.isExpanded,
-            answer: 'widget.popularQuestion.answer!',
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class AnswerPopularQuestionWidget extends StatefulWidget {
-  AnswerPopularQuestionWidget({
-    Key? key,
-    this.isExpanded = false,
-    required this.answer,
-  }) : super(key: key);
-  bool isExpanded;
-  final String answer;
-
-  @override
-  State<AnswerPopularQuestionWidget> createState() =>
-      _AnswerPopularQuestionWidgetState();
-}
-
-class _AnswerPopularQuestionWidgetState
-    extends State<AnswerPopularQuestionWidget> with TickerProviderStateMixin {
-  late AnimationController _controllerOfTitle;
-  late Animation<Offset> _offsetAnimationOfTitle;
-
-  @override
-  void initState() {
-    _controllerOfTitle = AnimationController(
-      duration: const Duration(milliseconds: 300),
-      vsync: this,
-    )..forward();
-
-    _offsetAnimationOfTitle = Tween<Offset>(
-      begin: const Offset(0, -.1),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _controllerOfTitle,
-        curve: Curves.easeInOut,
-      ),
-    );
-    super.initState();
-  }
+  final PopularQuestionDataResponseModel question;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => setState(() => widget.isExpanded = !widget.isExpanded),
-      child: SlideTransition(
-        position: _offsetAnimationOfTitle,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(8),
-              bottomRight: Radius.circular(8),
+    return KeepAliveWidget(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.primaryColor.withOpacity(0.2),
+              spreadRadius: 0,
+              blurRadius: 4,
+              offset: const Offset(0, 2),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 0,
-                blurRadius: 8,
-                offset: const Offset(0, 4),
+          ],
+        ),
+        child: ExpandablePanel(
+          theme: const ExpandableThemeData(
+            headerAlignment: ExpandablePanelHeaderAlignment.center,
+          ),
+          header: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+            child: Text(
+              question.question,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 14.sp,
               ),
-            ],
-            color: const Color(0xffaeddf3),
+            ),
           ),
-          child: Html(
-            data: widget.answer,
-            onLinkTap: (url, _, attributes, element) async {
-              if (url != null) {
-                await HelperMethod.launchToBrowser(url);
-              }
-            },
+          builder: (_, collapsed, expanded) => Expandable(
+            collapsed: collapsed,
+            expanded: expanded,
+            theme: const ExpandableThemeData(
+              crossFadePoint: 0,
+            ),
           ),
+          expanded: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 18,
+              vertical: 8,
+            ),
+            constraints: const BoxConstraints(minWidth: double.infinity),
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor.withOpacity(.1),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(6),
+                bottomRight: Radius.circular(6),
+              ),
+            ),
+            child: Html(
+              data: question.answer,
+              onLinkTap: (url, _, attributes, element) async {
+                if (url != null) {
+                  await HelperMethod.launchToBrowser(url);
+                }
+              },
+            ),
+          ),
+          collapsed: const SizedBox.shrink(),
         ),
       ),
     );

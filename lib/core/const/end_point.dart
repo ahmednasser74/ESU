@@ -40,7 +40,7 @@ class Endpoints {
 
   //-----------------------------------------------------------------------
   ///public services
-  static const String faq = 'faq';
+  static const String faq = 'faqs';
   static const String home = 'home';
   static const String checkFiles = 'check-files';
   static const String editProfile = 'edit-profile';

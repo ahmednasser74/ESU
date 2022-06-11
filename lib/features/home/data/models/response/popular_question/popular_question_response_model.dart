@@ -1,20 +1,19 @@
-import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
-
-class PopularQuestionResponseModel {
-  PopularQuestionResponseModel({
-    required this.status,
-    required this.message,
-    required this.data,
+class PopularQuestionDataResponseModel {
+  PopularQuestionDataResponseModel({
+    required this.id,
+    required this.question,
+    required this.answer,
   });
 
-  final String status;
-  final String message;
-  final PopularQuestionItemResponseModel data;
+  final int id;
+  final String question;
+  final String answer;
 
-  factory PopularQuestionResponseModel.fromJson(Map<String, dynamic> json) =>
-      PopularQuestionResponseModel(
-        status: json["status"],
-        message: json["message"],
-        data: PopularQuestionItemResponseModel.fromJson(json["data"]),
+  factory PopularQuestionDataResponseModel.fromJson(
+          Map<String, dynamic> json) =>
+      PopularQuestionDataResponseModel(
+        id: json["id"],
+        question: json["question"],
+        answer: json["answer"],
       );
 }

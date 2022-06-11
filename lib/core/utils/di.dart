@@ -31,6 +31,7 @@ import 'package:boilerplate/features/home/domin/usecases/home_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_all_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_single_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/notification_usecase.dart';
+import 'package:boilerplate/features/home/domin/usecases/popular_question_usecase.dart';
 import 'package:boilerplate/features/home/presentation/controller/home_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
@@ -167,7 +168,7 @@ class Injection {
     );
     di.registerFactory<SettingController>(() => SettingController());
     di.registerFactory<PopularQuestionController>(
-      () => PopularQuestionController(),
+      () => PopularQuestionController(popularQuestionUseCase: di()),
     );
     di.registerFactory<HomeController>(
       () => HomeController(homeUseCase: di()),
@@ -198,6 +199,9 @@ class Injection {
     );
     di.registerLazySingleton<EditProfileUseCase>(
       () => EditProfileUseCase(repository: di()),
+    );
+    di.registerLazySingleton<PopularQuestionUseCase>(
+      () => PopularQuestionUseCase(repository: di()),
     );
 
     //repo
