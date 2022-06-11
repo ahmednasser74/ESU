@@ -1,5 +1,7 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/screen/payment_web_view_screen.dart';
 import 'package:boilerplate/core/usecases/usecase.dart';
+import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:boilerplate/features/student_data/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/availability_term_registration_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/term_register_pay_use_case.dart';
@@ -15,6 +17,8 @@ class TermRegistrationController extends GetxController
   final AvailabilityTermRegistrationUseCase availabilityTermRegistrationUseCase;
   final TermRegisterPayUseCase termRegisterPayUseCase;
   RxBool isLoadingTermPayment = RxBool(false);
+  late String paymentUrl;
+  late AvailabilityTermRegistrationResponseModel responseModel;
 
   @override
   void onInit() {
@@ -31,6 +35,7 @@ class TermRegistrationController extends GetxController
       (l) => change(null, status: RxStatus.error(l)),
       (r) {
         if (r.status == true) {
+          responseModel = r;
           change(r, status: RxStatus.success());
         } else {
           change(null, status: RxStatus.error(r.message));
@@ -44,15 +49,35 @@ class TermRegistrationController extends GetxController
     change(null, status: RxStatus.loading());
     final finance = await termRegisterPayUseCase(params: termId);
     finance.fold(
-      (l) => Get.snackbar(LocalizationKeys.failed.tr, l!),
+      (l) => HelperMethod.showSnackBar(
+        title: LocalizationKeys.failed.tr,
+        message: l!,
+      ),
       (r) {
-        if (r.status == true) {
-          Get.snackbar(LocalizationKeys.submit.tr, r.message);
+        if (r.status == true && r.code != 200) {
+          paymentUrl = r.paymentUrl!;
         } else {
-          Get.snackbar(LocalizationKeys.failed.tr, r.message);
+          HelperMethod.showSnackBar(
+            title: LocalizationKeys.failed.tr,
+            message: r.message!,
+          );
         }
       },
     );
     isLoadingTermPayment.value = false;
+  }
+
+  Future<void> onTapTermRegisterPayment() async {
+    await termRegisterPay(termId: responseModel.data!.termId);
+    if (responseModel.data!.cost > 0) {
+      Get.to(
+        PaymentWebViewScreen(
+          paymentUrl: paymentUrl,
+          onBackCallBack: getAvailabilityTermRegistration,
+        ),
+      );
+    } else {
+      await getAvailabilityTermRegistration();
+    }
   }
 }

@@ -83,12 +83,7 @@ class TermRegistrationScreen extends GetView<TermRegistrationController> {
                   ),
                   SizedBox(height: 28.h),
                   AppButton(
-                    onPressed: () async {
-                      await controller.termRegisterPay(
-                        termId: state.data!.termId,
-                      );
-                      await controller.getAvailabilityTermRegistration();
-                    },
+                    onPressed: controller.onTapTermRegisterPayment,
                     title: LocalizationKeys.submit.tr,
                     fonSize: 14.sp,
                   ),
