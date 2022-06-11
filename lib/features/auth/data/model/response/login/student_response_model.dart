@@ -48,21 +48,4 @@ class StudentResponseModel {
         archiveStatus: json["archive_status"],
         locale: json["locale"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name_en": nameEn,
-        "name_ar": nameAr,
-        "academic_id": academicId,
-        "email": email,
-        "mobile": mobile,
-        "national_passport": nationalPassport,
-        "photo": photo,
-        "country": country,
-        "nationality": nationality,
-        "gender": gender,
-        "admission_year": admissionYear,
-        "archive_status": archiveStatus,
-        "locale": locale,
-      };
 }
