@@ -223,4 +223,8 @@ const Map<String, String> ar = {
   LocalizationKeys.somethingWentWrong: 'حدث خطأ ما',
   LocalizationKeys.somethingWentWrongTryAgain: 'حدث خطأ ما، حاول مرة اخرى',
   LocalizationKeys.hello: 'مرحبا',
+  LocalizationKeys.done: 'تم',
+  LocalizationKeys.failed: 'فشل',
+  LocalizationKeys.congratulations: 'تهانينا',
+  LocalizationKeys.successfullyDone: 'تم بنجاح',
 };

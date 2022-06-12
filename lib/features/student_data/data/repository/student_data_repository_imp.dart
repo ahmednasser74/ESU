@@ -9,6 +9,7 @@ import 'package:boilerplate/features/student_data/data/models/response/lecture_t
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/schedule/schedule_response_model.dart';
+import 'package:boilerplate/features/student_data/data/models/response/term_register_pay_response_model/term_register_pay_response_model.dart';
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -77,6 +78,17 @@ class StudentDataRepositoryImp implements StudentDataRepository {
     return _responseHandling<AvailabilityTermRegistrationResponseModel>(
       onSuccess: () async =>
           await remoteDataSource.availabilityTermRegistration(),
+    );
+  }
+
+  @override
+  Future<Either<String?, TermRegisterPayResponseModel>> termRegisterPay({
+    required int termId,
+  }) {
+    return _responseHandling<TermRegisterPayResponseModel>(
+      onSuccess: () async => await remoteDataSource.termRegisterPay(
+        termId: termId,
+      ),
     );
   }
 }

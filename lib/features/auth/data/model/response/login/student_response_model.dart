@@ -40,7 +40,7 @@ class StudentResponseModel {
         email: json["email"],
         mobile: json["mobile"],
         nationalPassport: json["national_passport"],
-        photo: json["photo"],
+        photo: json["photo"] is Map ? null : json["photo"],
         country: json["country"],
         nationality: json["nationality"],
         gender: json["gender"],

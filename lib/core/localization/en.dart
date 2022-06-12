@@ -227,4 +227,7 @@ const Map<String, String> en = {
   LocalizationKeys.somethingWentWrongTryAgain:
       'Something went wrong, try again',
   LocalizationKeys.hello: 'Hello',
+  LocalizationKeys.done: 'Done',
+  LocalizationKeys.failed: 'Failed',
+  LocalizationKeys.successfullyDone: 'Successfully Done',
 };

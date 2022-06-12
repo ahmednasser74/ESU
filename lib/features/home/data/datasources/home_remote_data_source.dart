@@ -5,7 +5,7 @@ import 'package:boilerplate/features/home/data/models/request/edit_profile_reque
 import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
-import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_response_model.dart';
+import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
 import 'package:dio/dio.dart';
 
 abstract class HomeRemoteDataSource {
@@ -59,9 +59,7 @@ class HomeRemoteDataSourceImp implements HomeRemoteDataSource {
 
   @override
   Future<PopularQuestionResponseModel> getPopularQuestion() async {
-    final response = await dioHelper.post(
-      url: Endpoints.faq,
-    );
+    final response = await dioHelper.get(url: Endpoints.faq);
     return PopularQuestionResponseModel.fromJson(response.data);
   }
 

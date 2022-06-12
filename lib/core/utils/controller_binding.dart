@@ -9,6 +9,7 @@ import 'package:boilerplate/features/auth/presentation/controller/splash_control
 import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/home_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
+import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/access_to_moodle_controller.dart';
@@ -48,6 +49,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<SettingController>(), fenix: true);
     Get.lazyPut(() => Injection.di<NotificationController>(), fenix: true);
     Get.lazyPut(() => Injection.di<HomeController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<PopularQuestionController>(), fenix: true);
     //-----------------------------------------------------------------------
     ///student data
     Get.lazyPut(() => Injection.di<LettersController>(), fenix: true);

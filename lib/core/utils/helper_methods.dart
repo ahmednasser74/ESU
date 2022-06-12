@@ -1,6 +1,8 @@
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HelperMethod {
@@ -22,23 +24,30 @@ class HelperMethod {
     );
   }
 
-  static ScaffoldFeatureController showSnackBar({
-    required BuildContext context,
+  static SnackbarController showSnackBar({
     required String message,
-    Color? color,
-  }) =>
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Container(
-            margin: const EdgeInsets.all(8),
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: color,
-            ),
-            child: Text(message),
-          ),
+    required String title,
+    int durationSeconds = 3,
+  }) {
+    return Get.snackbar(
+      title,
+      message,
+      duration: Duration(seconds: durationSeconds),
+      backgroundColor: Colors.white,
+      borderColor: AppColors.primaryColor,
+      borderWidth: 1.w,
+      padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+      margin: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+      boxShadows: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          spreadRadius: 1,
+          blurRadius: 5,
+          offset: const Offset(0, 3),
         ),
-      );
+      ],
+    );
+  }
 
   static Future<void> launchToBrowser(
     String url, {

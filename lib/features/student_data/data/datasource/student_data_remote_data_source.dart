@@ -8,6 +8,7 @@ import 'package:boilerplate/features/student_data/data/models/response/lecture_t
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/schedule/schedule_response_model.dart';
+import 'package:boilerplate/features/student_data/data/models/response/term_register_pay_response_model/term_register_pay_response_model.dart';
 
 abstract class StudentDataRemoteDataSource {
   Future<LettersResponseModel> getLetters();
@@ -23,7 +24,8 @@ abstract class StudentDataRemoteDataSource {
   Future<LectureTableResponseModel> getLectureTable();
 
   Future<AccessToMoodleResponseModel> getAccessToMoodle();
-  // Future<AccessToMoodleResponseModel> termRegisterPay();
+
+  Future<TermRegisterPayResponseModel> termRegisterPay({required int termId});
 
   Future<AvailabilityTermRegistrationResponseModel>
       availabilityTermRegistration();
@@ -87,5 +89,15 @@ class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
       url: Endpoints.availabilityTermRegistration,
     );
     return AvailabilityTermRegistrationResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<TermRegisterPayResponseModel> termRegisterPay({
+    required int termId,
+  }) async {
+    final response = await dioHelper.get(
+      url: '${Endpoints.termRegisterPay}/$termId',
+    );
+    return TermRegisterPayResponseModel.fromJson(response.data);
   }
 }

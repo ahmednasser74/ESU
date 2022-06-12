@@ -31,6 +31,7 @@ import 'package:boilerplate/features/home/domin/usecases/home_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_all_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/mark_single_notification_as_read_usecase.dart';
 import 'package:boilerplate/features/home/domin/usecases/notification_usecase.dart';
+import 'package:boilerplate/features/home/domin/usecases/popular_question_usecase.dart';
 import 'package:boilerplate/features/home/presentation/controller/home_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/notification_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
@@ -47,6 +48,7 @@ import 'package:boilerplate/features/student_data/domain/usecase/finance_use_cas
 import 'package:boilerplate/features/student_data/domain/usecase/lecture_table_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/schedule_use_case.dart';
+import 'package:boilerplate/features/student_data/domain/usecase/term_register_pay_use_case.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/access_to_moodle_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/lecture_table_controller.dart';
@@ -167,7 +169,7 @@ class Injection {
     );
     di.registerFactory<SettingController>(() => SettingController());
     di.registerFactory<PopularQuestionController>(
-      () => PopularQuestionController(),
+      () => PopularQuestionController(popularQuestionUseCase: di()),
     );
     di.registerFactory<HomeController>(
       () => HomeController(homeUseCase: di()),
@@ -198,6 +200,9 @@ class Injection {
     );
     di.registerLazySingleton<EditProfileUseCase>(
       () => EditProfileUseCase(repository: di()),
+    );
+    di.registerLazySingleton<PopularQuestionUseCase>(
+      () => PopularQuestionUseCase(repository: di()),
     );
 
     //repo
@@ -238,6 +243,7 @@ class Injection {
     di.registerFactory<TermRegistrationController>(
       () => TermRegistrationController(
         availabilityTermRegistrationUseCase: di(),
+        termRegisterPayUseCase: di(),
       ),
     );
 
@@ -262,6 +268,9 @@ class Injection {
     );
     di.registerLazySingleton<LectureTableUseCase>(
       () => LectureTableUseCase(studentDataRepository: di()),
+    );
+    di.registerLazySingleton<TermRegisterPayUseCase>(
+      () => TermRegisterPayUseCase(studentDataRepository: di()),
     );
     di.registerLazySingleton<AvailabilityTermRegistrationUseCase>(
       () => AvailabilityTermRegistrationUseCase(studentDataRepository: di()),

@@ -5,6 +5,7 @@ import 'package:boilerplate/features/student_data/data/models/response/invoice_p
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/schedule/schedule_response_model.dart';
+import 'package:boilerplate/features/student_data/data/models/response/term_register_pay_response_model/term_register_pay_response_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../data/models/response/lecture_table/lecture_table_response_model.dart';
@@ -24,6 +25,10 @@ abstract class StudentDataRepository {
 
   Future<Either<String?, AvailabilityTermRegistrationResponseModel>>
       availabilityTermRegistration();
+
+  Future<Either<String?, TermRegisterPayResponseModel>> termRegisterPay({
+    required int termId,
+  });
 
   Future<Either<String?, InvoicePayResponseModel>> getPayInvoiceUrl({
     required int invoiceId,
