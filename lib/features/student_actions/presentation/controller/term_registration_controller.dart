@@ -2,9 +2,9 @@ import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/screen/payment_web_view_screen.dart';
 import 'package:boilerplate/core/usecases/usecase.dart';
 import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/student_data/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
-import 'package:boilerplate/features/student_data/domain/usecase/availability_term_registration_use_case.dart';
-import 'package:boilerplate/features/student_data/domain/usecase/term_register_pay_use_case.dart';
+import 'package:boilerplate/features/student_actions/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/term_register_pay_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/term_registration_availability_use_case.dart';
 import 'package:get/get.dart';
 
 class TermRegistrationController extends GetxController
@@ -14,7 +14,7 @@ class TermRegistrationController extends GetxController
     required this.termRegisterPayUseCase,
   });
 
-  final AvailabilityTermRegistrationUseCase availabilityTermRegistrationUseCase;
+  final TermRegistrationAvailabilityUseCase availabilityTermRegistrationUseCase;
   final TermRegisterPayUseCase termRegisterPayUseCase;
   RxBool isLoadingTermPayment = RxBool(false);
   late String paymentUrl;

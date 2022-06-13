@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/student_data/data/models/response/availability_term_registration/availability_term_registration_data_response_model.dart';
+import 'availability_term_registration_data_response_model.dart';
 
 class AvailabilityTermRegistrationResponseModel {
   AvailabilityTermRegistrationResponseModel({

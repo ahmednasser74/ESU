@@ -3,7 +3,7 @@ import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
-import 'package:boilerplate/features/student_data/presentation/controller/term_registration_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/term_registration_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
