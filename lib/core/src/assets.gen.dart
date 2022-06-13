@@ -72,6 +72,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/term_registration.png
   AssetGenImage get termRegistration => const AssetGenImage('assets/icons/term_registration.png');
 
+  /// File path: assets/icons/ticket.png
+  AssetGenImage get ticket => const AssetGenImage('assets/icons/ticket.png');
+
   /// File path: assets/icons/transcript_icon.png
   AssetGenImage get transcriptIcon => const AssetGenImage('assets/icons/transcript_icon.png');
 }

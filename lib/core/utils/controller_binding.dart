@@ -12,13 +12,16 @@ import 'package:boilerplate/features/home/presentation/controller/notification_c
 import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/term_registration_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/ticket_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/ticket_create_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/ticket_details_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/access_to_moodle_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/lecture_table_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/schedule_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
-import 'package:boilerplate/features/student_data/presentation/controller/term_registration_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get/get.dart';
 
@@ -59,6 +62,11 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<ScheduleController>(), fenix: true);
     Get.lazyPut(() => Injection.di<AccessToMoodleController>(), fenix: true);
     Get.lazyPut(() => Injection.di<LectureTableController>(), fenix: true);
+    //-----------------------------------------------------------------------
+    ///student actions
     Get.lazyPut(() => Injection.di<TermRegistrationController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<TicketCreateController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<TicketsController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<TicketDetailsController>(), fenix: true);
   }
 }

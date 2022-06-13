@@ -12,13 +12,16 @@ import 'package:boilerplate/features/home/presentation/screens/notification_scre
 import 'package:boilerplate/features/home/presentation/screens/popular_question_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/profile_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/setting_screen.dart';
+import 'package:boilerplate/features/student_actions/presentation/screen/term_registration_screen.dart';
+import 'package:boilerplate/features/student_actions/presentation/screen/ticket_create_screen.dart';
+import 'package:boilerplate/features/student_actions/presentation/screen/ticket_details_screen.dart';
+import 'package:boilerplate/features/student_actions/presentation/screen/ticket_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/access_to_moodle_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/lecture_table_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/letters_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/schedule_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/student_card_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/study_plans_screen.dart';
-import 'package:boilerplate/features/student_data/presentation/screen/term_registration_screen.dart';
 import 'package:boilerplate/features/student_data/presentation/screen/transcript_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -32,6 +35,7 @@ class Routes {
       registerAcademicInfo = '/registerAcademicInfo',
       registerFileUploadScreen = '/registerFileUploadScreen',
       submitRegistrationScreen = '/submitRegistrationScreen',
+      registerPersonalInfo = '/registerPersonalInfo',
       homeScreen = '/homeScreen',
       financeScreen = '/financeScreen',
       notificationScreen = '/notificationScreen',
@@ -47,7 +51,9 @@ class Routes {
       scheduleScreen = '/scheduleScreen',
       accessToMoodleScreen = '/accessToMoodleScreen',
       lectureTableScreen = '/lectureTableScreen',
-      registerPersonalInfo = '/registerPersonalInfo';
+      ticketCreateScreen = '/ticketCreateScreen',
+      ticketDetailsScreen = '/ticketDetailsScreen',
+      ticketsScreen = '/ticketsScreen';
 
   static List<GetPage> setScreens() {
     return <GetPage>[
@@ -104,6 +110,12 @@ class Routes {
         name: successfulAdmissionScreen,
         page: () => const SuccessfulAdmissionScreen(),
       ),
+      GetPage(name: ticketsScreen, page: () => const TicketsScreen()),
+      GetPage(
+        name: ticketDetailsScreen,
+        page: () => const TicketDetailsScreen(),
+      ),
+      GetPage(name: ticketCreateScreen, page: () => const TicketCreateScreen()),
     ];
   }
 }

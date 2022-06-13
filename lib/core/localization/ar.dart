@@ -214,6 +214,33 @@ const Map<String, String> ar = {
   LocalizationKeys.cost: 'التكلفة',
 
   //-------------------------------------------------------------------------
+  ///tickets
+  LocalizationKeys.tickets: 'التذاكر',
+  LocalizationKeys.ticket: 'التذكرة',
+  LocalizationKeys.noTicketsFound: 'لا يوجد تذاكر',
+  LocalizationKeys.ticketNumber: 'رقم التذكرة',
+  LocalizationKeys.ticketDate: 'تاريخ التذكرة',
+  LocalizationKeys.ticketStatus: 'حالة التذكرة',
+  LocalizationKeys.ticketType: 'نوع التذكرة',
+  LocalizationKeys.ticketDescription: 'وصف التذكرة',
+  LocalizationKeys.ticketSolution: 'حل التذكرة',
+  LocalizationKeys.ticketSolutionDate: 'تاريخ حل التذكرة',
+  LocalizationKeys.ticketIsClosed: 'تم إغلاق التذكرة',
+  LocalizationKeys.ticketDetails: 'تفاصيل التذكرة',
+  LocalizationKeys.ticketSupport: 'تذاكر الدعم',
+  LocalizationKeys.ticketCreated: 'تم إنشاء التذكرة',
+  LocalizationKeys.ticketCreate: 'إنشاء تذكرة',
+  LocalizationKeys.addTicket: 'إضافة تذكرة',
+  LocalizationKeys.replyAddedSuccessfully: 'تمت إضافة الرد بنجاح',
+  LocalizationKeys.sorryCannotAddReply: 'عفوا، لا يمكن إضافة الرد',
+  LocalizationKeys.createdBy: 'أنشأت بواسطة',
+  LocalizationKeys.categories: 'الفئات',
+  LocalizationKeys.subject: 'الموضوع',
+  LocalizationKeys.description: 'الوصف',
+  LocalizationKeys.category: 'الفئة',
+  LocalizationKeys.noRepliesFound: 'لا يوجد ردود',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'تسجيل الخروج',
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',
@@ -227,4 +254,8 @@ const Map<String, String> ar = {
   LocalizationKeys.failed: 'فشل',
   LocalizationKeys.congratulations: 'تهانينا',
   LocalizationKeys.successfullyDone: 'تم بنجاح',
+  LocalizationKeys.createdAt: 'أنشأت في',
+  LocalizationKeys.updatedAt: 'حُدثت في',
+  LocalizationKeys.deletedAt: 'حُذفت في',
+  LocalizationKeys.closedAt: 'أغلقت في',
 };

@@ -148,6 +148,17 @@ class DrawerWidget extends StatelessWidget {
                 },
               ),
               ListTile(
+                title: Text(LocalizationKeys.ticketSupport.tr),
+                leading: Assets.icons.ticket.image(
+                  color: AppColors.primaryColor,
+                  height: 26.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.ticketsScreen);
+                },
+              ),
+              ListTile(
                 title: Text(LocalizationKeys.accessToMoodle.tr),
                 leading: Assets.icons.accessToMoodle.image(
                   color: AppColors.primaryColor,

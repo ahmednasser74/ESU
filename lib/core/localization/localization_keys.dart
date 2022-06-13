@@ -215,6 +215,33 @@ class LocalizationKeys {
   static const String cost = 'cost';
 
   //-------------------------------------------------------------------------
+  ///tickets
+  static const String tickets = 'tickets';
+  static const String ticket = 'ticket';
+  static const String noTicketsFound = 'noTicketsFound';
+  static const String ticketNumber = 'ticketNumber';
+  static const String ticketDate = 'ticketDate';
+  static const String ticketStatus = 'ticketStatus';
+  static const String ticketType = 'ticketType';
+  static const String ticketDescription = 'ticketDescription';
+  static const String ticketSolution = 'ticketSolution';
+  static const String ticketSolutionDate = 'ticketSolutionDate';
+  static const String ticketIsClosed = 'ticketIsClosed';
+  static const String ticketDetails = 'ticketDetails';
+  static const String ticketSupport = 'ticketSupport';
+  static const String ticketCreated = 'ticketCreated';
+  static const String ticketCreate = 'ticketCreate';
+  static const String addTicket = 'addTicket';
+  static const String replyAddedSuccessfully = 'replyAddedSuccessfully';
+  static const String sorryCannotAddReply = 'sorryCannotAddReply';
+  static const String createdBy = 'createdBy';
+  static const String subject = 'subject';
+  static const String description = 'description';
+  static const String categories = 'categories';
+  static const String category = 'category';
+  static const String noRepliesFound = 'noRepliesFound';
+
+  //-------------------------------------------------------------------------
   ///global
   static const String logout = 'logout';
   static const String thisFieldIsRequired = 'thisFieldIsRequired';
@@ -228,4 +255,8 @@ class LocalizationKeys {
   static const String failed = 'failed';
   static const String congratulations = 'congratulations';
   static const String successfullyDone = 'successfullyDone';
+  static const String createdAt = 'createdAt';
+  static const String updatedAt = 'updatedAt';
+  static const String deletedAt = 'deletedAt';
+  static const String closedAt = 'closedAt';
 }
