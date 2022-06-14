@@ -37,25 +37,36 @@ import 'package:boilerplate/features/home/presentation/controller/notification_c
 import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
+import 'package:boilerplate/features/student_actions/data/data_source/student_actions_remote_data_source.dart';
+import 'package:boilerplate/features/student_actions/data/repository/student_actions_repository_imp.dart';
+import 'package:boilerplate/features/student_actions/domain/repository/student_actions_repository.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/term_register_pay_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/term_registration_availability_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/ticket_categories_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/ticket_create_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/ticket_details_single_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/ticket_reply_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/tickets_use_case.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/term_registration_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/ticket_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/ticket_create_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/ticket_details_controller.dart';
 import 'package:boilerplate/features/student_data/data/datasource/student_data_remote_data_source.dart';
 import 'package:boilerplate/features/student_data/data/repository/student_data_repository_imp.dart';
 import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/Study_plans_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/access_to_moodle_use_case.dart';
-import 'package:boilerplate/features/student_data/domain/usecase/availability_term_registration_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/lecture_table_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/schedule_use_case.dart';
-import 'package:boilerplate/features/student_data/domain/usecase/term_register_pay_use_case.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/access_to_moodle_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/lecture_table_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/letters_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/schedule_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
-import 'package:boilerplate/features/student_data/presentation/controller/term_registration_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -70,6 +81,7 @@ class Injection {
     _dioHelper();
     _homeCycle();
     _studentDataCycle();
+    _studentActionsCycle();
   }
 
   static Future<void> _core() async {
@@ -240,12 +252,6 @@ class Injection {
     di.registerFactory<LectureTableController>(
       () => LectureTableController(lectureTableUseCase: di()),
     );
-    di.registerFactory<TermRegistrationController>(
-      () => TermRegistrationController(
-        availabilityTermRegistrationUseCase: di(),
-        termRegisterPayUseCase: di(),
-      ),
-    );
 
     //Use cases
     di.registerLazySingleton<LettersUseCase>(
@@ -269,12 +275,6 @@ class Injection {
     di.registerLazySingleton<LectureTableUseCase>(
       () => LectureTableUseCase(studentDataRepository: di()),
     );
-    di.registerLazySingleton<TermRegisterPayUseCase>(
-      () => TermRegisterPayUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<AvailabilityTermRegistrationUseCase>(
-      () => AvailabilityTermRegistrationUseCase(studentDataRepository: di()),
-    );
 
     //repo
     di.registerLazySingleton<StudentDataRepository>(
@@ -284,6 +284,58 @@ class Injection {
     // Data sources
     di.registerLazySingleton<StudentDataRemoteDataSource>(
       () => StudentDataRemoteDataSourceImp(dioHelper: di()),
+    );
+  }
+
+  static void _studentActionsCycle() {
+    // Controller
+    di.registerFactory<TermRegistrationController>(
+      () => TermRegistrationController(
+        availabilityTermRegistrationUseCase: di(),
+        termRegisterPayUseCase: di(),
+      ),
+    );
+    di.registerFactory<TicketCreateController>(
+      () => TicketCreateController(ticketCreateUseCase: di()),
+    );
+    di.registerFactory<TicketsController>(
+      () => TicketsController(ticketsUseCase: di()),
+    );
+    di.registerFactory<TicketDetailsController>(
+      () => TicketDetailsController(ticketDetailsUseCase: di()),
+    );
+
+    //Use cases
+    di.registerLazySingleton<TermRegisterPayUseCase>(
+      () => TermRegisterPayUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<TermRegistrationAvailabilityUseCase>(
+      () => TermRegistrationAvailabilityUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<TicketCategoriesUseCase>(
+      () => TicketCategoriesUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<TicketCreateUseCase>(
+      () => TicketCreateUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<TicketReplyUseCase>(
+      () => TicketReplyUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<TicketDetailsUseCase>(
+      () => TicketDetailsUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<TicketsUseCase>(
+      () => TicketsUseCase(studentActionsRepository: di()),
+    );
+
+    //repo
+    di.registerLazySingleton<StudentActionsRepository>(
+      () => StudentActionsRepositoryImp(remoteDataSource: di()),
+    );
+
+    // Data sources
+    di.registerLazySingleton<StudentActionsRemoteDataSource>(
+      () => StudentActionsRemoteDataSourceImp(dioHelper: di()),
     );
   }
 

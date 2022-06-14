@@ -4,8 +4,8 @@ import 'package:boilerplate/core/utils/helper_methods.dart';
 import 'package:boilerplate/features/student_data/data/models/response/finance/finance_data_response_model.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
 import 'package:boilerplate/features/student_data/domain/usecase/finance_use_case.dart';
-import 'package:boilerplate/features/student_data/presentation/widgets/finance_item_widget.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class FinanceController extends GetxController
     with StateMixin<List<FinanceDataResponseModel>> {
@@ -47,6 +47,8 @@ class FinanceController extends GetxController
     );
   }
 
+  //
+
   Future<void> payInvoiceUrl({
     required int invoiceId,
     required int index,
@@ -58,11 +60,16 @@ class FinanceController extends GetxController
       (l) => HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong),
       (r) async {
         if (r.status) {
-          Get.to(() => WebViewExample(paymentUrl: r.data.url));
-          // await HelperMethod.launchToBrowser(
-          //   r.data.url,
-          //   mode: LaunchMode.externalNonBrowserApplication,
+          // Get.to(
+          //   () => PaymentWebViewScreen(
+          //     paymentUrl: r.data.url,
+          //     onBackCallBack: getFinance,
+          //   ),
           // );
+          await HelperMethod.launchToBrowser(
+            r.data.url,
+            mode: LaunchMode.externalNonBrowserApplication,
+          );
         } else {
           HelperMethod.showToast(msg: LocalizationKeys.somethingWentWrong);
         }

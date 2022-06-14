@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:boilerplate/core/utils/notification_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +26,9 @@ void main() async {
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
   await Injection.init();
-  await NotificationHelper.instance.init();
+  if (Platform.isAndroid) {
+    await NotificationHelper.instance.init();
+  }
   runApp(const MyApp());
 }
 

@@ -217,6 +217,33 @@ const Map<String, String> en = {
   LocalizationKeys.cost: 'Cost',
 
   //-------------------------------------------------------------------------
+  ///tickets
+  LocalizationKeys.tickets: 'Tickets',
+  LocalizationKeys.ticket: 'Ticket',
+  LocalizationKeys.noTicketsFound: 'No Tickets Found',
+  LocalizationKeys.ticketNumber: 'Ticket Number',
+  LocalizationKeys.ticketDate: 'Ticket Date',
+  LocalizationKeys.ticketStatus: 'Ticket Status',
+  LocalizationKeys.ticketType: 'Ticket Type',
+  LocalizationKeys.ticketDescription: 'Ticket Description',
+  LocalizationKeys.ticketSolution: 'Ticket Solution',
+  LocalizationKeys.ticketSolutionDate: 'Ticket Solution Date',
+  LocalizationKeys.ticketIsClosed: 'Ticket Is Closed',
+  LocalizationKeys.ticketDetails: 'Ticket Details',
+  LocalizationKeys.ticketSupport: 'Ticket Support',
+  LocalizationKeys.ticketCreated: 'Ticket Created',
+  LocalizationKeys.ticketCreate: 'Ticket Create',
+  LocalizationKeys.addTicket: 'Add Ticket',
+  LocalizationKeys.replyAddedSuccessfully: 'Reply Added Successfully',
+  LocalizationKeys.sorryCannotAddReply: 'Sorry Cannot Add Reply',
+  LocalizationKeys.createdBy: 'Created By',
+  LocalizationKeys.category: 'Category',
+  LocalizationKeys.subject: 'Subject',
+  LocalizationKeys.description: 'Description',
+  LocalizationKeys.categories: 'Categories',
+  LocalizationKeys.noRepliesFound: 'No Replies Found',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',
@@ -230,4 +257,8 @@ const Map<String, String> en = {
   LocalizationKeys.done: 'Done',
   LocalizationKeys.failed: 'Failed',
   LocalizationKeys.successfullyDone: 'Successfully Done',
+  LocalizationKeys.createdAt: 'Created At',
+  LocalizationKeys.updatedAt: 'Updated At',
+  LocalizationKeys.deletedAt: 'Deleted At',
+  LocalizationKeys.closedAt: 'Closed At',
 };

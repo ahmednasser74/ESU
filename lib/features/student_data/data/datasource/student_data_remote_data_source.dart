@@ -1,14 +1,12 @@
 import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
 import 'package:boilerplate/features/student_data/data/models/response/access_to_moodle/access_to_moodle_response_model.dart';
-import 'package:boilerplate/features/student_data/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/finance/finance_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/invoice_pay/invoice_pay_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/lecture_table/lecture_table_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/letters/letters.dart';
 import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:boilerplate/features/student_data/data/models/response/schedule/schedule_response_model.dart';
-import 'package:boilerplate/features/student_data/data/models/response/term_register_pay_response_model/term_register_pay_response_model.dart';
 
 abstract class StudentDataRemoteDataSource {
   Future<LettersResponseModel> getLetters();
@@ -24,11 +22,6 @@ abstract class StudentDataRemoteDataSource {
   Future<LectureTableResponseModel> getLectureTable();
 
   Future<AccessToMoodleResponseModel> getAccessToMoodle();
-
-  Future<TermRegisterPayResponseModel> termRegisterPay({required int termId});
-
-  Future<AvailabilityTermRegistrationResponseModel>
-      availabilityTermRegistration();
 }
 
 class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
@@ -80,24 +73,5 @@ class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
   Future<ScheduleResponseModel> getSchedule() async {
     final response = await dioHelper.get(url: Endpoints.schedule);
     return ScheduleResponseModel.fromJson(response.data);
-  }
-
-  @override
-  Future<AvailabilityTermRegistrationResponseModel>
-      availabilityTermRegistration() async {
-    final response = await dioHelper.get(
-      url: Endpoints.availabilityTermRegistration,
-    );
-    return AvailabilityTermRegistrationResponseModel.fromJson(response.data);
-  }
-
-  @override
-  Future<TermRegisterPayResponseModel> termRegisterPay({
-    required int termId,
-  }) async {
-    final response = await dioHelper.get(
-      url: '${Endpoints.termRegisterPay}/$termId',
-    );
-    return TermRegisterPayResponseModel.fromJson(response.data);
   }
 }

@@ -39,6 +39,14 @@ class Endpoints {
   static const String termRegisterPay = 'registration/term/pay';
 
   //-----------------------------------------------------------------------
+  ///ticket
+  static const String tickets = 'tickets';
+  static const String ticketDetails = 'tickets/show';
+  static const String ticketCategories = 'tickets/categories';
+  static const String ticketCreate = 'tickets';
+  static const String ticketReply = 'tickets/reply';
+
+  //-----------------------------------------------------------------------
   ///public services
   static const String faq = 'faqs';
   static const String home = 'home';
