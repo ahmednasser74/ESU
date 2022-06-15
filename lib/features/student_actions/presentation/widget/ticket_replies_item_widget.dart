@@ -26,10 +26,16 @@ class TicketRepliesItemWidget extends StatelessWidget {
                 ? AppColors.primaryLightColor
                 : Colors.grey[300],
             borderRadius: BorderRadiusDirectional.only(
-              bottomStart:
-                  reply.isReplyFromStudent ? Radius.zero : Radius.circular(8.r),
-              bottomEnd:
-                  reply.isReplyFromStudent ? Radius.circular(8.r) : Radius.zero,
+              bottomStart: reply.isReplyFromStudent
+                  ? Radius.zero
+                  : Radius.circular(
+                      8.r,
+                    ),
+              bottomEnd: reply.isReplyFromStudent
+                  ? Radius.circular(
+                      8.r,
+                    )
+                  : Radius.zero,
               topStart: Radius.circular(8.r),
               topEnd: Radius.circular(8.r),
             ),
@@ -46,6 +52,7 @@ class TicketRepliesItemWidget extends StatelessWidget {
                 child: Text(reply.by, style: TextStyle(fontSize: 8.sp)),
               ),
               Html(data: reply.body),
+              //TODO: add file manager to download and open files from the reply
               // Text(reply.file),
               Align(
                 alignment: Alignment.bottomLeft,
