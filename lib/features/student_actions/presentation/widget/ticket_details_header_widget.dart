@@ -43,7 +43,12 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
             fontSize: 12.sp,
             titleColor: Colors.black,
           ),
-          SizedBox(height: 6.h),
+          Row(
+            children: [
+              Text('${LocalizationKeys.description.tr}: '),
+              Expanded(child: Html(data: data.body)),
+            ],
+          ),
           CustomRichText(
             title: '${LocalizationKeys.createdAt.tr}: ',
             value: DateFormat('E d MMM yyyy hh:mm aaa').format(
@@ -52,12 +57,7 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
             titleColor: Colors.black,
             fontSize: 12.sp,
           ),
-          Row(
-            children: [
-              Text('${LocalizationKeys.description.tr}: '),
-              Expanded(child: Html(data: data.body)),
-            ],
-          ),
+          SizedBox(height: 6.h),
           Row(
             children: [
               CustomRichText(
