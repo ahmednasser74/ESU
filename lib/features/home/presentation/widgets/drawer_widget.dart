@@ -148,17 +148,6 @@ class DrawerWidget extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(LocalizationKeys.ticketSupport.tr),
-                leading: Assets.icons.ticket.image(
-                  color: AppColors.primaryColor,
-                  height: 26.h,
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.toNamed(Routes.ticketsScreen);
-                },
-              ),
-              ListTile(
                 title: Text(LocalizationKeys.accessToMoodle.tr),
                 leading: Assets.icons.accessToMoodle.image(
                   color: AppColors.primaryColor,
@@ -192,14 +181,14 @@ class DrawerWidget extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(LocalizationKeys.settings.tr),
-                leading: Assets.icons.settingIcon.image(
+                title: Text(LocalizationKeys.ticketSupport.tr),
+                leading: Assets.icons.ticket.image(
                   color: AppColors.primaryColor,
-                  height: 20.h,
+                  height: 26.h,
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  Get.toNamed(Routes.settingsScreen);
+                  Get.toNamed(Routes.ticketsScreen);
                 },
               ),
               ListTile(
@@ -211,6 +200,17 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.popularQuestionScreen);
+                },
+              ),
+              ListTile(
+                title: Text(LocalizationKeys.settings.tr),
+                leading: Assets.icons.settingIcon.image(
+                  color: AppColors.primaryColor,
+                  height: 20.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.settingsScreen);
                 },
               ),
               ListTile(

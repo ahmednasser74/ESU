@@ -254,6 +254,12 @@ class LocalizationKeys {
   static const String addTitleWithFile = 'addTitleWithFile';
   static const String pickedFile = 'pickedFile';
   static const String pleaseAddReply = 'pleaseAddReply';
+  static const String downloadFile = 'downloadFile';
+  static const String openFile = 'openFile';
+  static const String shouldToGivePermissionToAccessFiles =
+      'shouldToGivePermissionToAccessFiles';
+  static const String successfullyDownloadedFileOnYourDevice =
+      'successfullyDownloadedFileOnYourDevice';
 
   //-------------------------------------------------------------------------
   ///global
@@ -266,6 +272,7 @@ class LocalizationKeys {
   static const String somethingWentWrongTryAgain = 'somethingWentWrongTryAgain';
   static const String hello = 'hello';
   static const String done = 'done';
+  static const String error = 'error';
   static const String failed = 'failed';
   static const String congratulations = 'congratulations';
   static const String successfullyDone = 'successfullyDone';

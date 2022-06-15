@@ -1,4 +1,5 @@
 import 'package:boilerplate/core/file_helper/file_download_manager.dart';
+import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
 import 'package:boilerplate/core/src/widgets/keep_live_widget.dart';
@@ -7,6 +8,7 @@ import 'package:boilerplate/features/student_actions/data/models/response/ticket
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -70,7 +72,7 @@ class TicketRepliesItemWidget extends StatelessWidget {
                   ConditionalBuilder(
                     condition: reply.file!.isNotEmpty &&
                         reply.file!.startsWith('https:'),
-                    builder: (_) => FileDownloadWidget(fileUrl: reply.file!),
+                    builder: (_) => DownloadFileWidget(fileUrl: reply.file!),
                   ),
                 ],
               ),
@@ -82,15 +84,15 @@ class TicketRepliesItemWidget extends StatelessWidget {
   }
 }
 
-class FileDownloadWidget extends StatefulWidget {
-  const FileDownloadWidget({Key? key, required this.fileUrl}) : super(key: key);
+class DownloadFileWidget extends StatefulWidget {
+  const DownloadFileWidget({Key? key, required this.fileUrl}) : super(key: key);
   final String fileUrl;
 
   @override
-  State<FileDownloadWidget> createState() => _FileDownloadWidgetState();
+  State<DownloadFileWidget> createState() => _DownloadFileWidgetState();
 }
 
-class _FileDownloadWidgetState extends State<FileDownloadWidget> {
+class _DownloadFileWidgetState extends State<DownloadFileWidget> {
   late FileDownloadManager fileManager;
   int? progress;
 
@@ -131,16 +133,18 @@ class _FileDownloadWidgetState extends State<FileDownloadWidget> {
                 if (status.isGranted) {
                   await fileManager.downloadFile();
                   HelperMethod.showSnackBar(
-                    title: 'Done',
-                    message: 'تم تحميل الملف بنجاح في ملفات الهاتف',
+                    title: LocalizationKeys.done.tr,
+                    message: LocalizationKeys
+                        .successfullyDownloadedFileOnYourDevice.tr,
                     backgroundColor: Colors.green,
                     textColor: Colors.white,
                   );
                   setState(() {});
                 } else {
                   HelperMethod.showSnackBar(
-                    title: 'Error',
-                    message: 'يجب تفعيل الاذن للوصول الي الصور و الكاميرا',
+                    title: LocalizationKeys.error.tr,
+                    message:
+                        LocalizationKeys.shouldToGivePermissionToAccessFiles.tr,
                     backgroundColor: Colors.red,
                     textColor: Colors.white,
                   );
@@ -160,7 +164,7 @@ class _FileDownloadWidgetState extends State<FileDownloadWidget> {
                   child: Row(
                     children: [
                       Text(
-                        'افتح الملف',
+                        LocalizationKeys.openFile.tr,
                         style: TextStyle(fontSize: 10.sp, color: Colors.black),
                       ),
                       SizedBox(width: 4.r),
@@ -189,7 +193,10 @@ class _FileDownloadWidgetState extends State<FileDownloadWidget> {
           SizedBox(width: 4.w),
           Visibility(
             visible: progress == null,
-            child: Text('تحميل الملف', style: TextStyle(fontSize: 10.sp)),
+            child: Text(
+              LocalizationKeys.downloadFile.tr,
+              style: TextStyle(fontSize: 10.sp),
+            ),
           ),
         ],
       ),

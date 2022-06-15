@@ -256,6 +256,13 @@ const Map<String, String> en = {
   LocalizationKeys.addTitleWithFile: 'Add Title With File',
   LocalizationKeys.pickedFile: 'Picked File',
   LocalizationKeys.pleaseAddReply: 'Please Add Reply',
+  LocalizationKeys.downloadFile: 'Download File',
+  LocalizationKeys.openFile: 'Open File',
+  LocalizationKeys.shouldToGivePermissionToAccessFiles:
+      'Should To Give Permission To Access Files',
+  LocalizationKeys.successfullyDownloadedFileOnYourDevice:
+      'Successfully Downloaded File On Your Device',
+
   //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
@@ -268,6 +275,7 @@ const Map<String, String> en = {
       'Something went wrong, try again',
   LocalizationKeys.hello: 'Hello',
   LocalizationKeys.done: 'Done',
+  LocalizationKeys.error: 'Error',
   LocalizationKeys.failed: 'Failed',
   LocalizationKeys.successfullyDone: 'Successfully Done',
   LocalizationKeys.createdAt: 'Created At',

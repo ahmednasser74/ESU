@@ -253,6 +253,12 @@ const Map<String, String> ar = {
   LocalizationKeys.addTitleWithFile: 'أضف عنوانا للملف',
   LocalizationKeys.pickedFile: 'الملف المختار',
   LocalizationKeys.pleaseAddReply: 'يرجى إضافة ردا',
+  LocalizationKeys.downloadFile: 'تحميل الملف',
+  LocalizationKeys.openFile: 'فتح الملف',
+  LocalizationKeys.shouldToGivePermissionToAccessFiles:
+      'يجب تعيين سماحية الوصول إلى الملفات',
+  LocalizationKeys.successfullyDownloadedFileOnYourDevice:
+      'تم تحميل الملف بنجاح على جهازك',
 
 //-------------------------------------------------------------------------
   ///global
@@ -265,6 +271,7 @@ const Map<String, String> ar = {
   LocalizationKeys.somethingWentWrongTryAgain: 'حدث خطأ ما، حاول مرة اخرى',
   LocalizationKeys.hello: 'مرحبا',
   LocalizationKeys.done: 'تم',
+  LocalizationKeys.error: 'خطأ',
   LocalizationKeys.failed: 'فشل',
   LocalizationKeys.congratulations: 'تهانينا',
   LocalizationKeys.successfullyDone: 'تم بنجاح',
