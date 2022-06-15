@@ -1,8 +1,13 @@
+import 'dart:async';
+import 'dart:isolate';
+
 import 'package:boilerplate/core/cache/cache.dart';
 import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
 import 'package:boilerplate/core/dio/dio_request_handling.dart';
 import 'package:boilerplate/core/dio/wrapper.dart';
+import 'package:boilerplate/core/file_helper/file_downloader_db/file_downloader_db.dart';
+import 'package:boilerplate/core/file_helper/file_downloader_db/file_downloader_model.dart';
 import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:boilerplate/core/network/network_information.dart';
 import 'package:boilerplate/core/utils/pref_util.dart';
@@ -69,6 +74,7 @@ import 'package:boilerplate/features/student_data/presentation/controller/schedu
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive/hive.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -82,6 +88,7 @@ class Injection {
     _homeCycle();
     _studentDataCycle();
     _studentActionsCycle();
+    _hiveDb();
   }
 
   static Future<void> _core() async {
@@ -342,6 +349,31 @@ class Injection {
     // Data sources
     di.registerLazySingleton<StudentActionsRemoteDataSource>(
       () => StudentActionsRemoteDataSourceImp(dioHelper: di()),
+    );
+
+    //ticket files
+    di.registerLazySingleton<ReceivePort>(
+      () => ReceivePort(),
+    );
+
+    di.registerLazySingleton<StreamController>(
+      () {
+        final stream = StreamController<dynamic>.broadcast();
+        di<ReceivePort>().listen((message) {
+          di<StreamController>().add(message);
+        });
+        return stream;
+      },
+    );
+  }
+
+  static void _hiveDb() async {
+    final fileDownloaderBox = await FileDownloadedDbHelper.openBox();
+    di.registerLazySingleton<Box<FileDownloadedModel>>(
+      () => fileDownloaderBox,
+    );
+    di.registerLazySingleton<FileDownloadedDbHelper>(
+      () => FileDownloadedDbHelperImpl(di<Box<FileDownloadedModel>>()),
     );
   }
 

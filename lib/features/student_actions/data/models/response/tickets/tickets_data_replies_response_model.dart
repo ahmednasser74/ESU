@@ -4,7 +4,7 @@ class TicketDataRepliesResponseModel {
     required this.by,
     required this.type,
     required this.createdAt,
-    required this.file,
+    this.file,
     required this.body,
   });
 
@@ -12,7 +12,7 @@ class TicketDataRepliesResponseModel {
   final String by;
   final String type;
   final String createdAt;
-  final String file;
+  final String? file;
   final String body;
 
   factory TicketDataRepliesResponseModel.fromJson(Map<String, dynamic> json) =>
