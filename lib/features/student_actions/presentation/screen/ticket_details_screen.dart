@@ -1,17 +1,16 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/styles.dart';
 import 'package:boilerplate/core/src/widgets/app_empty_widget.dart';
-import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
+import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
 import 'package:boilerplate/core/src/widgets/error_widget.dart';
 import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/ticket_details/tickets_details_data_response_model.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/ticket_details_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/widget/cannot_add_reply_widget.dart';
+import 'package:boilerplate/features/student_actions/presentation/widget/ticket_details_header_widget.dart';
+import 'package:boilerplate/features/student_actions/presentation/widget/ticket_replies_item_widget.dart';
+import 'package:boilerplate/features/student_actions/presentation/widget/ticket_reply_field_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class TicketDetailsScreen extends GetView<TicketDetailsController> {
   const TicketDetailsScreen({Key? key}) : super(key: key);
@@ -23,82 +22,33 @@ class TicketDetailsScreen extends GetView<TicketDetailsController> {
       body: controller.obx(
         (state) => Column(
           children: [
-            TicketDetailsHeaderWidget(data: state!.data!),
+            TicketDetailsHeaderWidget(data: state!),
+            SizedBox(height: 12.h),
+            Expanded(
+              child: ConditionalBuilder(
+                condition: state.replies.isEmpty,
+                builder: (_) => AppEmptyWidget(
+                  title: LocalizationKeys.noRepliesFound.tr,
+                ),
+                fallback: (_) => ListView.separated(
+                  controller: controller.scrollController,
+                  itemCount: state.replies.length,
+                  separatorBuilder: (context, index) => SizedBox(height: 10.h),
+                  itemBuilder: (context, index) => TicketRepliesItemWidget(
+                    reply: state.replies[index],
+                  ),
+                ),
+              ),
+            ),
+            ConditionalBuilder(
+              condition: state.isStatusClosed,
+              builder: (_) => const CannotAddReplyWidget(),
+              fallback: (_) => const TicketReplyFieldWidget(),
+            ),
           ],
         ),
         onError: (e) => AppErrorWidget(errorMessage: e),
         onLoading: const LoadingIndicatorWidget(),
-        onEmpty: AppEmptyWidget(title: LocalizationKeys.noRepliesFound.tr),
-      ),
-    );
-  }
-}
-
-class TicketDetailsHeaderWidget extends StatelessWidget {
-  const TicketDetailsHeaderWidget({
-    Key? key,
-    required this.data,
-  }) : super(key: key);
-  final TicketDetailsDataResponseModel data;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
-      decoration: CustomStyle.containerShadowDecoration.copyWith(
-        color: AppColors.primaryLightColor,
-        borderRadius: BorderRadius.zero,
-        boxShadow: [],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Text(
-              '${LocalizationKeys.ticketNumber.tr}#${data.id}',
-              style: TextStyle(fontSize: 14.sp),
-            ),
-          ),
-          SizedBox(height: 12.h),
-          CustomRichText(
-            title: '${LocalizationKeys.subject.tr}: ',
-            value: data.subject,
-            fontSize: 12.sp,
-          ),
-          Row(
-            children: [
-              Text('${LocalizationKeys.description.tr}: '),
-              Expanded(child: Html(data: data.body)),
-            ],
-          ),
-          Row(
-            children: [
-              CustomRichText(
-                title: '${LocalizationKeys.createdAt.tr}: ',
-                value: DateFormat('E d MMM yyyy')
-                    .format(DateTime.parse(data.createdAt)),
-                fontSize: 12.sp,
-              ),
-              const Spacer(),
-            ],
-          ),
-          SizedBox(height: 12.h),
-          Row(
-            children: [
-              CustomRichText(
-                title: '${LocalizationKeys.category.tr}: ',
-                value: data.category,
-                fontSize: 12.sp,
-              ),
-              const Spacer(),
-              CustomRichText(
-                title: '${LocalizationKeys.status.tr}: ',
-                value: data.status,
-                fontSize: 12.sp,
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

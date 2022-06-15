@@ -232,15 +232,29 @@ const Map<String, String> ar = {
   LocalizationKeys.ticketCreate: 'إنشاء تذكرة',
   LocalizationKeys.addTicket: 'إضافة تذكرة',
   LocalizationKeys.replyAddedSuccessfully: 'تمت إضافة الرد بنجاح',
-  LocalizationKeys.sorryCannotAddReply: 'عفوا، لا يمكن إضافة الرد',
+  LocalizationKeys.body: 'المحتوى',
+  LocalizationKeys.pleaseEnterValidSubject: 'الرجاء إدخال عنوان صحيح',
+  LocalizationKeys.pleaseEnterValidBody: 'الرجاء إدخال محتوى صحيح',
+  LocalizationKeys.pleaseSelectCategory: 'الرجاء إختيار فئة',
+  LocalizationKeys.sorryCannotAddReplyBecauseTicketIsClosed:
+      'عذراً، لا يمكن إضافة رد للتذكرة لأنها مغلقة',
   LocalizationKeys.createdBy: 'أنشأت بواسطة',
   LocalizationKeys.categories: 'الفئات',
   LocalizationKeys.subject: 'الموضوع',
   LocalizationKeys.description: 'الوصف',
   LocalizationKeys.category: 'الفئة',
   LocalizationKeys.noRepliesFound: 'لا يوجد ردود',
+  LocalizationKeys.reply: 'الرد',
+  LocalizationKeys.message: 'الرسالة',
+  LocalizationKeys.writeReplyHere: 'أكتب الرد هنا',
+  LocalizationKeys.sendReply: 'إرسال الرد',
+  LocalizationKeys.send: 'إرسال',
+  LocalizationKeys.sendFile: 'إرسال الملف',
+  LocalizationKeys.addTitleWithFile: 'أضف عنوانا للملف',
+  LocalizationKeys.pickedFile: 'الملف المختار',
+  LocalizationKeys.pleaseAddReply: 'يرجى إضافة ردا',
 
-  //-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'تسجيل الخروج',
   LocalizationKeys.thisFieldIsRequired: 'هذا الحقل مطلوب',

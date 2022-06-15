@@ -15,7 +15,10 @@ class TicketsCategoriesResponseModel {
       TicketsCategoriesResponseModel(
         status: json["status"],
         code: json["code"],
-        data: List<TicketsCategoriesDataResponseModel>.from(json["data"]
-            .map((x) => TicketsCategoriesDataResponseModel.fromJson(x))),
+        data: List<TicketsCategoriesDataResponseModel>.from(
+          json["data"].map(
+            (x) => TicketsCategoriesDataResponseModel.fromJson(x),
+          ),
+        ),
       );
 }

@@ -23,6 +23,7 @@ class TicketsScreen extends GetView<TicketsController> {
       ),
       body: controller.obx(
         (state) => ListView.separated(
+          padding: EdgeInsets.only(bottom: .1.sh),
           itemCount: state!.data.length,
           separatorBuilder: (_, index) => SizedBox(height: 12.h),
           itemBuilder: (_, index) => TicketItemWidget(

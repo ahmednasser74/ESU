@@ -7,10 +7,13 @@ class CustomRichText extends StatelessWidget {
     required this.title,
     required this.value,
     this.fontSize = 14.0,
+    this.titleColor = AppColors.primaryColor,
+    this.valueColor = Colors.black,
   }) : super(key: key);
   final String title;
   final String value;
   final double? fontSize;
+  final Color titleColor, valueColor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class CustomRichText extends StatelessWidget {
       text: TextSpan(
         text: title,
         style: TextStyle(
-          color: AppColors.primaryColor,
+          color: titleColor,
           fontFamily: 'din',
           fontSize: fontSize,
         ),
@@ -26,7 +29,7 @@ class CustomRichText extends StatelessWidget {
           TextSpan(
             text: value,
             style: TextStyle(
-              color: Colors.black,
+              color: valueColor,
               fontSize: fontSize,
               fontFamily: 'din',
             ),
