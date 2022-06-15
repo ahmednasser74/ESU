@@ -62,11 +62,13 @@ class RedirectToProfileOrInvoiceWidget extends StatelessWidget {
                       children: [
                         const Icon(Icons.warning_rounded, color: Colors.red),
                         SizedBox(width: 8.w),
-                        Text(
-                          LocalizationKeys
-                              .youMustPayInvoiceToCompleteAnyProcess.tr,
-                          style: TextStyle(fontSize: 16.sp),
-                          textAlign: TextAlign.center,
+                        Expanded(
+                          child: Text(
+                            LocalizationKeys
+                                .youMustPayInvoiceToCompleteAnyProcess.tr,
+                            style: TextStyle(fontSize: 16.sp),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ],
                     ),
@@ -96,12 +98,14 @@ class RedirectToProfileOrInvoiceWidget extends StatelessWidget {
                       children: [
                         const Icon(Icons.warning_rounded, color: Colors.red),
                         SizedBox(width: 8.w),
-                        Text(
-                          LocalizationKeys
-                              .youMustCompleteProfileFilesToCompleteAnyProcess
-                              .tr,
-                          style: TextStyle(fontSize: 16.sp),
-                          textAlign: TextAlign.center,
+                        Expanded(
+                          child: Text(
+                            LocalizationKeys
+                                .youMustCompleteProfileFilesToCompleteAnyProcess
+                                .tr,
+                            style: TextStyle(fontSize: 16.sp),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ],
                     ),

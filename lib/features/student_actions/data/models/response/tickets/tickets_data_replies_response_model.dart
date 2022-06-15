@@ -5,6 +5,7 @@ class TicketDataRepliesResponseModel {
     required this.type,
     required this.createdAt,
     required this.file,
+    required this.body,
   });
 
   final int id;
@@ -12,6 +13,7 @@ class TicketDataRepliesResponseModel {
   final String type;
   final String createdAt;
   final String file;
+  final String body;
 
   factory TicketDataRepliesResponseModel.fromJson(Map<String, dynamic> json) =>
       TicketDataRepliesResponseModel(
@@ -20,5 +22,9 @@ class TicketDataRepliesResponseModel {
         type: json["type"],
         createdAt: json["created_at"],
         file: json["file"],
+        body: json["body"],
       );
+
+  bool get isReplyFromStudent =>
+      type.contains('Student') || type.contains('طالب');
 }

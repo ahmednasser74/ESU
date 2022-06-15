@@ -296,13 +296,19 @@ class Injection {
       ),
     );
     di.registerFactory<TicketCreateController>(
-      () => TicketCreateController(ticketCreateUseCase: di()),
+      () => TicketCreateController(
+        ticketCreateUseCase: di(),
+        ticketCategoriesUseCase: di(),
+      ),
     );
     di.registerFactory<TicketsController>(
       () => TicketsController(ticketsUseCase: di()),
     );
     di.registerFactory<TicketDetailsController>(
-      () => TicketDetailsController(ticketDetailsUseCase: di()),
+      () => TicketDetailsController(
+        ticketDetailsUseCase: di(),
+        ticketReplyUseCase: di(),
+      ),
     );
 
     //Use cases

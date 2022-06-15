@@ -8,6 +8,7 @@ class TicketsDataResponseModel {
     required this.attach,
     required this.category,
     required this.status,
+    required this.statusName,
     required this.createdAt,
     required this.replies,
   });
@@ -18,6 +19,7 @@ class TicketsDataResponseModel {
   final String attach;
   final String category;
   final String status;
+  final String statusName;
   final String createdAt;
   final List<TicketDataRepliesResponseModel> replies;
 
@@ -29,10 +31,15 @@ class TicketsDataResponseModel {
         attach: json["attach"],
         category: json["category"],
         status: json["status"],
+        statusName: json["status_name"],
         createdAt: json["created_at"],
         replies: List<TicketDataRepliesResponseModel>.from(
           json["replies"]
               .map((x) => TicketDataRepliesResponseModel.fromJson(x)),
         ),
       );
+
+  bool get isStatusClosed => status == 'closed';
+
+  bool get isStatusReply => status == 'reply';
 }

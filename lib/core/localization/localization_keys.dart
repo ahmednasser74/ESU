@@ -233,13 +233,27 @@ class LocalizationKeys {
   static const String ticketCreate = 'ticketCreate';
   static const String addTicket = 'addTicket';
   static const String replyAddedSuccessfully = 'replyAddedSuccessfully';
-  static const String sorryCannotAddReply = 'sorryCannotAddReply';
+  static const String sorryCannotAddReplyBecauseTicketIsClosed =
+      'sorryCannotAddReplyBecauseTicketIsClosed';
   static const String createdBy = 'createdBy';
   static const String subject = 'subject';
+  static const String body = 'body';
+  static const String pleaseEnterValidSubject = 'pleaseEnterValidSubject';
+  static const String pleaseEnterValidBody = 'pleaseEnterValidBody';
+  static const String pleaseSelectCategory = 'pleaseSelectCategory';
   static const String description = 'description';
   static const String categories = 'categories';
   static const String category = 'category';
   static const String noRepliesFound = 'noRepliesFound';
+  static const String reply = 'reply';
+  static const String message = 'message';
+  static const String writeReplyHere = 'writeReplyHere';
+  static const String sendReply = 'sendReply';
+  static const String send = 'send';
+  static const String sendFile = 'sendFile';
+  static const String addTitleWithFile = 'addTitleWithFile';
+  static const String pickedFile = 'pickedFile';
+  static const String pleaseAddReply = 'pleaseAddReply';
 
   //-------------------------------------------------------------------------
   ///global
