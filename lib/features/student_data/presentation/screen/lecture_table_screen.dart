@@ -1,6 +1,7 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/colors.dart';
 import 'package:boilerplate/core/src/widgets/app_empty_widget.dart';
+import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
 import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/lecture_table_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/widgets/lecture_table_item_widget.dart';
@@ -42,12 +43,19 @@ class LectureTableScreen extends GetView<LectureTableController> {
               ),
             ),
             Expanded(
-              child: ListView.separated(
-                itemCount: state.data!.courses.length,
-                padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
-                separatorBuilder: (_, index) => SizedBox(height: 14.h),
-                itemBuilder: (_, index) => LectureTableItemWidget(
-                  course: state.data!.courses.elementAt(index),
+              child: ConditionalBuilder(
+                condition: state.data!.courses!.isEmpty,
+                builder: (context) => AppEmptyWidget(
+                  title: LocalizationKeys.noLectureFound.tr,
+                ),
+                fallback: (_) => ListView.separated(
+                  itemCount: state.data!.courses?.length ?? 0,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+                  separatorBuilder: (_, index) => SizedBox(height: 14.h),
+                  itemBuilder: (_, index) => LectureTableItemWidget(
+                    course: state.data!.courses!.elementAt(index),
+                  ),
                 ),
               ),
             ),
