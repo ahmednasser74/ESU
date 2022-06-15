@@ -48,7 +48,7 @@ class StudentCardScreen extends StatelessWidget {
                     SizedBox(height: 8.h),
                     CustomRichText(
                       title: '${LocalizationKeys.studentId.tr} : ',
-                      value: student.id.toString(),
+                      value: student.academicId.toString(),
                     ),
                   ],
                 ),
