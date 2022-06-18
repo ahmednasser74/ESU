@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/network/network_information.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:esu/core/network/network_information.dart';
+import 'package:esu/core/utils/pref_util.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 

@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/localization/translation_controller.dart';
+import 'package:esu/core/localization/translation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

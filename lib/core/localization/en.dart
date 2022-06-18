@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:esu/core/localization/localization_keys.dart';
 
 const Map<String, String> en = {
   //-------------------------------------------------------------------------

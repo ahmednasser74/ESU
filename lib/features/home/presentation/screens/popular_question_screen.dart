@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/widgets/error_widget.dart';
-import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
-import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
-import 'package:boilerplate/features/home/presentation/widgets/popular_question_item_widget.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
+import 'package:esu/features/home/presentation/controller/popular_question_controller.dart';
+import 'package:esu/features/home/presentation/widgets/popular_question_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

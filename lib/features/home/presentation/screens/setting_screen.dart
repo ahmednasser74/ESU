@@ -1,6 +1,6 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
-import 'package:boilerplate/features/home/presentation/widgets/lagnuage_button_widget.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/features/home/presentation/controller/setting_controller.dart';
+import 'package:esu/features/home/presentation/widgets/lagnuage_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

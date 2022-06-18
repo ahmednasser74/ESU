@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/auth/data/model/response/login/student_response_model.dart';
+import 'package:esu/features/auth/data/model/response/login/student_response_model.dart';
 
 class EditProfileResponseModel {
   EditProfileResponseModel({

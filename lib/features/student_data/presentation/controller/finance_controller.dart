@@ -1,9 +1,9 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/student_data/data/models/response/finance/finance_data_response_model.dart';
-import 'package:boilerplate/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
-import 'package:boilerplate/features/student_data/domain/usecase/finance_use_case.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/features/student_data/data/models/response/finance/finance_data_response_model.dart';
+import 'package:esu/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
+import 'package:esu/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 

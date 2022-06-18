@@ -1,6 +1,6 @@
 //
-// import 'package:boilerplate/core/cache/user_preferences/user_preferences.dart';
-// import 'package:boilerplate/features/auth/data/model/response/login/login_response_model.dart';
+// import 'package:esu/core/cache/user_preferences/user_preferences.dart';
+// import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 //
 // class UserPreferencesHelper implements IUserPreferences {
 //   @override

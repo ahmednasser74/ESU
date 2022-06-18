@@ -1,14 +1,14 @@
 import 'dart:io';
 
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/routes.dart';
-import 'package:boilerplate/core/src/widgets/custom_button.dart';
-import 'package:boilerplate/core/src/widgets/file_picker_widget.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
-import 'package:boilerplate/features/auth/presentation/controller/submit_admission_controller.dart';
-import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/file_picker_widget.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
+import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
+import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

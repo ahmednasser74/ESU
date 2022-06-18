@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_response_model.dart';
+import 'package:esu/features/home/data/models/response/popular_question/popular_question_response_model.dart';
 
 class PopularQuestionResponseModel {
   PopularQuestionResponseModel({

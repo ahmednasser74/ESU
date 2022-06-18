@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';

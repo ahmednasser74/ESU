@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:esu/core/localization/localization_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 

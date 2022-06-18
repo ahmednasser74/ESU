@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/dio/dio_request_handling.dart';
-import 'package:boilerplate/core/localization/translation_controller.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
-import 'package:boilerplate/features/auth/presentation/screen/login_screen.dart';
-import 'package:boilerplate/features/home/presentation/screens/home_screen.dart';
+import 'package:esu/core/dio/dio_request_handling.dart';
+import 'package:esu/core/localization/translation_controller.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/presentation/screen/login_screen.dart';
+import 'package:esu/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/styles.dart';
-import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/ticket_details/tickets_details_data_response_model.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/styles.dart';
+import 'package:esu/core/src/widgets/custom_rich_text.dart';
+import 'package:esu/features/student_actions/data/models/response/ticket_details/tickets_details_data_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

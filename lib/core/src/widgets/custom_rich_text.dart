@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/src/colors.dart';
+import 'package:esu/core/src/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomRichText extends StatelessWidget {

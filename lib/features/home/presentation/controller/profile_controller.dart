@@ -1,14 +1,14 @@
 import 'dart:io';
 
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/mixin/file_properties.dart';
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
-import 'package:boilerplate/features/home/data/models/request/edit_profile_request_model.dart';
-import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
-import 'package:boilerplate/features/home/domin/usecases/check_edit_profile_files_usecase.dart';
-import 'package:boilerplate/features/home/domin/usecases/edit_profile_usecase.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/mixin/file_properties.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/home/data/models/request/edit_profile_request_model.dart';
+import 'package:esu/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
+import 'package:esu/features/home/domin/usecases/check_edit_profile_files_usecase.dart';
+import 'package:esu/features/home/domin/usecases/edit_profile_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';

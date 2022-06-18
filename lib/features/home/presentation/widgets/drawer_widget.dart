@@ -1,9 +1,9 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/assets.gen.dart';
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/routes.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
-import 'package:boilerplate/features/home/presentation/widgets/log_out_dialog.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/assets.gen.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

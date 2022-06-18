@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:esu/core/utils/pref_util.dart';
 
 abstract class AuthLocalDataSource {
   void saveUserToken(String userToken);

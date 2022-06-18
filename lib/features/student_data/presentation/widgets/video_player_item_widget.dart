@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/utils/helper_methods.dart';
+import 'package:esu/core/utils/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

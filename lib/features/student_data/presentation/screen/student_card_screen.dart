@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/assets.gen.dart';
-import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
-import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/assets.gen.dart';
+import 'package:esu/core/src/widgets/conditional_builder.dart';
+import 'package:esu/core/src/widgets/custom_rich_text.dart';
+import 'package:esu/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
