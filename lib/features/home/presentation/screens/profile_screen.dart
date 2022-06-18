@@ -8,11 +8,11 @@ import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/core/src/widgets/error_widget.dart';
 import 'package:esu/features/home/presentation/controller/profile_controller.dart';
+import 'package:esu/features/home/presentation/widgets/show_image_source_bottom_sheet_dialog.dart';
 import 'package:esu/features/student_data/presentation/widgets/forget_files_of_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -58,9 +58,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                         hoverColor: Colors.transparent,
                         focusColor: Colors.transparent,
                         highlightColor: Colors.transparent,
-                        onTap: () => controller.pickPhoto(
-                          source: ImageSource.gallery,
-                        ),
+                        onTap: () => showImageSourceDialog(context),
                         child: Stack(
                           children: [
                             Container(
@@ -75,8 +73,9 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                 condition: controller.photoUrl != null &&
                                     controller.photoFile == null,
                                 builder: (context) => CircleAvatar(
-                                  backgroundImage:
-                                      NetworkImage(controller.photoUrl!),
+                                  backgroundImage: NetworkImage(
+                                    controller.photoUrl!,
+                                  ),
                                   backgroundColor: Colors.white,
                                 ),
                                 fallback: (context) => ConditionalBuilder(
@@ -242,6 +241,14 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
           ),
         ),
       ),
+    );
+  }
+
+  void showImageSourceDialog(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const ShowImageSourceBottomSheetDialog(),
     );
   }
 }

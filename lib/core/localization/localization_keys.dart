@@ -121,6 +121,9 @@ class LocalizationKeys {
   static const String passwordConfirmation = 'passwordConfirmation';
   static const String updateProfile = 'updateProfile';
   static const String selectPhoto = 'selectPhoto';
+  static const String selectPhotoSource = 'selectPhotoSource';
+  static const String gallery = 'gallery';
+  static const String camera = 'camera';
 
   //-------------------------------------------------------------------------
   ///Notification
