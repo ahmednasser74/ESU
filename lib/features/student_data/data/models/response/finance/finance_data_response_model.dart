@@ -14,9 +14,9 @@ class FinanceDataResponseModel {
 
   final int id;
   final String item;
-  final int total;
-  final int paidAmount;
-  final int remaining;
+  final num total;
+  final num paidAmount;
+  final num remaining;
   final String status;
   final String originalStatus;
   final String? paidAt;
