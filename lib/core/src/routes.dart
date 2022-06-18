@@ -12,6 +12,8 @@ import 'package:boilerplate/features/home/presentation/screens/notification_scre
 import 'package:boilerplate/features/home/presentation/screens/popular_question_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/profile_screen.dart';
 import 'package:boilerplate/features/home/presentation/screens/setting_screen.dart';
+import 'package:boilerplate/features/student_actions/presentation/screen/add_course_screen.dart';
+import 'package:boilerplate/features/student_actions/presentation/screen/courses_registered_screen.dart';
 import 'package:boilerplate/features/student_actions/presentation/screen/term_registration_screen.dart';
 import 'package:boilerplate/features/student_actions/presentation/screen/ticket_create_screen.dart';
 import 'package:boilerplate/features/student_actions/presentation/screen/ticket_details_screen.dart';
@@ -51,6 +53,8 @@ class Routes {
       scheduleScreen = '/scheduleScreen',
       accessToMoodleScreen = '/accessToMoodleScreen',
       lectureTableScreen = '/lectureTableScreen',
+      coursesRegisteredScreen = '/coursesRegisteredScreen',
+      addCourseScreen = '/addCourseScreen',
       ticketCreateScreen = '/ticketCreateScreen',
       ticketDetailsScreen = '/ticketDetailsScreen',
       ticketsScreen = '/ticketsScreen';
@@ -116,6 +120,11 @@ class Routes {
         page: () => const TicketDetailsScreen(),
       ),
       GetPage(name: ticketCreateScreen, page: () => const TicketCreateScreen()),
+      GetPage(
+        name: coursesRegisteredScreen,
+        page: () => const CourseRegisteredScreen(),
+      ),
+      GetPage(name: addCourseScreen, page: () => const AddCourseScreen()),
     ];
   }
 }

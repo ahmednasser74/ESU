@@ -15,11 +15,11 @@ class HomeDataResponseModel {
   final String program;
   final String photo;
   final String name;
-  final int programCost;
-  final int paid;
-  final int unpaid;
-  final int balance;
-  final int total;
+  final dynamic programCost;
+  final dynamic paid;
+  final dynamic unpaid;
+  final dynamic balance;
+  final dynamic total;
   final bool profileRedirect;
   final bool invoiceRedirect;
 

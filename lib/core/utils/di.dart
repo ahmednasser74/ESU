@@ -45,6 +45,10 @@ import 'package:boilerplate/features/home/presentation/controller/setting_contro
 import 'package:boilerplate/features/student_actions/data/data_source/student_actions_remote_data_source.dart';
 import 'package:boilerplate/features/student_actions/data/repository/student_actions_repository_imp.dart';
 import 'package:boilerplate/features/student_actions/domain/repository/student_actions_repository.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/add_course_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/course_registration_availability_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/courses_registrated_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/remove_course_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/term_register_pay_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/term_registration_availability_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/ticket_categories_use_case.dart';
@@ -52,6 +56,8 @@ import 'package:boilerplate/features/student_actions/domain/usecase/ticket_creat
 import 'package:boilerplate/features/student_actions/domain/usecase/ticket_details_single_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/ticket_reply_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/tickets_use_case.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/add_course_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/courses_registered_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/term_registration_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/ticket_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/ticket_create_controller.dart';
@@ -317,6 +323,18 @@ class Injection {
         ticketReplyUseCase: di(),
       ),
     );
+    di.registerFactory<AddCourseController>(
+      () => AddCourseController(
+        coursesAvailableUseCase: di(),
+        addCoursesUseCase: di(),
+      ),
+    );
+    di.registerFactory<CourseRegisteredController>(
+      () => CourseRegisteredController(
+        coursesRegisteredUseCase: di(),
+        removeCourseUseCase: di(),
+      ),
+    );
 
     //Use cases
     di.registerLazySingleton<TermRegisterPayUseCase>(
@@ -339,6 +357,18 @@ class Injection {
     );
     di.registerLazySingleton<TicketsUseCase>(
       () => TicketsUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<CoursesAvailableUseCase>(
+      () => CoursesAvailableUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<AddCoursesUseCase>(
+      () => AddCoursesUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<CoursesRegisteredUseCase>(
+      () => CoursesRegisteredUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<RemoveCourseUseCase>(
+      () => RemoveCourseUseCase(studentActionsRepository: di()),
     );
 
     //repo

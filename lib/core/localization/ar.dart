@@ -259,6 +259,17 @@ const Map<String, String> ar = {
       'يجب تعيين سماحية الوصول إلى الملفات',
   LocalizationKeys.successfullyDownloadedFileOnYourDevice:
       'تم تحميل الملف بنجاح على جهازك',
+  //-------------------------------------------------------------------------
+  ///course register
+  LocalizationKeys.coursesRegister: 'تسجيل المواد',
+  LocalizationKeys.registerForTheCourse: 'تسجيل المادة',
+  LocalizationKeys.course: 'المادة',
+  LocalizationKeys.courseHours: 'ساعات المادة',
+  LocalizationKeys.addCourse: 'إضافة مادة',
+  LocalizationKeys.removeCourse: 'إزالة مادة',
+  LocalizationKeys.courseName: 'أسم المادة',
+  LocalizationKeys.noCoursesRegistered: 'لا يوجد مواد مسجلة',
+  LocalizationKeys.noCoursesAvailable: 'لا يوجد مواد متاحة',
 
 //-------------------------------------------------------------------------
   ///global

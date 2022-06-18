@@ -262,6 +262,18 @@ class LocalizationKeys {
       'successfullyDownloadedFileOnYourDevice';
 
   //-------------------------------------------------------------------------
+  ///Course register
+  static const String coursesRegister = 'coursesRegister';
+  static const String registerForTheCourse = 'registerForTheCourse';
+  static const String course = 'course';
+  static const String courseHours = 'courseHours';
+  static const String addCourse = 'addCourse';
+  static const String removeCourse = 'removeCourse';
+  static const String courseName = 'courseName';
+  static const String noCoursesRegistered = 'noCoursesRegistered';
+  static const String noCoursesAvailable = 'noCoursesAvailable';
+
+  //-------------------------------------------------------------------------
   ///global
   static const String logout = 'logout';
   static const String thisFieldIsRequired = 'thisFieldIsRequired';

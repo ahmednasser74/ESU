@@ -264,6 +264,18 @@ const Map<String, String> en = {
       'Successfully Downloaded File On Your Device',
 
   //-------------------------------------------------------------------------
+  ///course register
+  LocalizationKeys.coursesRegister: 'Courses Register',
+  LocalizationKeys.registerForTheCourse: 'Register For The Course',
+  LocalizationKeys.course: 'Course',
+  LocalizationKeys.courseHours: 'Course Hours',
+  LocalizationKeys.addCourse: 'Add Course',
+  LocalizationKeys.removeCourse: 'Remove Course',
+  LocalizationKeys.courseName: 'Course Name',
+  LocalizationKeys.noCoursesRegistered: 'No Courses Registered',
+  LocalizationKeys.noCoursesAvailable: 'No Courses Available',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',

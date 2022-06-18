@@ -47,6 +47,14 @@ class Endpoints {
   static const String ticketReply = 'tickets/reply';
 
   //-----------------------------------------------------------------------
+  ///course register
+  static const String registeredCourses = 'registerations-courses';
+  static const String availableCourses =
+      'registerations-courses/available-courses';
+  static const String addCourse = 'registerations-courses';
+  static const String removeCourse = 'registerations-courses/delete';
+
+  //-----------------------------------------------------------------------
   ///public services
   static const String faq = 'faqs';
   static const String home = 'home';
