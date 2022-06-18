@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/widgets/app_warning_widget.dart';
-import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
-import 'package:boilerplate/features/student_actions/presentation/controller/add_course_controller.dart';
-import 'package:boilerplate/features/student_actions/presentation/widget/available_course_item_widget.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/widgets/app_warning_widget.dart';
+import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
+import 'package:esu/features/student_actions/presentation/controller/add_course_controller.dart';
+import 'package:esu/features/student_actions/presentation/widget/available_course_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

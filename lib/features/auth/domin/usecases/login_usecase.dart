@@ -1,5 +1,5 @@
-import 'package:boilerplate/features/auth/data/model/request/login/login_request_model.dart';
-import 'package:boilerplate/features/auth/data/model/response/login/login_response_model.dart';
+import 'package:esu/features/auth/data/model/request/login/login_request_model.dart';
+import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/usecases/usecase.dart';

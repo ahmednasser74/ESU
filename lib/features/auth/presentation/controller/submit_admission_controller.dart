@@ -1,11 +1,11 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/routes.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/auth/data/model/data_holder/academic_info_data_holder_model.dart';
-import 'package:boilerplate/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
-import 'package:boilerplate/features/auth/data/model/data_holder/personal_info_data_holder_model.dart';
-import 'package:boilerplate/features/auth/data/model/request/admission/admission_request_model.dart';
-import 'package:boilerplate/features/auth/domin/usecases/admission_usecase.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/features/auth/data/model/data_holder/academic_info_data_holder_model.dart';
+import 'package:esu/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
+import 'package:esu/features/auth/data/model/data_holder/personal_info_data_holder_model.dart';
+import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
+import 'package:esu/features/auth/domin/usecases/admission_usecase.dart';
 import 'package:get/get.dart';
 
 class SubmitAdmissionController extends GetxController {

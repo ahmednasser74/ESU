@@ -1,5 +1,5 @@
-import 'package:boilerplate/features/student_data/data/models/response/finance/finance_response_model.dart';
-import 'package:boilerplate/features/student_data/domain/repository/student_data_repository.dart';
+import 'package:esu/features/student_data/data/models/response/finance/finance_response_model.dart';
+import 'package:esu/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/usecases/usecase.dart';

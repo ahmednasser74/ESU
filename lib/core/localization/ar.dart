@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:esu/core/localization/localization_keys.dart';
 
 const Map<String, String> ar = {
   ///login
@@ -161,7 +161,7 @@ const Map<String, String> ar = {
 
   //-------------------------------------------------------------------------
   ///Transcript
-  LocalizationKeys.transcript: 'السجل التراكيبي',
+  LocalizationKeys.transcript: 'السجل الأكاديمي',
 
   //-------------------------------------------------------------------------
   ///Settings

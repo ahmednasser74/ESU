@@ -1,4 +1,5 @@
-import 'package:boilerplate/features/auth/data/model/response/login/student_response_model.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/data/model/response/login/student_response_model.dart';
 
 class LoginDataResponseModel {
   LoginDataResponseModel({
@@ -11,7 +12,7 @@ class LoginDataResponseModel {
 
   factory LoginDataResponseModel.fromJson(Map<String, dynamic> json) =>
       LoginDataResponseModel(
-        token: json["token"],
+        token: json["token"] ?? SharedPrefs.instance.getToken(),
         student: StudentResponseModel.fromJson(
           json["student"],
         ),

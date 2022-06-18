@@ -1,7 +1,7 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/plans_of_study_data_response_model.dart';
-import 'package:boilerplate/features/student_data/domain/usecase/Study_plans_use_case.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/features/student_data/data/models/response/plans_of_study/plans_of_study_data_response_model.dart';
+import 'package:esu/features/student_data/domain/usecase/Study_plans_use_case.dart';
 import 'package:get/get.dart';
 
 class StudyPlansController extends GetxController

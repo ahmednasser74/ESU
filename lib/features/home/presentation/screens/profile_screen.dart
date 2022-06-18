@@ -1,14 +1,14 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/mixin/validator_properties.dart';
-import 'package:boilerplate/core/src/assets.gen.dart';
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/styles.dart';
-import 'package:boilerplate/core/src/widgets/app_text_field_widget.dart';
-import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
-import 'package:boilerplate/core/src/widgets/custom_button.dart';
-import 'package:boilerplate/core/src/widgets/error_widget.dart';
-import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
-import 'package:boilerplate/features/student_data/presentation/widgets/forget_files_of_profile_widget.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/mixin/validator_properties.dart';
+import 'package:esu/core/src/assets.gen.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/styles.dart';
+import 'package:esu/core/src/widgets/app_text_field_widget.dart';
+import 'package:esu/core/src/widgets/conditional_builder.dart';
+import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/features/home/presentation/controller/profile_controller.dart';
+import 'package:esu/features/student_data/presentation/widgets/forget_files_of_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -71,27 +71,26 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                 border:
                                     Border.all(color: AppColors.primaryColor),
                               ),
-                              child: GetBuilder<ProfileController>(
-                                builder: (controller) => ConditionalBuilder(
-                                  condition: controller.photoUrl != null &&
-                                      controller.imageFile == null,
+                              child: ConditionalBuilder(
+                                condition: controller.photoUrl != null &&
+                                    controller.photoFile == null,
+                                builder: (context) => CircleAvatar(
+                                  backgroundImage:
+                                      NetworkImage(controller.photoUrl!),
+                                  backgroundColor: Colors.white,
+                                ),
+                                fallback: (context) => ConditionalBuilder(
+                                  condition: controller.photoFile != null,
                                   builder: (context) => CircleAvatar(
                                     backgroundImage:
-                                        NetworkImage(controller.photoUrl!),
+                                        FileImage(controller.photoFile!),
                                   ),
-                                  fallback: (context) => ConditionalBuilder(
-                                    condition: controller.imageFile != null,
-                                    builder: (context) => CircleAvatar(
-                                      backgroundImage:
-                                          FileImage(controller.imageFile!),
-                                    ),
-                                    fallback: (context) => Center(
-                                      child: Text(
-                                        getFirstChar(
-                                          controller.fullNameEnTEC.text,
-                                        ),
-                                        style: TextStyle(fontSize: 30.sp),
+                                  fallback: (context) => Center(
+                                    child: Text(
+                                      getFirstChar(
+                                        controller.fullNameEnTEC.text,
                                       ),
+                                      style: TextStyle(fontSize: 30.sp),
                                     ),
                                   ),
                                 ),

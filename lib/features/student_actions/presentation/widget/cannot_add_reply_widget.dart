@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/styles.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

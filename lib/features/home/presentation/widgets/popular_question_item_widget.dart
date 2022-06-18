@@ -1,7 +1,7 @@
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/widgets/keep_live_widget.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_response_model.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/widgets/keep_live_widget.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/features/home/data/models/response/popular_question/popular_question_response_model.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';

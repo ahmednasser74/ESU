@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/widgets/file_picker_widget.dart';
-import 'package:boilerplate/features/auth/presentation/widgets/title_required_field_widget.dart';
-import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
-import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/widgets/file_picker_widget.dart';
+import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
+import 'package:esu/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
+import 'package:esu/features/home/presentation/controller/profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

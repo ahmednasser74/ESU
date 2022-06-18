@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:esu/core/localization/localization_keys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

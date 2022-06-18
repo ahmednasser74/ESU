@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/auth/data/model/response/forget_password/reset_password_reponse_model.dart';
+import 'package:esu/features/auth/data/model/response/forget_password/reset_password_reponse_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/usecases/usecase.dart';

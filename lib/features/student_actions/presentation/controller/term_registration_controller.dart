@@ -1,10 +1,10 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/screen/payment_web_view_screen.dart';
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
-import 'package:boilerplate/features/student_actions/domain/usecase/term_register_pay_use_case.dart';
-import 'package:boilerplate/features/student_actions/domain/usecase/term_registration_availability_use_case.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/screen/payment_web_view_screen.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/features/student_actions/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
+import 'package:esu/features/student_actions/domain/usecase/term_register_pay_use_case.dart';
+import 'package:esu/features/student_actions/domain/usecase/term_registration_availability_use_case.dart';
 import 'package:get/get.dart';
 
 class TermRegistrationController extends GetxController

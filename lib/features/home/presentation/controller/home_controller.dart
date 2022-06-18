@@ -1,6 +1,6 @@
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
-import 'package:boilerplate/features/home/domin/usecases/home_usecase.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/features/home/data/models/response/home/home_response_model.dart';
+import 'package:esu/features/home/domin/usecases/home_usecase.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController with StateMixin<HomeResponseModel> {

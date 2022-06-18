@@ -10,6 +10,7 @@ class EditProfileRequestModel {
   final File? cvFile;
   final String? password;
   final String? passwordConfirmation;
+  final File? photo;
 
   EditProfileRequestModel({
     this.nationalPassportFile,
@@ -19,6 +20,7 @@ class EditProfileRequestModel {
     this.cvFile,
     this.password,
     this.passwordConfirmation,
+    this.photo,
   });
 
   Future<Map<String, dynamic>> toJson() async => {
@@ -41,5 +43,7 @@ class EditProfileRequestModel {
             : await MultipartFile.fromFile(contractFile!.path),
         'f[cv]':
             cvFile == null ? null : await MultipartFile.fromFile(cvFile!.path),
+        'photo':
+            photo == null ? null : await MultipartFile.fromFile(photo!.path),
       };
 }

@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';

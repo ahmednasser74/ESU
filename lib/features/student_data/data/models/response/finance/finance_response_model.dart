@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/student_data/data/models/response/finance/finance_data_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/finance/finance_data_response_model.dart';
 
 class FinanceResponseModel {
   FinanceResponseModel({

@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/localization/translation_controller.dart';
-import 'package:boilerplate/core/src/routes.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
-import 'package:boilerplate/features/auth/data/model/request/login/login_request_model.dart';
+import 'package:esu/core/localization/translation_controller.dart';
+import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/data/model/request/login/login_request_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -46,7 +46,7 @@ class LoginController extends GetxController {
         (r) {
           if (r.status == true) {
             SharedPrefs.instance.saveToken(token: r.data!.token);
-            SharedPrefs.instance.saveUser(loginModel: r.data!);
+            SharedPrefs.instance.saveUser(studentModel: r.data!.student);
             Get.offNamed(Routes.homeScreen);
           } else {
             HelperMethod.showToast(msg: r.message!);

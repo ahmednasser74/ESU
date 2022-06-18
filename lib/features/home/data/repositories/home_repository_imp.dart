@@ -1,12 +1,13 @@
-import 'package:boilerplate/core/models/response/generic_model.dart';
-import 'package:boilerplate/core/utils/di.dart';
-import 'package:boilerplate/features/home/data/datasources/home_remote_data_source.dart';
-import 'package:boilerplate/features/home/data/models/request/edit_profile_request_model.dart';
-import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
-import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
-import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
-import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
-import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
+import 'package:esu/core/models/response/generic_model.dart';
+import 'package:esu/core/utils/di.dart';
+import 'package:esu/features/home/data/datasources/home_remote_data_source.dart';
+import 'package:esu/features/home/data/models/request/edit_profile_request_model.dart';
+import 'package:esu/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
+import 'package:esu/features/home/data/models/response/edit_profile/edit_profile_response_model.dart';
+import 'package:esu/features/home/data/models/response/home/home_response_model.dart';
+import 'package:esu/features/home/data/models/response/notification/notification_item_response_model.dart';
+import 'package:esu/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
+import 'package:esu/features/home/domin/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -58,10 +59,10 @@ class HomeRepositoryImp implements HomeRepository {
   }
 
   @override
-  Future<Either<String?, GenericResponseModel>> editProfile({
+  Future<Either<String?, EditProfileResponseModel>> editProfile({
     required EditProfileRequestModel requestModel,
   }) {
-    return _responseHandling<GenericResponseModel>(
+    return _responseHandling<EditProfileResponseModel>(
       onSuccess: () async => await remoteDataSource.editProfile(
         requestModel: requestModel,
       ),

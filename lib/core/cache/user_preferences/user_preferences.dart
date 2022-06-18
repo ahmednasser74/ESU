@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/auth/data/model/response/login/login_response_model.dart';
+import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 
 abstract class IUserPreferences {
   void saveUserPreference({required LoginResponseModel loginModel});
