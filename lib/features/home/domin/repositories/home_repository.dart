@@ -1,6 +1,7 @@
 import 'package:boilerplate/core/models/response/generic_model.dart';
 import 'package:boilerplate/features/home/data/models/request/edit_profile_request_model.dart';
 import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_response_model.dart';
+import 'package:boilerplate/features/home/data/models/response/edit_profile/edit_profile_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/home/home_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/notification/notification_item_response_model.dart';
 import 'package:boilerplate/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
@@ -22,7 +23,7 @@ abstract class HomeRepository {
   Future<Either<String?, CheckEditProfileFilesResponseModel>>
       checkEditProfileFiles();
 
-  Future<Either<String?, GenericResponseModel>> editProfile({
+  Future<Either<String?, EditProfileResponseModel>> editProfile({
     required EditProfileRequestModel requestModel,
   });
 }

@@ -1,27 +1,31 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
+import 'package:boilerplate/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class PaymentWebViewScreen extends StatefulWidget {
-  const PaymentWebViewScreen({
+class WebViewScreen extends StatefulWidget {
+  const WebViewScreen({
     Key? key,
-    required this.paymentUrl,
-    required this.onBackCallBack,
+    required this.url,
+    this.onBackCallBack,
   }) : super(key: key);
 
-  final String paymentUrl;
-  final VoidCallback onBackCallBack;
+  final String url;
+  final VoidCallback? onBackCallBack;
 
   @override
-  PaymentWebViewScreenState createState() => PaymentWebViewScreenState();
+  WebViewScreenState createState() => WebViewScreenState();
 }
 
-class PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
+class WebViewScreenState extends State<WebViewScreen> {
+  late String token;
+
   @override
   void initState() {
     super.initState();
     // if (Platform.isAndroid) WebView.platform = AndroidWebView();
+    token = SharedPrefs.instance.getToken() ?? '';
   }
 
   @override
@@ -29,8 +33,13 @@ class PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(LocalizationKeys.payment.tr)),
       body: WebView(
-        initialUrl: widget.paymentUrl,
+        initialUrl: widget.url,
         javascriptMode: JavascriptMode.unrestricted,
+        userAgent: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+          'locale': Get.locale.toString()
+        }.toString(),
         // zoomEnabled: true,
         // debuggingEnabled: true,
         // gestureNavigationEnabled: true,
@@ -55,7 +64,9 @@ class PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
   void dispose() {
     super.dispose();
     Future.delayed(Duration.zero, () {
-      widget.onBackCallBack();
+      if (widget.onBackCallBack != null) {
+        widget.onBackCallBack?.call();
+      }
     });
   }
 }

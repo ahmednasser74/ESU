@@ -47,8 +47,8 @@ class DrawerWidget extends StatelessWidget {
               SizedBox(height: 6.h),
               Text(
                 Get.locale.toString() == 'en'
-                    ? SharedPrefs.instance.getUser().student.nameEn
-                    : SharedPrefs.instance.getUser().student.nameAr,
+                    ? SharedPrefs.instance.getUser().nameEn
+                    : SharedPrefs.instance.getUser().nameAr,
                 style: TextStyle(color: Colors.white, fontSize: 16.sp),
                 textAlign: TextAlign.center,
               )
@@ -66,6 +66,12 @@ class DrawerWidget extends StatelessWidget {
                   height: 18.h,
                 ),
                 onTap: () {
+                  // Get.to(
+                  //   WebViewScreen(
+                  //     url: 'https://sisdev.esu.ac.ae/forms',
+                  //     onBackCallBack: () {},
+                  //   ),
+                  // );
                   Navigator.pop(context);
                   Get.toNamed(Routes.profileScreen);
                 },
@@ -145,6 +151,17 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.termRegistrationScreen);
+                },
+              ),
+              ListTile(
+                title: Text(LocalizationKeys.coursesRegister.tr),
+                leading: Assets.icons.termRegistration.image(
+                  color: AppColors.primaryColor,
+                  height: 26.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.coursesRegisteredScreen);
                 },
               ),
               ListTile(

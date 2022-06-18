@@ -13,7 +13,7 @@ class HomeHeaderWidget extends StatelessWidget {
     required this.data,
   }) : super(key: key);
   final HomeDataResponseModel data;
-  final student = SharedPrefs.instance.getUser().student;
+  final student = SharedPrefs.instance.getUser();
 
   @override
   Widget build(BuildContext context) {

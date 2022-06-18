@@ -46,7 +46,7 @@ class LoginController extends GetxController {
         (r) {
           if (r.status == true) {
             SharedPrefs.instance.saveToken(token: r.data!.token);
-            SharedPrefs.instance.saveUser(loginModel: r.data!);
+            SharedPrefs.instance.saveUser(studentModel: r.data!.student);
             Get.offNamed(Routes.homeScreen);
           } else {
             HelperMethod.showToast(msg: r.message!);

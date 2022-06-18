@@ -30,12 +30,12 @@ class ProfileController extends GetxController with FileProperties {
   final passwordTEC = TextEditingController();
   final confirmPasswordTEC = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  File? imageFile;
-  String? photoUrl;
   bool isLoadingUpdateProfile = false;
   bool isError = false;
   String errorMessage = '';
   CheckEditProfileFilesDataResponseModel? checkEditProfileData;
+  File? photoFile;
+  String? photoUrl;
 
   File? nationalPassportFile;
   File? latestAcademicQualificationFile;
@@ -48,7 +48,7 @@ class ProfileController extends GetxController with FileProperties {
   @override
   void onInit() async {
     super.onInit();
-    final student = SharedPrefs.instance.getUser().student;
+    final student = SharedPrefs.instance.getUser();
     fullNameEnTEC.text = student.nameEn;
     fullNameArTEC.text = student.nameAr;
     mobileTEC.text = student.mobile;
@@ -60,7 +60,7 @@ class ProfileController extends GetxController with FileProperties {
   Future<void> pickPhoto({required ImageSource source}) async {
     final imagePath = await pickedImage(source: source);
     if (imagePath != null) {
-      imageFile = File(imagePath);
+      photoFile = File(imagePath);
       update();
     }
   }
@@ -74,6 +74,7 @@ class ProfileController extends GetxController with FileProperties {
       transcriptFile: transcriptFile,
       contractFile: contractFile,
       cvFile: cvFile,
+      photo: photoFile,
     );
     final isValid = formKey.currentState?.validate() ?? false;
     if (isValid) {
@@ -93,7 +94,11 @@ class ProfileController extends GetxController with FileProperties {
       },
       (r) {
         if (r.status) {
-          HelperMethod.showToast(msg: r.message!, gravity: ToastGravity.TOP);
+          HelperMethod.showSnackBar(
+            title: LocalizationKeys.success.tr,
+            message: r.message!,
+          );
+          SharedPrefs.instance.saveUser(studentModel: r.data);
           checkEditProfileFiles();
         } else {
           isError = true;

@@ -12,7 +12,7 @@ class StudentCardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final student = SharedPrefs.instance.getUser().student;
+    final student = SharedPrefs.instance.getUser();
     return Scaffold(
       appBar: AppBar(title: Text(LocalizationKeys.studentCard.tr)),
       body: Stack(

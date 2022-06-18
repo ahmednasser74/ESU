@@ -71,27 +71,26 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                 border:
                                     Border.all(color: AppColors.primaryColor),
                               ),
-                              child: GetBuilder<ProfileController>(
-                                builder: (controller) => ConditionalBuilder(
-                                  condition: controller.photoUrl != null &&
-                                      controller.imageFile == null,
+                              child: ConditionalBuilder(
+                                condition: controller.photoUrl != null &&
+                                    controller.photoFile == null,
+                                builder: (context) => CircleAvatar(
+                                  backgroundImage:
+                                      NetworkImage(controller.photoUrl!),
+                                  backgroundColor: Colors.white,
+                                ),
+                                fallback: (context) => ConditionalBuilder(
+                                  condition: controller.photoFile != null,
                                   builder: (context) => CircleAvatar(
                                     backgroundImage:
-                                        NetworkImage(controller.photoUrl!),
+                                        FileImage(controller.photoFile!),
                                   ),
-                                  fallback: (context) => ConditionalBuilder(
-                                    condition: controller.imageFile != null,
-                                    builder: (context) => CircleAvatar(
-                                      backgroundImage:
-                                          FileImage(controller.imageFile!),
-                                    ),
-                                    fallback: (context) => Center(
-                                      child: Text(
-                                        getFirstChar(
-                                          controller.fullNameEnTEC.text,
-                                        ),
-                                        style: TextStyle(fontSize: 30.sp),
+                                  fallback: (context) => Center(
+                                    child: Text(
+                                      getFirstChar(
+                                        controller.fullNameEnTEC.text,
                                       ),
+                                      style: TextStyle(fontSize: 30.sp),
                                     ),
                                   ),
                                 ),
