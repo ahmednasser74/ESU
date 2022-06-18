@@ -61,9 +61,10 @@ class SendFilePreviewDialog extends StatelessWidget {
               Column(
                 children: [
                   Assets.icons.addFile.image(
-                    width: .30.w,
-                    height: .30.h,
+                    width: 30.w,
+                    height: 30.h,
                   ),
+                  SizedBox(height: 8.h),
                   Text(
                     LocalizationKeys.pickedFile.tr,
                     style: const TextStyle(color: AppColors.primaryColor),

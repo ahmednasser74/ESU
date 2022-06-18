@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:boilerplate/core/file_helper/file_downloader_db/file_downloader_db.dart';
 import 'package:boilerplate/core/utils/notification_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
@@ -14,6 +16,8 @@ import 'core/utils/di.dart';
 import 'core/utils/pref_util.dart';
 
 void main() async {
+  FileDownloadedDbHelper.init();
+  FlutterDownloader.initialize();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

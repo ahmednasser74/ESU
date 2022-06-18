@@ -71,8 +71,8 @@ class TermRegistrationController extends GetxController
     await termRegisterPay(termId: responseModel.data!.termId);
     if (responseModel.data!.cost > 0) {
       Get.to(
-        PaymentWebViewScreen(
-          paymentUrl: paymentUrl,
+        WebViewScreen(
+          url: paymentUrl,
           onBackCallBack: getAvailabilityTermRegistration,
         ),
       );

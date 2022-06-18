@@ -7,15 +7,17 @@ class LectureTableDataResponseModel {
   });
 
   final String generalNote;
-  final List<LectureTableCourseResponseModel> courses;
+  final List<LectureTableCourseResponseModel>? courses;
 
   factory LectureTableDataResponseModel.fromJson(Map<String, dynamic> json) =>
       LectureTableDataResponseModel(
         generalNote: json["general_note"],
-        courses: List<LectureTableCourseResponseModel>.from(
-          json["courses"].map(
-            (x) => LectureTableCourseResponseModel.fromJson(x),
-          ),
-        ),
+        courses: json["courses"] == null
+            ? []
+            : List<LectureTableCourseResponseModel>.from(
+                json["courses"].map(
+                  (x) => LectureTableCourseResponseModel.fromJson(x),
+                ),
+              ),
       );
 }

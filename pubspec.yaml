@@ -68,6 +68,14 @@ dependencies:
       url: https://github.com/Sub6Resources/flutter_html.git
       ref: master
 
+  # files
+  flutter_downloader: ^1.7.4
+  open_file: ^3.2.1
+  path_provider: ^2.0.11
+  # local DB
+  hive: ^2.2.1
+  hive_flutter: ^1.1.0
+
 dev_dependencies:
   build_runner: ^2.1.11
   flutter_launcher_icons: ^0.9.2

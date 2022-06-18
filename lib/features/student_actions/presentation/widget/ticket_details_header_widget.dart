@@ -30,13 +30,6 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
-            child: Text(
-              '${LocalizationKeys.ticketNumber.tr} #${data.id}',
-              style: TextStyle(fontSize: 14.sp),
-            ),
-          ),
-          SizedBox(height: 12.h),
           CustomRichText(
             title: '${LocalizationKeys.subject.tr}: ',
             value: data.subject,
@@ -60,11 +53,13 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
           SizedBox(height: 6.h),
           Row(
             children: [
-              CustomRichText(
-                title: '${LocalizationKeys.category.tr}: ',
-                value: data.category,
-                titleColor: Colors.black,
-                fontSize: 12.sp,
+              Expanded(
+                child: CustomRichText(
+                  title: '${LocalizationKeys.category.tr}: ',
+                  value: data.category,
+                  titleColor: Colors.black,
+                  fontSize: 12.sp,
+                ),
               ),
               const Spacer(),
               CustomRichText(
@@ -75,6 +70,7 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 4.h),
         ],
       ),
     );

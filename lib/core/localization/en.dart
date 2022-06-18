@@ -256,6 +256,25 @@ const Map<String, String> en = {
   LocalizationKeys.addTitleWithFile: 'Add Title With File',
   LocalizationKeys.pickedFile: 'Picked File',
   LocalizationKeys.pleaseAddReply: 'Please Add Reply',
+  LocalizationKeys.downloadFile: 'Download File',
+  LocalizationKeys.openFile: 'Open File',
+  LocalizationKeys.shouldToGivePermissionToAccessFiles:
+      'Should To Give Permission To Access Files',
+  LocalizationKeys.successfullyDownloadedFileOnYourDevice:
+      'Successfully Downloaded File On Your Device',
+
+  //-------------------------------------------------------------------------
+  ///course register
+  LocalizationKeys.coursesRegister: 'Courses Register',
+  LocalizationKeys.registerForTheCourse: 'Register For The Course',
+  LocalizationKeys.course: 'Course',
+  LocalizationKeys.courseHours: 'Course Hours',
+  LocalizationKeys.addCourse: 'Add Course',
+  LocalizationKeys.removeCourse: 'Remove Course',
+  LocalizationKeys.courseName: 'Course Name',
+  LocalizationKeys.noCoursesRegistered: 'No Courses Registered',
+  LocalizationKeys.noCoursesAvailable: 'No Courses Available',
+
   //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
@@ -268,6 +287,7 @@ const Map<String, String> en = {
       'Something went wrong, try again',
   LocalizationKeys.hello: 'Hello',
   LocalizationKeys.done: 'Done',
+  LocalizationKeys.error: 'Error',
   LocalizationKeys.failed: 'Failed',
   LocalizationKeys.successfullyDone: 'Successfully Done',
   LocalizationKeys.createdAt: 'Created At',

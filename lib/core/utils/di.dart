@@ -1,8 +1,13 @@
+import 'dart:async';
+import 'dart:isolate';
+
 import 'package:boilerplate/core/cache/cache.dart';
 import 'package:boilerplate/core/const/end_point.dart';
 import 'package:boilerplate/core/dio/dio_helper.dart';
 import 'package:boilerplate/core/dio/dio_request_handling.dart';
 import 'package:boilerplate/core/dio/wrapper.dart';
+import 'package:boilerplate/core/file_helper/file_downloader_db/file_downloader_db.dart';
+import 'package:boilerplate/core/file_helper/file_downloader_db/file_downloader_model.dart';
 import 'package:boilerplate/core/localization/translation_controller.dart';
 import 'package:boilerplate/core/network/network_information.dart';
 import 'package:boilerplate/core/utils/pref_util.dart';
@@ -40,6 +45,10 @@ import 'package:boilerplate/features/home/presentation/controller/setting_contro
 import 'package:boilerplate/features/student_actions/data/data_source/student_actions_remote_data_source.dart';
 import 'package:boilerplate/features/student_actions/data/repository/student_actions_repository_imp.dart';
 import 'package:boilerplate/features/student_actions/domain/repository/student_actions_repository.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/add_course_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/course_registration_availability_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/courses_registrated_use_case.dart';
+import 'package:boilerplate/features/student_actions/domain/usecase/remove_course_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/term_register_pay_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/term_registration_availability_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/ticket_categories_use_case.dart';
@@ -47,6 +56,8 @@ import 'package:boilerplate/features/student_actions/domain/usecase/ticket_creat
 import 'package:boilerplate/features/student_actions/domain/usecase/ticket_details_single_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/ticket_reply_use_case.dart';
 import 'package:boilerplate/features/student_actions/domain/usecase/tickets_use_case.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/add_course_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/courses_registered_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/term_registration_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/ticket_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/ticket_create_controller.dart';
@@ -69,6 +80,7 @@ import 'package:boilerplate/features/student_data/presentation/controller/schedu
 import 'package:boilerplate/features/student_data/presentation/controller/study_plans_controller.dart';
 import 'package:boilerplate/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive/hive.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -82,6 +94,7 @@ class Injection {
     _homeCycle();
     _studentDataCycle();
     _studentActionsCycle();
+    _hiveDb();
   }
 
   static Future<void> _core() async {
@@ -310,6 +323,18 @@ class Injection {
         ticketReplyUseCase: di(),
       ),
     );
+    di.registerFactory<AddCourseController>(
+      () => AddCourseController(
+        coursesAvailableUseCase: di(),
+        addCoursesUseCase: di(),
+      ),
+    );
+    di.registerFactory<CourseRegisteredController>(
+      () => CourseRegisteredController(
+        coursesRegisteredUseCase: di(),
+        removeCourseUseCase: di(),
+      ),
+    );
 
     //Use cases
     di.registerLazySingleton<TermRegisterPayUseCase>(
@@ -333,6 +358,18 @@ class Injection {
     di.registerLazySingleton<TicketsUseCase>(
       () => TicketsUseCase(studentActionsRepository: di()),
     );
+    di.registerLazySingleton<CoursesAvailableUseCase>(
+      () => CoursesAvailableUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<AddCoursesUseCase>(
+      () => AddCoursesUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<CoursesRegisteredUseCase>(
+      () => CoursesRegisteredUseCase(studentActionsRepository: di()),
+    );
+    di.registerLazySingleton<RemoveCourseUseCase>(
+      () => RemoveCourseUseCase(studentActionsRepository: di()),
+    );
 
     //repo
     di.registerLazySingleton<StudentActionsRepository>(
@@ -342,6 +379,31 @@ class Injection {
     // Data sources
     di.registerLazySingleton<StudentActionsRemoteDataSource>(
       () => StudentActionsRemoteDataSourceImp(dioHelper: di()),
+    );
+
+    //ticket files
+    di.registerLazySingleton<ReceivePort>(
+      () => ReceivePort(),
+    );
+
+    di.registerLazySingleton<StreamController>(
+      () {
+        final stream = StreamController<dynamic>.broadcast();
+        di<ReceivePort>().listen((message) {
+          di<StreamController>().add(message);
+        });
+        return stream;
+      },
+    );
+  }
+
+  static void _hiveDb() async {
+    final fileDownloaderBox = await FileDownloadedDbHelper.openBox();
+    di.registerLazySingleton<Box<FileDownloadedModel>>(
+      () => fileDownloaderBox,
+    );
+    di.registerLazySingleton<FileDownloadedDbHelper>(
+      () => FileDownloadedDbHelperImpl(di<Box<FileDownloadedModel>>()),
     );
   }
 

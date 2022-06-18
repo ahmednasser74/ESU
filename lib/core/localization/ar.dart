@@ -253,6 +253,23 @@ const Map<String, String> ar = {
   LocalizationKeys.addTitleWithFile: 'أضف عنوانا للملف',
   LocalizationKeys.pickedFile: 'الملف المختار',
   LocalizationKeys.pleaseAddReply: 'يرجى إضافة ردا',
+  LocalizationKeys.downloadFile: 'تحميل الملف',
+  LocalizationKeys.openFile: 'فتح الملف',
+  LocalizationKeys.shouldToGivePermissionToAccessFiles:
+      'يجب تعيين سماحية الوصول إلى الملفات',
+  LocalizationKeys.successfullyDownloadedFileOnYourDevice:
+      'تم تحميل الملف بنجاح على جهازك',
+  //-------------------------------------------------------------------------
+  ///course register
+  LocalizationKeys.coursesRegister: 'تسجيل المواد',
+  LocalizationKeys.registerForTheCourse: 'تسجيل المادة',
+  LocalizationKeys.course: 'المادة',
+  LocalizationKeys.courseHours: 'ساعات المادة',
+  LocalizationKeys.addCourse: 'إضافة مادة',
+  LocalizationKeys.removeCourse: 'إزالة مادة',
+  LocalizationKeys.courseName: 'أسم المادة',
+  LocalizationKeys.noCoursesRegistered: 'لا يوجد مواد مسجلة',
+  LocalizationKeys.noCoursesAvailable: 'لا يوجد مواد متاحة',
 
 //-------------------------------------------------------------------------
   ///global
@@ -265,6 +282,7 @@ const Map<String, String> ar = {
   LocalizationKeys.somethingWentWrongTryAgain: 'حدث خطأ ما، حاول مرة اخرى',
   LocalizationKeys.hello: 'مرحبا',
   LocalizationKeys.done: 'تم',
+  LocalizationKeys.error: 'خطأ',
   LocalizationKeys.failed: 'فشل',
   LocalizationKeys.congratulations: 'تهانينا',
   LocalizationKeys.successfullyDone: 'تم بنجاح',

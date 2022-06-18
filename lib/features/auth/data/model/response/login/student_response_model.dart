@@ -23,7 +23,7 @@ class StudentResponseModel {
   final String email;
   final String mobile;
   final String nationalPassport;
-  final String? photo;
+  String? photo;
   final String country;
   final String nationality;
   final String gender;

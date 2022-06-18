@@ -12,6 +12,8 @@ import 'package:boilerplate/features/home/presentation/controller/notification_c
 import 'package:boilerplate/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/profile_controller.dart';
 import 'package:boilerplate/features/home/presentation/controller/setting_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/add_course_controller.dart';
+import 'package:boilerplate/features/student_actions/presentation/controller/courses_registered_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/term_registration_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/ticket_controller.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/ticket_create_controller.dart';
@@ -68,5 +70,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<TicketCreateController>(), fenix: true);
     Get.lazyPut(() => Injection.di<TicketsController>(), fenix: true);
     Get.lazyPut(() => Injection.di<TicketDetailsController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<CourseRegisteredController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<AddCourseController>(), fenix: true);
   }
 }

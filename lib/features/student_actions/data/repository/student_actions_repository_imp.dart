@@ -1,10 +1,13 @@
 import 'package:boilerplate/core/network/network_information.dart';
 import 'package:boilerplate/core/utils/di.dart';
 import 'package:boilerplate/features/student_actions/data/data_source/student_actions_remote_data_source.dart';
+import 'package:boilerplate/features/student_actions/data/models/request/add_course/add_course_request_model.dart';
 import 'package:boilerplate/features/student_actions/data/models/request/ticket_create/ticket_create_request_model.dart';
 import 'package:boilerplate/features/student_actions/data/models/request/ticket_details/ticket_details_request_model.dart';
 import 'package:boilerplate/features/student_actions/data/models/request/ticket_reply/ticket_reply_request_model.dart';
 import 'package:boilerplate/features/student_actions/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
+import 'package:boilerplate/features/student_actions/data/models/response/available_course/available_course_response_model.dart';
+import 'package:boilerplate/features/student_actions/data/models/response/course_register/courses_registeration_response_model.dart';
 import 'package:boilerplate/features/student_actions/data/models/response/term_register_pay_response_model/term_register_pay_response_model.dart';
 import 'package:boilerplate/features/student_actions/data/models/response/ticket_category/ticket_category_data_response_model.dart';
 import 'package:boilerplate/features/student_actions/data/models/response/ticket_details/tickets_details_response_model.dart';
@@ -81,6 +84,42 @@ class StudentActionsRepositoryImp implements StudentActionsRepository {
     return _responseHandling<TicketDetailsResponseModel>(
       onSuccess: () async => await remoteDataSource.ticketReply(
         requestModel: requestModel,
+      ),
+    );
+  }
+
+  @override
+  Future<Either<String?, CourseRegisterResponseModel>> addCourse({
+    required AddCourseRequestModel requestModel,
+  }) {
+    return _responseHandling<CourseRegisterResponseModel>(
+      onSuccess: () async => await remoteDataSource.addCourse(
+        requestModel: requestModel,
+      ),
+    );
+  }
+
+  @override
+  Future<Either<String?, AvailableCoursesResponseModel>> getAvailableCourse() {
+    return _responseHandling<AvailableCoursesResponseModel>(
+      onSuccess: () async => await remoteDataSource.getAvailableCourse(),
+    );
+  }
+
+  @override
+  Future<Either<String?, CourseRegisterResponseModel>> getRegisteredCourse() {
+    return _responseHandling<CourseRegisterResponseModel>(
+      onSuccess: () async => await remoteDataSource.getRegisteredCourse(),
+    );
+  }
+
+  @override
+  Future<Either<String?, CourseRegisterResponseModel>> removeCourse({
+    required int courseId,
+  }) {
+    return _responseHandling<CourseRegisterResponseModel>(
+      onSuccess: () async => await remoteDataSource.removeCourse(
+        courseId: courseId,
       ),
     );
   }

@@ -28,12 +28,15 @@ class HelperMethod {
     required String message,
     required String title,
     int durationSeconds = 3,
+    Color backgroundColor = Colors.white,
+    Color textColor = Colors.black,
   }) {
     return Get.snackbar(
       title,
       message,
+      colorText: textColor,
       duration: Duration(seconds: durationSeconds),
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       borderColor: AppColors.primaryColor,
       borderWidth: 1.w,
       padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),

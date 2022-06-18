@@ -1,6 +1,7 @@
 import 'package:boilerplate/core/localization/localization_keys.dart';
 import 'package:boilerplate/core/src/assets.gen.dart';
 import 'package:boilerplate/core/src/colors.dart';
+import 'package:boilerplate/core/src/widgets/app_warning_widget.dart';
 import 'package:boilerplate/core/src/widgets/custom_button.dart';
 import 'package:boilerplate/core/src/widgets/loading_indicator_widget.dart';
 import 'package:boilerplate/features/student_actions/presentation/controller/term_registration_controller.dart';
@@ -93,28 +94,7 @@ class TermRegistrationScreen extends GetView<TermRegistrationController> {
           ),
         ),
         onLoading: const LoadingIndicatorWidget(),
-        onError: (e) => Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Icon(
-                Icons.warning_rounded,
-                color: AppColors.primaryColor,
-                size: 150.r,
-              ),
-              SizedBox(height: 8.h),
-              Center(
-                child: Text(
-                  e.toString(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18.sp),
-                ),
-              ),
-            ],
-          ),
-        ),
+        onError: (e) => AppWarningWidget(message: e.toString()),
       ),
     );
   }
