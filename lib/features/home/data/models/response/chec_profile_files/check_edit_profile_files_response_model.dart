@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
+import 'package:esu/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
 
 class CheckEditProfileFilesResponseModel {
   final bool status;

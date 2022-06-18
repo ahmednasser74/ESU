@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/src/assets.gen.dart';
-import 'package:boilerplate/features/auth/presentation/controller/splash_controller.dart';
+import 'package:esu/core/src/assets.gen.dart';
+import 'package:esu/features/auth/presentation/controller/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

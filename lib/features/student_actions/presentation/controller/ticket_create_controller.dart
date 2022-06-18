@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/features/student_actions/data/models/request/ticket_create/ticket_create_request_model.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/ticket_category/ticket_category_data_response_model.dart';
-import 'package:boilerplate/features/student_actions/domain/usecase/ticket_categories_use_case.dart';
-import 'package:boilerplate/features/student_actions/domain/usecase/ticket_create_use_case.dart';
-import 'package:boilerplate/features/student_actions/presentation/controller/ticket_controller.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/features/student_actions/data/models/request/ticket_create/ticket_create_request_model.dart';
+import 'package:esu/features/student_actions/data/models/response/ticket_category/ticket_category_data_response_model.dart';
+import 'package:esu/features/student_actions/domain/usecase/ticket_categories_use_case.dart';
+import 'package:esu/features/student_actions/domain/usecase/ticket_create_use_case.dart';
+import 'package:esu/features/student_actions/presentation/controller/ticket_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

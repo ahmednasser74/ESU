@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:boilerplate/features/student_actions/data/models/request/ticket_details/ticket_details_request_model.dart';
-import 'package:boilerplate/features/student_actions/data/models/request/ticket_reply/ticket_reply_request_model.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/ticket_details/tickets_details_data_response_model.dart';
-import 'package:boilerplate/features/student_actions/domain/usecase/ticket_details_single_use_case.dart';
-import 'package:boilerplate/features/student_actions/domain/usecase/ticket_reply_use_case.dart';
+import 'package:esu/features/student_actions/data/models/request/ticket_details/ticket_details_request_model.dart';
+import 'package:esu/features/student_actions/data/models/request/ticket_reply/ticket_reply_request_model.dart';
+import 'package:esu/features/student_actions/data/models/response/ticket_details/tickets_details_data_response_model.dart';
+import 'package:esu/features/student_actions/domain/usecase/ticket_details_single_use_case.dart';
+import 'package:esu/features/student_actions/domain/usecase/ticket_reply_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';

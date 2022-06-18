@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/student_actions/data/models/response/tickets/tickets_data_replies_response_model.dart';
+import 'package:esu/features/student_actions/data/models/response/tickets/tickets_data_replies_response_model.dart';
 
 class TicketsDataResponseModel {
   TicketsDataResponseModel({

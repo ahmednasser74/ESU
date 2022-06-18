@@ -1,6 +1,6 @@
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/tickets/tickets_response_model.dart';
-import 'package:boilerplate/features/student_actions/domain/usecase/tickets_use_case.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/features/student_actions/data/models/response/tickets/tickets_response_model.dart';
+import 'package:esu/features/student_actions/domain/usecase/tickets_use_case.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class TicketsController extends GetxController

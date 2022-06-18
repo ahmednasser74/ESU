@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/utils/pref_util.dart';
-import 'package:boilerplate/features/auth/data/model/response/login/student_response_model.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/data/model/response/login/student_response_model.dart';
 
 class LoginDataResponseModel {
   LoginDataResponseModel({

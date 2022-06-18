@@ -1,4 +1,4 @@
-import 'package:boilerplate/core/src/assets.gen.dart';
+import 'package:esu/core/src/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';

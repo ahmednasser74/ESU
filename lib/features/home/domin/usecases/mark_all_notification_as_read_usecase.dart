@@ -1,6 +1,6 @@
-import 'package:boilerplate/core/models/response/generic_model.dart';
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/features/home/domin/repositories/home_repository.dart';
+import 'package:esu/core/models/response/generic_model.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/features/home/domin/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class MarkAllNotificationAsReadUseCase

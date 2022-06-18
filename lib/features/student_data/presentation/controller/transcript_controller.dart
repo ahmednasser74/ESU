@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/const/end_point.dart';
-import 'package:boilerplate/core/utils/pref_util.dart';
+import 'package:esu/core/const/end_point.dart';
+import 'package:esu/core/utils/pref_util.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 

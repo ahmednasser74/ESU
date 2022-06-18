@@ -1,15 +1,15 @@
-import 'package:boilerplate/core/const/end_point.dart';
-import 'package:boilerplate/core/dio/dio_helper.dart';
-import 'package:boilerplate/features/auth/data/model/request/admission/admission_request_model.dart';
-import 'package:boilerplate/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
-import 'package:boilerplate/features/auth/data/model/request/forget_password/reset_password_request_model.dart';
-import 'package:boilerplate/features/auth/data/model/request/login/login_request_model.dart';
-import 'package:boilerplate/features/auth/data/model/request/lookup/lookup_request_model.dart';
-import 'package:boilerplate/features/auth/data/model/response/admission/admission_response_model.dart';
-import 'package:boilerplate/features/auth/data/model/response/forget_password/forget_password_reponse_model.dart';
-import 'package:boilerplate/features/auth/data/model/response/forget_password/reset_password_reponse_model.dart';
-import 'package:boilerplate/features/auth/data/model/response/login/login_response_model.dart';
-import 'package:boilerplate/features/auth/data/model/response/lookup/lookup_respone_model.dart';
+import 'package:esu/core/const/end_point.dart';
+import 'package:esu/core/dio/dio_helper.dart';
+import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
+import 'package:esu/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
+import 'package:esu/features/auth/data/model/request/forget_password/reset_password_request_model.dart';
+import 'package:esu/features/auth/data/model/request/login/login_request_model.dart';
+import 'package:esu/features/auth/data/model/request/lookup/lookup_request_model.dart';
+import 'package:esu/features/auth/data/model/response/admission/admission_response_model.dart';
+import 'package:esu/features/auth/data/model/response/forget_password/forget_password_reponse_model.dart';
+import 'package:esu/features/auth/data/model/response/forget_password/reset_password_reponse_model.dart';
+import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
+import 'package:esu/features/auth/data/model/response/lookup/lookup_respone_model.dart';
 import 'package:dio/dio.dart';
 
 abstract class AuthRemoteDataSource {

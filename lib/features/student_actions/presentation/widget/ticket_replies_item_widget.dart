@@ -1,10 +1,10 @@
-import 'package:boilerplate/core/file_helper/file_download_manager.dart';
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/widgets/conditional_builder.dart';
-import 'package:boilerplate/core/src/widgets/keep_live_widget.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/tickets/tickets_data_replies_response_model.dart';
+import 'package:esu/core/file_helper/file_download_manager.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/widgets/conditional_builder.dart';
+import 'package:esu/core/src/widgets/keep_live_widget.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/features/student_actions/data/models/response/tickets/tickets_data_replies_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

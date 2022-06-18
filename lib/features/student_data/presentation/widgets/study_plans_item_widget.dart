@@ -1,6 +1,6 @@
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/features/student_data/data/models/response/plans_of_study/program_data_response_model.dart';
-import 'package:boilerplate/features/student_data/presentation/widgets/course_item_widget.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/features/student_data/data/models/response/plans_of_study/program_data_response_model.dart';
+import 'package:esu/features/student_data/presentation/widgets/course_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

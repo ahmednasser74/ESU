@@ -1,10 +1,10 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/mixin/validator_properties.dart';
-import 'package:boilerplate/core/src/assets.gen.dart';
-import 'package:boilerplate/core/src/colors.dart';
-import 'package:boilerplate/core/src/widgets/app_text_field_widget.dart';
-import 'package:boilerplate/core/src/widgets/custom_button.dart';
-import 'package:boilerplate/features/auth/presentation/controller/forget_password_controller.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/mixin/validator_properties.dart';
+import 'package:esu/core/src/assets.gen.dart';
+import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/widgets/app_text_field_widget.dart';
+import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

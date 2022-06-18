@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/student_data/data/models/response/lecture_table/lecture_table_course_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/lecture_table/lecture_table_course_response_model.dart';
 
 class LectureTableDataResponseModel {
   LectureTableDataResponseModel({

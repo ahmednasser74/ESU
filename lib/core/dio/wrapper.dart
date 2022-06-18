@@ -1,5 +1,5 @@
-import 'package:boilerplate/core/dio/dio_helper.dart';
-import 'package:boilerplate/core/localization/translation_controller.dart';
+import 'package:esu/core/dio/dio_helper.dart';
+import 'package:esu/core/localization/translation_controller.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';

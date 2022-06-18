@@ -1,8 +1,8 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/utils/helper_methods.dart';
-import 'package:boilerplate/features/auth/data/model/request/forget_password/reset_password_request_model.dart';
-import 'package:boilerplate/features/auth/domin/usecases/reset_password_usecase.dart';
-import 'package:boilerplate/features/auth/presentation/controller/forget_password_controller.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/features/auth/data/model/request/forget_password/reset_password_request_model.dart';
+import 'package:esu/features/auth/domin/usecases/reset_password_usecase.dart';
+import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

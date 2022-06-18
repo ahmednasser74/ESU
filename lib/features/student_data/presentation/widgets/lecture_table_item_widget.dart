@@ -1,6 +1,6 @@
-import 'package:boilerplate/core/localization/localization_keys.dart';
-import 'package:boilerplate/core/src/widgets/custom_rich_text.dart';
-import 'package:boilerplate/features/student_data/data/models/response/lecture_table/lecture_table_course_response_model.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/widgets/custom_rich_text.dart';
+import 'package:esu/features/student_data/data/models/response/lecture_table/lecture_table_course_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';

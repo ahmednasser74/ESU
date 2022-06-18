@@ -1,6 +1,6 @@
-import 'package:boilerplate/core/usecases/usecase.dart';
-import 'package:boilerplate/features/student_actions/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
-import 'package:boilerplate/features/student_actions/domain/repository/student_actions_repository.dart';
+import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/features/student_actions/data/models/response/availability_term_registration/availability_term_registration_response_model.dart';
+import 'package:esu/features/student_actions/domain/repository/student_actions_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class TermRegistrationAvailabilityUseCase extends UseCase<

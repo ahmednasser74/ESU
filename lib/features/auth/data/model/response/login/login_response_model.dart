@@ -1,4 +1,4 @@
-import 'package:boilerplate/features/auth/data/model/response/login/login_data_response_model.dart';
+import 'package:esu/features/auth/data/model/response/login/login_data_response_model.dart';
 
 class LoginResponseModel {
   LoginResponseModel({
