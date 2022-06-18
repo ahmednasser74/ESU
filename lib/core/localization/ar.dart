@@ -121,6 +121,9 @@ const Map<String, String> ar = {
   LocalizationKeys.fullNameArabic: 'الأسم الكامل (بالعربية)',
   LocalizationKeys.updateProfile: 'تحديث الملف الشخصي',
   LocalizationKeys.selectPhoto: 'أختر الصورة',
+  LocalizationKeys.selectPhotoSource: 'أختر مصدر الصورة',
+  LocalizationKeys.camera: 'الكاميرا',
+  LocalizationKeys.gallery: 'المعرض',
 
   //-------------------------------------------------------------------------
   ///Notification
