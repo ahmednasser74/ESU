@@ -23,6 +23,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/add_image.png
   AssetGenImage get addImage => const AssetGenImage('assets/icons/add_image.png');
 
+  /// File path: assets/icons/attendance.png
+  AssetGenImage get attendance => const AssetGenImage('assets/icons/attendance.png');
+
   /// File path: assets/icons/download_icon.svg
   SvgGenImage get downloadIcon => const SvgGenImage('assets/icons/download_icon.svg');
 

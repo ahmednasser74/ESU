@@ -52,7 +52,9 @@ class DrawerWidget extends StatelessWidget {
               ),
               SizedBox(height: 6.h),
               Text(
-                Get.locale.toString() == 'en' ? SharedPrefs.instance.getUser().nameEn : SharedPrefs.instance.getUser().nameAr,
+                Get.locale.toString() == 'en'
+                    ? SharedPrefs.instance.getUser().nameEn
+                    : SharedPrefs.instance.getUser().nameAr,
                 style: TextStyle(color: Colors.white, fontSize: 16.sp),
                 textAlign: TextAlign.center,
               )
@@ -166,6 +168,17 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.coursesRegisteredScreen);
+                },
+              ),
+              ListTile(
+                title: Text(LocalizationKeys.attendance.tr),
+                leading: Assets.icons.attendance.image(
+                  color: AppColors.primaryColor,
+                  height: 22.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.attendanceScreen);
                 },
               ),
               ListTile(

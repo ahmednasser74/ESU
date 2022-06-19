@@ -67,12 +67,14 @@ import 'package:esu/features/student_data/data/repository/student_data_repositor
 import 'package:esu/features/student_data/domain/repository/student_data_repository.dart';
 import 'package:esu/features/student_data/domain/usecase/Study_plans_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/access_to_moodle_use_case.dart';
+import 'package:esu/features/student_data/domain/usecase/attendance_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/lecture_table_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/schedule_use_case.dart';
 import 'package:esu/features/student_data/presentation/controller/access_to_moodle_controller.dart';
+import 'package:esu/features/student_data/presentation/controller/attendance_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/lecture_table_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/letters_controller.dart';
@@ -265,6 +267,9 @@ class Injection {
     di.registerFactory<LectureTableController>(
       () => LectureTableController(lectureTableUseCase: di()),
     );
+    di.registerFactory<AttendanceController>(
+      () => AttendanceController(attendanceUseCase: di()),
+    );
 
     //Use cases
     di.registerLazySingleton<LettersUseCase>(
@@ -287,6 +292,9 @@ class Injection {
     );
     di.registerLazySingleton<LectureTableUseCase>(
       () => LectureTableUseCase(studentDataRepository: di()),
+    );
+    di.registerLazySingleton<AttendanceUseCase>(
+      () => AttendanceUseCase(studentDataRepository: di()),
     );
 
     //repo

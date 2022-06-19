@@ -13,7 +13,8 @@ const Map<String, String> en = {
   LocalizationKeys.admission: "Admission",
   LocalizationKeys.emailIsRequired: "Email is required",
   LocalizationKeys.passwordIsRequired: "Password is required",
-  LocalizationKeys.passwordMustContain: "Password must contain at least one uppercase, one lowercase, one number and one special character",
+  LocalizationKeys.passwordMustContain:
+      "Password must contain at least one uppercase, one lowercase, one number and one special character",
   LocalizationKeys.enterValidEmailFormat: "Enter valid email format",
   LocalizationKeys.enterValidFormat: "Enter valid format",
   LocalizationKeys.atLeast3Characters: "At least 3 characters",
@@ -25,10 +26,13 @@ const Map<String, String> en = {
   LocalizationKeys.resetPassword: "Reset Password",
   LocalizationKeys.enterCode: "Enter Code",
   LocalizationKeys.verificationCode: "Verification Code",
-  LocalizationKeys.passwordConfirmationNotMatchedWithPassword: "Password confirmation not matched with password",
-  LocalizationKeys.congratulationYouHaveSuccessfullyChangedYourPassword: 'Congratulation! You have successfully changed your password',
+  LocalizationKeys.passwordConfirmationNotMatchedWithPassword:
+      "Password confirmation not matched with password",
+  LocalizationKeys.congratulationYouHaveSuccessfullyChangedYourPassword:
+      'Congratulation! You have successfully changed your password',
   LocalizationKeys.goToLogin: 'Go to login',
-  LocalizationKeys.verificationCodeSentToEmail: 'Verification code sent to email',
+  LocalizationKeys.verificationCodeSentToEmail:
+      'Verification code sent to email',
 //-------------------------------------------------------------------------
   ///academic info
   LocalizationKeys.academicInformation: 'Academic Information',
@@ -66,12 +70,16 @@ const Map<String, String> en = {
   ///files upload
   LocalizationKeys.filesUpload: 'Files Upload',
   LocalizationKeys.copyOfYourIdOrPassport: 'A copy of your ID or passport',
-  LocalizationKeys.copyOfTheAcademicCertificate: 'A copy of the academic certificate',
+  LocalizationKeys.copyOfTheAcademicCertificate:
+      'A copy of the academic certificate',
   LocalizationKeys.copyOfTranscript: ' copy of transcript',
-  LocalizationKeys.copyOfTheStudentsContractWithTheUniversity: 'A copy of the students contract with the university',
-  LocalizationKeys.bachelorMasterContractDownloadLink: '(Bachelor/Master contract download link)',
+  LocalizationKeys.copyOfTheStudentsContractWithTheUniversity:
+      'A copy of the students contract with the university',
+  LocalizationKeys.bachelorMasterContractDownloadLink:
+      '(Bachelor/Master contract download link)',
   LocalizationKeys.phdContractDownloadLink: '(PHD contract download link)',
-  LocalizationKeys.theContractMustBeSignedHandwrittenAndOnAllPages: 'The contract must be signed handwritten and on all pages!',
+  LocalizationKeys.theContractMustBeSignedHandwrittenAndOnAllPages:
+      'The contract must be signed handwritten and on all pages!',
   LocalizationKeys.uploadCv: 'Upload CV',
 
   //-------------------------------------------------------------------------
@@ -81,7 +89,8 @@ const Map<String, String> en = {
       'We recommend not to use the e-mail from (hotmail.com) company, as they have a problem with some e-mails not being sent to them.',
   LocalizationKeys.iReadAndAgree: 'I read and agree to ',
   LocalizationKeys.termsAndCondition: 'The terms and conditions of admission',
-  LocalizationKeys.mustToApproveOnTermsAndCondition: 'Must to approve on terms and condition',
+  LocalizationKeys.mustToApproveOnTermsAndCondition:
+      'Must to approve on terms and condition',
   LocalizationKeys.success: 'Success',
   LocalizationKeys.submit: 'Submit',
 
@@ -98,8 +107,10 @@ const Map<String, String> en = {
   LocalizationKeys.aed: 'AED',
   LocalizationKeys.goToProfile: 'Go to Profile',
   LocalizationKeys.goToInvoice: 'Go to Invoice',
-  LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess: 'You must complete profile files to complete any process',
-  LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess: 'You must pay invoice to complete any process',
+  LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess:
+      'You must complete profile files to complete any process',
+  LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess:
+      'You must pay invoice to complete any process',
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -114,7 +125,8 @@ const Map<String, String> en = {
   LocalizationKeys.camera: 'Camera',
   LocalizationKeys.gallery: 'Gallery',
   LocalizationKeys.maxFileSizeIsTenMegabytes: 'Max file size is 10 megabytes',
-  LocalizationKeys.sorryThisFileTypeIsNotAllowed: 'Sorry this file type is not allowed',
+  LocalizationKeys.sorryThisFileTypeIsNotAllowed:
+      'Sorry this file type is not allowed',
 
   //-------------------------------------------------------------------------
   ///Notification
@@ -226,7 +238,8 @@ const Map<String, String> en = {
   LocalizationKeys.ticketCreate: 'Ticket Create',
   LocalizationKeys.addTicket: 'Add Ticket',
   LocalizationKeys.replyAddedSuccessfully: 'Reply Added Successfully',
-  LocalizationKeys.sorryCannotAddReplyBecauseTicketIsClosed: 'Sorry Cannot Add Reply Because Ticket Is Closed',
+  LocalizationKeys.sorryCannotAddReplyBecauseTicketIsClosed:
+      'Sorry Cannot Add Reply Because Ticket Is Closed',
   LocalizationKeys.createdBy: 'Created By',
   LocalizationKeys.category: 'Category',
   LocalizationKeys.subject: 'Subject',
@@ -249,8 +262,10 @@ const Map<String, String> en = {
   LocalizationKeys.downloadFile: 'Download File',
   LocalizationKeys.openFile: 'Open File',
   LocalizationKeys.student: 'Student',
-  LocalizationKeys.shouldToGivePermissionToAccessFiles: 'Should To Give Permission To Access Files',
-  LocalizationKeys.successfullyDownloadedFileOnYourDevice: 'Successfully Downloaded File On Your Device',
+  LocalizationKeys.shouldToGivePermissionToAccessFiles:
+      'Should To Give Permission To Access Files',
+  LocalizationKeys.successfullyDownloadedFileOnYourDevice:
+      'Successfully Downloaded File On Your Device',
 
   //-------------------------------------------------------------------------
   ///course register
@@ -265,6 +280,20 @@ const Map<String, String> en = {
   LocalizationKeys.noCoursesAvailable: 'No Courses Available',
 
   //-------------------------------------------------------------------------
+  ///attendance
+  LocalizationKeys.attendance: 'Attendance',
+  LocalizationKeys.noAttendanceFound: 'No Attendance Found',
+  LocalizationKeys.attendanceDate: 'Attendance Date',
+  LocalizationKeys.attendanceStatus: 'Attendance Status',
+  LocalizationKeys.openTime: 'Open Time',
+  LocalizationKeys.closeTime: 'Close Time',
+  LocalizationKeys.absence: 'Absence',
+  LocalizationKeys.isFinished: 'Is Finished',
+  LocalizationKeys.details: 'Details',
+  LocalizationKeys.finished: 'Finished',
+  LocalizationKeys.quizzes: 'Quizzes',
+
+  //-------------------------------------------------------------------------
   ///global
   LocalizationKeys.logout: 'Logout',
   LocalizationKeys.thisFieldIsRequired: 'This field is required',
@@ -272,7 +301,8 @@ const Map<String, String> en = {
   LocalizationKeys.cancel: 'Cancel',
   LocalizationKeys.completeAllTheFields: 'Complete all the fields',
   LocalizationKeys.somethingWentWrong: 'Something went wrong',
-  LocalizationKeys.somethingWentWrongTryAgain: 'Something went wrong, try again',
+  LocalizationKeys.somethingWentWrongTryAgain:
+      'Something went wrong, try again',
   LocalizationKeys.hello: 'Hello',
   LocalizationKeys.done: 'Done',
   LocalizationKeys.error: 'Error',

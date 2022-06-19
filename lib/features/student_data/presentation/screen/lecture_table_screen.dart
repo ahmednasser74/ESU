@@ -1,6 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
-import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/app_empty_widget.dart';
+import 'package:esu/core/src/widgets/app_warning_widget.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/student_data/presentation/controller/lecture_table_controller.dart';
@@ -61,28 +61,7 @@ class LectureTableScreen extends GetView<LectureTableController> {
             ),
           ],
         ),
-        onError: (e) => Padding(
-          padding: EdgeInsets.symmetric(horizontal: 18.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Icon(
-                Icons.warning_rounded,
-                color: AppColors.primaryColor,
-                size: 150.r,
-              ),
-              SizedBox(height: 8.h),
-              Center(
-                child: Text(
-                  e.toString(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18.sp),
-                ),
-              ),
-            ],
-          ),
-        ),
+        onError: (e) => AppWarningWidget(message: e.toString()),
         onLoading: const LoadingIndicatorWidget(),
         onEmpty: AppEmptyWidget(title: LocalizationKeys.noLectureFound.tr),
       ),

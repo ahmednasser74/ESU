@@ -1,7 +1,10 @@
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/utils/di.dart';
 import 'package:esu/features/student_data/data/datasource/student_data_remote_data_source.dart';
 import 'package:esu/features/student_data/data/models/response/access_to_moodle/access_to_moodle_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/attendance/attendance_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/finance/finance_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/invoice_pay/invoice_pay_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/lecture_table/lecture_table_response_model.dart';
@@ -9,8 +12,6 @@ import 'package:esu/features/student_data/data/models/response/letters/letters.d
 import 'package:esu/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/schedule/schedule_response_model.dart';
 import 'package:esu/features/student_data/domain/repository/student_data_repository.dart';
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 
 class StudentDataRepositoryImp implements StudentDataRepository {
   StudentDataRepositoryImp({required this.remoteDataSource});
@@ -67,6 +68,13 @@ class StudentDataRepositoryImp implements StudentDataRepository {
   Future<Either<String?, ScheduleResponseModel>> getSchedule() {
     return _responseHandling<ScheduleResponseModel>(
       onSuccess: () async => await remoteDataSource.getSchedule(),
+    );
+  }
+
+  @override
+  Future<Either<String?, AttendanceResponseModel>> getAttendance() {
+    return _responseHandling<AttendanceResponseModel>(
+      onSuccess: () async => await remoteDataSource.getAttendance(),
     );
   }
 }

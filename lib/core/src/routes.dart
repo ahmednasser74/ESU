@@ -19,6 +19,7 @@ import 'package:esu/features/student_actions/presentation/screen/ticket_create_s
 import 'package:esu/features/student_actions/presentation/screen/ticket_details_screen.dart';
 import 'package:esu/features/student_actions/presentation/screen/ticket_screen.dart';
 import 'package:esu/features/student_data/presentation/screen/access_to_moodle_screen.dart';
+import 'package:esu/features/student_data/presentation/screen/attendance_screen.dart';
 import 'package:esu/features/student_data/presentation/screen/lecture_table_screen.dart';
 import 'package:esu/features/student_data/presentation/screen/letters_screen.dart';
 import 'package:esu/features/student_data/presentation/screen/schedule_screen.dart';
@@ -57,6 +58,7 @@ class Routes {
       addCourseScreen = '/addCourseScreen',
       ticketCreateScreen = '/ticketCreateScreen',
       ticketDetailsScreen = '/ticketDetailsScreen',
+      attendanceScreen = '/attendanceScreen',
       ticketsScreen = '/ticketsScreen';
 
   static List<GetPage> setScreens() {
@@ -125,6 +127,7 @@ class Routes {
         page: () => const CourseRegisteredScreen(),
       ),
       GetPage(name: addCourseScreen, page: () => const AddCourseScreen()),
+      GetPage(name: attendanceScreen, page: () => const AttendanceScreen()),
     ];
   }
 }

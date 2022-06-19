@@ -12,22 +12,27 @@ const Map<String, String> ar = {
   LocalizationKeys.admission: "التقديم",
   LocalizationKeys.emailIsRequired: "البريد الإلكتروني مطلوب",
   LocalizationKeys.passwordIsRequired: "كلمة السر مطلوبة",
-  LocalizationKeys.passwordMustContain: "كلمة السر يجب أن تحتوي على حرف واحد على الأقل وأرقام وحروف خاصة",
+  LocalizationKeys.passwordMustContain:
+      "كلمة السر يجب أن تحتوي على حرف واحد على الأقل وأرقام وحروف خاصة",
   LocalizationKeys.enterValidEmailFormat: "البريد الإلكتروني غير صحيح",
   LocalizationKeys.enterValidFormat: "أدخل صيغة صحيحة",
   LocalizationKeys.atLeast3Characters: "يجب أن تكون من 3 أحرف على الأقل",
   LocalizationKeys.atLeast6Characters: "يجب أن تكون من 6 أحرف على الأقل",
-  LocalizationKeys.atLeast8Characters: "يجب أن تكون كلمة السر من 8 أحرف على الأقل",
+  LocalizationKeys.atLeast8Characters:
+      "يجب أن تكون كلمة السر من 8 أحرف على الأقل",
   LocalizationKeys.atLeast10Characters: "يجب أن تكون من 10 أحرف على الأقل",
   LocalizationKeys.forgetPassword: "هل نسيت كلمة المرور؟",
   LocalizationKeys.enterEmail: "أدخل البريد الإلكتروني",
   LocalizationKeys.resetPassword: "إعادة تعيين كلمة المرور",
   LocalizationKeys.enterCode: "أدخل الكود",
   LocalizationKeys.verificationCode: "كود التحقق",
-  LocalizationKeys.passwordConfirmationNotMatchedWithPassword: "كلمة المرور غير متطابقة",
-  LocalizationKeys.congratulationYouHaveSuccessfullyChangedYourPassword: "تهانينا! تم تغيير كلمة المرور بنجاح",
+  LocalizationKeys.passwordConfirmationNotMatchedWithPassword:
+      "كلمة المرور غير متطابقة",
+  LocalizationKeys.congratulationYouHaveSuccessfullyChangedYourPassword:
+      "تهانينا! تم تغيير كلمة المرور بنجاح",
   LocalizationKeys.goToLogin: "الذهاب إلى تسجيل الدخول",
-  LocalizationKeys.verificationCodeSentToEmail: "تم إرسال كود التحقيق إلى البريد الإلكتروني",
+  LocalizationKeys.verificationCodeSentToEmail:
+      "تم إرسال كود التحقيق إلى البريد الإلكتروني",
 
   ///academic info
   LocalizationKeys.academicInformation: 'معلومات الأكاديمية',
@@ -65,14 +70,19 @@ const Map<String, String> ar = {
   LocalizationKeys.copyOfYourIdOrPassport: 'نسخة من جواز سفرك',
   LocalizationKeys.copyOfTheAcademicCertificate: 'نسخة من الشهادة الأكاديمية',
   LocalizationKeys.copyOfTranscript: 'نسخة من النسخة الأرشيفية',
-  LocalizationKeys.copyOfTheStudentsContractWithTheUniversity: 'نسخة من عقد الطالب مع الجامعة',
-  LocalizationKeys.bachelorMasterContractDownloadLink: '(رابط تنزيل عقد البكالوريوس / الماجستير)',
+  LocalizationKeys.copyOfTheStudentsContractWithTheUniversity:
+      'نسخة من عقد الطالب مع الجامعة',
+  LocalizationKeys.bachelorMasterContractDownloadLink:
+      '(رابط تنزيل عقد البكالوريوس / الماجستير)',
   LocalizationKeys.phdContractDownloadLink: '(رابط تنزيل عقد الدكتوراه)',
-  LocalizationKeys.theContractMustBeSignedHandwrittenAndOnAllPages: 'يجب توقيع العقد بخط اليد وعلى جميع الصفحات!',
+  LocalizationKeys.theContractMustBeSignedHandwrittenAndOnAllPages:
+      'يجب توقيع العقد بخط اليد وعلى جميع الصفحات!',
   LocalizationKeys.uploadCv: 'تحميل السيرة الذاتية',
   LocalizationKeys.selectFile: 'أختر الملف',
-  LocalizationKeys.maxFileSizeIsTenMegabytes: 'الحجم الأقصى للملف هو 10 ميغابايت',
-  LocalizationKeys.sorryThisFileTypeIsNotAllowed: 'عذرا، هذا النوع من الملفات غير مسموح',
+  LocalizationKeys.maxFileSizeIsTenMegabytes:
+      'الحجم الأقصى للملف هو 10 ميغابايت',
+  LocalizationKeys.sorryThisFileTypeIsNotAllowed:
+      'عذرا، هذا النوع من الملفات غير مسموح',
 
   ///submit registration
   LocalizationKeys.submitRegistration: 'تأكيد التسجيل',
@@ -80,7 +90,8 @@ const Map<String, String> ar = {
       'نوصي بعدم استخدام البريد الإلكتروني من شركة (hotmail.com) ، لأن لديهم مشكلة مع بعض رسائل البريد الإلكتروني التي لا يتم إرسالها إليهم.',
   LocalizationKeys.iReadAndAgree: 'قرأت وأوافق على',
   LocalizationKeys.termsAndCondition: 'شروط وأحكام القبول',
-  LocalizationKeys.mustToApproveOnTermsAndCondition: 'يجب الموافقة علي الشروط و الأحكام',
+  LocalizationKeys.mustToApproveOnTermsAndCondition:
+      'يجب الموافقة علي الشروط و الأحكام',
   LocalizationKeys.success: 'تم بنجاح',
   LocalizationKeys.submit: 'تسجيل',
 
@@ -97,8 +108,10 @@ const Map<String, String> ar = {
   LocalizationKeys.aed: 'درهم',
   LocalizationKeys.goToProfile: 'الذهاب إلى الملف الشخصي',
   LocalizationKeys.goToInvoice: 'الذهاب إلى الفاتورة',
-  LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess: 'يجب تحميل الملفات الشخصية لتكملة أي عملية',
-  LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess: 'يجب دفع الفاتورة لتكملة أي عملية',
+  LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess:
+      'يجب تحميل الملفات الشخصية لتكملة أي عملية',
+  LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess:
+      'يجب دفع الفاتورة لتكملة أي عملية',
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -226,7 +239,8 @@ const Map<String, String> ar = {
   LocalizationKeys.pleaseEnterValidSubject: 'الرجاء إدخال عنوان صحيح',
   LocalizationKeys.pleaseEnterValidBody: 'الرجاء إدخال محتوى صحيح',
   LocalizationKeys.pleaseSelectCategory: 'الرجاء إختيار فئة',
-  LocalizationKeys.sorryCannotAddReplyBecauseTicketIsClosed: 'عذراً، لا يمكن إضافة رد للتذكرة لأنها مغلقة',
+  LocalizationKeys.sorryCannotAddReplyBecauseTicketIsClosed:
+      'عذراً، لا يمكن إضافة رد للتذكرة لأنها مغلقة',
   LocalizationKeys.createdBy: 'أنشأت بواسطة',
   LocalizationKeys.categories: 'الفئات',
   LocalizationKeys.subject: 'الموضوع',
@@ -245,8 +259,10 @@ const Map<String, String> ar = {
   LocalizationKeys.downloadFile: 'تحميل الملف',
   LocalizationKeys.openFile: 'فتح الملف',
   LocalizationKeys.student: 'الطالب',
-  LocalizationKeys.shouldToGivePermissionToAccessFiles: 'يجب تعيين سماحية الوصول إلى الملفات',
-  LocalizationKeys.successfullyDownloadedFileOnYourDevice: 'تم تحميل الملف بنجاح على جهازك',
+  LocalizationKeys.shouldToGivePermissionToAccessFiles:
+      'يجب تعيين سماحية الوصول إلى الملفات',
+  LocalizationKeys.successfullyDownloadedFileOnYourDevice:
+      'تم تحميل الملف بنجاح على جهازك',
   //-------------------------------------------------------------------------
   ///course register
   LocalizationKeys.coursesRegister: 'تسجيل المواد',
@@ -258,6 +274,20 @@ const Map<String, String> ar = {
   LocalizationKeys.courseName: 'أسم المادة',
   LocalizationKeys.noCoursesRegistered: 'لا يوجد مواد مسجلة',
   LocalizationKeys.noCoursesAvailable: 'لا يوجد مواد متاحة',
+
+  //-------------------------------------------------------------------------
+  ///attendance
+  LocalizationKeys.attendance: 'الحضور',
+  LocalizationKeys.noAttendanceFound: 'لا يوجد حضور',
+  LocalizationKeys.attendanceDate: 'تاريخ الحضور',
+  LocalizationKeys.attendanceStatus: 'حالة الحضور',
+  LocalizationKeys.openTime: 'وقت الحضور',
+  LocalizationKeys.closeTime: 'وقت الإنتهاء',
+  LocalizationKeys.absence: 'غياب',
+  LocalizationKeys.isFinished: 'هل تم الانتهاء من الحضور',
+  LocalizationKeys.details: 'تفاصيل',
+  LocalizationKeys.finished: 'منتهي',
+  LocalizationKeys.quizzes: 'الأختبارات',
 
 //-------------------------------------------------------------------------
   ///global
