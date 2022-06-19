@@ -22,13 +22,10 @@ class LocalizationKeys {
   static const String resetPassword = 'resetPassword';
   static const String enterCode = 'enterCode';
   static const String verificationCode = 'verificationCode';
-  static const String passwordConfirmationNotMatchedWithPassword =
-      'passwordConfirmationNotMatchedWithPassword';
+  static const String passwordConfirmationNotMatchedWithPassword = 'passwordConfirmationNotMatchedWithPassword';
   static const String goToLogin = 'goToLogin';
-  static const String congratulationYouHaveSuccessfullyChangedYourPassword =
-      'congratulationYouHaveSuccessfullyChangedYourPassword';
-  static const String verificationCodeSentToEmail =
-      'verificationCodeSentToEmail';
+  static const String congratulationYouHaveSuccessfullyChangedYourPassword = 'congratulationYouHaveSuccessfullyChangedYourPassword';
+  static const String verificationCodeSentToEmail = 'verificationCodeSentToEmail';
 
   //-------------------------------------------------------------------------
   /// academic info
@@ -67,21 +64,16 @@ class LocalizationKeys {
   ///files upload
   static const String filesUpload = 'filesUpload';
   static const String copyOfYourIdOrPassport = 'copyOfYourIdOrPassport';
-  static const String copyOfTheAcademicCertificate =
-      'copyOfTheAcademicCertificate';
+  static const String copyOfTheAcademicCertificate = 'copyOfTheAcademicCertificate';
   static const String copyOfTranscript = 'copyOfTranscript';
-  static const String copyOfTheStudentsContractWithTheUniversity =
-      'copyOfTheStudentsContractWithTheUniversity';
-  static const String bachelorMasterContractDownloadLink =
-      'bachelorMasterContractDownloadLink';
+  static const String copyOfTheStudentsContractWithTheUniversity = 'copyOfTheStudentsContractWithTheUniversity';
+  static const String bachelorMasterContractDownloadLink = 'bachelorMasterContractDownloadLink';
   static const String phdContractDownloadLink = 'phdContractDownloadLink';
-  static const String theContractMustBeSignedHandwrittenAndOnAllPages =
-      'theContractMustBeSignedHandwrittenAndOnAllPages';
+  static const String theContractMustBeSignedHandwrittenAndOnAllPages = 'theContractMustBeSignedHandwrittenAndOnAllPages';
   static const String uploadCv = 'uploadCv';
   static const String selectFile = 'selectFile';
   static const String maxFileSizeIsTenMegabytes = 'maxFileSizeIsTenMegabytes';
-  static const String sorryThisFileTypeIsNotAllowed =
-      'sorryThisFileTypeIsNotAllowed';
+  static const String sorryThisFileTypeIsNotAllowed = 'sorryThisFileTypeIsNotAllowed';
 
   //-------------------------------------------------------------------------
   ///submit registration
@@ -90,8 +82,7 @@ class LocalizationKeys {
       'We recommend not to use the e-mail from (hotmail.com) company, as they have a problem with some e-mails not being sent to them.';
   static const String termsAndCondition = 'termsAndCondition';
   static const String iReadAndAgree = 'iReadAndAgree';
-  static const String mustToApproveOnTermsAndCondition =
-      'must to approve on terms and condition';
+  static const String mustToApproveOnTermsAndCondition = 'must to approve on terms and condition';
   static const String success = 'success';
   static const String submit = 'submit';
 
@@ -108,10 +99,8 @@ class LocalizationKeys {
   static const String aed = 'AED';
   static const String goToInvoice = 'goToInvoice';
   static const String goToProfile = 'goToProfile';
-  static const String youMustPayInvoiceToCompleteAnyProcess =
-      'You must pay invoice to complete any process';
-  static const String youMustCompleteProfileFilesToCompleteAnyProcess =
-      'You must complete profile files to complete any process';
+  static const String youMustPayInvoiceToCompleteAnyProcess = 'You must pay invoice to complete any process';
+  static const String youMustCompleteProfileFilesToCompleteAnyProcess = 'You must complete profile files to complete any process';
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -200,7 +189,7 @@ class LocalizationKeys {
   static const String lectureTable = 'lectureTable';
   static const String noLectureFound = 'noLectureFound';
   static const String lecture = 'lecture';
-  static const String doctorName = 'doctorName';
+  static const String teacherName = 'teacherName';
   static const String weeklyLecture = 'weeklyLecture';
   static const String note = 'note';
   static const String courseCode = 'courseCode';
@@ -236,8 +225,7 @@ class LocalizationKeys {
   static const String ticketCreate = 'ticketCreate';
   static const String addTicket = 'addTicket';
   static const String replyAddedSuccessfully = 'replyAddedSuccessfully';
-  static const String sorryCannotAddReplyBecauseTicketIsClosed =
-      'sorryCannotAddReplyBecauseTicketIsClosed';
+  static const String sorryCannotAddReplyBecauseTicketIsClosed = 'sorryCannotAddReplyBecauseTicketIsClosed';
   static const String createdBy = 'createdBy';
   static const String subject = 'subject';
   static const String body = 'body';
@@ -260,10 +248,8 @@ class LocalizationKeys {
   static const String downloadFile = 'downloadFile';
   static const String openFile = 'openFile';
   static const String student = 'student';
-  static const String shouldToGivePermissionToAccessFiles =
-      'shouldToGivePermissionToAccessFiles';
-  static const String successfullyDownloadedFileOnYourDevice =
-      'successfullyDownloadedFileOnYourDevice';
+  static const String shouldToGivePermissionToAccessFiles = 'shouldToGivePermissionToAccessFiles';
+  static const String successfullyDownloadedFileOnYourDevice = 'successfullyDownloadedFileOnYourDevice';
 
   //-------------------------------------------------------------------------
   ///Course register
