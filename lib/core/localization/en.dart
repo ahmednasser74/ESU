@@ -261,6 +261,7 @@ const Map<String, String> en = {
   LocalizationKeys.pleaseAddReply: 'Please Add Reply',
   LocalizationKeys.downloadFile: 'Download File',
   LocalizationKeys.openFile: 'Open File',
+  LocalizationKeys.student: 'Student',
   LocalizationKeys.shouldToGivePermissionToAccessFiles:
       'Should To Give Permission To Access Files',
   LocalizationKeys.successfullyDownloadedFileOnYourDevice:

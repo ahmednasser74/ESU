@@ -259,6 +259,7 @@ class LocalizationKeys {
   static const String pleaseAddReply = 'pleaseAddReply';
   static const String downloadFile = 'downloadFile';
   static const String openFile = 'openFile';
+  static const String student = 'student';
   static const String shouldToGivePermissionToAccessFiles =
       'shouldToGivePermissionToAccessFiles';
   static const String successfullyDownloadedFileOnYourDevice =

@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/features/student_actions/data/models/request/ticket_details/ticket_details_request_model.dart';
 import 'package:esu/features/student_actions/data/models/request/ticket_reply/ticket_reply_request_model.dart';
 import 'package:esu/features/student_actions/data/models/response/ticket_details/tickets_details_data_response_model.dart';
+import 'package:esu/features/student_actions/data/models/response/tickets/tickets_data_replies_response_model.dart';
 import 'package:esu/features/student_actions/domain/usecase/ticket_details_single_use_case.dart';
 import 'package:esu/features/student_actions/domain/usecase/ticket_reply_use_case.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +40,7 @@ class TicketDetailsController extends GetxController
       (l) => change(null, status: RxStatus.error(l)),
       (r) {
         if (r.status) {
+          _addFirstReplyOfTicket(r.data!.replies, r.data!);
           change(r.data, status: RxStatus.success());
           if (r.data!.replies.isNotEmpty) {
             _scrollToBottom();
@@ -46,6 +49,23 @@ class TicketDetailsController extends GetxController
           change(null, status: RxStatus.error(r.message));
         }
       },
+    );
+  }
+
+  void _addFirstReplyOfTicket(
+    List<TicketDataRepliesResponseModel> replies,
+    TicketDetailsDataResponseModel ticketDetailsDataResponseModel,
+  ) {
+    replies.insert(
+      0,
+      TicketDataRepliesResponseModel(
+        id: ticketDetailsDataResponseModel.id,
+        createdAt: ticketDetailsDataResponseModel.createdAt,
+        body: ticketDetailsDataResponseModel.body,
+        type: LocalizationKeys.student.tr,
+        by: '',
+        file: '',
+      ),
     );
   }
 

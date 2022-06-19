@@ -44,12 +44,12 @@ class TicketItemWidget extends StatelessWidget {
                 Expanded(child: Html(data: ticket.subject)),
               ],
             ),
-            Row(
-              children: [
-                Text('${LocalizationKeys.body.tr} : '),
-                Expanded(child: Html(data: ticket.body)),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Text('${LocalizationKeys.body.tr} : '),
+            //     Expanded(child: Html(data: ticket.body)),
+            //   ],
+            // ),
             Row(
               children: [
                 Text('${LocalizationKeys.category.tr} : '),
