@@ -20,8 +20,7 @@ class Endpoints {
   static const String notification = 'notifications/all';
   static const String updateNewToUnread = 'notifications/update-new-to-unread';
   static const String markNotificationAsRead = 'notifications/mark-as-read';
-  static const String markAllNotificationsAsRead =
-      'notifications/mark-all-as-read';
+  static const String markAllNotificationsAsRead = 'notifications/mark-all-as-read';
 
   //-----------------------------------------------------------------------
   ///letters
@@ -49,8 +48,7 @@ class Endpoints {
   //-----------------------------------------------------------------------
   ///course register
   static const String registeredCourses = 'registerations-courses';
-  static const String availableCourses =
-      'registerations-courses/available-courses';
+  static const String availableCourses = 'registerations-courses/available-courses';
   static const String addCourse = 'registerations-courses';
   static const String removeCourse = 'registerations-courses/delete';
 
@@ -63,4 +61,5 @@ class Endpoints {
   static const String lectureTable = 'lecture-table';
   static const String schedule = 'schedule';
   static const String accessToMoodle = 'access-to-moodle';
+  static const String attendance = 'attendance';
 }

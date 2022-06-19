@@ -202,7 +202,7 @@ const Map<String, String> en = {
   LocalizationKeys.lectureTable: 'Lecture Table',
   LocalizationKeys.noLectureFound: 'No Lecture Found',
   LocalizationKeys.lecture: 'Lecture',
-  LocalizationKeys.doctorName: 'Doctor Name',
+  LocalizationKeys.teacherName: 'Teacher Name',
   LocalizationKeys.weeklyLecture: 'Weekly Lecture',
   LocalizationKeys.note: 'Note',
   LocalizationKeys.courseCode: 'Course Code',
@@ -261,6 +261,7 @@ const Map<String, String> en = {
   LocalizationKeys.pleaseAddReply: 'Please Add Reply',
   LocalizationKeys.downloadFile: 'Download File',
   LocalizationKeys.openFile: 'Open File',
+  LocalizationKeys.student: 'Student',
   LocalizationKeys.shouldToGivePermissionToAccessFiles:
       'Should To Give Permission To Access Files',
   LocalizationKeys.successfullyDownloadedFileOnYourDevice:
@@ -277,6 +278,20 @@ const Map<String, String> en = {
   LocalizationKeys.courseName: 'Course Name',
   LocalizationKeys.noCoursesRegistered: 'No Courses Registered',
   LocalizationKeys.noCoursesAvailable: 'No Courses Available',
+
+  //-------------------------------------------------------------------------
+  ///attendance
+  LocalizationKeys.attendance: 'Attendance',
+  LocalizationKeys.noAttendanceFound: 'No Attendance Found',
+  LocalizationKeys.attendanceDate: 'Attendance Date',
+  LocalizationKeys.attendanceStatus: 'Attendance Status',
+  LocalizationKeys.openTime: 'Open Time',
+  LocalizationKeys.closeTime: 'Close Time',
+  LocalizationKeys.absence: 'Absence',
+  LocalizationKeys.isFinished: 'Is Finished',
+  LocalizationKeys.details: 'Details',
+  LocalizationKeys.finished: 'Finished',
+  LocalizationKeys.quizzes: 'Quizzes',
 
   //-------------------------------------------------------------------------
   ///global

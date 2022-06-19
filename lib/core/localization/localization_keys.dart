@@ -200,7 +200,7 @@ class LocalizationKeys {
   static const String lectureTable = 'lectureTable';
   static const String noLectureFound = 'noLectureFound';
   static const String lecture = 'lecture';
-  static const String doctorName = 'doctorName';
+  static const String teacherName = 'teacherName';
   static const String weeklyLecture = 'weeklyLecture';
   static const String note = 'note';
   static const String courseCode = 'courseCode';
@@ -259,6 +259,7 @@ class LocalizationKeys {
   static const String pleaseAddReply = 'pleaseAddReply';
   static const String downloadFile = 'downloadFile';
   static const String openFile = 'openFile';
+  static const String student = 'student';
   static const String shouldToGivePermissionToAccessFiles =
       'shouldToGivePermissionToAccessFiles';
   static const String successfullyDownloadedFileOnYourDevice =
@@ -275,6 +276,20 @@ class LocalizationKeys {
   static const String courseName = 'courseName';
   static const String noCoursesRegistered = 'noCoursesRegistered';
   static const String noCoursesAvailable = 'noCoursesAvailable';
+
+  //-------------------------------------------------------------------------
+  ///attendance
+  static const String attendance = 'attendance';
+  static const String noAttendanceFound = 'noAttendanceFound';
+  static const String attendanceDate = 'attendanceDate';
+  static const String attendanceStatus = 'attendanceStatus';
+  static const String openTime = 'openTime';
+  static const String closeTime = 'closeTime';
+  static const String isFinished = 'isFinished';
+  static const String details = 'details';
+  static const String finished = 'finished';
+  static const String absence = 'absence';
+  static const String quizzes = 'quizzes';
 
   //-------------------------------------------------------------------------
   ///global

@@ -4,7 +4,6 @@ import 'package:esu/core/src/styles.dart';
 import 'package:esu/core/src/widgets/custom_rich_text.dart';
 import 'package:esu/features/student_actions/data/models/response/ticket_details/tickets_details_data_response_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -30,28 +29,32 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomRichText(
-            title: '${LocalizationKeys.subject.tr}: ',
-            value: data.subject,
-            fontSize: 12.sp,
-            titleColor: Colors.black,
-          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('${LocalizationKeys.description.tr}: '),
-              Expanded(child: Html(data: data.body)),
+              CustomRichText(
+                title: '${LocalizationKeys.subject.tr}: ',
+                value: data.subject,
+                fontSize: 12.sp,
+                titleColor: Colors.black,
+              ),
+              CustomRichText(
+                title: '${LocalizationKeys.status.tr}: ',
+                value: data.status!,
+                titleColor: Colors.black,
+                fontSize: 12.sp,
+              ),
             ],
           ),
-          CustomRichText(
-            title: '${LocalizationKeys.createdAt.tr}: ',
-            value: DateFormat('E d MMM yyyy hh:mm aaa').format(
-              DateTime.parse(data.createdAt),
-            ),
-            titleColor: Colors.black,
-            fontSize: 12.sp,
-          ),
-          SizedBox(height: 6.h),
+          // Row(
+          //   children: [
+          //     Text('${LocalizationKeys.description.tr}: '),
+          //     Expanded(child: Html(data: data.body)),
+          //   ],
+          // ),
+          SizedBox(height: 10.h),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: CustomRichText(
@@ -61,10 +64,11 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
                   fontSize: 12.sp,
                 ),
               ),
-              const Spacer(),
               CustomRichText(
-                title: '${LocalizationKeys.status.tr}: ',
-                value: data.status!,
+                title: '${LocalizationKeys.createdAt.tr}: ',
+                value: DateFormat('E d MMM yyyy hh:mm aaa').format(
+                  DateTime.parse(data.createdAt),
+                ),
                 titleColor: Colors.black,
                 fontSize: 12.sp,
               ),

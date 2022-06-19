@@ -45,7 +45,7 @@ class HomeScreen extends GetView<HomeController> {
               ),
             ],
           ),
-          drawer: const Drawer(child: DrawerWidget()),
+          drawer: Drawer(child: DrawerWidget()),
           body: RefreshIndicator(
             onRefresh: () => controller.getHomeData(),
             child: ListView(

@@ -19,6 +19,7 @@ import 'package:esu/features/student_actions/presentation/controller/ticket_cont
 import 'package:esu/features/student_actions/presentation/controller/ticket_create_controller.dart';
 import 'package:esu/features/student_actions/presentation/controller/ticket_details_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/access_to_moodle_controller.dart';
+import 'package:esu/features/student_data/presentation/controller/attendance_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/lecture_table_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/letters_controller.dart';
@@ -72,5 +73,6 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<TicketDetailsController>(), fenix: true);
     Get.lazyPut(() => Injection.di<CourseRegisteredController>(), fenix: true);
     Get.lazyPut(() => Injection.di<AddCourseController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<AttendanceController>(), fenix: true);
   }
 }

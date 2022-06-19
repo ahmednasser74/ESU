@@ -2,6 +2,7 @@ import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
@@ -9,33 +10,38 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
+  DrawerWidget({Key? key}) : super(key: key);
+  final student = SharedPrefs.instance.getUser();
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          height: 160.h,
+          height: 200.h,
           alignment: Alignment.center,
           padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
           color: AppColors.primaryColor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: AppColors.whiteColor,
-                    width: 2,
-                  ),
+              ConditionalBuilder(
+                condition: student.photo != null,
+                builder: (_) => CircleAvatar(
+                  backgroundImage: NetworkImage(student.photo!),
+                  radius: 40.w,
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Assets.icons.profileIcon.image(
-                    color: AppColors.whiteColor,
-                    height: 30.h,
+                fallback: (_) => Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppColors.whiteColor, width: 2),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Assets.icons.profileIcon.image(
+                      color: AppColors.whiteColor,
+                      height: 30.h,
+                    ),
                   ),
                 ),
               ),
@@ -162,6 +168,17 @@ class DrawerWidget extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.coursesRegisteredScreen);
+                },
+              ),
+              ListTile(
+                title: Text(LocalizationKeys.attendance.tr),
+                leading: Assets.icons.attendance.image(
+                  color: AppColors.primaryColor,
+                  height: 22.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.attendanceScreen);
                 },
               ),
               ListTile(

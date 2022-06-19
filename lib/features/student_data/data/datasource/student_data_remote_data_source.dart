@@ -1,6 +1,7 @@
 import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/dio/dio_helper.dart';
 import 'package:esu/features/student_data/data/models/response/access_to_moodle/access_to_moodle_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/attendance/attendance_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/finance/finance_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/invoice_pay/invoice_pay_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/lecture_table/lecture_table_response_model.dart';
@@ -22,6 +23,7 @@ abstract class StudentDataRemoteDataSource {
   Future<LectureTableResponseModel> getLectureTable();
 
   Future<AccessToMoodleResponseModel> getAccessToMoodle();
+  Future<AttendanceResponseModel> getAttendance();
 }
 
 class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
@@ -73,5 +75,11 @@ class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
   Future<ScheduleResponseModel> getSchedule() async {
     final response = await dioHelper.get(url: Endpoints.schedule);
     return ScheduleResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<AttendanceResponseModel> getAttendance() async {
+    final response = await dioHelper.get(url: Endpoints.attendance);
+    return AttendanceResponseModel.fromJson(response.data);
   }
 }

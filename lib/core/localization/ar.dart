@@ -199,7 +199,7 @@ const Map<String, String> ar = {
   LocalizationKeys.lectureTable: 'المحاضرات',
   LocalizationKeys.noLectureFound: 'لا يوجد محاضرات',
   LocalizationKeys.lecture: 'المحاضرة',
-  LocalizationKeys.doctorName: 'أسم الطبيب',
+  LocalizationKeys.teacherName: 'أسم المدرس',
   LocalizationKeys.weeklyLecture: 'المحاضرة الأسبوعية',
   LocalizationKeys.note: 'ملاحظة',
   LocalizationKeys.courseCode: 'كود المادة',
@@ -258,6 +258,7 @@ const Map<String, String> ar = {
   LocalizationKeys.pleaseAddReply: 'يرجى إضافة ردا',
   LocalizationKeys.downloadFile: 'تحميل الملف',
   LocalizationKeys.openFile: 'فتح الملف',
+  LocalizationKeys.student: 'الطالب',
   LocalizationKeys.shouldToGivePermissionToAccessFiles:
       'يجب تعيين سماحية الوصول إلى الملفات',
   LocalizationKeys.successfullyDownloadedFileOnYourDevice:
@@ -273,6 +274,20 @@ const Map<String, String> ar = {
   LocalizationKeys.courseName: 'أسم المادة',
   LocalizationKeys.noCoursesRegistered: 'لا يوجد مواد مسجلة',
   LocalizationKeys.noCoursesAvailable: 'لا يوجد مواد متاحة',
+
+  //-------------------------------------------------------------------------
+  ///attendance
+  LocalizationKeys.attendance: 'الحضور',
+  LocalizationKeys.noAttendanceFound: 'لا يوجد حضور',
+  LocalizationKeys.attendanceDate: 'تاريخ الحضور',
+  LocalizationKeys.attendanceStatus: 'حالة الحضور',
+  LocalizationKeys.openTime: 'وقت الحضور',
+  LocalizationKeys.closeTime: 'وقت الإنتهاء',
+  LocalizationKeys.absence: 'غياب',
+  LocalizationKeys.isFinished: 'هل تم الانتهاء من الحضور',
+  LocalizationKeys.details: 'تفاصيل',
+  LocalizationKeys.finished: 'منتهي',
+  LocalizationKeys.quizzes: 'الأختبارات',
 
 //-------------------------------------------------------------------------
   ///global

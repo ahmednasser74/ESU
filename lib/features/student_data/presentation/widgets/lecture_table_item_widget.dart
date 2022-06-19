@@ -54,7 +54,7 @@ class LectureTableItemWidget extends StatelessWidget {
               ),
               const Spacer(),
               CustomRichText(
-                title: '${LocalizationKeys.doctorName.tr}: ',
+                title: '${LocalizationKeys.teacherName.tr}: ',
                 value: course.doctorName,
                 fontSize: 12.sp,
               ),
