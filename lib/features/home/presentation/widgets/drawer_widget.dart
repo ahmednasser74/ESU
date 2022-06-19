@@ -4,14 +4,22 @@ import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/presentation/controller/splash_controller.dart';
 import 'package:esu/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class DrawerWidget extends StatelessWidget {
+class DrawerWidget extends StatefulWidget {
   DrawerWidget({Key? key}) : super(key: key);
+
+  @override
+  State<DrawerWidget> createState() => _DrawerWidgetState();
+}
+
+class _DrawerWidgetState extends State<DrawerWidget> {
   final student = SharedPrefs.instance.getUser();
+  final _splashController = Get.find<SplashController>();
 
   @override
   Widget build(BuildContext context) {
@@ -263,7 +271,18 @@ class DrawerWidget extends StatelessWidget {
                   ).show(context);
                 },
               ),
-              SizedBox(height: MediaQuery.of(context).padding.bottom)
+              const Divider(color: AppColors.primaryLightColor),
+              Container(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).padding.bottom + 10.h,
+                ),
+                child: Center(
+                  child: Text(
+                    'v${_splashController.appVersion}',
+                    style: const TextStyle(color: AppColors.primaryColor),
+                  ),
+                ),
+              )
             ],
           ),
         ),
