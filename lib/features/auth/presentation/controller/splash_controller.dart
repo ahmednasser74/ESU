@@ -5,8 +5,11 @@ import 'package:esu/features/auth/presentation/screen/login_screen.dart';
 import 'package:esu/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashController extends GetxController {
+  String appVersion = '';
+
   @override
   void onInit() {
     super.onInit();
@@ -14,6 +17,7 @@ class SplashController extends GetxController {
       Get.find<DioRequestHandlingController>();
       Get.find<TranslationController>();
     });
+    getVersion();
     Future.delayed(const Duration(seconds: 1), splashNavigation);
   }
 
@@ -24,5 +28,10 @@ class SplashController extends GetxController {
     } else {
       Get.off(() => HomeScreen());
     }
+  }
+
+  void getVersion() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    appVersion = packageInfo.version;
   }
 }
