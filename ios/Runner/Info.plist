@@ -50,5 +50,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+
+	<key>NSCameraUsageDescription</key>
+    <string>ESU need camera permission to change profile photo.</string>
+
+<key>NSPhotoLibraryUsageDescription</key>
+<string>ESU need photo permission to change profile photo.</string>
+
 </dict>
 </plist>

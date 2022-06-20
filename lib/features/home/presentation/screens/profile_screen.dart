@@ -19,9 +19,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 class ProfileScreen extends StatelessWidget with ValidatorProperties {
   const ProfileScreen({Key? key}) : super(key: key);
 
-  String getFirstChar(String name) => name.isNotEmpty
-      ? name.trim().split(' ').map((l) => l[0]).take(2).join()
-      : '';
+  String getFirstChar(String name) => name.isNotEmpty ? name.trim().split(' ').map((l) => l[0]).take(2).join() : '';
 
   @override
   Widget build(BuildContext context) {
@@ -66,12 +64,10 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                               width: 90.w,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                border:
-                                    Border.all(color: AppColors.primaryColor),
+                                border: Border.all(color: AppColors.primaryColor),
                               ),
                               child: ConditionalBuilder(
-                                condition: controller.photoUrl != null &&
-                                    controller.photoFile == null,
+                                condition: controller.photoUrl != null && controller.photoFile == null,
                                 builder: (context) => CircleAvatar(
                                   backgroundImage: NetworkImage(
                                     controller.photoUrl!,
@@ -81,8 +77,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                 fallback: (context) => ConditionalBuilder(
                                   condition: controller.photoFile != null,
                                   builder: (context) => CircleAvatar(
-                                    backgroundImage:
-                                        FileImage(controller.photoFile!),
+                                    backgroundImage: FileImage(controller.photoFile!),
                                   ),
                                   fallback: (context) => Center(
                                     child: Text(
@@ -103,8 +98,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   shape: BoxShape.circle,
-                                  border:
-                                      Border.all(color: AppColors.primaryColor),
+                                  border: Border.all(color: AppColors.primaryColor),
                                 ),
                                 child: Assets.icons.addImage.image(
                                   height: 18.h,
@@ -192,8 +186,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                       SizedBox(height: 16.h),
                       AppTextFieldWidget(
                         controller: controller.confirmPasswordTEC,
-                        onChanged: (value) =>
-                            controller.passwordConfirm = value,
+                        onChanged: (value) => controller.passwordConfirm = value,
                         dispose: false,
                         validator: (value) {
                           if (controller.passwordTEC.text.isEmpty) {
@@ -205,10 +198,8 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                           if (value.length < 8) {
                             return LocalizationKeys.atLeast8Characters.tr;
                           }
-                          if (value.trim() !=
-                              controller.passwordTEC.text.trim()) {
-                            return LocalizationKeys
-                                .passwordConfirmationNotMatchedWithPassword.tr;
+                          if (value.trim() != controller.passwordTEC.text.trim()) {
+                            return LocalizationKeys.passwordConfirmationNotMatchedWithPassword.tr;
                           } else {
                             return null;
                           }
@@ -248,7 +239,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (context) => const ShowImageSourceBottomSheetDialog(),
+      builder: (context) => const ShowImageSourceBottomSheet(),
     );
   }
 }
