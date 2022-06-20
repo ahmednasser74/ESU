@@ -8,6 +8,7 @@ import 'package:esu/features/student_data/data/models/response/lecture_table/lec
 import 'package:esu/features/student_data/data/models/response/letters/letters.dart';
 import 'package:esu/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/schedule/schedule_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/transcript/transcript_response_model.dart';
 
 abstract class StudentDataRemoteDataSource {
   Future<LettersResponseModel> getLetters();
@@ -23,7 +24,10 @@ abstract class StudentDataRemoteDataSource {
   Future<LectureTableResponseModel> getLectureTable();
 
   Future<AccessToMoodleResponseModel> getAccessToMoodle();
+
   Future<AttendanceResponseModel> getAttendance();
+
+  Future<TranscriptResponseModel> getTranscript();
 }
 
 class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
@@ -81,5 +85,11 @@ class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
   Future<AttendanceResponseModel> getAttendance() async {
     final response = await dioHelper.get(url: Endpoints.attendance);
     return AttendanceResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<TranscriptResponseModel> getTranscript() async {
+    final response = await dioHelper.get(url: Endpoints.transcriptList);
+    return TranscriptResponseModel.fromJson(response.data);
   }
 }

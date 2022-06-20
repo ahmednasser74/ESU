@@ -6,6 +6,7 @@ import 'package:esu/features/student_data/data/models/response/invoice_pay/invoi
 import 'package:esu/features/student_data/data/models/response/letters/letters.dart';
 import 'package:esu/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/schedule/schedule_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/transcript/transcript_response_model.dart';
 
 import '../../data/models/response/lecture_table/lecture_table_response_model.dart';
 
@@ -23,6 +24,8 @@ abstract class StudentDataRepository {
   Future<Either<String?, AccessToMoodleResponseModel>> getAccessToMoodle();
 
   Future<Either<String?, AttendanceResponseModel>> getAttendance();
+
+  Future<Either<String?, TranscriptResponseModel>> getTranscript();
 
   Future<Either<String?, InvoicePayResponseModel>> getPayInvoiceUrl({
     required int invoiceId,

@@ -31,7 +31,7 @@ class StudentCardScreen extends StatelessWidget {
                   condition: student.photo != null,
                   builder: (_) => ClipRRect(
                     borderRadius: BorderRadius.circular(12.r),
-                    child: Image.network(student.photo!, height: 120.h),
+                    child: Image.network(student.photo!, height: 90.h),
                   ),
                 ),
                 SizedBox(width: 12.w),

@@ -1,4 +1,11 @@
 class LocalizationKeys {
+  ///splash
+  static const String thereInAnUpdateAvailable = "thereInAnUpdateAvailable";
+  static const String youShouldUpdateTheAppToContinueUsingIt =
+      "youShouldUpdateTheAppToContinueUsingIt";
+  static const String update = "update";
+
+  //-------------------------------------------------------------------------
   ///login
   static const String login = 'login';
   static const String userName = 'userName';

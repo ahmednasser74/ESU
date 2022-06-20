@@ -11,11 +11,22 @@ class SplashScreen extends GetView<SplashController> {
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
       builder: (controller) => Scaffold(
-        body: Center(
-          child: Hero(
-            tag: 'splash_tag',
-            child: Assets.images.appIcon.image(width: .7.sw, height: .5.sh),
-          ),
+        body: Column(
+          children: [
+            const Spacer(),
+            Center(
+              child: Hero(
+                tag: 'splash_tag',
+                child: Assets.images.appIcon.image(width: .7.sw, height: .5.sh),
+              ),
+            ),
+            const Spacer(),
+            Text(
+              controller.appVersion.isEmpty ? '' : 'v${controller.appVersion}',
+              style: const TextStyle(color: Colors.grey),
+            ),
+            SizedBox(height: .10.sh),
+          ],
         ),
       ),
     );

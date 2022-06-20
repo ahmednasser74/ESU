@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/dio/dio_helper.dart';
 import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
@@ -10,7 +11,7 @@ import 'package:esu/features/auth/data/model/response/forget_password/forget_pas
 import 'package:esu/features/auth/data/model/response/forget_password/reset_password_reponse_model.dart';
 import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:esu/features/auth/data/model/response/lookup/lookup_respone_model.dart';
-import 'package:dio/dio.dart';
+import 'package:esu/features/auth/data/model/response/minimum_version/minimum_version_response_model.dart';
 
 abstract class AuthRemoteDataSource {
   Future<LoginResponseModel> login({required LoginRequestModel requestModel});
@@ -30,6 +31,8 @@ abstract class AuthRemoteDataSource {
   Future<LookupResponseModel> getLookup({
     required LookupRequestModel requestModel,
   });
+
+  Future<MinimumVersionResponseModel> getMinimumVersion();
 }
 
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
@@ -99,6 +102,16 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
     );
     final json = response.data;
     final data = ResetPasswordResponseModel.fromJson(json);
+    return data;
+  }
+
+  @override
+  Future<MinimumVersionResponseModel> getMinimumVersion() async {
+    final response = await dioHelper.get(
+      url: Endpoints.minimumVersion,
+    );
+    final json = response.data;
+    final data = MinimumVersionResponseModel.fromJson(json);
     return data;
   }
 }

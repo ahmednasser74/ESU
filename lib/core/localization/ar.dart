@@ -1,6 +1,13 @@
 import 'package:esu/core/localization/localization_keys.dart';
 
 const Map<String, String> ar = {
+  ///splash
+  LocalizationKeys.thereInAnUpdateAvailable: 'هناك تحديث جديد',
+  LocalizationKeys.youShouldUpdateTheAppToContinueUsingIt:
+      'يجب تحديث التطبيق للمتابعة',
+  LocalizationKeys.update: 'تحديث',
+
+  //---------------------------------------------------------------------------------------------
   ///login
   LocalizationKeys.login: "تسجل الدخول",
   LocalizationKeys.password: "كلمة السر",
