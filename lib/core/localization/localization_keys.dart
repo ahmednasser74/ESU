@@ -172,6 +172,7 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///Transcript
   static const String transcript = 'transcript';
+  static const String showPdf = 'showPdf';
 
   //-------------------------------------------------------------------------
   ///Settings

@@ -1,3 +1,4 @@
+import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/styles.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
@@ -30,7 +31,7 @@ class TranscriptItemWidget extends StatelessWidget {
           SizedBox(height: 14.h),
           AppButton(
             onPressed: () => goToPdf(transcriptItem.id),
-            title: 'Show PDF',
+            title: LocalizationKeys.showPdf.tr,
             paddingVertical: 0,
             fonSize: 14.sp,
           ),

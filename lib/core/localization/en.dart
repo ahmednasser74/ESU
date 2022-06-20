@@ -173,6 +173,7 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///Transcript
   LocalizationKeys.transcript: 'Transcript',
+  LocalizationKeys.showPdf: 'Show Pdf',
 
   //-------------------------------------------------------------------------
   ///Settings
