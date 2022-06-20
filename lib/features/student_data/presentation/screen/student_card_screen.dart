@@ -31,7 +31,12 @@ class StudentCardScreen extends StatelessWidget {
                   condition: student.photo != null,
                   builder: (_) => ClipRRect(
                     borderRadius: BorderRadius.circular(12.r),
-                    child: Image.network(student.photo!, height: 90.h),
+                    child: Image.network(
+                      student.photo!,
+                      height: 90.h,
+                      width: 90.w,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 SizedBox(width: 12.w),
@@ -41,9 +46,7 @@ class StudentCardScreen extends StatelessWidget {
                   children: [
                     CustomRichText(
                       title: '${LocalizationKeys.studentName.tr} : \n',
-                      value: Get.locale.toString() == 'ar'
-                          ? student.nameAr
-                          : student.nameEn,
+                      value: Get.locale.toString() == 'ar' ? student.nameAr : student.nameEn,
                     ),
                     SizedBox(height: 8.h),
                     CustomRichText(
