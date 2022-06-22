@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:esu/core/localization/localization_keys.dart';
-import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/core/src/widgets/file_picker_widget.dart';
 import 'package:esu/core/utils/helper_methods.dart';
 import 'package:esu/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
+import 'package:esu/features/auth/presentation/widgets/contract_links_widget.dart';
 import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,41 +65,10 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 allowToDocx: true,
               ),
               TitleRequiredFieldWidget(
-                title: LocalizationKeys
-                    .copyOfTheStudentsContractWithTheUniversity.tr,
+                title: LocalizationKeys.copyOfTheStudentsContractWithTheUniversity.tr,
                 titleSize: 18,
               ),
-              InkWell(
-                onTap: () async => await HelperMethod.launchToBrowser(
-                  'https://esu.ac.ae/wp-content/uploads/2021/10/pro_con.pdf',
-                ),
-                child: Text(
-                  LocalizationKeys.bachelorMasterContractDownloadLink.tr,
-                  style: const TextStyle(
-                    color: AppColors.primaryColor,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              InkWell(
-                onTap: () async => await HelperMethod.launchToBrowser(
-                  'https://esu.ac.ae/wp-content/uploads/2021/11/phd_co_04.pdf',
-                ),
-                child: Text(
-                  LocalizationKeys.phdContractDownloadLink.tr,
-                  style: const TextStyle(
-                    color: AppColors.primaryColor,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                LocalizationKeys
-                    .theContractMustBeSignedHandwrittenAndOnAllPages.tr,
-                style: const TextStyle(color: Colors.red, fontSize: 13),
-              ),
+              const ContractLinksWidget(),
               const SizedBox(height: 8),
               FilePickerWidget(
                 fileCallBack: (file) => contractFile = file,

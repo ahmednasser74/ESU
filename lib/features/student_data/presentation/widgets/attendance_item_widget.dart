@@ -46,20 +46,21 @@ class AttendanceItemWidget extends StatelessWidget {
             ],
           ),
           CustomRichText(
-            title:
-                '${LocalizationKeys.quizzes.tr}/${LocalizationKeys.finished.tr}: ',
-            value:
-                '${attendance.finished.toString()}/${attendance.total.toString()}',
+            title: '${LocalizationKeys.quizzes.tr}/${LocalizationKeys.finished.tr}: ',
+            value: '${attendance.finished.toString()}/${attendance.total.toString()}',
           ),
           SizedBox(height: 12.h),
-          AppButton(
-            onPressed: () => Get.dialog(
-              AttendanceDetailsDialog(attendanceDetails: attendance.details),
+          Visibility(
+            visible: attendance.details.isNotEmpty,
+            child: AppButton(
+              onPressed: () => Get.dialog(
+                AttendanceDetailsDialog(attendanceDetails: attendance.details),
+              ),
+              title: LocalizationKeys.details.tr,
+              fonSize: 16.sp,
+              paddingVertical: 0,
+              minimumSize: Size(double.infinity, 30.h),
             ),
-            title: LocalizationKeys.details.tr,
-            fonSize: 16.sp,
-            paddingVertical: 0,
-            minimumSize: Size(double.infinity, 30.h),
           ),
         ],
       ),

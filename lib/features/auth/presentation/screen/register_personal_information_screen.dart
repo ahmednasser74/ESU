@@ -1,20 +1,20 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
+import 'package:esu/core/src/widgets/app_text_field_widget.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/core/src/widgets/error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/auth/presentation/controller/personal_info_controller.dart';
 import 'package:esu/features/auth/presentation/widgets/auth_drop_down_button.dart';
+import 'package:esu/features/auth/presentation/widgets/country_picker_field_widget.dart';
 import 'package:esu/features/auth/presentation/widgets/date_picker_field_widget.dart';
-import 'package:esu/features/auth/presentation/widgets/lookup_drop_down_button.dart';
 import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
-    with ValidatorProperties {
+class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with ValidatorProperties {
   RegisterPersonalInfoScreen({Key? key}) : super(key: key);
 
   @override
@@ -29,75 +29,77 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
             child: Column(
               children: [
                 TitleRequiredFieldWidget(title: LocalizationKeys.email.tr),
-                TextFormField(
+                AppTextFieldWidget(
                   controller: controller.emailController,
                   validator: emailValidator,
-                  keyboardType: TextInputType.emailAddress,
+                  inputType: TextInputType.emailAddress,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourFirstNameEnglish.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourFirstNameEnController,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourSecondNameEnglish.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourSecondNameEnController,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourLastNameEnglish.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourLastNameEnController,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourFirstNameArabic.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourFirstNameArController,
+                  acceptArabicCharOnly: true,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourSecondNameArabic.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourSecondNameArController,
+                  acceptArabicCharOnly: true,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourLastNameArabic.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourLastNameArController,
+                  acceptArabicCharOnly: true,
                 ),
                 TitleRequiredFieldWidget(
-                  title: LocalizationKeys.nationalIdPassportNumber.tr,
+                  title: LocalizationKeys.identificationNumber.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: nationalIdValidator,
-                  keyboardType: TextInputType.number,
+                  inputType: TextInputType.number,
                   controller: controller.nationalPassportController,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.mobileNumber.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   controller: controller.phoneNumberController,
                   validator: phoneValidator,
-                  keyboardType: TextInputType.phone,
+                  inputType: TextInputType.phone,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.dateOfBirth.tr,
                 ),
                 DatePickerFieldWidget(
-                  dateCallBack: (dateCallBack) =>
-                      controller.birthDateController = dateCallBack,
+                  dateCallBack: (dateCallBack) => controller.birthDateController = dateCallBack,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.gender.tr,
@@ -105,49 +107,38 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
                 TitleDropDownButton(
                   list: [LocalizationKeys.male.tr, LocalizationKeys.female.tr],
                   isDense: true,
-                  onChangeValue: (gender) =>
-                      controller.genderController.text = gender,
+                  onChangeValue: (gender) => controller.genderController.text = gender,
                 ),
                 TitleRequiredFieldWidget(title: LocalizationKeys.country.tr),
-                // CountryPickerFieldWidget(
-                //   countryNameCallBack: (countryCode) {
-                //     ///controller.countryId
-                //     print('countryCode = $countryCode');
-                //   },
-                // ),
-                LookupDropDownButton(
+                CountryPickerFieldWidget(
                   list: state!,
-                  isDense: true,
-                  onChangeValue: (countryId) =>
-                      controller.countryId = countryId,
+                  countryNameCallBack: (country) => controller.countryId = country.id,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.nationality.tr,
                 ),
-                LookupDropDownButton(
+                CountryPickerFieldWidget(
                   list: state,
-                  isDense: true,
-                  onChangeValue: (nationalityId) =>
-                      controller.nationalityId = nationalityId,
+                  countryNameCallBack: (country) => controller.countryId = country.id,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourJob.tr,
                   isRequired: false,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   controller: controller.jobController,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourCompany.tr,
                   isRequired: false,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   controller: controller.companyController,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.currentAddress.tr,
                 ),
-                TextFormField(
+                AppTextFieldWidget(
                   validator: addressValidator,
                   controller: controller.addressController,
                 ),

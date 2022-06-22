@@ -16,7 +16,7 @@ class AttendanceScreen extends GetView<AttendanceController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(LocalizationKeys.lectureTable.tr)),
+      appBar: AppBar(title: Text(LocalizationKeys.attendance.tr)),
       body: controller.obx(
         (state) => ListView.separated(
           itemCount: state!.data.length,

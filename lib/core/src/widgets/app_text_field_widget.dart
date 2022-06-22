@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../colors.dart';
 
@@ -15,6 +16,8 @@ class AppTextFieldWidget extends StatefulWidget {
   final bool readOnly;
   final void Function(String? v)? onChanged;
   final bool dispose;
+  final bool acceptArabicCharOnly;
+  final VoidCallback? onTap;
 
   const AppTextFieldWidget({
     Key? key,
@@ -24,12 +27,14 @@ class AppTextFieldWidget extends StatefulWidget {
     this.hint,
     this.obscureText = false,
     this.readOnly = false,
+    this.acceptArabicCharOnly = false,
     this.dispose = true,
     this.suffixIcon,
     this.validator,
     this.labelText,
     this.autovalidateMode = AutovalidateMode.onUserInteraction,
     this.onChanged,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -54,8 +59,12 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
       keyboardType: widget.inputType,
       readOnly: widget.readOnly,
       onChanged: widget.onChanged,
+      onTap: widget.onTap,
       textInputAction: TextInputAction.next,
       autovalidateMode: widget.autovalidateMode,
+      inputFormatters: [
+        if (widget.acceptArabicCharOnly) FilteringTextInputFormatter.allow(RegExp('^[\u0621-\u064A\u0660-\u0669 ]+\$')),
+      ],
       decoration: InputDecoration(
         hintText: widget.hint,
         labelText: widget.labelText,
@@ -66,8 +75,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
                   passwordVisibility ? Icons.visibility_off : Icons.visibility,
                   color: AppColors.primaryColor,
                 ),
-                onPressed: () =>
-                    setState(() => passwordVisibility = !passwordVisibility),
+                onPressed: () => setState(() => passwordVisibility = !passwordVisibility),
               )
             : null,
         prefixIcon: widget.prefixIcon,
