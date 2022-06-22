@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Esu</string>
+	<string>ESU</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,6 +26,10 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>ESU need camera permission to change profile photo.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ESU need photo permission to change profile photo.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>processing</string>
@@ -50,12 +54,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
-	<key>NSCameraUsageDescription</key>
-    <string>ESU need camera permission to change profile photo.</string>
-
-<key>NSPhotoLibraryUsageDescription</key>
-<string>ESU need photo permission to change profile photo.</string>
-
 </dict>
 </plist>
