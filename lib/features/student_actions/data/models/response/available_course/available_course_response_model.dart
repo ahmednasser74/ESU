@@ -18,8 +18,10 @@ class AvailableCoursesResponseModel {
         status: json["status"],
         code: json["code"],
         message: json["message"],
-        data: List<CourseItemResponseModel>.from(
-          json["data"].map((x) => CourseItemResponseModel.fromJson(x)),
-        ),
+        data: json["data"] == null
+            ? []
+            : List<CourseItemResponseModel>.from(
+                json["data"].map((x) => CourseItemResponseModel.fromJson(x)),
+              ),
       );
 }
