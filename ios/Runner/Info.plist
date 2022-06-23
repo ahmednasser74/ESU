@@ -53,5 +53,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+
+    <array>
+        <string>com.sis.esu</string>
+        <string>com.sis.esu</string>
+    </array>
+
 </dict>
 </plist>
