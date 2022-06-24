@@ -18,7 +18,7 @@ class FinanceController extends GetxController
   final FinanceUseCase financeUseCase;
   final FinancePayUrlUseCase financePayUrlUseCase;
   List<FinanceDataResponseModel> financeList = [];
-  final haveUnpaidInvoice = Get.arguments as bool;
+  final bool haveUnpaidInvoice = Get.arguments ?? false;
 
   @override
   void onInit() {

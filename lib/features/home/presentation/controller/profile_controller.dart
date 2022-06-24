@@ -23,7 +23,7 @@ class ProfileController extends GetxController with FileProperties {
 
   final CheckEditProfileFilesUseCase checkEditProfileFilesUseCase;
   final EditProfileUseCase editProfileUseCase;
-  final haveUnCompleteFiles = Get.arguments as bool;
+  final bool? haveUnCompleteFiles = Get.arguments ?? false;
 
   final fullNameEnTEC = TextEditingController();
   final fullNameArTEC = TextEditingController();
@@ -142,7 +142,7 @@ class ProfileController extends GetxController with FileProperties {
   }
 
   Future<bool> onBack() {
-    if (haveUnCompleteFiles) {
+    if (haveUnCompleteFiles!) {
       Get.find<HomeController>().getHomeData();
     }
     return Future.value(true);
