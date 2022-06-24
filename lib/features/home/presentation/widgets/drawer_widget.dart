@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class DrawerWidget extends StatefulWidget {
-  DrawerWidget({Key? key}) : super(key: key);
+  const DrawerWidget({Key? key}) : super(key: key);
 
   @override
   State<DrawerWidget> createState() => _DrawerWidgetState();

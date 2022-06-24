@@ -14,7 +14,7 @@ class DatePickerFieldWidget extends StatefulWidget {
   final void Function(DateTime) dateCallBack;
 
   @override
-  _DateTimePickerWidgetState createState() => _DateTimePickerWidgetState();
+  State<DatePickerFieldWidget> createState() => _DateTimePickerWidgetState();
 }
 
 class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {

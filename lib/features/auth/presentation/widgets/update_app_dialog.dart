@@ -51,8 +51,8 @@ class UpdateAppDialog extends StatelessWidget {
         ),
         actions: [
           CupertinoDialogAction(
-            child: Text(LocalizationKeys.update.tr),
             onPressed: goToStore,
+            child: Text(LocalizationKeys.update.tr),
           ),
         ],
       ),

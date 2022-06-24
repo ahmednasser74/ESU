@@ -6,7 +6,7 @@ class KeepAliveWidget extends StatefulWidget {
   final Widget? child;
 
   @override
-  _KeepAliveWidgetState createState() => _KeepAliveWidgetState();
+  State<KeepAliveWidget> createState() => _KeepAliveWidgetState();
 }
 
 class _KeepAliveWidgetState extends State<KeepAliveWidget>

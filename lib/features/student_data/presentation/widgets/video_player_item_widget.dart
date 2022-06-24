@@ -15,7 +15,7 @@ class VideoPlayerItemWidget extends StatefulWidget {
 
 class VideoPlayerItemWidgetState extends State<VideoPlayerItemWidget> {
   late YoutubePlayerController _controller;
-  bool _isPlayerReady = false;
+  // bool _isPlayerReady = false;
 
   @override
   void initState() {
@@ -63,7 +63,7 @@ class VideoPlayerItemWidgetState extends State<VideoPlayerItemWidget> {
               ),
             ],
             onReady: () {
-              _isPlayerReady = true;
+              // _isPlayerReady = true;
             },
             onEnded: (data) {
               HelperMethod.showToast(msg: 'Video Ended!');

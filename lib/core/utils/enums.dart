@@ -1,1 +1,1 @@
-enum Language { English, Arabic }
+enum Language { english, arabic }

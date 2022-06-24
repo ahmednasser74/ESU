@@ -7,10 +7,11 @@ class HorizontalListBuilder extends StatelessWidget {
   final double? heightList;
 
   const HorizontalListBuilder({
+    Key? key,
     required this.itemBuilder,
     required this.itemCount,
     this.heightList = 25,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

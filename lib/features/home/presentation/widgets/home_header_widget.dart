@@ -123,13 +123,13 @@ class HomeHeaderWidget extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: Container(
-            child: Assets.images.esuTitleLogo.image(height: 60.r),
             padding: EdgeInsets.all(12.sp),
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
               border: Border.all(color: Colors.black),
             ),
+            child: Assets.images.esuTitleLogo.image(height: 60.r),
           ),
         ),
       ],

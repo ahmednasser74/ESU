@@ -38,7 +38,7 @@ class AppTextFieldWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AppTextFieldWidgetState createState() => _AppTextFieldWidgetState();
+  State<AppTextFieldWidget> createState() => _AppTextFieldWidgetState();
 }
 
 class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
@@ -63,7 +63,9 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
       textInputAction: TextInputAction.next,
       autovalidateMode: widget.autovalidateMode,
       inputFormatters: [
-        if (widget.acceptArabicCharOnly) FilteringTextInputFormatter.allow(RegExp('^[\u0621-\u064A\u0660-\u0669 ]+\$')),
+        if (widget.acceptArabicCharOnly)
+          FilteringTextInputFormatter.allow(
+              RegExp('^[\u0621-\u064A\u0660-\u0669 ]+\$')),
       ],
       decoration: InputDecoration(
         hintText: widget.hint,
@@ -75,7 +77,8 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
                   passwordVisibility ? Icons.visibility_off : Icons.visibility,
                   color: AppColors.primaryColor,
                 ),
-                onPressed: () => setState(() => passwordVisibility = !passwordVisibility),
+                onPressed: () =>
+                    setState(() => passwordVisibility = !passwordVisibility),
               )
             : null,
         prefixIcon: widget.prefixIcon,

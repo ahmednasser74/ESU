@@ -46,10 +46,6 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        child: Assets.icons.notificationIcon.image(
-                          height: 24.sp,
-                          color: AppColors.primaryColor,
-                        ),
                         padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
@@ -57,6 +53,10 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                             color: AppColors.primaryColor,
                             width: 1.5,
                           ),
+                        ),
+                        child: Assets.icons.notificationIcon.image(
+                          height: 24.sp,
+                          color: AppColors.primaryColor,
                         ),
                       ),
                       SizedBox(height: 8.h),

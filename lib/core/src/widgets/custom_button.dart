@@ -20,6 +20,7 @@ class AppButton extends StatelessWidget {
   final Size? minimumSize;
 
   const AppButton({
+    Key? key,
     required this.onPressed,
     this.title,
     this.alignment = Alignment.center,
@@ -37,11 +38,10 @@ class AppButton extends StatelessWidget {
     this.borderRadius = 10,
     this.fontWeight,
     this.minimumSize,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: marginHorizontal,
@@ -49,17 +49,6 @@ class AppButton extends StatelessWidget {
       ),
       child: OutlinedButton(
         onPressed: onPressed,
-        child: child ??
-            Text(
-              title ?? '',
-              style: TextStyle(
-                fontSize: fonSize.sp,
-                color: textColor,
-                fontFamily: fontFamily,
-                fontWeight: fontWeight,
-                height: 1.2,
-              ),
-            ),
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.symmetric(
             horizontal: paddingHorizontal,
@@ -74,6 +63,17 @@ class AppButton extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
           ),
         ),
+        child: child ??
+            Text(
+              title ?? '',
+              style: TextStyle(
+                fontSize: fonSize.sp,
+                color: textColor,
+                fontFamily: fontFamily,
+                fontWeight: fontWeight,
+                height: 1.2,
+              ),
+            ),
       ),
     );
   }

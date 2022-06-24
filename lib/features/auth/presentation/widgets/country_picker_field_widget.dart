@@ -33,7 +33,7 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
       onTap: () => showSearch(
         context: context,
         delegate: SearchPage<LookupDataResponseModel>(
-          onQueryUpdate: (s) => print(s),
+          onQueryUpdate: (s) {},
           items: widget.list,
           searchLabel: LocalizationKeys.search.tr,
           suggestion: Center(
@@ -46,7 +46,8 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
           builder: (country) => ListTile(
             onTap: () {
               Get.back();
-              countryNameTEC.text = Get.locale.toString() == 'ar' ? country.nameAr : country.name;
+              countryNameTEC.text =
+                  Get.locale.toString() == 'ar' ? country.nameAr : country.name;
               widget.countryNameCallBack(country);
               setState(() {});
             },
