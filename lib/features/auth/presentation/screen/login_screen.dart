@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/assets.gen.dart';
@@ -7,7 +5,6 @@ import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -26,33 +23,6 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
         inAsyncCall: controller.getLoadingIndicator,
         progressIndicator: const LoadingIndicatorWidget(),
         child: Scaffold(
-          floatingActionButton: FloatingActionButton(
-            onPressed: () async {
-              NotificationDetails platformChannelSpecifics =
-                  const NotificationDetails(
-                android: AndroidNotificationDetails(
-                  'default_notification_channel',
-                  'Basic Notifications',
-                  importance: Importance.max,
-                  priority: Priority.high,
-                  ticker: 'ESU Notification',
-                ),
-                iOS: IOSNotificationDetails(
-                  presentSound: true,
-                  presentBadge: true,
-                  presentAlert: true,
-                  badgeNumber: 0,
-                ),
-              );
-              await FlutterLocalNotificationsPlugin().show(
-                Random().nextInt(100),
-                'event.notification!.title',
-                'event.notification!.body',
-                platformChannelSpecifics,
-              );
-            },
-            child: const Icon(Icons.add),
-          ),
           body: Form(
             key: controller.loginFormKey,
             child: ListView(
