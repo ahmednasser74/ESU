@@ -55,9 +55,9 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^20.1.57-beta
   #firebase
 #  firebase_core: ^1.17.1
-#  firebase_messaging: ^11.4.1
+  firebase_messaging: ^11.4.1
 #  firebase_remote_config: ^2.0.8
-#  flutter_local_notifications: ^9.6.0
+  flutter_local_notifications: ^9.6.0
   # date format
   intl: ^0.17.0
   #  video player
