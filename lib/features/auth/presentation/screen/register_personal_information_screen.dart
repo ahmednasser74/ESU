@@ -119,7 +119,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                 ),
                 CountryPickerFieldWidget(
                   list: state,
-                  countryNameCallBack: (country) => controller.countryId = country.id,
+                  countryNameCallBack: (nationality) => controller.nationalityId = nationality.id,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourJob.tr,
