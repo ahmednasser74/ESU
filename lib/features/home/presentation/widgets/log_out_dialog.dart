@@ -89,7 +89,7 @@ class LogoutDialogState extends State<LogoutDialog>
                   child: Text(
                     LocalizationKeys.logout.tr,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline6,
+                    style: TextStyle(fontSize: 16.sp),
                   ),
                 ),
                 SizedBox(height: 12.h),
@@ -100,7 +100,7 @@ class LogoutDialogState extends State<LogoutDialog>
                   child: Text(
                     LocalizationKeys.doYouWantToLogout.tr,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: TextStyle(fontSize: 14.sp),
                   ),
                 ),
                 SizedBox(height: 24.h),
@@ -111,7 +111,7 @@ class LogoutDialogState extends State<LogoutDialog>
                       child: AppButton(
                         onPressed: widget.onTapLogout,
                         title: LocalizationKeys.logout.tr,
-                        fonSize: 16.sp,
+                        fonSize: 12.sp,
                       ),
                     ),
                     SizedBox(width: 8.w),
@@ -122,7 +122,7 @@ class LogoutDialogState extends State<LogoutDialog>
                           Get.back();
                         },
                         title: LocalizationKeys.cancel.tr,
-                        fonSize: 16.sp,
+                        fonSize: 12.sp,
                         textColor: AppColors.primaryColor,
                         borderColor: AppColors.primaryColor,
                         backgroundColor: AppColors.whiteColor,

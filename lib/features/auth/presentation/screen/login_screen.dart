@@ -109,6 +109,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                   title: LocalizationKeys.login.tr,
                   onPressed: controller.login,
                   fontWeight: FontWeight.bold,
+                  fonSize: 18,
                 ),
                 SizedBox(height: .08.sh),
                 AppButton(

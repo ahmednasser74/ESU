@@ -2,7 +2,7 @@ class Endpoints {
   static const String baseUrlProduction = 'https://sis.esu.ac.ae/api/';
   static const String baseUrlDev = 'https://sisdev.esu.ac.ae/api/';
 
-  static const String baseUrl = baseUrlProduction;
+  static const String baseUrl = baseUrlDev;
 
   //-----------------------------------------------------------------------
   ///Auth
