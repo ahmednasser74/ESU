@@ -7,7 +7,12 @@ class AppButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String? title, fontFamily;
   final Alignment alignment;
-  final double elevation, fonSize, paddingHorizontal, paddingVertical, marginHorizontal, marginVertical;
+  final double elevation,
+      fonSize,
+      paddingHorizontal,
+      paddingVertical,
+      marginHorizontal,
+      marginVertical;
   final double? borderRadius;
   final FontWeight? fontWeight;
   final Widget? child;
@@ -55,7 +60,7 @@ class AppButton extends StatelessWidget {
           elevation: elevation,
           alignment: alignment,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 10.r)),
+            borderRadius: BorderRadius.all(Radius.circular(borderRadius??10.r)),
           ),
         ),
         child: child ??
