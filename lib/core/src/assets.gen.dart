@@ -99,8 +99,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/app_icon_bg.jpeg
   AssetGenImage get appIconBg => const AssetGenImage('assets/images/app_icon_bg.jpeg');
 
-  /// File path: assets/images/esu_title_logo.png
-  AssetGenImage get esuTitleLogo => const AssetGenImage('assets/images/esu_title_logo.png');
+  /// File path: assets/images/esu_title_logo.jpeg
+  AssetGenImage get esuTitleLogo => const AssetGenImage('assets/images/esu_title_logo.jpeg');
 
   /// File path: assets/images/student_id.png
   AssetGenImage get studentId => const AssetGenImage('assets/images/student_id.png');

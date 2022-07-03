@@ -14,7 +14,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with ValidatorProperties {
+class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
+    with ValidatorProperties {
   RegisterPersonalInfoScreen({Key? key}) : super(key: key);
 
   @override
@@ -99,7 +100,8 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   title: LocalizationKeys.dateOfBirth.tr,
                 ),
                 DatePickerFieldWidget(
-                  dateCallBack: (dateCallBack) => controller.birthDateController = dateCallBack,
+                  dateCallBack: (dateCallBack) =>
+                      controller.birthDateController = dateCallBack,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.gender.tr,
@@ -107,19 +109,22 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                 TitleDropDownButton(
                   list: [LocalizationKeys.male.tr, LocalizationKeys.female.tr],
                   isDense: true,
-                  onChangeValue: (gender) => controller.genderController.text = gender,
+                  onChangeValue: (gender) =>
+                      controller.genderController.text = gender,
                 ),
                 TitleRequiredFieldWidget(title: LocalizationKeys.country.tr),
                 CountryPickerFieldWidget(
                   list: state!,
-                  countryNameCallBack: (country) => controller.countryId = country.id,
+                  countryNameCallBack: (country) =>
+                      controller.countryId = country.id,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.nationality.tr,
                 ),
                 CountryPickerFieldWidget(
                   list: state,
-                  countryNameCallBack: (country) => controller.countryId = country.id,
+                  countryNameCallBack: (nationality) =>
+                      controller.nationalityId = nationality.id,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourJob.tr,
