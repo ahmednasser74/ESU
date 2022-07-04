@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class DrawerWidget extends StatefulWidget {
-  DrawerWidget({Key? key}) : super(key: key);
+  const DrawerWidget({Key? key}) : super(key: key);
 
   @override
   State<DrawerWidget> createState() => _DrawerWidgetState();
@@ -24,6 +24,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
           height: 200.h,
@@ -37,7 +38,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 condition: student.photo != null,
                 builder: (_) => CircleAvatar(
                   backgroundImage: NetworkImage(student.photo!),
-                  radius: 40.w,
+                  radius: 40.r,
                 ),
                 fallback: (_) => Container(
                   decoration: BoxDecoration(
@@ -59,12 +60,15 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 style: const TextStyle(color: Colors.white),
               ),
               SizedBox(height: 6.h),
-              Text(
-                Get.locale.toString() == 'en'
-                    ? SharedPrefs.instance.getUser().nameEn
-                    : SharedPrefs.instance.getUser().nameAr,
-                style: TextStyle(color: Colors.white, fontSize: 16.sp),
-                textAlign: TextAlign.center,
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 8.w),
+                child: Text(
+                  Get.locale.toString() == 'en'
+                      ? SharedPrefs.instance.getUser().nameEn
+                      : SharedPrefs.instance.getUser().nameAr,
+                  style: TextStyle(color: Colors.white, fontSize: 16.r),
+                  textAlign: TextAlign.center,
+                ),
               )
             ],
           ),

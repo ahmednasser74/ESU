@@ -25,7 +25,7 @@ mixin FileProperties {
     const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
     var i = (log(bytes) / log(1024)).floor();
     final fileSize =
-        ((bytes / pow(1024, i)).toStringAsFixed(decimals)) + ' ' + suffixes[i];
+        '${(bytes / pow(1024, i)).toStringAsFixed(decimals)} ${suffixes[i]}';
     return fileSize;
   }
 
@@ -54,7 +54,7 @@ mixin FileProperties {
   ];
 
   bool fileIsImage({required String fileName}) {
-    String extension = "." + fileName.split('.').last;
+    String extension = ".${fileName.split('.').last}";
     return imageExtensions.contains(extension);
   }
 

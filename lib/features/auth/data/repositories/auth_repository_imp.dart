@@ -1,3 +1,5 @@
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:esu/core/utils/di.dart';
 import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
 import 'package:esu/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
@@ -9,8 +11,7 @@ import 'package:esu/features/auth/data/model/response/forget_password/forget_pas
 import 'package:esu/features/auth/data/model/response/forget_password/reset_password_reponse_model.dart';
 import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:esu/features/auth/data/model/response/lookup/lookup_respone_model.dart';
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
+import 'package:esu/features/auth/data/model/response/minimum_version/minimum_version_response_model.dart';
 
 import '../../../../core/network/network_information.dart';
 import '../../domin/repositories/auth_repository.dart';
@@ -78,6 +79,14 @@ class AuthRepositoryImp implements AuthRepository {
       onSuccess: () async => await userRemoteDataSource.resetPassword(
         requestModel: requestModel,
       ),
+    );
+  }
+
+  @override
+  Future<Either<String?, MinimumVersionResponseModel>>
+      getMinimumVersion() async {
+    return _responseHandling<MinimumVersionResponseModel>(
+      onSuccess: () async => await userRemoteDataSource.getMinimumVersion(),
     );
   }
 }

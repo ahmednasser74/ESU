@@ -47,6 +47,8 @@ class LetterItemWidget extends StatelessWidget {
                   onPressed: () => Get.to(
                     LetterPdfViewerScreen(id: letter.id, lang: 'en'),
                   ),
+                  backgroundColor: Colors.white,
+                  borderColor: AppColors.primaryColor,
                   child: Row(
                     children: [
                       Assets.icons.pdf.image(height: 20.h),
@@ -60,8 +62,6 @@ class LetterItemWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  backgroundColor: Colors.white,
-                  borderColor: AppColors.primaryColor,
                 ),
               ),
               SizedBox(width: 10.w),
@@ -69,6 +69,8 @@ class LetterItemWidget extends StatelessWidget {
                 child: AppButton(
                   onPressed: () =>
                       Get.to(LetterPdfViewerScreen(id: letter.id, lang: 'ar')),
+                  backgroundColor: Colors.white,
+                  borderColor: AppColors.primaryColor,
                   child: Row(
                     children: [
                       Assets.icons.pdf.image(height: 20.h),
@@ -82,8 +84,6 @@ class LetterItemWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  backgroundColor: Colors.white,
-                  borderColor: AppColors.primaryColor,
                 ),
               ),
             ],

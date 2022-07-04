@@ -13,21 +13,24 @@ class FinanceScreen extends GetView<FinanceController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(LocalizationKeys.finance.tr)),
-      body: controller.obx(
-        (state) => ListView.separated(
-          itemCount: state?.length ?? 0,
-          padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
-          separatorBuilder: (_, index) => SizedBox(height: 14.h),
-          itemBuilder: (_, index) => FinanceItemWidget(
-            finance: state!.elementAt(index),
-            index: index,
+    return WillPopScope(
+      onWillPop: controller.onBack,
+      child: Scaffold(
+        appBar: AppBar(title: Text(LocalizationKeys.finance.tr)),
+        body: controller.obx(
+          (state) => ListView.separated(
+            itemCount: state?.length ?? 0,
+            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+            separatorBuilder: (_, index) => SizedBox(height: 14.h),
+            itemBuilder: (_, index) => FinanceItemWidget(
+              finance: state!.elementAt(index),
+              index: index,
+            ),
           ),
+          onError: (e) => AppErrorWidget(errorMessage: e),
+          onLoading: const LoadingIndicatorWidget(),
+          onEmpty: AppEmptyWidget(title: LocalizationKeys.noDataFound.tr),
         ),
-        onError: (e) => AppErrorWidget(errorMessage: e),
-        onLoading: const LoadingIndicatorWidget(),
-        onEmpty: AppEmptyWidget(title: LocalizationKeys.noDataFound.tr),
       ),
     );
   }

@@ -1,6 +1,8 @@
 class Endpoints {
-  // static const String baseUrl = 'https://sis.esu.ac.ae/api/';
-  static const String baseUrl = 'https://sisdev.esu.ac.ae/api/';
+  static const String baseUrlProduction = 'https://sis.esu.ac.ae/api/';
+  static const String baseUrlDev = 'https://sisdev.esu.ac.ae/api/';
+
+  static const String baseUrl = baseUrlProduction;
 
   //-----------------------------------------------------------------------
   ///Auth
@@ -13,6 +15,7 @@ class Endpoints {
   ///lookup
   static const String lookup = 'lookup/get';
   static const String transcript = 'transcript';
+  static const String transcriptList = 'registrations';
   static const String planOfStudy = 'plan-of-study';
 
 //-----------------------------------------------------------------------
@@ -20,7 +23,8 @@ class Endpoints {
   static const String notification = 'notifications/all';
   static const String updateNewToUnread = 'notifications/update-new-to-unread';
   static const String markNotificationAsRead = 'notifications/mark-as-read';
-  static const String markAllNotificationsAsRead = 'notifications/mark-all-as-read';
+  static const String markAllNotificationsAsRead =
+      'notifications/mark-all-as-read';
 
   //-----------------------------------------------------------------------
   ///letters
@@ -48,7 +52,8 @@ class Endpoints {
   //-----------------------------------------------------------------------
   ///course register
   static const String registeredCourses = 'registerations-courses';
-  static const String availableCourses = 'registerations-courses/available-courses';
+  static const String availableCourses =
+      'registerations-courses/available-courses';
   static const String addCourse = 'registerations-courses';
   static const String removeCourse = 'registerations-courses/delete';
 
@@ -62,4 +67,5 @@ class Endpoints {
   static const String schedule = 'schedule';
   static const String accessToMoodle = 'access-to-moodle';
   static const String attendance = 'attendance';
+  static const String minimumVersion = 'get-minimum-app-version';
 }

@@ -76,7 +76,10 @@ class RedirectToProfileOrInvoiceWidget extends StatelessWidget {
                   SizedBox(height: 18.h),
                   AppButton(
                     title: LocalizationKeys.goToInvoice.tr,
-                    onPressed: () => Get.toNamed(Routes.financeScreen),
+                    onPressed: () => Get.toNamed(
+                      Routes.financeScreen,
+                      arguments: true,
+                    ),
                     fonSize: 14.sp,
                   ),
                 ],
@@ -113,7 +116,10 @@ class RedirectToProfileOrInvoiceWidget extends StatelessWidget {
                   SizedBox(height: 18.h),
                   AppButton(
                     title: LocalizationKeys.goToProfile.tr,
-                    onPressed: () => Get.toNamed(Routes.profileScreen),
+                    onPressed: () => Get.toNamed(
+                      Routes.profileScreen,
+                      arguments: true,
+                    ),
                     fonSize: 14.sp,
                   ),
                 ],

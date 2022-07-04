@@ -1,37 +1,63 @@
 import 'package:esu/core/dio/dio_request_handling.dart';
+import 'package:esu/core/helper/app_info_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
+import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/core/utils/pref_util.dart';
-import 'package:esu/features/auth/presentation/screen/login_screen.dart';
-import 'package:esu/features/home/presentation/screens/home_screen.dart';
+import 'package:esu/features/auth/domin/usecases/minimum_version_usecase.dart';
+import 'package:esu/features/auth/presentation/widgets/update_app_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashController extends GetxController {
+  SplashController({required this.minimumVersionUseCase});
+
+  final MinimumVersionUseCase minimumVersionUseCase;
+
   String appVersion = '';
+  late bool appNeedUpdate;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+    init();
+  }
+
+  void init() async {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.find<DioRequestHandlingController>();
       Get.find<TranslationController>();
     });
-    getVersion();
-    Future.delayed(const Duration(seconds: 1), splashNavigation);
+    await AppInfoHelper.init();
+    appVersion = AppInfoHelper.getAppVersion;
+    await getMinimumVersion();
+    splashNavigation();
   }
 
-  void splashNavigation() async {
-    final token = SharedPrefs.instance.getToken();
-    if (token == null) {
-      Get.off(() => const LoginScreen());
+  void splashNavigation() {
+    if (!appNeedUpdate) {
+      final token = SharedPrefs.instance.getToken();
+      if (token == null) {
+        Get.offNamed(Routes.loginScreen);
+      } else {
+        Get.offNamed(Routes.homeScreen);
+      }
     } else {
-      Get.off(() => HomeScreen());
+      Get.dialog(const UpdateAppDialog(), barrierDismissible: false);
     }
   }
 
-  void getVersion() async {
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    appVersion = packageInfo.version;
+  Future<void> getMinimumVersion() async {
+    final response = await minimumVersionUseCase(params: NoParams());
+    response.fold(
+      (l) {},
+      (r) {
+        final minVersion = r.minVersion;
+        appNeedUpdate = AppInfoHelper.needUpdate(
+          appVersion: appVersion,
+          minVersion: minVersion,
+        );
+      },
+    );
   }
 }

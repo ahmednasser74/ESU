@@ -1,10 +1,12 @@
 import 'package:esu/core/const/list_const.dart';
 import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/styles.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/core/src/widgets/error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/widgets/auth_drop_down_button.dart';
+import 'package:esu/features/auth/presentation/widgets/contract_links_widget.dart';
 import 'package:esu/features/auth/presentation/widgets/lookup_drop_down_button.dart';
 import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
@@ -24,14 +26,28 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
           key: controller.formKey,
           child: controller.obx(
             (state) => Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Container(
+                  padding: EdgeInsets.all(10.r),
+                  decoration: CustomStyle.containerShadowDecoration.copyWith(
+                    border: Border.all(color: Colors.red),
+                  ),
+                  child: Text(
+                    LocalizationKeys
+                        .pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature
+                        .tr,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(height: 12.h),
+                const ContractLinksWidget(),
                 const Spacer(),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.currentCertificate.tr,
                 ),
                 TitleDropDownButton(
                   list: ListConst().certificateList,
+                  isDense: true,
                   onChangeValue: (value) {
                     if (value == ListConst().certificateList[0]) {
                       controller.currentCertificate = 'secondary_school';
@@ -46,6 +62,7 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
                 TitleRequiredFieldWidget(title: LocalizationKeys.program.tr),
                 LookupDropDownButton(
                   list: state!,
+                  isDense: true,
                   onChangeValue: (value) => controller.programId = value,
                 ),
                 const Spacer(),

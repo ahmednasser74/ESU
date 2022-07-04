@@ -26,21 +26,21 @@ class _NotificationFilterWidgetState extends State<NotificationFilterWidget>
   List<PopupMenuItem> popMenuFilteredList = [];
   List<PopupMenuItem> popMenuFullList = [
     PopupMenuItem(
-      child: Text(LocalizationKeys.all.tr, style: TextStyle(fontSize: 12.sp)),
       value: NotificationFilterType.all,
+      child: Text(LocalizationKeys.all.tr, style: TextStyle(fontSize: 12.sp)),
     ),
     PopupMenuItem(
-      child: Text(LocalizationKeys.neww.tr, style: TextStyle(fontSize: 12.sp)),
       value: NotificationFilterType.New,
+      child: Text(LocalizationKeys.neww.tr, style: TextStyle(fontSize: 12.sp)),
     ),
     PopupMenuItem(
-      child: Text(LocalizationKeys.read.tr, style: TextStyle(fontSize: 12.sp)),
       value: NotificationFilterType.read,
+      child: Text(LocalizationKeys.read.tr, style: TextStyle(fontSize: 12.sp)),
     ),
     PopupMenuItem(
+      value: NotificationFilterType.unread,
       child:
           Text(LocalizationKeys.unread.tr, style: TextStyle(fontSize: 12.sp)),
-      value: NotificationFilterType.unread,
     ),
   ];
 

@@ -19,6 +19,7 @@ import 'package:esu/features/auth/domin/usecases/admission_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/forget_password_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/login_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/lookup_use_case.dart';
+import 'package:esu/features/auth/domin/usecases/minimum_version_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/reset_password_usecase.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
@@ -73,6 +74,7 @@ import 'package:esu/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/lecture_table_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/schedule_use_case.dart';
+import 'package:esu/features/student_data/domain/usecase/transcript_use_case.dart';
 import 'package:esu/features/student_data/presentation/controller/access_to_moodle_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/attendance_controller.dart';
 import 'package:esu/features/student_data/presentation/controller/finance_controller.dart';
@@ -137,7 +139,7 @@ class Injection {
       ),
     );
     di.registerFactory<SplashController>(
-      () => SplashController(),
+      () => SplashController(minimumVersionUseCase: di()),
     );
     di.registerFactory<AcademicInfoController>(
       () => AcademicInfoController(lookupUseCase: di()),
@@ -167,6 +169,9 @@ class Injection {
     );
     di.registerLazySingleton<ResetPasswordUseCase>(
       () => ResetPasswordUseCase(authRepository: di()),
+    );
+    di.registerLazySingleton<MinimumVersionUseCase>(
+      () => MinimumVersionUseCase(authRepository: di()),
     );
 
     //repo
@@ -248,7 +253,9 @@ class Injection {
     di.registerFactory<LettersController>(
       () => LettersController(lettersUseCase: di()),
     );
-    di.registerFactory<TranscriptController>(() => TranscriptController());
+    di.registerFactory<TranscriptController>(
+      () => TranscriptController(transcriptUseCase: di()),
+    );
     di.registerFactory<FinanceController>(
       () => FinanceController(
         financeUseCase: di(),
@@ -295,6 +302,9 @@ class Injection {
     );
     di.registerLazySingleton<AttendanceUseCase>(
       () => AttendanceUseCase(studentDataRepository: di()),
+    );
+    di.registerFactory<TranscriptUseCase>(
+      () => TranscriptUseCase(studentDataRepository: di()),
     );
 
     //repo

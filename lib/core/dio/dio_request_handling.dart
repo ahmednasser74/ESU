@@ -1,6 +1,7 @@
-import 'package:esu/core/network/network_information.dart';
-import 'package:esu/core/utils/pref_util.dart';
 import 'package:dio/dio.dart';
+import 'package:esu/core/network/network_information.dart';
+import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/utils/pref_util.dart';
 import 'package:get/get.dart' hide Response;
 
 class DioRequestHandlingController extends GetxController {
@@ -25,11 +26,7 @@ class DioRequestHandlingController extends GetxController {
     if (response != null) {
       if ((response.statusCode == 500 || response.statusCode == 401) &&
           response.data.toString().contains('Unauthenticated')) {
-        // emit(
-        //   UnauthenticatedState(
-        //     "قد تم تسجيل خروجك تلقائيًا من فضلك قم بتسجبل دخولك.",
-        //   ),
-        // );
+        Get.offAllNamed(Routes.loginScreen);
       }
     }
   }

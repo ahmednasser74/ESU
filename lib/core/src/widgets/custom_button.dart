@@ -12,14 +12,15 @@ class AppButton extends StatelessWidget {
       paddingHorizontal,
       paddingVertical,
       marginHorizontal,
-      marginVertical,
-      borderRadius;
+      marginVertical;
+  final double? borderRadius;
   final FontWeight? fontWeight;
   final Widget? child;
   final Color textColor, backgroundColor, borderColor;
   final Size? minimumSize;
 
   const AppButton({
+    Key? key,
     required this.onPressed,
     this.title,
     this.alignment = Alignment.center,
@@ -34,14 +35,13 @@ class AppButton extends StatelessWidget {
     this.fonSize = 20,
     this.fontFamily = 'din',
     this.borderColor = Colors.transparent,
-    this.borderRadius = 10,
+    this.borderRadius,
     this.fontWeight,
     this.minimumSize,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: marginHorizontal,
@@ -49,17 +49,6 @@ class AppButton extends StatelessWidget {
       ),
       child: OutlinedButton(
         onPressed: onPressed,
-        child: child ??
-            Text(
-              title ?? '',
-              style: TextStyle(
-                fontSize: fonSize.sp,
-                color: textColor,
-                fontFamily: fontFamily,
-                fontWeight: fontWeight,
-                height: 1.2,
-              ),
-            ),
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.symmetric(
             horizontal: paddingHorizontal,
@@ -71,9 +60,20 @@ class AppButton extends StatelessWidget {
           elevation: elevation,
           alignment: alignment,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+            borderRadius: BorderRadius.all(Radius.circular(borderRadius??10.r)),
           ),
         ),
+        child: child ??
+            Text(
+              title ?? '',
+              style: TextStyle(
+                fontSize: fonSize,
+                color: textColor,
+                fontFamily: fontFamily,
+                fontWeight: fontWeight,
+                height: 1.2,
+              ),
+            ),
       ),
     );
   }

@@ -11,12 +11,15 @@ class CustomAppBar extends StatelessWidget {
   final String centerTitle;
   final Color iconsColor, backgroundColor;
 
+  // const ({Key? key}) : super(key: key);
+
   const CustomAppBar({
+    Key? key,
     required this.centerTitle,
     this.endIcon,
     this.iconsColor = AppColors.primaryColor,
     this.backgroundColor = Colors.white,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

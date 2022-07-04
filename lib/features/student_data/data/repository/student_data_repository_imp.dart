@@ -11,6 +11,7 @@ import 'package:esu/features/student_data/data/models/response/lecture_table/lec
 import 'package:esu/features/student_data/data/models/response/letters/letters.dart';
 import 'package:esu/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/schedule/schedule_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/transcript/transcript_response_model.dart';
 import 'package:esu/features/student_data/domain/repository/student_data_repository.dart';
 
 class StudentDataRepositoryImp implements StudentDataRepository {
@@ -75,6 +76,13 @@ class StudentDataRepositoryImp implements StudentDataRepository {
   Future<Either<String?, AttendanceResponseModel>> getAttendance() {
     return _responseHandling<AttendanceResponseModel>(
       onSuccess: () async => await remoteDataSource.getAttendance(),
+    );
+  }
+
+  @override
+  Future<Either<String?, TranscriptResponseModel>> getTranscript() {
+    return _responseHandling<TranscriptResponseModel>(
+      onSuccess: () async => await remoteDataSource.getTranscript(),
     );
   }
 }

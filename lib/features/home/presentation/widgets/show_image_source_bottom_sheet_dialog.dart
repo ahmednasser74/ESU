@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ShowImageSourceBottomSheetDialog extends StatelessWidget {
-  const ShowImageSourceBottomSheetDialog({Key? key}) : super(key: key);
+class ShowImageSourceBottomSheet extends StatelessWidget {
+  const ShowImageSourceBottomSheet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class ShowImageSourceBottomSheetDialog extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 18.w),
-                Icon(Icons.image, size: 20.r),
+                Icon(Icons.image_rounded, size: 24.r),
                 SizedBox(width: 8.w),
                 Text(
                   LocalizationKeys.gallery.tr,
@@ -65,7 +65,7 @@ class ShowImageSourceBottomSheetDialog extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 18.w),
-                Icon(Icons.camera_alt_outlined, size: 20.r),
+                Icon(Icons.camera_alt_outlined, size: 24.r),
                 SizedBox(width: 8.w),
                 Text(
                   LocalizationKeys.camera.tr,
@@ -74,7 +74,8 @@ class ShowImageSourceBottomSheetDialog extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 18.h),
+          SizedBox(height: 30.h),
+          SizedBox(height: MediaQuery.of(context).viewInsets.bottom),
         ],
       ),
     );

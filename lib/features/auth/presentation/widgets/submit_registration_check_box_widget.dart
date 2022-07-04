@@ -2,6 +2,7 @@ import 'package:esu/core/localization/localization_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 
+// ignore: must_be_immutable
 class SubmitRegistrationCheckBoxWidget extends StatefulWidget {
   SubmitRegistrationCheckBoxWidget({
     Key? key,
