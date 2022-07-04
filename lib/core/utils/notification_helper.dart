@@ -5,7 +5,6 @@ import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/utils/di.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
-import 'package:esu/features/auth/domin/usecases/delete_fcm_token_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -13,7 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationHelper {
-  static NotificationHelper _instance = NotificationHelper._();
+  static final NotificationHelper _instance = NotificationHelper._();
 
   NotificationHelper._();
 
