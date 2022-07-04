@@ -53,9 +53,9 @@ class LoginController extends GetxController {
         (l) => HelperMethod.showToast(msg: l ?? 'Something went wrong'),
         (r) async {
           if (r.status == true) {
-            await registerFcmToken();
             prefs.saveString(key: SharedPrefsKeys.token, value: r.data!.token);
             prefs.saveUser(studentModel: r.data!.student);
+            await registerFcmToken();
             Get.offNamed(Routes.homeScreen);
           } else {
             HelperMethod.showToast(msg: r.message!);
