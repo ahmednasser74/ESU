@@ -1,6 +1,8 @@
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/dio/dio_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:dio/dio.dart';
+import 'package:esu/core/utils/pref_util.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -17,6 +19,7 @@ class DioImpl extends DioHelper {
 
   final String baseURL;
   late Dio _client;
+  final String locale = SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar';
 
   DioImpl({
     required this.baseURL,
@@ -43,7 +46,7 @@ class DioImpl extends DioHelper {
       ..options.baseUrl = baseURL
       ..options.headers.addAll({
         'Accept': 'application/json',
-        'locale': Get.find<TranslationController>().appLocale,
+        'locale': locale,
       });
   }
 
@@ -57,7 +60,7 @@ class DioImpl extends DioHelper {
         url,
         queryParameters: queryParams,
         options: Options(
-          headers: {'locale': Get.find<TranslationController>().appLocale},
+          headers: {'locale': locale},
         ),
       );
 
@@ -73,7 +76,7 @@ class DioImpl extends DioHelper {
         data: data,
         queryParameters: queryParams,
         options: Options(
-          headers: {'locale': Get.find<TranslationController>().appLocale},
+          headers: {'locale': locale},
         ),
       );
 
@@ -88,7 +91,9 @@ class DioImpl extends DioHelper {
         url,
         data: data,
         queryParameters: queryParams,
-        options: options,
+        options: Options(
+          headers: {'locale': locale},
+        ),
       );
 
   @override
@@ -102,6 +107,8 @@ class DioImpl extends DioHelper {
         url,
         data: data,
         queryParameters: queryParams,
-        options: options,
+        options: Options(
+          headers: {'locale': locale},
+        ),
       );
 }

@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/dio/dio_helper.dart';
+import 'package:esu/core/models/response/generic_model.dart';
 import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
+import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
 import 'package:esu/features/auth/data/model/request/forget_password/reset_password_request_model.dart';
 import 'package:esu/features/auth/data/model/request/login/login_request_model.dart';
@@ -33,6 +35,14 @@ abstract class AuthRemoteDataSource {
   });
 
   Future<MinimumVersionResponseModel> getMinimumVersion();
+
+  Future<GenericResponseModel> registerFcmToken({
+    required FcmTokenRequestModel requestModel,
+  });
+
+  Future<GenericResponseModel> deleteFcmToken({
+    required FcmTokenRequestModel requestModel,
+  });
 }
 
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
@@ -112,6 +122,32 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
     );
     final json = response.data;
     final data = MinimumVersionResponseModel.fromJson(json);
+    return data;
+  }
+
+  @override
+  Future<GenericResponseModel> registerFcmToken({
+    required FcmTokenRequestModel requestModel,
+  }) async {
+    final response = await dioHelper.post(
+      url: Endpoints.registerFcmToken,
+      data: requestModel.toJson(),
+    );
+    final json = response.data;
+    final data = GenericResponseModel.fromJson(json);
+    return data;
+  }
+
+  @override
+  Future<GenericResponseModel> deleteFcmToken({
+    required FcmTokenRequestModel requestModel,
+  }) async {
+    final response = await dioHelper.delete(
+      url: Endpoints.deleteFcmToken,
+      data: requestModel.toJson(),
+    );
+    final json = response.data;
+    final data = GenericResponseModel.fromJson(json);
     return data;
   }
 }

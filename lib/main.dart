@@ -1,3 +1,4 @@
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/file_helper/file_downloader_db/file_downloader_db.dart';
 import 'package:esu/core/utils/notification_helper.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,6 @@ import 'core/utils/di.dart';
 import 'core/utils/pref_util.dart';
 
 void main() async {
-  FileDownloadedDbHelper.init();
-  FlutterDownloader.initialize();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -27,6 +26,8 @@ void main() async {
     systemNavigationBarColor: Colors.black,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
+  FlutterDownloader.initialize();
+  FileDownloadedDbHelper.init();
   await Injection.init();
   await NotificationHelper.instance.init();
   runApp(const MyApp());
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
         initialBinding: ControllerBinding(),
         translations: Translation(),
         fallbackLocale: const Locale('en'),
-        locale: Locale(SharedPrefs.instance.getLanguageSelected()),
+        locale: Locale(SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'),
         builder: (context, widget) {
           // ScreenUtil.setContext(context);
           return MediaQuery(

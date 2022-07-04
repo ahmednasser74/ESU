@@ -2,7 +2,7 @@ class Endpoints {
   static const String baseUrlProduction = 'https://sis.esu.ac.ae/api/';
   static const String baseUrlDev = 'https://sisdev.esu.ac.ae/api/';
 
-  static const String baseUrl = baseUrlProduction;
+  static const String baseUrl = baseUrlDev;
 
   //-----------------------------------------------------------------------
   ///Auth
@@ -10,6 +10,9 @@ class Endpoints {
   static const String login = 'login';
   static const String forgetPassword = 'forgot-password';
   static const String resetPassword = 'reset-password';
+  static const String registerFcmToken = 'student-tokens';
+  static const String updateFcmToken = 'student-tokens/update';
+  static const String deleteFcmToken = 'student-tokens/delete';
 
   //-----------------------------------------------------------------------
   ///lookup

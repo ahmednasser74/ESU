@@ -1,19 +1,31 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:esu/core/const/shared_prefs_keys.dart';
+import 'package:esu/core/utils/di.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
+import 'package:esu/features/auth/domin/usecases/delete_fcm_token_usecase.dart';
+import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationHelper {
-  static final instance = NotificationHelper();
+  static NotificationHelper _instance = NotificationHelper._();
+
+  NotificationHelper._();
+
+  static NotificationHelper get instance => _instance;
+
+  late FirebaseMessaging messaging;
 
   Future<void> init() async {
     await Firebase.initializeApp();
-    final messaging = FirebaseMessaging.instance;
+    messaging = FirebaseMessaging.instance;
     await messaging.requestPermission();
-
+    Injection.di<FcmTokenUpdate>().onFcmTokenUpdate();
     await FlutterLocalNotificationsPlugin().initialize(
       const InitializationSettings(
         android: AndroidInitializationSettings('@drawable/launch_background'),
@@ -35,11 +47,6 @@ class NotificationHelper {
       badge: true,
       sound: true,
     );
-    messaging.getToken().then((value) => debugPrint('getToken = $value'));
-    messaging.getAPNSToken().then((value) => debugPrint('APNS TOKEN = $value'));
-    messaging.onTokenRefresh.listen(
-      (event) => debugPrint('onTokenRefresh = $event'),
-    );
     FirebaseMessaging.onBackgroundMessage(
       (message) async => await _firebaseMessagingBackgroundHandler(
         message: message,
@@ -49,10 +56,6 @@ class NotificationHelper {
 
   void _listenOnMessageAndFireLocalNotification() {
     FirebaseMessaging.onMessage.listen((RemoteMessage event) async {
-      debugPrint("onMessage recieved");
-      debugPrint('title = ${event.notification!.title}');
-      debugPrint('body = ${event.notification!.body}');
-      debugPrint('data = ${event.data.toString()}');
       await FlutterLocalNotificationsPlugin().show(
         Random().nextInt(100),
         event.notification!.title,
@@ -105,7 +108,7 @@ class NotificationHelper {
 
   Future<void> _navigateFromNotification(RemoteMessage message) async {
     if (message.data != {} && message.data.containsKey('id')) {
-      dynamic id = message.data['id'];
+      // dynamic id = message.data['id'];
       // final controller = Get.find<NewsDetailsController>();
       // await controller.getNewsDetails(int.parse(id));
       // Get.to(
@@ -114,8 +117,27 @@ class NotificationHelper {
     }
   }
 
-  Future<void> removeInitOfNotification() async =>
-      await FirebaseMessaging.instance.deleteToken();
+  Future<void> removeToken() async => await messaging.deleteToken();
+
+  Future<String> get getFcmToken async => await messaging.getToken() ?? '';
 }
-//flutter: APNS TOKEN = 9F2CB454D539E6C7E2791EB4D81D6FC46484789BBCE64DA6280D25A4F57DBFD2
-// flutter: getToken = fV8uoU6N5kyqrTHL_HgYDk:APA91bG4j3Qa0_wIrADbV41_iSwZI80xrbD5FhRmgoRtj2n6rV9DKSKgkehGg4al_xt5p64VTROSjPnJ5aJGmSi3i8nizTEVQGdnmsOQquwuEn4Iyk-feRlQa0zhrd9hYAkCWMFG_B93
+
+class FcmTokenUpdate {
+  final RegisterFcmTokenUseCase registerFcmTokenUseCase;
+
+  FcmTokenUpdate({required this.registerFcmTokenUseCase});
+
+  void onFcmTokenUpdate() {
+    final prefs = SharedPrefs.instance;
+    if (prefs.getString(key: SharedPrefsKeys.token) != null) {
+      FirebaseMessaging.instance.onTokenRefresh.listen((fcmToken) {
+        final FcmTokenRequestModel requestModel = FcmTokenRequestModel(
+          fcmToken: fcmToken,
+          type: 'update',
+        );
+        registerFcmTokenUseCase(params: requestModel);
+        prefs.saveString(key: SharedPrefsKeys.fcmToken, value: fcmToken);
+      });
+    }
+  }
+}

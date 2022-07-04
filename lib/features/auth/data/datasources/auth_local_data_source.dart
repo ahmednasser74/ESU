@@ -1,9 +1,9 @@
 import 'package:esu/core/utils/pref_util.dart';
 
 abstract class AuthLocalDataSource {
-  void saveUserToken(String userToken);
-
-  String? getUserToken();
+  // void saveUserToken(String userToken);
+  //
+  // String? getUserToken();
 
   void clearCache();
 }
@@ -13,12 +13,12 @@ class AuthLocalDataSourceImp implements AuthLocalDataSource {
 
   final SharedPrefs sharedPreferences;
 
-  @override
-  void saveUserToken(String userToken) =>
-      sharedPreferences.saveToken(token: userToken);
-
-  @override
-  String? getUserToken() => sharedPreferences.getToken();
+  // @override
+  // void saveUserToken(String userToken) =>
+  //     sharedPreferences.saveString(key: userToken);
+  //
+  // @override
+  // String? getUserToken() => sharedPreferences.getToken();
 
   @override
   void clearCache() => sharedPreferences.removeAllKeys();

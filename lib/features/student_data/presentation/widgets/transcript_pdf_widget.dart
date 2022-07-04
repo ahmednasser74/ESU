@@ -1,4 +1,5 @@
 import 'package:esu/core/const/end_point.dart';
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/student_data/presentation/controller/transcript_controller.dart';
@@ -24,7 +25,8 @@ class TranscriptPdfWidget extends GetView<TranscriptController> {
         controller: pdfViewerController,
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer ${SharedPrefs.instance.getToken()}',
+          'Authorization':
+              'Bearer ${SharedPrefs.instance.getString(key: SharedPrefsKeys.token)}',
         },
       ),
     );
