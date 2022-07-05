@@ -17,7 +17,7 @@ class SplashScreen extends GetView<SplashController> {
             Center(
               child: Hero(
                 tag: 'splash_tag',
-                child: Assets.images.appIcon.image(width: .7.sw, height: .5.sh),
+                child: Assets.images.appIconTransparent.image(width: .7.sw, height: .5.sh),
               ),
             ),
             const Spacer(),
