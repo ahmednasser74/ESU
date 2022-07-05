@@ -29,7 +29,7 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController>
               child: Column(
                 children: [
                   SizedBox(height: .06.sh),
-                  Assets.images.appIcon.image(
+                  Assets.images.appIconTransparent.image(
                     height: .24.sh,
                   ),
                   SizedBox(height: .03.sh),
