@@ -46,9 +46,9 @@ class SplashController extends GetxController {
     splashNavigation();
   }
 
-  void splashNavigation() {
+  void splashNavigation() async {
     if (!appNeedUpdate) {
-      print('token = ${prefs.getString(key: SharedPrefsKeys.token)}');
+      print('token = ${await NotificationHelper.instance.getFcmToken}');
       if (prefs.getString(key: SharedPrefsKeys.token) == null) {
         Get.offNamed(Routes.loginScreen);
       } else {

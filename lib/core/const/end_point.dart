@@ -1,8 +1,10 @@
+import 'package:esu/core/flavor/flavors.dart';
+
 class Endpoints {
   static const String baseUrlProduction = 'https://sis.esu.ac.ae/api/';
   static const String baseUrlDev = 'https://sisdev.esu.ac.ae/api/';
 
-  static const String baseUrl = baseUrlDev;
+  static String get baseUrl => Flavors.isDev ? baseUrlDev : baseUrlProduction;
 
   //-----------------------------------------------------------------------
   ///Auth
@@ -26,8 +28,7 @@ class Endpoints {
   static const String notification = 'notifications/all';
   static const String updateNewToUnread = 'notifications/update-new-to-unread';
   static const String markNotificationAsRead = 'notifications/mark-as-read';
-  static const String markAllNotificationsAsRead =
-      'notifications/mark-all-as-read';
+  static const String markAllNotificationsAsRead = 'notifications/mark-all-as-read';
 
   //-----------------------------------------------------------------------
   ///letters
@@ -55,8 +56,7 @@ class Endpoints {
   //-----------------------------------------------------------------------
   ///course register
   static const String registeredCourses = 'registerations-courses';
-  static const String availableCourses =
-      'registerations-courses/available-courses';
+  static const String availableCourses = 'registerations-courses/available-courses';
   static const String addCourse = 'registerations-courses';
   static const String removeCourse = 'registerations-courses/delete';
 

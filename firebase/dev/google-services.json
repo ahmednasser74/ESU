@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1089583762094",
+    "project_id": "esuproject-dev",
+    "storage_bucket": "esuproject-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089583762094:android:3a369a09b77ee66e383b3f",
+        "android_client_info": {
+          "package_name": "com.sis.esu.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089583762094-dv7aqg7lshunugikmhog755k57d3rq6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTp9eZMK-niUfljLSGu9vnP8cbhQbXCBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089583762094-dv7aqg7lshunugikmhog755k57d3rq6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

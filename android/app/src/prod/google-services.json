@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "632303956932",
+    "project_id": "esuproject-f2f9c",
+    "storage_bucket": "esuproject-f2f9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632303956932:android:c9b2f9ab396100262b2a91",
+        "android_client_info": {
+          "package_name": "com.sis.esu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632303956932-rf20ph1f23rq1gfb8mepu04dq9fna50o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNud9xg6JaD_RyCddL5eAy2ef4nbzymgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632303956932-rf20ph1f23rq1gfb8mepu04dq9fna50o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "632303956932-a7okpkqip9dobj8k3datdet8st12orpv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sis.esu",
+                "app_store_id": "1631204544"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
