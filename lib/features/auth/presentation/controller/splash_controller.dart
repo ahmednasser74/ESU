@@ -48,6 +48,7 @@ class SplashController extends GetxController {
 
   void splashNavigation() {
     if (!appNeedUpdate) {
+      print('token = ${prefs.getString(key: SharedPrefsKeys.token)}');
       if (prefs.getString(key: SharedPrefsKeys.token) == null) {
         Get.offNamed(Routes.loginScreen);
       } else {

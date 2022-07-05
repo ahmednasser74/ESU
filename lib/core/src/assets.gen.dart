@@ -99,6 +99,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/app_icon_bg.jpeg
   AssetGenImage get appIconBg => const AssetGenImage('assets/images/app_icon_bg.jpeg');
 
+  /// File path: assets/images/app_icon_transparent.png
+  AssetGenImage get appIconTransparent => const AssetGenImage('assets/images/app_icon_transparent.png');
+
   /// File path: assets/images/esu_title_logo.jpeg
   AssetGenImage get esuTitleLogo => const AssetGenImage('assets/images/esu_title_logo.jpeg');
 
@@ -145,7 +148,7 @@ class AssetGenImage {
     ImageErrorWidgetBuilder? errorBuilder,
     String? semanticLabel,
     bool excludeFromSemantics = false,
-    double? scale = 1.0,
+    double? scale,
     double? width,
     double? height,
     Color? color,
@@ -192,6 +195,8 @@ class AssetGenImage {
   }
 
   String get path => _assetName;
+
+  String get keyName => _assetName;
 }
 
 class SvgGenImage {
