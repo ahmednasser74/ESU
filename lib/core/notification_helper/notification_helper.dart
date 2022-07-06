@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -8,8 +9,10 @@ import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_toke
 import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
+
+import 'notification_data_model.dart';
 
 class NotificationHelper {
   static final NotificationHelper _instance = NotificationHelper._();
@@ -47,9 +50,7 @@ class NotificationHelper {
       sound: true,
     );
     FirebaseMessaging.onBackgroundMessage(
-      (message) async => await _firebaseMessagingBackgroundHandler(
-        message: message,
-      ),
+      (message) async => await _navigateFromNotification(message),
     );
   }
 
@@ -74,7 +75,7 @@ class NotificationHelper {
             badgeNumber: Random().nextInt(100),
           ),
         ),
-        payload: event.data['id'],
+        payload: jsonEncode(event.data),
       );
     });
   }
@@ -88,31 +89,17 @@ class NotificationHelper {
   }
 
   void _onTapLocalNotification(String? payload) {
-    debugPrint('payload= $payload');
     if (payload != null) {
-      debugPrint('notification payload: $payload');
+      Map<String,dynamic> message = jsonDecode(payload);
+      final data = NotificationDataModel.fromJsom(message);
+      Get.toNamed(data.route);
     }
-    // final controller = Get.find<NewsDetailsController>();
-    // controller.getNewsDetails(int.parse(payload!));
-    // Get.to(
-    //       () => const NewsScreen(),
-    // );
-  }
-
-  Future<void> _firebaseMessagingBackgroundHandler({
-    required RemoteMessage message,
-  }) async {
-    _navigateFromNotification(message);
   }
 
   Future<void> _navigateFromNotification(RemoteMessage message) async {
-    if (message.data != {} && message.data.containsKey('id')) {
-      // dynamic id = message.data['id'];
-      // final controller = Get.find<NewsDetailsController>();
-      // await controller.getNewsDetails(int.parse(id));
-      // Get.to(
-      //       () => const NewsScreen(),
-      // );
+    if (message.data != {}) {
+      final data = NotificationDataModel.fromJsom(message.data);
+      Get.toNamed(data.route);
     }
   }
 
