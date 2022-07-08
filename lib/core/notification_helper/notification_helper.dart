@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -12,6 +11,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
+import '../src/routes.dart';
 import 'notification_data_model.dart';
 
 class NotificationHelper {
@@ -22,10 +22,13 @@ class NotificationHelper {
   static NotificationHelper get instance => _instance;
 
   late FirebaseMessaging messaging;
+  Map<String, dynamic> notificationData = {};
+  late String? userToken;
 
   Future<void> init() async {
     await Firebase.initializeApp();
     messaging = FirebaseMessaging.instance;
+    userToken = SharedPrefs.instance.getString(key: SharedPrefsKeys.token);
     await messaging.requestPermission();
     Injection.di<FcmTokenUpdate>().onFcmTokenUpdate();
     await FlutterLocalNotificationsPlugin().initialize(
@@ -56,6 +59,7 @@ class NotificationHelper {
 
   void _listenOnMessageAndFireLocalNotification() {
     FirebaseMessaging.onMessage.listen((RemoteMessage event) async {
+      notificationData = event.data;
       await FlutterLocalNotificationsPlugin().show(
         Random().nextInt(100),
         event.notification!.title,
@@ -75,7 +79,7 @@ class NotificationHelper {
             badgeNumber: Random().nextInt(100),
           ),
         ),
-        payload: jsonEncode(event.data),
+        // payload: event.data['route'],
       );
     });
   }
@@ -89,17 +93,21 @@ class NotificationHelper {
   }
 
   void _onTapLocalNotification(String? payload) {
-    if (payload != null) {
-      Map<String,dynamic> message = jsonDecode(payload);
-      final data = NotificationDataModel.fromJsom(message);
-      Get.toNamed(data.route);
+    if (notificationData != {}) {
+      final data = NotificationDataModel.fromJsom(notificationData);
+      if (data.route != null && userToken != null) {
+        Get.toNamed(data.route!);
+      }
     }
   }
 
   Future<void> _navigateFromNotification(RemoteMessage message) async {
     if (message.data != {}) {
       final data = NotificationDataModel.fromJsom(message.data);
-      Get.toNamed(data.route);
+      if (data.route != null && userToken != null) {
+        Get.toNamed(Routes.homeScreen);
+        Get.toNamed(data.route!);
+      }
     }
   }
 

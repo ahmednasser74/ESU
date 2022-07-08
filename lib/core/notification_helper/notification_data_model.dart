@@ -1,7 +1,7 @@
 class NotificationDataModel {
-  NotificationDataModel({required this.route});
+  NotificationDataModel({this.route});
 
-  final String route;
+  final String? route;
 
   factory NotificationDataModel.fromJsom(Map<String, dynamic> json) => NotificationDataModel(
         route: json['route'],

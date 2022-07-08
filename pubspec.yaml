@@ -44,8 +44,7 @@ dependencies:
   #  file picker
   file_picker: ^4.6.1
   # image picker
-  image_picker: ^0.8.5+3
-  country_picker: ^2.0.15
+  image_picker: ^0.8.4+13
   url_launcher: ^6.1.2
   dartz: ^0.10.1
   # UI
