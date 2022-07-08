@@ -7,6 +7,11 @@ A new Flutter project.
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
+## To Run App
+#Development
+flutter run --flavor dev --dart-define=env_type=dev
+#Production
+flutter run --flavor prod --dart-define=env_type=prod
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
