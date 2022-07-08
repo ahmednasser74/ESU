@@ -63,9 +63,8 @@ class UpdateAppDialog extends StatelessWidget {
   void goToStore() {
     if (Platform.isAndroid) {
       HelperMethod.launchToBrowser('https://play.google.com/store/apps/details?id=com.sis.esu');
-    } else if(Platform.isIOS) {
+    } else if (Platform.isIOS) {
       HelperMethod.launchToBrowser('https://apps.apple.com/eg/app/id1631204544');
-
     }
   }
 }
