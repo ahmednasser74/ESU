@@ -4,6 +4,7 @@ import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/utils/helper_methods.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,8 +60,12 @@ class UpdateAppDialog extends StatelessWidget {
     );
   }
 
-  goToStore() {
+  void goToStore() {
     if (Platform.isAndroid) {
-    } else {}
+      HelperMethod.launchToBrowser('https://play.google.com/store/apps/details?id=com.sis.esu');
+    } else if(Platform.isIOS) {
+      HelperMethod.launchToBrowser('https://apps.apple.com/eg/app/id1631204544');
+
+    }
   }
 }
