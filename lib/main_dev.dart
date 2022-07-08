@@ -1,6 +1,6 @@
 import 'package:esu/core/file_helper/file_downloader_db/file_downloader_db.dart';
 import 'package:esu/core/flavor/flavors.dart';
-import 'package:esu/core/utils/notification_helper.dart';
+import 'package:esu/core/notification_helper/notification_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
