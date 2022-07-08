@@ -1,9 +1,12 @@
 import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/helper/app_info_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
+import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/usecases/usecase.dart';
-import 'package:esu/core/utils/notification_helper.dart';
+import 'package:esu/core/notification_helper/notification_helper.dart';
+import 'package:esu/core/utils/di.dart';
+import 'package:esu/core/utils/helper_methods.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/minimum_version_usecase.dart';
@@ -46,9 +49,8 @@ class SplashController extends GetxController {
     splashNavigation();
   }
 
-  void splashNavigation() async {
+  void splashNavigation() {
     if (!appNeedUpdate) {
-      print('token = ${await NotificationHelper.instance.getFcmToken}');
       if (prefs.getString(key: SharedPrefsKeys.token) == null) {
         Get.offNamed(Routes.loginScreen);
       } else {
@@ -87,5 +89,16 @@ class SplashController extends GetxController {
         prefs.saveString(key: SharedPrefsKeys.fcmToken, value: fcmToken);
       }
     }
+  }
+
+  void checkInternetMessage() {
+    Future.delayed(
+      const Duration(seconds: 5),
+      () => HelperMethod.showSnackBar(
+        message: 'There is a problem',
+        title: 'Please check internet connection',
+        durationSeconds: 6,
+      ),
+    );
   }
 }

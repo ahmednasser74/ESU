@@ -8,8 +8,11 @@ import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_toke
 import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
+
+import '../src/routes.dart';
+import 'notification_data_model.dart';
 
 class NotificationHelper {
   static final NotificationHelper _instance = NotificationHelper._();
@@ -19,10 +22,13 @@ class NotificationHelper {
   static NotificationHelper get instance => _instance;
 
   late FirebaseMessaging messaging;
+  Map<String, dynamic> notificationData = {};
+  late String? userToken;
 
   Future<void> init() async {
     await Firebase.initializeApp();
     messaging = FirebaseMessaging.instance;
+    userToken = SharedPrefs.instance.getString(key: SharedPrefsKeys.token);
     await messaging.requestPermission();
     Injection.di<FcmTokenUpdate>().onFcmTokenUpdate();
     await FlutterLocalNotificationsPlugin().initialize(
@@ -47,14 +53,13 @@ class NotificationHelper {
       sound: true,
     );
     FirebaseMessaging.onBackgroundMessage(
-      (message) async => await _firebaseMessagingBackgroundHandler(
-        message: message,
-      ),
+      (message) async => await _navigateFromNotification(message),
     );
   }
 
   void _listenOnMessageAndFireLocalNotification() {
     FirebaseMessaging.onMessage.listen((RemoteMessage event) async {
+      notificationData = event.data;
       await FlutterLocalNotificationsPlugin().show(
         Random().nextInt(100),
         event.notification!.title,
@@ -74,7 +79,7 @@ class NotificationHelper {
             badgeNumber: Random().nextInt(100),
           ),
         ),
-        payload: event.data['id'],
+        // payload: event.data['route'],
       );
     });
   }
@@ -88,31 +93,21 @@ class NotificationHelper {
   }
 
   void _onTapLocalNotification(String? payload) {
-    debugPrint('payload= $payload');
-    if (payload != null) {
-      debugPrint('notification payload: $payload');
+    if (notificationData != {}) {
+      final data = NotificationDataModel.fromJsom(notificationData);
+      if (data.route != null && userToken != null) {
+        Get.toNamed(data.route!);
+      }
     }
-    // final controller = Get.find<NewsDetailsController>();
-    // controller.getNewsDetails(int.parse(payload!));
-    // Get.to(
-    //       () => const NewsScreen(),
-    // );
-  }
-
-  Future<void> _firebaseMessagingBackgroundHandler({
-    required RemoteMessage message,
-  }) async {
-    _navigateFromNotification(message);
   }
 
   Future<void> _navigateFromNotification(RemoteMessage message) async {
-    if (message.data != {} && message.data.containsKey('id')) {
-      // dynamic id = message.data['id'];
-      // final controller = Get.find<NewsDetailsController>();
-      // await controller.getNewsDetails(int.parse(id));
-      // Get.to(
-      //       () => const NewsScreen(),
-      // );
+    if (message.data != {}) {
+      final data = NotificationDataModel.fromJsom(message.data);
+      if (data.route != null && userToken != null) {
+        Get.toNamed(Routes.homeScreen);
+        Get.toNamed(data.route!);
+      }
     }
   }
 

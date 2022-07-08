@@ -2,7 +2,7 @@ import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/utils/helper_methods.dart';
-import 'package:esu/core/utils/notification_helper.dart';
+import 'package:esu/core/notification_helper/notification_helper.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/data/model/request/login/login_request_model.dart';
