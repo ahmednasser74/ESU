@@ -35,8 +35,8 @@ mixin ValidatorProperties {
   String? nationalIdValidator(String? v) {
     if (v!.isEmpty) {
       return LocalizationKeys.thisFieldIsRequired.tr;
-    } else if (v.length < 10) {
-      return LocalizationKeys.atLeast10Characters.tr;
+    } else if (v.length < 3) {
+      return LocalizationKeys.atLeast3Characters.tr;
     }
     return null;
   }

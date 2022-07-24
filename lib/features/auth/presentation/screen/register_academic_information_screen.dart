@@ -1,6 +1,8 @@
 import 'package:esu/core/const/list_const.dart';
+import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/styles.dart';
+import 'package:esu/core/src/widgets/app_container.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/core/src/widgets/error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
@@ -12,6 +14,9 @@ import 'package:esu/features/auth/presentation/widgets/title_required_field_widg
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/src/assets.gen.dart';
+import '../../../../core/src/colors.dart';
 
 class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
   const RegisterAcademicInfoScreen({Key? key}) : super(key: key);
@@ -27,15 +32,11 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
           child: controller.obx(
             (state) => Column(
               children: [
-                Container(
-                  padding: EdgeInsets.all(10.r),
-                  decoration: CustomStyle.containerShadowDecoration.copyWith(
-                    border: Border.all(color: Colors.red),
-                  ),
+                AppContainer(
+                  borderColor: Colors.red.shade900,
+                  boxShadowBlurColor: Colors.redAccent,
                   child: Text(
-                    LocalizationKeys
-                        .pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature
-                        .tr,
+                    LocalizationKeys.pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature.tr,
                     textAlign: TextAlign.center,
                   ),
                 ),

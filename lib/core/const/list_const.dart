@@ -6,5 +6,6 @@ class ListConst {
     LocalizationKeys.secondarySchool.tr,
     LocalizationKeys.bachelor.tr,
     LocalizationKeys.master.tr,
+    // LocalizationKeys.phd.tr,
   ];
 }
