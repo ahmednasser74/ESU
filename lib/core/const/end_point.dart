@@ -1,3 +1,5 @@
+import 'package:esu/core/flavor/flavors.dart';
+
 class Endpoints {
   static const String baseUrlProduction = 'https://sis.esu.ac.ae/api/';
   static const String baseUrlDev = 'https://sisdev.esu.ac.ae/api/';
