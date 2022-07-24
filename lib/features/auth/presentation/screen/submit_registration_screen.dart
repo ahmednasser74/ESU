@@ -61,7 +61,7 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                       ),
                       SizedBox(height: 8.h),
                       Text(
-                        LocalizationKeys.weRecommendToUseEmail.tr,
+                        LocalizationKeys.youShouldToReadTermsAndCondition.tr,
                         style: TextStyle(
                           color: AppColors.primaryColor,
                           fontSize: 16.sp,
@@ -77,24 +77,17 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                     SizedBox(
                       width: .45.sw,
                       child: GetBuilder<SubmitAdmissionController>(
-                        builder: (controller) =>
-                            SubmitRegistrationCheckBoxWidget(
+                        builder: (controller) => SubmitRegistrationCheckBoxWidget(
                           value: controller.isTermsAndConditionApproved.value,
-                          onChanged: (v) =>
-                              controller.isTermsAndConditionApproved.value = v,
+                          onChanged: (v) => controller.isTermsAndConditionApproved.value = v,
                         ),
                       ),
                     ),
-                    // Checkbox(
-                    //   value: isApproved,
-                    //   onChanged: (v) => setState(() => isApproved = v!),
-                    // ),
-                    // Text(LocalizationKeys.iReadAndAgree.tr),
                     SizedBox(width: 4.w),
                     Expanded(
                       child: InkWell(
                         onTap: () => HelperMethod.launchToBrowser(
-                          'https://esu.ac.ae/index.php/admissions',
+                          'https://esu.ac.ae/en/privacy-policy-2/',
                         ),
                         child: Text(
                           LocalizationKeys.termsAndCondition.tr,

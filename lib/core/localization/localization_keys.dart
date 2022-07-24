@@ -41,8 +41,9 @@ class LocalizationKeys {
   static const String next = 'next';
   static const String select = 'select';
   static const String secondarySchool = 'secondarySchool';
-  static const String master = 'master';
   static const String bachelor = 'bachelor';
+  static const String master = 'master';
+  static const String phd = 'phd';
   static const String pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature = 'pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature';
 
   //-------------------------------------------------------------------------
@@ -90,6 +91,7 @@ class LocalizationKeys {
   ///submit registration
   static const String submitRegistration = 'Submit Registration';
   static const String weRecommendToUseEmail = 'We recommend not to use the e-mail from (hotmail.com) company, as they have a problem with some e-mails not being sent to them.';
+  static const String youShouldToReadTermsAndCondition = 'youShouldToReadTermsAndCondition';
   static const String termsAndCondition = 'termsAndCondition';
   static const String iReadAndAgree = 'iReadAndAgree';
   static const String mustToApproveOnTermsAndCondition = 'must to approve on terms and condition';

@@ -1,3 +1,4 @@
+import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
@@ -12,6 +13,10 @@ import 'package:esu/features/auth/presentation/widgets/title_required_field_widg
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/src/assets.gen.dart';
+import '../../../../core/src/colors.dart';
+import '../../../../core/src/widgets/app_container.dart';
 
 // ignore: must_be_immutable
 class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
@@ -29,6 +34,37 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
             padding: const EdgeInsets.symmetric(horizontal: 18),
             child: Column(
               children: [
+                10.heightBox,
+                AppContainer(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppColors.primaryColor,
+                            width: 1.5,
+                          ),
+                        ),
+                        child: Assets.icons.notificationIcon.image(
+                          height: 24.sp,
+                          color: AppColors.primaryColor,
+                        ),
+                      ),
+                      SizedBox(height: 8.h),
+                      Text(
+                        LocalizationKeys.weRecommendToUseEmail.tr,
+                        style: TextStyle(
+                          color: AppColors.primaryColor,
+                          fontSize: 16.sp,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
                 TitleRequiredFieldWidget(title: LocalizationKeys.email.tr),
                 AppTextFieldWidget(
                   controller: controller.emailController,
