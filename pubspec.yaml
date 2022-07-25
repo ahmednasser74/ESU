@@ -134,6 +134,8 @@ flavorizr:
 
       ios:
         bundleId: "com.sis.esu"
+        firebase:
+          config: "./firebase/prod/GoogleService-Info.plist"
 
     dev:
       app:
@@ -145,3 +147,5 @@ flavorizr:
 
       ios:
         bundleId: "com.sis.esu.dev"
+        firebase:
+          config: "./firebase/dev/GoogleService-Info.plist"
