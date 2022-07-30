@@ -31,17 +31,20 @@ class _LetterPdfViewerScreenState extends State<LetterPdfViewerScreen> {
   };
   late FileDownloadManager fileManager;
   int? progress;
+  late final PermissionStatus storagePermissionStatus;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      storagePermissionStatus = await Permission.storage.request();
+    });
     pdfPath = '${Endpoints.baseUrl}letters/${widget.id}?lang=${widget.lang}';
     fileManager = FileDownloadManager(fileUrl: pdfPath, headers: headers);
     fileManager.events.listen((data) {
       String id = data[0].toString();
       if (fileManager.taskId == id) {
         int progress = data[2];
-        print('progress = $progress');
         setState(() {
           this.progress = progress;
         });
@@ -54,8 +57,7 @@ class _LetterPdfViewerScreenState extends State<LetterPdfViewerScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          final status = await Permission.storage.request();
-          if (status.isGranted) {
+          if (storagePermissionStatus.isGranted) {
             await fileManager.downloadFile();
             HelperMethod.showSnackBar(
               title: LocalizationKeys.done.tr,

@@ -25,8 +25,7 @@ class TranscriptPdfWidget extends GetView<TranscriptController> {
         controller: pdfViewerController,
         headers: {
           'Accept': 'application/json',
-          'Authorization':
-              'Bearer ${SharedPrefs.instance.getString(key: SharedPrefsKeys.token)}',
+          'Authorization': 'Bearer ${SharedPrefs.instance.getString(key: SharedPrefsKeys.token)}',
         },
       ),
     );

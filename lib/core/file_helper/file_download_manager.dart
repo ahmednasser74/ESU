@@ -26,9 +26,11 @@ class FileDownloadManager {
 
   String? filePath;
   String? taskId;
+  String? fileExtension;
 
   FileDownloadManager({
     required this.fileUrl,
+    this.fileExtension = 'pdf',
     this.headers,
   }) {
     IsolateNameServer.registerPortWithName(
@@ -78,7 +80,7 @@ class FileDownloadManager {
       url: fileUrl,
       headers: headers,
       savedDir: externalDir!.path,
-      fileName: fileName,
+      fileName: '$fileName.$fileExtension',
       showNotification: true,
       openFileFromNotification: true,
     );
