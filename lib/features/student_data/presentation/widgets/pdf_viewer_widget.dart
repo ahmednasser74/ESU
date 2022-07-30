@@ -1,4 +1,3 @@
-import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/file_helper/file_download_manager.dart';
 import 'package:esu/core/localization/localization_keys.dart';
@@ -10,21 +9,18 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import '../../../../core/utils/helper_methods.dart';
 
-class LetterPdfViewerScreen extends StatefulWidget {
-  const LetterPdfViewerScreen({
+class PdfViewerWidget extends StatefulWidget {
+  const PdfViewerWidget({
     Key? key,
-    required this.id,
-    required this.lang,
+    required this.pdfUrl,
   }) : super(key: key);
-  final int id;
-  final String lang;
+  final String pdfUrl;
 
   @override
-  State<LetterPdfViewerScreen> createState() => _LetterPdfViewerScreenState();
+  State<PdfViewerWidget> createState() => _PdfViewerWidgetState();
 }
 
-class _LetterPdfViewerScreenState extends State<LetterPdfViewerScreen> {
-  late String pdfPath;
+class _PdfViewerWidgetState extends State<PdfViewerWidget> {
   final headers = {
     'Accept': 'application/json',
     'Authorization': 'Bearer ${SharedPrefs.instance.getString(key: SharedPrefsKeys.token)}',
@@ -39,8 +35,7 @@ class _LetterPdfViewerScreenState extends State<LetterPdfViewerScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       storagePermissionStatus = await Permission.storage.request();
     });
-    pdfPath = '${Endpoints.baseUrl}letters/${widget.id}?lang=${widget.lang}';
-    fileManager = FileDownloadManager(fileUrl: pdfPath, headers: headers);
+    fileManager = FileDownloadManager(fileUrl: widget.pdfUrl, headers: headers);
     fileManager.events.listen((data) {
       String id = data[0].toString();
       if (fileManager.taskId == id) {
@@ -74,7 +69,7 @@ class _LetterPdfViewerScreenState extends State<LetterPdfViewerScreen> {
         title: Text(LocalizationKeys.letterPdfViewer.tr),
       ),
       body: SfPdfViewer.network(
-        pdfPath,
+        widget.pdfUrl,
         headers: headers,
       ),
     );

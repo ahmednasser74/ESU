@@ -1,9 +1,10 @@
+import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/features/student_data/data/models/response/letters/letters_data_response_model.dart';
-import 'package:esu/features/student_data/presentation/screen/letter_pdf_viewer_screen.dart';
+import 'package:esu/features/student_data/presentation/widgets/pdf_viewer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -45,7 +46,7 @@ class LetterItemWidget extends StatelessWidget {
               Expanded(
                 child: AppButton(
                   onPressed: () => Get.to(
-                    LetterPdfViewerScreen(id: letter.id, lang: 'en'),
+                    PdfViewerWidget(pdfUrl: '${Endpoints.baseUrl}letters/${letter.id}?lang=en'),
                   ),
                   backgroundColor: Colors.white,
                   borderColor: AppColors.primaryColor,
@@ -67,8 +68,9 @@ class LetterItemWidget extends StatelessWidget {
               SizedBox(width: 10.w),
               Expanded(
                 child: AppButton(
-                  onPressed: () =>
-                      Get.to(LetterPdfViewerScreen(id: letter.id, lang: 'ar')),
+                  onPressed: () => Get.to(
+                    PdfViewerWidget(pdfUrl: '${Endpoints.baseUrl}letters/${letter.id}?lang=ar'),
+                  ),
                   backgroundColor: Colors.white,
                   borderColor: AppColors.primaryColor,
                   child: Row(
