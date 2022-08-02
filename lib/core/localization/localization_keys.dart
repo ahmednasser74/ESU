@@ -266,7 +266,7 @@ class LocalizationKeys {
 
   //-------------------------------------------------------------------------
   ///Course register
-  static const String coursesRegister = 'coursesRegister';
+  static const String editCourses = 'coursesRegister';
   static const String registerForTheCourse = 'registerForTheCourse';
   static const String course = 'course';
   static const String courseHours = 'courseHours';

@@ -180,7 +180,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 },
               ),
               ListTile(
-                title: Text(LocalizationKeys.coursesRegister.tr),
+                title: Text(LocalizationKeys.editCourses.tr),
                 leading: Assets.icons.termRegistration.image(
                   color: AppColors.primaryColor,
                   height: 26.h,

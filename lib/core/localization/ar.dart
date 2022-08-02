@@ -263,7 +263,7 @@ const Map<String, String> ar = {
   LocalizationKeys.successfullyDownloadedFileOnYourDevice: 'تم تحميل الملف بنجاح على جهازك',
   //-------------------------------------------------------------------------
   ///course register
-  LocalizationKeys.coursesRegister: 'تسجيل المواد',
+  LocalizationKeys.editCourses: 'تسجيل المواد',
   LocalizationKeys.registerForTheCourse: 'تسجيل المادة',
   LocalizationKeys.course: 'المادة',
   LocalizationKeys.courseHours: 'ساعات المادة',

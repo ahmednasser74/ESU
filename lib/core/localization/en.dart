@@ -266,7 +266,7 @@ const Map<String, String> en = {
 
   //-------------------------------------------------------------------------
   ///course register
-  LocalizationKeys.coursesRegister: 'Courses Register',
+  LocalizationKeys.editCourses: 'Edit Courses',
   LocalizationKeys.registerForTheCourse: 'Register For The Course',
   LocalizationKeys.course: 'Course',
   LocalizationKeys.courseHours: 'Course Hours',
