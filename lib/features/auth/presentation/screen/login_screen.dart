@@ -3,6 +3,7 @@ import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
+import 'package:esu/core/src/widgets/custom_rich_text.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,9 +36,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     backgroundColor: Colors.transparent,
                     borderColor: AppColors.primaryColor,
                     child: Text(
-                      controller.translateController?.appLocale == 'ar'
-                          ? 'English'
-                          : 'العربية',
+                      Get.locale.toString() == 'ar' ? 'English' : 'العربية',
                     ),
                   ),
                 ),
@@ -45,7 +44,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 Center(
                   child: Hero(
                     tag: 'splash_tag',
-                    child: Assets.images.appIcon.image(
+                    child: Assets.images.appIconTransparent.image(
                       height: .24.sh,
                     ),
                   ),

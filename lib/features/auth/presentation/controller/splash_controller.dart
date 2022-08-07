@@ -1,21 +1,35 @@
 import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/helper/app_info_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
+import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/usecases/usecase.dart';
+import 'package:esu/core/notification_helper/notification_helper.dart';
+import 'package:esu/core/utils/di.dart';
+import 'package:esu/core/utils/helper_methods.dart';
 import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/minimum_version_usecase.dart';
+import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
 import 'package:esu/features/auth/presentation/widgets/update_app_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/const/shared_prefs_keys.dart';
+
 class SplashController extends GetxController {
-  SplashController({required this.minimumVersionUseCase});
+  SplashController({
+    required this.registerFcmTokenUseCase,
+    required this.minimumVersionUseCase,
+  });
 
   final MinimumVersionUseCase minimumVersionUseCase;
-
+  final RegisterFcmTokenUseCase registerFcmTokenUseCase;
   String appVersion = '';
   late bool appNeedUpdate;
+  late bool isFailed;
+  late bool isLoading;
+  final prefs = SharedPrefs.instance;
 
   @override
   void onInit() async {
@@ -24,20 +38,20 @@ class SplashController extends GetxController {
   }
 
   void init() async {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       Get.find<DioRequestHandlingController>();
       Get.find<TranslationController>();
     });
     await AppInfoHelper.init();
     appVersion = AppInfoHelper.getAppVersion;
     await getMinimumVersion();
+    await updateFcmToken();
     splashNavigation();
   }
 
-  void splashNavigation() {
+  void splashNavigation() async {
     if (!appNeedUpdate) {
-      final token = SharedPrefs.instance.getToken();
-      if (token == null) {
+      if (prefs.getString(key: SharedPrefsKeys.token) == null) {
         Get.offNamed(Routes.loginScreen);
       } else {
         Get.offNamed(Routes.homeScreen);
@@ -58,6 +72,33 @@ class SplashController extends GetxController {
           minVersion: minVersion,
         );
       },
+    );
+  }
+
+  Future<void> updateFcmToken() async {
+    final String? token = prefs.getString(key: SharedPrefsKeys.token);
+    if (token != null) {
+      final fcmToken = await NotificationHelper.instance.getFcmToken;
+      final String? savedFcmToken = prefs.getString(key: SharedPrefsKeys.fcmToken);
+      if (savedFcmToken == null || fcmToken != savedFcmToken) {
+        final requestModel = FcmTokenRequestModel(
+          fcmToken: fcmToken,
+          type: savedFcmToken == null ? null : 'update',
+        );
+        await registerFcmTokenUseCase(params: requestModel);
+        prefs.saveString(key: SharedPrefsKeys.fcmToken, value: fcmToken);
+      }
+    }
+  }
+
+  void checkInternetMessage() {
+    Future.delayed(
+      const Duration(seconds: 5),
+      () => HelperMethod.showSnackBar(
+        message: 'There is a problem',
+        title: 'Please check internet connection',
+        durationSeconds: 6,
+      ),
     );
   }
 }

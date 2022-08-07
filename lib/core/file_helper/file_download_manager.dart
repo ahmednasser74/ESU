@@ -22,12 +22,16 @@ class FileDownloadManager {
   final _eventController = Injection.di<StreamController>();
 
   String fileUrl;
+  Map<String, String>? headers;
 
   String? filePath;
   String? taskId;
+  String? fileExtension;
 
   FileDownloadManager({
     required this.fileUrl,
+    this.fileExtension = 'pdf',
+    this.headers,
   }) {
     IsolateNameServer.registerPortWithName(
       _port.sendPort,
@@ -71,13 +75,12 @@ class FileDownloadManager {
 
   Future<void> downloadFile() async {
     final fileName = 'ESU-${DateTime.now().toIso8601String()}';
-    final externalDir = Platform.isAndroid
-        ? await getExternalStorageDirectory()
-        : await getApplicationDocumentsDirectory();
+    final externalDir = Platform.isAndroid ? await getExternalStorageDirectory() : await getApplicationDocumentsDirectory();
     taskId = await FlutterDownloader.enqueue(
       url: fileUrl,
+      headers: headers,
       savedDir: externalDir!.path,
-      fileName: fileName,
+      fileName: '$fileName.$fileExtension',
       showNotification: true,
       openFileFromNotification: true,
     );

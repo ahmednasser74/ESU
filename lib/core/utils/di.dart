@@ -10,6 +10,7 @@ import 'package:esu/core/file_helper/file_downloader_db/file_downloader_db.dart'
 import 'package:esu/core/file_helper/file_downloader_db/file_downloader_model.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/network/network_information.dart';
+import 'package:esu/core/notification_helper/notification_helper.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:esu/features/auth/data/datasources/auth_remote_data_source.dart';
@@ -20,7 +21,9 @@ import 'package:esu/features/auth/domin/usecases/forget_password_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/login_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/lookup_use_case.dart';
 import 'package:esu/features/auth/domin/usecases/minimum_version_usecase.dart';
+import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/reset_password_usecase.dart';
+import 'package:esu/features/auth/domin/usecases/delete_fcm_token_usecase.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
@@ -39,6 +42,7 @@ import 'package:esu/features/home/domin/usecases/mark_single_notification_as_rea
 import 'package:esu/features/home/domin/usecases/notification_usecase.dart';
 import 'package:esu/features/home/domin/usecases/popular_question_usecase.dart';
 import 'package:esu/features/home/presentation/controller/home_controller.dart';
+import 'package:esu/features/home/presentation/controller/logout_controler_controller.dart';
 import 'package:esu/features/home/presentation/controller/notification_controller.dart';
 import 'package:esu/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:esu/features/home/presentation/controller/profile_controller.dart';
@@ -93,15 +97,18 @@ class Injection {
 
   static Future<void> init() async {
     await _core();
-    _authCycle();
     _dioHelper();
     _homeCycle();
     _studentDataCycle();
     _studentActionsCycle();
     _hiveDb();
+    _authCycle();
   }
 
   static Future<void> _core() async {
+    di.registerFactory(
+      () => FcmTokenUpdate(registerFcmTokenUseCase: di()),
+    );
     // shared preference
     final sp = await SharedPreferences.getInstance();
     di.registerLazySingleton<SharedPreferences>(() => sp);
@@ -131,6 +138,7 @@ class Injection {
     di.registerFactory<LoginController>(
       () => LoginController(
         loginUseCase: di(),
+        registerFcmTokenUseCase: di(),
       ),
     );
     di.registerFactory<SubmitAdmissionController>(
@@ -139,7 +147,10 @@ class Injection {
       ),
     );
     di.registerFactory<SplashController>(
-      () => SplashController(minimumVersionUseCase: di()),
+      () => SplashController(
+        minimumVersionUseCase: di(),
+        registerFcmTokenUseCase: di(),
+      ),
     );
     di.registerFactory<AcademicInfoController>(
       () => AcademicInfoController(lookupUseCase: di()),
@@ -172,6 +183,12 @@ class Injection {
     );
     di.registerLazySingleton<MinimumVersionUseCase>(
       () => MinimumVersionUseCase(authRepository: di()),
+    );
+    di.registerLazySingleton<RegisterFcmTokenUseCase>(
+      () => RegisterFcmTokenUseCase(authRepository: di()),
+    );
+    di.registerLazySingleton<DeleteFcmTokenUseCase>(
+      () => DeleteFcmTokenUseCase(authRepository: di()),
     );
 
     //repo
@@ -212,6 +229,9 @@ class Injection {
         markAllNotificationAsReadUseCase: di(),
         markSingleNotificationAsReadUseCase: di(),
       ),
+    );
+    di.registerFactory<LogoutController>(
+      () => LogoutController(deleteFcmTokenUseCase: di()),
     );
 
     // Use cases

@@ -65,54 +65,41 @@ class HomeHeaderWidget extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: FittedBox(
-                      child: Column(
-                        children: [
-                          Text(
-                            LocalizationKeys.programAmount.tr,
-                            textAlign: TextAlign.center,
-                          ),
-                          Text('\$${data.programCost}'),
-                        ],
-                      ),
+                    child: Column(
+                      children: [
+                        Text(
+                          LocalizationKeys.programAmount.tr,
+                          textAlign: TextAlign.center,
+                        ),
+                        Text('${data.programCost}'),
+                      ],
                     ),
                   ),
-                  Container(
-                    width: .5.w,
-                    height: 50.h,
-                    color: Colors.black,
-                    margin: EdgeInsets.symmetric(horizontal: 6.w),
-                  ),
+                  _verticalDivider(),
                   Expanded(
-                    child: FittedBox(
-                      child: Column(
-                        children: [
-                          Text(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 70.w,
+                          child: Text(
                             LocalizationKeys.paidAmount.tr,
                             textAlign: TextAlign.center,
                           ),
-                          Text('\$${data.paid}'),
-                        ],
-                      ),
+                        ),
+                        Text('${data.paid}'),
+                      ],
                     ),
                   ),
-                  Container(
-                    width: .5.w,
-                    height: 50.h,
-                    color: Colors.black,
-                    margin: EdgeInsets.symmetric(horizontal: 6.w),
-                  ),
+                  _verticalDivider(),
                   Expanded(
-                    child: FittedBox(
-                      child: Column(
-                        children: [
-                          Text(
-                            LocalizationKeys.unPaidAmount.tr,
-                            textAlign: TextAlign.center,
-                          ),
-                          Text('\$${data.unpaid}'),
-                        ],
-                      ),
+                    child: Column(
+                      children: [
+                        Text(
+                          LocalizationKeys.unPaidAmount.tr,
+                          textAlign: TextAlign.center,
+                        ),
+                        Text('${data.unpaid}'),
+                      ],
                     ),
                   ),
                 ],
@@ -135,4 +122,11 @@ class HomeHeaderWidget extends StatelessWidget {
       ],
     );
   }
+
+  Widget _verticalDivider() => Container(
+        width: .5.w,
+        height: 50.h,
+        color: Colors.black,
+        margin: EdgeInsets.symmetric(horizontal: 6.w),
+      );
 }

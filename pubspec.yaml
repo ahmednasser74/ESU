@@ -1,7 +1,7 @@
 name: esu
 description: A new Flutter application.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.1+8
+version: 1.0.1+10
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -25,6 +25,7 @@ dependencies:
   get_it: ^7.2.0
   #internect checker
   internet_connection_checker: ^0.0.1+4
+  connectivity_plus: ^2.3.5
   #permissions
   permission_handler: ^9.2.0
   #loading progress indicator
@@ -43,8 +44,7 @@ dependencies:
   #  file picker
   file_picker: ^4.6.1
   # image picker
-  image_picker: ^0.8.5+3
-  country_picker: ^2.0.15
+  image_picker: ^0.8.4+13
   url_launcher: ^6.1.2
   dartz: ^0.10.1
   # UI
@@ -55,9 +55,9 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^20.1.57-beta
   #firebase
 #  firebase_core: ^1.17.1
-#  firebase_messaging: ^11.4.1
+  firebase_messaging: ^11.4.1
 #  firebase_remote_config: ^2.0.8
-#  flutter_local_notifications: ^9.6.0
+  flutter_local_notifications: ^9.6.0
   # date format
   intl: ^0.17.0
   #  video player
@@ -79,6 +79,8 @@ dependencies:
   search_page: ^2.0.0+1
   # app info
   package_info_plus: ^1.4.2
+  # control app badge
+  flutter_app_badger: ^1.4.0
 
 dev_dependencies:
   build_runner: ^2.1.11
@@ -98,7 +100,7 @@ flutter_gen:
 flutter_icons:
   android: true
   ios: true
-  image_path: 'assets/images/app_icon_bg.jpeg'
+  image_path: 'assets/images/app_icon.png'
 
 flutter:
   uses-material-design: true

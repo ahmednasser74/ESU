@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:esu/core/models/response/generic_model.dart';
 import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
+import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
 import 'package:esu/features/auth/data/model/request/forget_password/reset_password_request_model.dart';
 import 'package:esu/features/auth/data/model/request/login/login_request_model.dart';
@@ -33,4 +35,12 @@ abstract class AuthRepository {
   });
 
   Future<Either<String?, MinimumVersionResponseModel>> getMinimumVersion();
+
+  Future<Either<String?, GenericResponseModel>> registerFcmToken({
+    required FcmTokenRequestModel requestModel,
+  });
+
+  Future<Either<String?, GenericResponseModel>> deleteFcmToken({
+    required FcmTokenRequestModel requestModel,
+  });
 }

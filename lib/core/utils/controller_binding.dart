@@ -8,6 +8,7 @@ import 'package:esu/features/auth/presentation/controller/reset_password_control
 import 'package:esu/features/auth/presentation/controller/splash_controller.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:esu/features/home/presentation/controller/home_controller.dart';
+import 'package:esu/features/home/presentation/controller/logout_controler_controller.dart';
 import 'package:esu/features/home/presentation/controller/notification_controller.dart';
 import 'package:esu/features/home/presentation/controller/popular_question_controller.dart';
 import 'package:esu/features/home/presentation/controller/profile_controller.dart';
@@ -56,6 +57,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<NotificationController>(), fenix: true);
     Get.lazyPut(() => Injection.di<HomeController>(), fenix: true);
     Get.lazyPut(() => Injection.di<PopularQuestionController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<LogoutController>(), fenix: true);
     //-----------------------------------------------------------------------
     ///student data
     Get.lazyPut(() => Injection.di<LettersController>(), fenix: true);

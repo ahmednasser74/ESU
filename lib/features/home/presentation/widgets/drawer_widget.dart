@@ -1,10 +1,11 @@
+import 'package:esu/core/helper/app_info_helper.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/utils/pref_util.dart';
-import 'package:esu/features/auth/presentation/controller/splash_controller.dart';
+import 'package:esu/features/home/presentation/controller/logout_controler_controller.dart';
 import 'package:esu/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +20,16 @@ class DrawerWidget extends StatefulWidget {
 
 class _DrawerWidgetState extends State<DrawerWidget> {
   final student = SharedPrefs.instance.getUser();
-  final _splashController = Get.find<SplashController>();
+  String? appVersion;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      appVersion = AppInfoHelper.getAppVersion;
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +71,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ),
               SizedBox(height: 6.h),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 8.w),
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
                 child: Text(
-                  Get.locale.toString() == 'en'
-                      ? SharedPrefs.instance.getUser().nameEn
-                      : SharedPrefs.instance.getUser().nameAr,
+                  Get.locale.toString() == 'en' ? SharedPrefs.instance.getUser().nameEn : SharedPrefs.instance.getUser().nameAr,
                   style: TextStyle(color: Colors.white, fontSize: 16.r),
                   textAlign: TextAlign.center,
                 ),
@@ -172,7 +180,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 },
               ),
               ListTile(
-                title: Text(LocalizationKeys.coursesRegister.tr),
+                title: Text(LocalizationKeys.editCourses.tr),
                 leading: Assets.icons.termRegistration.image(
                   color: AppColors.primaryColor,
                   height: 26.h,
@@ -268,10 +276,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 onTap: () {
                   Get.back();
                   LogoutDialog(
-                    onTapLogout: () {
-                      SharedPrefs.instance.removeAllKeys();
-                      Get.offAllNamed(Routes.loginScreen);
-                    },
+                    onTapLogout: Get.find<LogoutController>().logout,
                   ).show(context);
                 },
               ),
@@ -282,7 +287,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 child: Center(
                   child: Text(
-                    'v${_splashController.appVersion}',
+                    'v$appVersion',
                     style: const TextStyle(color: AppColors.primaryColor),
                   ),
                 ),

@@ -13,9 +13,9 @@ const Map<String, String> en = {
   LocalizationKeys.changePassword: "Change Password",
   LocalizationKeys.userName: "User name",
   LocalizationKeys.studentId: "Student ID",
-  LocalizationKeys.doNotHaveAccount: "Don't have an account ?\n",
+  LocalizationKeys.doNotHaveAccount: "Apply Now\n",
+  LocalizationKeys.admission: "Register",
   LocalizationKeys.signUp: "SignUp!",
-  LocalizationKeys.admission: "Admission",
   LocalizationKeys.emailIsRequired: "Email is required",
   LocalizationKeys.passwordIsRequired: "Password is required",
   LocalizationKeys.passwordMustContain: "Password must contain at least one uppercase, one lowercase, one number and one special character",
@@ -42,8 +42,9 @@ const Map<String, String> en = {
   LocalizationKeys.next: 'Next',
   LocalizationKeys.select: 'Select',
   LocalizationKeys.secondarySchool: 'Secondary School',
-  LocalizationKeys.master: 'Master',
   LocalizationKeys.bachelor: 'Bachelor\'s',
+  LocalizationKeys.master: 'Master',
+  LocalizationKeys.phd: 'PhD',
   LocalizationKeys.pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature: 'Please to complete registration be sure to download contract and have your signature',
 
   //-------------------------------------------------------------------------
@@ -75,10 +76,10 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///files upload
   LocalizationKeys.filesUpload: 'Files Upload',
-  LocalizationKeys.copyOfYourIdOrPassport: 'A copy of your ID or passport',
-  LocalizationKeys.copyOfTheAcademicCertificate: 'A copy of the academic certificate',
+  LocalizationKeys.copyOfYourIdOrPassport: 'ID or passport',
+  LocalizationKeys.copyOfTheAcademicCertificate: 'Last academic degree certificate',
   LocalizationKeys.copyOfTranscript: ' copy of transcript',
-  LocalizationKeys.copyOfTheStudentsContractWithTheUniversity: 'A copy of the students contract with the university',
+  LocalizationKeys.copyOfTheStudentsContractWithTheUniversity: 'Student - University contract',
   LocalizationKeys.bachelorMasterContractDownloadLink: '(Bachelor/Master contract download link)',
   LocalizationKeys.phdContractDownloadLink: '(PHD contract download link)',
   LocalizationKeys.theContractMustBeSignedHandwrittenAndOnAllPages: 'The contract must be signed handwritten and on all pages!',
@@ -88,7 +89,8 @@ const Map<String, String> en = {
   ///submit registration
   LocalizationKeys.submitRegistration: 'Submit Registration',
   LocalizationKeys.weRecommendToUseEmail: 'We recommend not to use the e-mail from (hotmail.com) company, as they have a problem with some e-mails not being sent to them.',
-  LocalizationKeys.iReadAndAgree: 'I read and agree to ',
+  LocalizationKeys.youShouldToReadTermsAndCondition: 'Dear applicant in order to finish your application, you have to read and agree with the terms and conditions of the university.',
+  LocalizationKeys.iReadAndAgree: 'I agree to ',
   LocalizationKeys.termsAndCondition: 'The terms and conditions of admission',
   LocalizationKeys.mustToApproveOnTermsAndCondition: 'Must to approve on terms and condition',
   LocalizationKeys.success: 'Success',
@@ -264,7 +266,7 @@ const Map<String, String> en = {
 
   //-------------------------------------------------------------------------
   ///course register
-  LocalizationKeys.coursesRegister: 'Courses Register',
+  LocalizationKeys.editCourses: 'Edit Courses',
   LocalizationKeys.registerForTheCourse: 'Register For The Course',
   LocalizationKeys.course: 'Course',
   LocalizationKeys.courseHours: 'Course Hours',

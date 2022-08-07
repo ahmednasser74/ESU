@@ -1,3 +1,4 @@
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class WebViewScreenState extends State<WebViewScreen> {
   void initState() {
     super.initState();
     // if (Platform.isAndroid) WebView.platform = AndroidWebView();
-    token = SharedPrefs.instance.getToken() ?? '';
+    token = SharedPrefs.instance.getString(key: SharedPrefsKeys.token) ?? '';
   }
 
   @override

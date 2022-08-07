@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/utils/pref_util.dart';
@@ -13,7 +14,7 @@ class DioRequestHandlingController extends GetxController {
   final NetworkInformation networkInformation;
 
   Future<Map<String, dynamic>> onRequestCallback() async {
-    String? token = SharedPrefs.instance.getToken();
+    String? token = SharedPrefs.instance.getString(key: SharedPrefsKeys.token);
     return {
       if (token != null) "Authorization": "Bearer $token",
     };

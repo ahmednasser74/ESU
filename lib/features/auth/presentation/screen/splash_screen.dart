@@ -17,7 +17,7 @@ class SplashScreen extends GetView<SplashController> {
             Center(
               child: Hero(
                 tag: 'splash_tag',
-                child: Assets.images.appIcon.image(width: .7.sw, height: .5.sh),
+                child: Assets.images.appIconTransparent.image(width: .7.sw, height: .5.sh),
               ),
             ),
             const Spacer(),
@@ -25,7 +25,13 @@ class SplashScreen extends GetView<SplashController> {
               controller.appVersion.isEmpty ? '' : 'v${controller.appVersion}',
               style: const TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: .10.sh),
+            SizedBox(height: .02.sh),
+            SizedBox(
+              height: 12.r,
+              width: 12.r,
+              child: const CircularProgressIndicator(strokeWidth: 2),
+            ),
+            SizedBox(height: .02.sh),
           ],
         ),
       ),

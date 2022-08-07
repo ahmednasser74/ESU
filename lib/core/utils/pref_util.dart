@@ -28,21 +28,12 @@ class SharedPrefs {
   }
 
   //----------------------------------------------------------------------
-  void saveLanguage(String language) {
-    prefs?.setString(SharedPrefsKeys.language, language);
+  void saveString({required String key, required String value}) {
+    prefs?.setString(key, value);
   }
 
-  String getLanguageSelected() {
-    return prefs?.getString(SharedPrefsKeys.language) ?? 'ar';
-  }
-
-  //----------------------------------------------------------------------
-  void saveToken({required String token}) {
-    prefs?.setString(SharedPrefsKeys.token, token);
-  }
-
-  String? getToken() {
-    return prefs?.getString(SharedPrefsKeys.token);
+  String? getString({required String key}) {
+    return prefs?.getString(key);
   }
 
   //----------------------------------------------------------------------

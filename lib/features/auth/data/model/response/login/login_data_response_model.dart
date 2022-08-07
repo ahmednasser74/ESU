@@ -1,3 +1,4 @@
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/response/login/student_response_model.dart';
 
@@ -12,7 +13,8 @@ class LoginDataResponseModel {
 
   factory LoginDataResponseModel.fromJson(Map<String, dynamic> json) =>
       LoginDataResponseModel(
-        token: json["token"] ?? SharedPrefs.instance.getToken(),
+        token: json["token"] ??
+            SharedPrefs.instance.getString(key: SharedPrefsKeys.token),
         student: StudentResponseModel.fromJson(
           json["student"],
         ),
