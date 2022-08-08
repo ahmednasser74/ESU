@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'ESU',
         theme: CustomsThemes.defaultThemeData,
-        initialRoute: Routes.registerPersonalInfo,
+        initialRoute: Routes.splashScreen,
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),
         translations: Translation(),
