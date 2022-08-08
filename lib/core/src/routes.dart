@@ -1,5 +1,6 @@
 import 'package:esu/features/auth/presentation/screen/forget_password_screen.dart';
 import 'package:esu/features/auth/presentation/screen/login_screen.dart';
+import 'package:esu/features/auth/presentation/screen/map_screen.dart';
 import 'package:esu/features/auth/presentation/screen/register_academic_information_screen.dart';
 import 'package:esu/features/auth/presentation/screen/register_file_uploads_screen.dart';
 import 'package:esu/features/auth/presentation/screen/register_personal_information_screen.dart';
@@ -59,6 +60,7 @@ class Routes {
       ticketCreateScreen = '/ticketCreateScreen',
       ticketDetailsScreen = '/ticketDetailsScreen',
       attendanceScreen = '/attendanceScreen',
+      mapScreen = '/mapScreen',
       ticketsScreen = '/ticketsScreen';
 
   static List<GetPage> setScreens() {
@@ -128,6 +130,7 @@ class Routes {
       ),
       GetPage(name: addCourseScreen, page: () => const AddCourseScreen()),
       GetPage(name: attendanceScreen, page: () => const AttendanceScreen()),
+      GetPage(name: mapScreen, page: () => const MapScreen()),
     ];
   }
 }
