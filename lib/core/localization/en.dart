@@ -74,6 +74,8 @@ const Map<String, String> en = {
   LocalizationKeys.noCountryMatched: 'No Country Matched',
   LocalizationKeys.mapScreen: 'Map Screen',
   LocalizationKeys.selectLocation: 'Select Location',
+  LocalizationKeys.locationPermissionNotAllowed: 'Location Permission Not Allowed',
+  LocalizationKeys.errorInLocation: 'Error In Location',
 
   //-------------------------------------------------------------------------
   ///files upload

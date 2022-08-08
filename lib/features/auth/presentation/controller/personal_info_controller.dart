@@ -93,7 +93,11 @@ class PersonalInfoController extends GetxController with StateMixin<List<LookupD
     if (locationStatus.isGranted) {
       Get.toNamed(Routes.mapScreen);
     } else {
-      HelperMethod.showSnackBar(message: 'Location permission not allowed', title: 'Error in location', backgroundColor: Colors.red);
+      HelperMethod.showSnackBar(
+        message: LocalizationKeys.locationPermissionNotAllowed.tr,
+        title: LocalizationKeys.errorInLocation.tr,
+        backgroundColor: Colors.red,
+      );
     }
   }
 }

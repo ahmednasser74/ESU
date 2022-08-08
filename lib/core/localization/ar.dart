@@ -74,6 +74,8 @@ const Map<String, String> ar = {
   LocalizationKeys.noCountryMatched: 'لا يوجد بلد مطابق',
   LocalizationKeys.mapScreen: 'خريطة',
   LocalizationKeys.selectLocation: 'أختر الموقع',
+  LocalizationKeys.locationPermissionNotAllowed: 'الموقع غير مسموح به',
+  LocalizationKeys.errorInLocation: 'خطأ في الموقع',
 
 
   ///files upload
