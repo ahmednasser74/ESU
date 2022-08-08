@@ -13,14 +13,12 @@ import 'package:esu/features/auth/presentation/widgets/title_required_field_widg
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../../../core/src/assets.gen.dart';
 import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/app_container.dart';
 
 // ignore: must_be_immutable
-class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
-    with ValidatorProperties {
+class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with ValidatorProperties {
   RegisterPersonalInfoScreen({Key? key}) : super(key: key);
 
   @override
@@ -136,8 +134,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
                   title: LocalizationKeys.dateOfBirth.tr,
                 ),
                 DatePickerFieldWidget(
-                  dateCallBack: (dateCallBack) =>
-                      controller.birthDateController = dateCallBack,
+                  dateCallBack: (dateCallBack) => controller.birthDateController = dateCallBack,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.gender.tr,
@@ -145,22 +142,19 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
                 TitleDropDownButton(
                   list: [LocalizationKeys.male.tr, LocalizationKeys.female.tr],
                   isDense: true,
-                  onChangeValue: (gender) =>
-                      controller.genderController.text = gender,
+                  onChangeValue: (gender) => controller.genderController.text = gender,
                 ),
                 TitleRequiredFieldWidget(title: LocalizationKeys.country.tr),
                 CountryPickerFieldWidget(
                   list: state!,
-                  countryNameCallBack: (country) =>
-                      controller.countryId = country.id,
+                  countryNameCallBack: (country) => controller.countryId = country.id,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.nationality.tr,
                 ),
                 CountryPickerFieldWidget(
                   list: state,
-                  countryNameCallBack: (nationality) =>
-                      controller.nationalityId = nationality.id,
+                  countryNameCallBack: (nationality) => controller.nationalityId = nationality.id,
                 ),
                 TitleRequiredFieldWidget(
                   title: LocalizationKeys.yourJob.tr,
@@ -176,12 +170,32 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController>
                 AppTextFieldWidget(
                   controller: controller.companyController,
                 ),
-                TitleRequiredFieldWidget(
-                  title: LocalizationKeys.currentAddress.tr,
-                ),
-                AppTextFieldWidget(
-                  validator: addressValidator,
-                  controller: controller.addressController,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          TitleRequiredFieldWidget(
+                            title: LocalizationKeys.currentAddress.tr,
+                          ),
+                          AppTextFieldWidget(
+                            validator: addressValidator,
+                            controller: controller.addressController,
+                          ),
+                        ],
+                      ),
+                    ),
+                    12.widthBox,
+                    AppButton(
+                      onPressed: controller.locationPermissionHandler,
+                      backgroundColor: Colors.white,
+                      borderColor: AppColors.primaryColor,
+                      paddingVertical: 11.h,
+                      child: const Icon(Icons.location_on_rounded),
+                    )
+                  ],
                 ),
                 SizedBox(height: 30.h),
                 AppButton(

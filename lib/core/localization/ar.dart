@@ -72,6 +72,9 @@ const Map<String, String> ar = {
   LocalizationKeys.search: 'ابحث',
   LocalizationKeys.searchToFindCountry: 'البحث للعثور على البلد',
   LocalizationKeys.noCountryMatched: 'لا يوجد بلد مطابق',
+  LocalizationKeys.mapScreen: 'خريطة',
+  LocalizationKeys.selectLocation: 'أختر الموقع',
+
 
   ///files upload
   LocalizationKeys.filesUpload: 'تحميل الملفات',
