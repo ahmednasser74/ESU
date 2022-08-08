@@ -127,6 +127,8 @@ PODS:
     - GoogleUtilities/Logger
   - image_picker_ios (0.0.1):
     - Flutter
+  - location (0.0.1):
+    - Flutter
   - modal_progress_hud_nsn (0.0.1):
     - Flutter
   - nanopb (2.30909.0):
@@ -176,6 +178,7 @@ DEPENDENCIES:
   - geocoding (from `.symlinks/plugins/geocoding/ios`)
   - google_maps_flutter (from `.symlinks/plugins/google_maps_flutter/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - location (from `.symlinks/plugins/location/ios`)
   - modal_progress_hud_nsn (from `.symlinks/plugins/modal_progress_hud_nsn/ios`)
   - open_file (from `.symlinks/plugins/open_file/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
@@ -236,6 +239,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/google_maps_flutter/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
+  location:
+    :path: ".symlinks/plugins/location/ios"
   modal_progress_hud_nsn:
     :path: ".symlinks/plugins/modal_progress_hud_nsn/ios"
   open_file:
@@ -283,6 +288,7 @@ SPEC CHECKSUMS:
   GoogleMaps: 025272d5876d3b32604e5c080dc25eaf68764693
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
+  location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
   modal_progress_hud_nsn: f6fb744cd060653d66ed8f325360ef3650eb2fde
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   open_file: 02eb5cb6b21264bd3a696876f5afbfb7ca4f4b7d

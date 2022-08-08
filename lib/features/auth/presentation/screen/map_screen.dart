@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
+import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/features/auth/presentation/controller/personal_info_controller.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:map_picker/map_picker.dart';
+import 'package:location/location.dart' as location;
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -20,14 +23,29 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final _controller = Completer<GoogleMapController>();
-  MapPickerController mapPickerController = MapPickerController();
+  final MapPickerController mapPickerController = MapPickerController();
+  final locationTEC = TextEditingController();
 
   CameraPosition cameraPosition = const CameraPosition(
-    target: LatLng(41.311158, 69.279737),
-    zoom: 14.4746,
+    target: LatLng(22.991206, 31.150197),
+    zoom: 12.4746,
   );
 
-  var textController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final currentLocation = await location.Location().getLocation();
+      await _controller.future.then(
+        (value) => value.moveCamera(CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: LatLng(currentLocation.latitude!, currentLocation.longitude!),
+            zoom: 18.4746,
+          ),
+        )),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,67 +54,63 @@ class _MapScreenState extends State<MapScreen> {
         alignment: Alignment.topCenter,
         children: [
           MapPicker(
-            iconWidget: Image.asset(
-              Assets.icons.locationIcon.path,
-              height: 30.h,
-            ),
+            iconWidget: Image.asset(Assets.icons.locationIcon.path, height: 30.h),
             mapPickerController: mapPickerController,
             child: GoogleMap(
               myLocationEnabled: true,
-              zoomControlsEnabled: false,
-              myLocationButtonEnabled: false,
-              mapType: MapType.normal,
+              zoomControlsEnabled: true,
+              myLocationButtonEnabled: true,
+              padding: EdgeInsets.symmetric(vertical: 70.h),
               initialCameraPosition: cameraPosition,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
+              onMapCreated: (GoogleMapController controller) => _controller.complete(controller),
               onCameraMoveStarted: () {
                 mapPickerController.mapMoving!();
-                textController.text = "checking ...";
+                locationTEC.text = "Loading location...";
               },
               onCameraMove: (cameraPosition) {
                 this.cameraPosition = cameraPosition;
               },
               onCameraIdle: () async {
                 mapPickerController.mapFinishedMoving!();
-                //get address name from camera position
-                List<Placemark> placemarks = await placemarkFromCoordinates(
+                List<Placemark> placeMarks = await placemarkFromCoordinates(
                   cameraPosition.target.latitude,
                   cameraPosition.target.longitude,
                 );
-
-                // update the ui with the address
-                textController.text = '${placemarks.first.name}, ${placemarks.first.administrativeArea}, ${placemarks.first.country}';
+                locationTEC.text = '${placeMarks.first.name}, ${placeMarks.first.administrativeArea}, ${placeMarks.first.country}';
               },
             ),
           ),
-          Positioned(
-            top: MediaQuery.of(context).viewPadding.top + 20,
-            width: MediaQuery.of(context).size.width - 50,
-            height: 50,
-            child: TextFormField(
-              maxLines: 3,
-              textAlign: TextAlign.center,
-              readOnly: true,
-              decoration: const InputDecoration(contentPadding: EdgeInsets.zero, border: InputBorder.none),
-              controller: textController,
+          Positioned.directional(
+            textDirection: TextDirection.ltr,
+            top: MediaQuery.of(context).viewPadding.top + 10.h,
+            start: 0,
+            child: MaterialButton(
+              onPressed: Get.back,
+              color: Colors.white,
+              shape: const CircleBorder(),
+              child: const Icon(Icons.arrow_back_ios_new_rounded, color: AppColors.primaryColor),
             ),
           ),
           Positioned(
-            bottom: 24,
-            left: 24,
-            right: 24,
-            child: SizedBox(
-              height: 50,
-              child: AppButton(
-                onPressed: () {
-                  Get.find<PersonalInfoController>().addressController.text = 'okey okey okey okey ';
-                  print("Location ${cameraPosition.target.latitude} ${cameraPosition.target.longitude}");
-                  print("Address: ${textController.text}");
-                  Get.back();
-                },
-                title: LocalizationKeys.selectLocation.tr,
-              ),
+            bottom: 20.h,
+            left: 20.w,
+            right: 20.w,
+            child: Column(
+              children: [
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: TextFormField(controller: locationTEC, maxLines: 2),
+                ),
+                18.heightBox,
+                AppButton(
+                  onPressed: () {
+                    Get.find<PersonalInfoController>().addressController.text = locationTEC.text;
+                    Get.back();
+                  },
+                  minimumSize: Size(double.infinity, 40.h),
+                  title: LocalizationKeys.selectLocation.tr,
+                ),
+              ],
             ),
           )
         ],
