@@ -13,6 +13,7 @@ import 'package:esu/features/auth/presentation/widgets/title_required_field_widg
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 import '../../../../core/src/assets.gen.dart';
 import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/app_container.dart';
