@@ -1,4 +1,5 @@
 import 'package:esu/core/const/lookup_const.dart';
+import 'package:esu/core/helper/location_permission_helper.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/utils/helper_methods.dart';
@@ -89,8 +90,8 @@ class PersonalInfoController extends GetxController with StateMixin<List<LookupD
   }
 
   Future<void> locationPermissionHandler() async {
-    final locationStatus = await Permission.location.request();
-    if (locationStatus.isGranted) {
+    final bool isPermissionGranted = await LocationPermissionHelper.isPermissionGranted();
+    if (isPermissionGranted) {
       Get.toNamed(Routes.mapScreen);
     } else {
       HelperMethod.showSnackBar(
