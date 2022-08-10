@@ -60,5 +60,15 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+
+	<key>NSLocationAlwaysUsageDescription</key>
+    <string>ESU need location permission to give you better experience to get your address</string>
+    <key>NSLocationUsageDescription</key>
+    <string>ESU need location permission to give you better experience to get your address</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>ESU need location permission to give you better experience to get your address</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>ESU need location permission to give you better experience to get your address</string>
+
 </dict>
 </plist>

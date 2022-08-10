@@ -13,6 +13,7 @@ import 'core/src/theme.dart';
 import 'core/utils/controller_binding.dart';
 import 'core/utils/di.dart';
 import 'core/utils/pref_util.dart';
+import 'features/auth/presentation/screen/map_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +32,7 @@ void main() async {
   await Injection.init();
   await NotificationHelper.instance.init();
   runApp(const MyApp());
+  // runApp(const MaterialApp(home: MapScreen()));
 }
 
 class MyApp extends StatelessWidget {

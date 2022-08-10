@@ -9,9 +9,9 @@ import 'package:esu/features/auth/domin/usecases/lookup_use_case.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-class PersonalInfoController extends GetxController
-    with StateMixin<List<LookupDataResponseModel>> {
+class PersonalInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
   PersonalInfoController({required this.lookupUseCase});
 
   LookupUseCase lookupUseCase;
@@ -86,5 +86,18 @@ class PersonalInfoController extends GetxController
       yourJob: jobController.text,
       yourCompany: companyController.text,
     );
+  }
+
+  Future<void> locationPermissionHandler() async {
+    final locationStatus = await Permission.location.request();
+    if (locationStatus.isGranted) {
+      Get.toNamed(Routes.mapScreen);
+    } else {
+      HelperMethod.showSnackBar(
+        message: LocalizationKeys.locationPermissionNotAllowed.tr,
+        title: LocalizationKeys.errorInLocation.tr,
+        backgroundColor: Colors.red,
+      );
+    }
   }
 }
