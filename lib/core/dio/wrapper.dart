@@ -17,7 +17,6 @@ class DioImpl extends DioHelper {
 
   final String baseURL;
   late Dio _client;
-  final String locale = SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar';
 
   DioImpl({
     required this.baseURL,
@@ -44,7 +43,7 @@ class DioImpl extends DioHelper {
       ..options.baseUrl = baseURL
       ..options.headers.addAll({
         'Accept': 'application/json',
-        'locale': locale,
+        'locale': SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar',
       });
   }
 
@@ -58,7 +57,7 @@ class DioImpl extends DioHelper {
         url,
         queryParameters: queryParams,
         options: Options(
-          headers: {'locale': locale},
+          headers: {'locale': SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'},
         ),
       );
 
@@ -74,7 +73,7 @@ class DioImpl extends DioHelper {
         data: data,
         queryParameters: queryParams,
         options: Options(
-          headers: {'locale': locale},
+          headers: {'locale': SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'},
         ),
       );
 
@@ -90,7 +89,7 @@ class DioImpl extends DioHelper {
         data: data,
         queryParameters: queryParams,
         options: Options(
-          headers: {'locale': locale},
+          headers: {'locale': SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'},
         ),
       );
 
@@ -106,7 +105,7 @@ class DioImpl extends DioHelper {
         data: data,
         queryParameters: queryParams,
         options: Options(
-          headers: {'locale': locale},
+          headers: {'locale': SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'},
         ),
       );
 }
