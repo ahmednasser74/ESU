@@ -71,6 +71,10 @@ class LocalizationKeys {
   static const String search = 'search';
   static const String searchToFindCountry = 'searchToFindCountry';
   static const String noCountryMatched = 'noCountryMatched';
+  static const String mapScreen = 'mapScreen';
+  static const String selectLocation = 'selectLocation';
+  static const String locationPermissionNotAllowed = 'locationPermissionNotAllowed';
+  static const String errorInLocation = 'errorInLocation';
 
   //-------------------------------------------------------------------------
   ///files upload
