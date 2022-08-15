@@ -26,7 +26,6 @@ class NotificationHelper {
   late String? userToken;
 
   Future<void> init() async {
-    await Firebase.initializeApp();
     messaging = FirebaseMessaging.instance;
     userToken = SharedPrefs.instance.getString(key: SharedPrefsKeys.token);
     await messaging.requestPermission();
