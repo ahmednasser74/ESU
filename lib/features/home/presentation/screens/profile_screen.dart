@@ -177,6 +177,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                           labelText: LocalizationKeys.password.tr,
                           onChanged: (value) => controller.password = value,
                           dispose: false,
+                          obscureText: true,
                           prefixIcon: Padding(
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.lock.image(
@@ -190,6 +191,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                           controller: controller.confirmPasswordTEC,
                           onChanged: (value) => controller.passwordConfirm = value,
                           dispose: false,
+                          obscureText: true,
                           validator: (value) {
                             if (controller.passwordTEC.text.isEmpty) {
                               return null;

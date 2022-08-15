@@ -47,6 +47,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/letter_icon.png
   AssetGenImage get letterIcon => const AssetGenImage('assets/icons/letter_icon.png');
 
+  /// File path: assets/icons/location_icon.png
+  AssetGenImage get locationIcon => const AssetGenImage('assets/icons/location_icon.png');
+
   /// File path: assets/icons/lock.png
   AssetGenImage get lock => const AssetGenImage('assets/icons/lock.png');
 

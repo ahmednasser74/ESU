@@ -1,9 +1,10 @@
+import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/styles.dart';
 import 'package:esu/core/src/widgets/custom_button.dart';
 import 'package:esu/features/student_data/data/models/response/transcript/transcript_item_response_model.dart';
-import 'package:esu/features/student_data/presentation/widgets/transcript_pdf_widget.dart';
+import 'package:esu/features/student_data/presentation/widgets/pdf_viewer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,7 @@ class TranscriptItemWidget extends StatelessWidget {
           ),
           SizedBox(height: 14.h),
           AppButton(
-            onPressed: () => goToPdf(transcriptItem.id),
+            onPressed: goToPdfViewer,
             title: LocalizationKeys.showPdf.tr,
             paddingVertical: 0,
             fonSize: 14.sp,
@@ -40,7 +41,7 @@ class TranscriptItemWidget extends StatelessWidget {
     );
   }
 
-  void goToPdf(int transcriptId) {
-    Get.to(TranscriptPdfWidget(transcriptId: transcriptId));
+  void goToPdfViewer() {
+    Get.to(PdfViewerWidget(pdfUrl: '${Endpoints.baseUrl}transcript?registration_id=${transcriptItem.id}'));
   }
 }

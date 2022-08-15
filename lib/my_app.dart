@@ -1,10 +1,9 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
-import 'package:esu/core/flavor/flavors.dart';
-import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-
+import 'core/flavor/flavors.dart';
+import 'core/src/widgets/conditional_builder.dart';
 import 'core/localization/translation.dart';
 import 'core/src/routes.dart';
 import 'core/src/theme.dart';

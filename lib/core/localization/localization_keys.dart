@@ -71,6 +71,10 @@ class LocalizationKeys {
   static const String search = 'search';
   static const String searchToFindCountry = 'searchToFindCountry';
   static const String noCountryMatched = 'noCountryMatched';
+  static const String mapScreen = 'mapScreen';
+  static const String selectLocation = 'selectLocation';
+  static const String locationPermissionNotAllowed = 'locationPermissionNotAllowed';
+  static const String errorInLocation = 'errorInLocation';
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -266,7 +270,7 @@ class LocalizationKeys {
 
   //-------------------------------------------------------------------------
   ///Course register
-  static const String coursesRegister = 'coursesRegister';
+  static const String editCourses = 'coursesRegister';
   static const String registerForTheCourse = 'registerForTheCourse';
   static const String course = 'course';
   static const String courseHours = 'courseHours';

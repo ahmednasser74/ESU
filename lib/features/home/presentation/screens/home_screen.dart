@@ -58,12 +58,12 @@ class HomeScreen extends GetView<HomeController> {
                     HomeItemWidget(
                       color: Colors.blue,
                       title: LocalizationKeys.balance.tr,
-                      amount: '\$${state.data!.balance}',
+                      amount: '${state.data!.balance}',
                     ),
                     HomeItemWidget(
                       color: Colors.orange,
                       title: LocalizationKeys.totalAmount.tr,
-                      amount: '\$${state.data!.total}',
+                      amount: '${state.data!.total}',
                     ),
                   ],
                 ),
@@ -73,12 +73,12 @@ class HomeScreen extends GetView<HomeController> {
                     HomeItemWidget(
                       color: Colors.green,
                       title: LocalizationKeys.totalAmountPaid.tr,
-                      amount: '\$${state.data!.paid}',
+                      amount: '${state.data!.paid}',
                     ),
                     HomeItemWidget(
                       color: Colors.red,
                       title: LocalizationKeys.totalAmountUnpaid.tr,
-                      amount: '\$${state.data!.unpaid}',
+                      amount: '${state.data!.unpaid}',
                     ),
                   ],
                 ),

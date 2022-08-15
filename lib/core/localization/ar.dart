@@ -72,6 +72,11 @@ const Map<String, String> ar = {
   LocalizationKeys.search: 'ابحث',
   LocalizationKeys.searchToFindCountry: 'البحث للعثور على البلد',
   LocalizationKeys.noCountryMatched: 'لا يوجد بلد مطابق',
+  LocalizationKeys.mapScreen: 'خريطة',
+  LocalizationKeys.selectLocation: 'أختر الموقع',
+  LocalizationKeys.locationPermissionNotAllowed: 'الموقع غير مسموح به',
+  LocalizationKeys.errorInLocation: 'خطأ في الموقع',
+
 
   ///files upload
   LocalizationKeys.filesUpload: 'تحميل الملفات',
@@ -263,7 +268,7 @@ const Map<String, String> ar = {
   LocalizationKeys.successfullyDownloadedFileOnYourDevice: 'تم تحميل الملف بنجاح على جهازك',
   //-------------------------------------------------------------------------
   ///course register
-  LocalizationKeys.coursesRegister: 'تسجيل المواد',
+  LocalizationKeys.editCourses: 'تسجيل المواد',
   LocalizationKeys.registerForTheCourse: 'تسجيل المادة',
   LocalizationKeys.course: 'المادة',
   LocalizationKeys.courseHours: 'ساعات المادة',
