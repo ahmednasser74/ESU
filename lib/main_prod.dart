@@ -25,14 +25,12 @@ void main() async {
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
   runZonedGuarded<Future<void>>(() async {
-    await Injection.init();
+    await Firebase.initializeApp();
     FlutterDownloader.initialize();
     FileDownloadedDbHelper.init();
-    await Firebase.initializeApp();
+    await Injection.init();
     await NotificationHelper.instance.init();
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
     runApp(const MyApp());
   }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack, fatal: true));
-
-  runApp(const MyApp());
 }
