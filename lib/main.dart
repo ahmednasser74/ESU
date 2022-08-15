@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/file_helper/file_downloader_db/file_downloader_db.dart';
+import 'package:esu/core/helper/firebase_analytics_helper.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -13,7 +18,6 @@ import 'core/src/theme.dart';
 import 'core/utils/controller_binding.dart';
 import 'core/utils/di.dart';
 import 'core/utils/pref_util.dart';
-import 'features/auth/presentation/screen/map_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,12 +31,16 @@ void main() async {
     systemNavigationBarColor: Colors.black,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
-  FlutterDownloader.initialize();
-  FileDownloadedDbHelper.init();
-  await Injection.init();
-  await NotificationHelper.instance.init();
-  runApp(const MyApp());
-  // runApp(const MaterialApp(home: MapScreen()));
+
+  runZonedGuarded<Future<void>>(() async {
+    FlutterDownloader.initialize();
+    FileDownloadedDbHelper.init();
+    await Firebase.initializeApp();
+    await Injection.init();
+    await NotificationHelper.instance.init();
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    runApp(const MyApp());
+  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack, fatal: true));
 }
 
 class MyApp extends StatelessWidget {
@@ -45,6 +53,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'ESU',
         theme: CustomsThemes.defaultThemeData,
+        navigatorObservers: <NavigatorObserver>[Injection.di<FirebaseAnalyticsHelper>().getFirebaseAnalyticsObserver()],
         initialRoute: Routes.splashScreen,
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),

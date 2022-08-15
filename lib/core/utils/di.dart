@@ -8,6 +8,7 @@ import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/dio/wrapper.dart';
 import 'package:esu/core/file_helper/file_downloader_db/file_downloader_db.dart';
 import 'package:esu/core/file_helper/file_downloader_db/file_downloader_model.dart';
+import 'package:esu/core/helper/firebase_analytics_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
@@ -131,6 +132,8 @@ class Injection {
     di.registerLazySingleton<NetworkInformation>(
       () => NetworkInformationImp(internetConnectionChecker: di()),
     );
+    //analytics
+    di.registerLazySingleton<FirebaseAnalyticsHelper>(() => FirebaseAnalyticsHelper());
   }
 
   static void _authCycle() {
