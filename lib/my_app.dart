@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         builder: (c, child) => GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'ESU',
-          theme: CustomsThemes().getTheme,
+          theme: Get.isDarkMode ? CustomsThemes.darkThemeData : CustomsThemes.lightThemeData,
           darkTheme: CustomsThemes.darkThemeData,
           initialRoute: Routes.splashScreen,
           // themeMode: SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value? ThemeMode.dark : ThemeMode.light,

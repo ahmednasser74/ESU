@@ -42,8 +42,7 @@ class ControllerBinding extends Bindings {
       fenix: true,
     );
     Get.lazyPut(() => Injection.di<TranslationController>(), fenix: true);
-
-    Get.put(() => Injection.di<ThemeController>());
+    Get.lazyPut(() => Injection.di<ThemeController>(), fenix: true);
     //-----------------------------------------------------------------------
     ///auth
     Get.lazyPut(() => Injection.di<SplashController>(), fenix: true);
