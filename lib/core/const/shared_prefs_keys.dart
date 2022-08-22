@@ -3,4 +3,5 @@ abstract class SharedPrefsKeys {
   static const String language = 'pref_language';
   static const String user = 'user';
   static const String fcmToken = 'fcmToken';
+  static const String themeMode = 'themeMode';
 }

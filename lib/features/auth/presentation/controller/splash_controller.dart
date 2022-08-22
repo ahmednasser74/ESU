@@ -2,6 +2,7 @@ import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/helper/app_info_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/src/theme/theme_controller.dart';
 import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
 import 'package:esu/core/utils/helper_methods.dart';
@@ -39,6 +40,7 @@ class SplashController extends GetxController {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.find<DioRequestHandlingController>();
       Get.find<TranslationController>();
+      print('themeMode ${SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode)}');
     });
     await AppInfoHelper.init();
     appVersion = AppInfoHelper.getAppVersion;

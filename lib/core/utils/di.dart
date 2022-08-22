@@ -12,6 +12,7 @@ import 'package:esu/core/helper/firebase_analytics_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
+import 'package:esu/core/src/theme/theme_controller.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:esu/features/auth/data/datasources/auth_remote_data_source.dart';
@@ -127,6 +128,7 @@ class Injection {
     );
     //controller
     di.registerFactory<TranslationController>(() => TranslationController());
+    di.registerFactory<ThemeController>(() => ThemeController());
 
     //Network
     di.registerLazySingleton<NetworkInformation>(
