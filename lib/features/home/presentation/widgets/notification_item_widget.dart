@@ -69,14 +69,11 @@ class _NotificationItemWidgetState extends State<NotificationItemWidget> {
                   }
                 },
                 child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+                  padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
                   child: Text(
                     widget.notification.title,
                     style: TextStyle(
-                      color: expandableController!.expanded
-                          ? Theme.of(context).primaryColor
-                          : Colors.black,
+                      color: expandableController!.expanded ? Theme.of(context).primaryColor : Colors.black,
                       fontSize: 14.sp,
                     ),
                   ),
@@ -104,6 +101,9 @@ class _NotificationItemWidgetState extends State<NotificationItemWidget> {
                 ),
                 child: Html(
                   data: widget.notification.body,
+                  style: {
+                    'p': Style(fontSize: FontSize(14.sp), color: Colors.black),
+                  },
                   onLinkTap: (url, _, attributes, element) async {
                     if (url != null) {
                       await HelperMethod.launchToBrowser(url);

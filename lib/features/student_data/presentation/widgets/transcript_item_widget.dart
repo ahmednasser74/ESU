@@ -27,7 +27,7 @@ class TranscriptItemWidget extends StatelessWidget {
         children: [
           Text(
             transcriptItem.name,
-            style: TextStyle(fontSize: 14.sp),
+            style: TextStyle(fontSize: 14.sp,color: Colors.black),
           ),
           SizedBox(height: 14.h),
           AppButton(

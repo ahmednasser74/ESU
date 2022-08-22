@@ -1,5 +1,6 @@
 import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/localization/translation_controller.dart';
+import 'package:esu/core/src/theme/theme_controller.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
@@ -41,6 +42,8 @@ class ControllerBinding extends Bindings {
       fenix: true,
     );
     Get.lazyPut(() => Injection.di<TranslationController>(), fenix: true);
+
+    Get.put(() => Injection.di<ThemeController>());
     //-----------------------------------------------------------------------
     ///auth
     Get.lazyPut(() => Injection.di<SplashController>(), fenix: true);

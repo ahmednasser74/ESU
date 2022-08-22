@@ -1,3 +1,4 @@
+import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
@@ -40,8 +41,10 @@ class TicketItemWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text('${LocalizationKeys.subject.tr} : '),
-                Expanded(child: Html(data: ticket.subject)),
+                Text('${LocalizationKeys.subject.tr} : ', style: const TextStyle(color: Colors.black)),
+                Expanded(
+                  child: Text(ticket.subject, style: const TextStyle(color: Colors.black)),
+                ),
               ],
             ),
             // Row(
@@ -50,12 +53,15 @@ class TicketItemWidget extends StatelessWidget {
             //     Expanded(child: Html(data: ticket.body)),
             //   ],
             // ),
+            12.heightBox,
             Row(
               children: [
-                Text('${LocalizationKeys.category.tr} : '),
-                Expanded(child: Html(data: ticket.category)),
+                Text('${LocalizationKeys.category.tr} : ', style: const TextStyle(color: Colors.black)),
+                Expanded(child: Text(ticket.category, style: const TextStyle(color: Colors.black))),
               ],
             ),
+            12.heightBox,
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -77,6 +83,7 @@ class TicketItemWidget extends StatelessWidget {
                   DateFormat('E d MMM yyyy hh:mm aaa').format(
                     DateTime.parse(ticket.createdAt),
                   ),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ],
             ),

@@ -1,8 +1,12 @@
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/src/theme/theme_controller.dart';
+import 'package:esu/core/src/theme/theme_mode.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
+import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,6 +32,13 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
             child: ListView(
               padding: EdgeInsets.only(top: .06.sh, left: 18, right: 18),
               children: [
+                GetBuilder<ThemeController>(
+                  builder: (themeController) => SwitchListTile(
+                    value: SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value ? true : false,
+                    onChanged: (newValue) => themeController.changeTheme(),
+                    title: const Text('Dark Mode'),
+                  ),
+                ),
                 Align(
                   alignment: AlignmentDirectional.topEnd,
                   child: AppButton(

@@ -1,5 +1,6 @@
 import 'package:hive_flutter/adapters.dart';
 
+import '../../flavor/flavors.dart';
 import 'file_downloader_model.dart';
 
 abstract class FileDownloadedDbHelper {
@@ -9,7 +10,7 @@ abstract class FileDownloadedDbHelper {
   }
 
   static Future<Box<FileDownloadedModel>> openBox() async {
-    return await Hive.openBox<FileDownloadedModel>('file_downloaded');
+    return await Hive.openBox<FileDownloadedModel>(Flavors.isDev ? 'file_downloaded_dev' : 'file_downloaded');
   }
 
   FileDownloadedModel? getByUrl(String url);

@@ -66,6 +66,9 @@ class PopularQuestionItemWidget extends StatelessWidget {
             ),
             child: Html(
               data: question.answer,
+              style: {
+                'p': Style(fontSize: FontSize(14.sp), color: Colors.black),
+              },
               onLinkTap: (url, _, attributes, element) async {
                 if (url != null) {
                   await HelperMethod.launchToBrowser(url);
