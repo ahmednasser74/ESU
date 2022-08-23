@@ -21,39 +21,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ThemeController());
-    return GetBuilder<ThemeController>(
-      builder: (themeController) => ScreenUtilInit(
-        builder: (c, child) => GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'ESU',
-          theme: Get.isDarkMode ? CustomsThemes.darkThemeData : CustomsThemes.lightThemeData,
-          darkTheme: CustomsThemes.darkThemeData,
-          initialRoute: Routes.splashScreen,
-          // themeMode: SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value? ThemeMode.dark : ThemeMode.light,
-          getPages: Routes.setScreens(),
-          initialBinding: ControllerBinding(),
-          translations: Translation(),
-          fallbackLocale: const Locale('en'),
-          locale: Locale(SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'),
-          builder: (context, widget) {
-            return MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-              child: ConditionalBuilder(
-                condition: Flavors.isDev,
-                builder: (_) => Banner(
-                  location: BannerLocation.bottomStart,
-                  message: Flavors.name,
-                  color: Colors.red.withOpacity(0.6),
-                  textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12.0, letterSpacing: 1.0),
-                  textDirection: TextDirection.ltr,
-                  child: widget ?? Container(),
-                ),
-                fallback: (_) => widget ?? Container(),
+    return ScreenUtilInit(
+      builder: (c, child) => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'ESU',
+        theme: Get.isDarkMode ? CustomsThemes.darkThemeData : CustomsThemes.lightThemeData,
+        darkTheme: CustomsThemes.darkThemeData,
+        initialRoute: Routes.splashScreen,
+        getPages: Routes.setScreens(),
+        initialBinding: ControllerBinding(),
+        translations: Translation(),
+        fallbackLocale: const Locale('en'),
+        locale: Locale(SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'),
+        builder: (context, widget) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: ConditionalBuilder(
+              condition: Flavors.isDev,
+              builder: (_) => Banner(
+                location: BannerLocation.bottomStart,
+                message: Flavors.name,
+                color: Colors.red.withOpacity(0.6),
+                textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12.0, letterSpacing: 1.0),
+                textDirection: TextDirection.ltr,
+                child: widget ?? Container(),
               ),
-            );
-          },
-        ),
+              fallback: (_) => widget ?? Container(),
+            ),
+          );
+        },
       ),
     );
   }

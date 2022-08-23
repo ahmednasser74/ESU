@@ -40,7 +40,7 @@ class SplashController extends GetxController {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.find<DioRequestHandlingController>();
       Get.find<TranslationController>();
-      print('themeMode ${SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode)}');
+      Get.find<ThemeController>();
     });
     await AppInfoHelper.init();
     appVersion = AppInfoHelper.getAppVersion;
