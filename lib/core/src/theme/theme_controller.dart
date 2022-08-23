@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ThemeController extends GetxController {
-  bool isDarkMode = false;
+  bool _isDarkMode = false;
+
+  bool get isDarkMode => _isDarkMode;
 
   @override
   void onInit() async {
-    String themeMode = SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) ?? ThemeDataHelper.light.value;
-    isDarkMode = themeMode == ThemeDataHelper.dark.value;
-    Get.changeTheme(isDarkMode ? CustomsThemes.darkThemeData : CustomsThemes.lightThemeData);
+    setDarkMode();
+    Get.changeTheme(_isDarkMode ? CustomsThemes.darkThemeData : CustomsThemes.lightThemeData);
     super.onInit();
   }
 
@@ -20,6 +21,11 @@ class ThemeController extends GetxController {
     final isDarkMode = SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value;
     Get.changeTheme(isDarkMode ? CustomsThemes.lightThemeData : CustomsThemes.darkThemeData);
     SharedPrefs.instance.saveString(key: SharedPrefsKeys.themeMode, value: isDarkMode ? ThemeDataHelper.light.value : ThemeDataHelper.dark.value);
+    setDarkMode();
     update();
+  }
+
+  void setDarkMode() {
+    _isDarkMode = SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value;
   }
 }

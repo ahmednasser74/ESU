@@ -23,7 +23,10 @@ class SettingScreen extends GetView<SettingController> {
         child: Column(
           children: [
             ListTile(
-              title: Text(LocalizationKeys.language.tr,style: const TextStyle(color: AppColors.primaryColor),),
+              title: Text(
+                LocalizationKeys.language.tr,
+                style: const TextStyle(color: AppColors.primaryColor),
+              ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -41,11 +44,12 @@ class SettingScreen extends GetView<SettingController> {
                 ],
               ),
             ),
-            GetBuilder<ThemeController>(
-              builder: (themeController) => SwitchListTile(
-                value: SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value ? true : false,
-                onChanged: (newValue) => themeController.changeTheme(),
-                title: Text(LocalizationKeys.darkMode.tr,style: const TextStyle(color: AppColors.primaryColor)),
+            GetBuilder<SettingController>(
+              builder: (controller) => SwitchListTile(
+                value: controller.isDarkMode,
+                onChanged: (newValue) => controller.changeTheme(),
+                title: Text(LocalizationKeys.darkMode.tr, style: const TextStyle(color: AppColors.primaryColor)),
+                // activeTrackColor: AppColors.primaryColor.withOpacity(.7),
               ),
             ),
           ],

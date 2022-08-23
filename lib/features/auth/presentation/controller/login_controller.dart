@@ -1,6 +1,7 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/utils/enums.dart';
 import 'package:esu/core/utils/helper_methods.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
 import 'package:esu/core/utils/pref_util.dart';
@@ -74,10 +75,10 @@ class LoginController extends GetxController {
   }
 
   void changeLanguage() {
-    if (translateController!.appLocale == 'en') {
-      translateController!.changeLanguage('ar');
-    } else if (translateController!.appLocale == 'ar') {
-      translateController!.changeLanguage('en');
+    if (translateController!.language.value == Language.english.value) {
+      translateController!.changeLanguage(Language.arabic);
+    } else if (translateController!.language.value == Language.arabic.value) {
+      translateController!.changeLanguage(Language.english);
     }
   }
 }

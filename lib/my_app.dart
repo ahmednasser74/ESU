@@ -1,5 +1,6 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/src/theme/theme_controller.dart';
+import 'package:esu/core/utils/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -31,8 +32,8 @@ class MyApp extends StatelessWidget {
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),
         translations: Translation(),
-        fallbackLocale: const Locale('en'),
-        locale: Locale(SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? 'ar'),
+        fallbackLocale: Locale(Language.arabic.value),
+        locale: Locale(SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? Language.arabic.value),
         builder: (context, widget) {
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
