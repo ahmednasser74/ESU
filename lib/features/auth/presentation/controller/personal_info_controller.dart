@@ -30,6 +30,15 @@ class PersonalInfoController extends GetxController with StateMixin<List<LookupD
   final jobController = TextEditingController(text: '');
   final companyController = TextEditingController(text: '');
   final addressController = TextEditingController(text: '');
+  final facebookController = TextEditingController(text: '');
+  final twitterController = TextEditingController(text: '');
+  final instagramController = TextEditingController(text: '');
+  final linkedinController = TextEditingController(text: '');
+  final whatsappController = TextEditingController(text: '');
+  final whatsappController2 = TextEditingController(text: '');
+  final whatsappController3 = TextEditingController(text: '');
+  final whatsAppPinController = TextEditingController(text: '');
+  RxBool isAgreeToPublishPersonalInfo = false.obs;
   late DateTime birthDateController;
   late int countryId;
   late int nationalityId;

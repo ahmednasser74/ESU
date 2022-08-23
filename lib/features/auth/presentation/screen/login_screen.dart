@@ -32,13 +32,6 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
             child: ListView(
               padding: EdgeInsets.only(top: .06.sh, left: 18, right: 18),
               children: [
-                GetBuilder<ThemeController>(
-                  builder: (themeController) => SwitchListTile(
-                    value: SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value ? true : false,
-                    onChanged: (newValue) => themeController.changeTheme(),
-                    title: const Text('Dark Mode'),
-                  ),
-                ),
                 Align(
                   alignment: AlignmentDirectional.topEnd,
                   child: AppButton(

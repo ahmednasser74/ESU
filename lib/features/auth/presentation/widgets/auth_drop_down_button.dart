@@ -36,9 +36,9 @@ class _TitleDropDownButtonState extends State<TitleDropDownButton> {
           return null;
         }
       },
-      hint: Text(LocalizationKeys.select.tr,style: TextStyle(color: Colors.black),),
+      hint: Text(LocalizationKeys.select.tr,style: TextStyle(color: Colors.grey),),
       isDense: widget.isDense,
-      icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.black),
+      icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey),
       elevation: 2,
       dropdownColor: Colors.white,
       decoration: const InputDecoration(),

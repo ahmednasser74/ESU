@@ -38,6 +38,7 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
                   child: Text(
                     LocalizationKeys.pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature.tr,
                     textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.black),
                   ),
                 ),
                 SizedBox(height: 12.h),

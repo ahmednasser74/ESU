@@ -20,6 +20,15 @@ mixin ValidatorProperties {
     return null;
   }
 
+  String? notLessThanSixChar(String? v) {
+    if (v!.isEmpty) {
+      return LocalizationKeys.thisFieldIsRequired.tr;
+    } else if (v.length < 6) {
+      return LocalizationKeys.atLeast6Characters.tr;
+    }
+    return null;
+  }
+
   String? emailValidator(String? v) {
     final pattern = RegExp(
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',

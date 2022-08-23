@@ -8,7 +8,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'core/flavor/flavors.dart';
-import 'core/src/theme.dart';
+import 'core/src/theme/theme.dart';
 import 'core/src/theme/theme_mode.dart';
 import 'core/src/widgets/conditional_builder.dart';
 import 'core/localization/translation.dart';

@@ -77,9 +77,10 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                     SizedBox(
                       width: .45.sw,
                       child: GetBuilder<SubmitAdmissionController>(
-                        builder: (controller) => SubmitRegistrationCheckBoxWidget(
+                        builder: (controller) => CheckboxWithTextWidget(
                           value: controller.isTermsAndConditionApproved.value,
                           onChanged: (v) => controller.isTermsAndConditionApproved.value = v,
+                          title: LocalizationKeys.iReadAndAgree.tr,
                         ),
                       ),
                     ),

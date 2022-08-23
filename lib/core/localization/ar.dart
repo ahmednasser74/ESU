@@ -76,6 +76,14 @@ const Map<String, String> ar = {
   LocalizationKeys.selectLocation: 'أختر الموقع',
   LocalizationKeys.locationPermissionNotAllowed: 'الموقع غير مسموح به',
   LocalizationKeys.errorInLocation: 'خطأ في الموقع',
+  LocalizationKeys.facebook: 'فيسبوك',
+  LocalizationKeys.whatsApp: 'واتس اب',
+  LocalizationKeys.instagram: 'انستجرام',
+  LocalizationKeys.twitter: 'تويتر',
+  LocalizationKeys.linkedin: 'لينكدان',
+  LocalizationKeys.optional: 'اختياري',
+  LocalizationKeys.whatsAppPin: 'كود الواتس اب',
+  LocalizationKeys.iWantToPublishPersonalInfo : 'أريد أن أنشر معلومات شخصية (الاسم ، الوظيفة ، الصورة).',
 
 
   ///files upload
@@ -311,4 +319,5 @@ const Map<String, String> ar = {
   LocalizationKeys.updatedAt: 'حُدثت في',
   LocalizationKeys.deletedAt: 'حُذفت في',
   LocalizationKeys.closedAt: 'أغلقت في',
+  LocalizationKeys.darkMode: 'الوضع الداكن',
 };

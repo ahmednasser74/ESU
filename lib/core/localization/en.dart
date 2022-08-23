@@ -76,6 +76,14 @@ const Map<String, String> en = {
   LocalizationKeys.selectLocation: 'Select Location',
   LocalizationKeys.locationPermissionNotAllowed: 'Location Permission Not Allowed',
   LocalizationKeys.errorInLocation: 'Error In Location',
+  LocalizationKeys.facebook: 'Facebook',
+  LocalizationKeys.whatsApp: 'WhatsApp',
+  LocalizationKeys.instagram: 'Instagram',
+  LocalizationKeys.twitter: 'Twitter',
+  LocalizationKeys.linkedin: 'Linkedin',
+  LocalizationKeys.optional: 'Optional',
+  LocalizationKeys.whatsAppPin: 'WhatsApp Pin',
+  LocalizationKeys.iWantToPublishPersonalInfo: 'I want to publish personal information (name, job, photo.)',
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -313,4 +321,5 @@ const Map<String, String> en = {
   LocalizationKeys.updatedAt: 'Updated At',
   LocalizationKeys.deletedAt: 'Deleted At',
   LocalizationKeys.closedAt: 'Closed At',
+  LocalizationKeys.darkMode: 'Dark Mode',
 };

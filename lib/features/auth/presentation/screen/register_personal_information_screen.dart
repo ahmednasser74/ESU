@@ -9,6 +9,7 @@ import 'package:esu/features/auth/presentation/controller/personal_info_controll
 import 'package:esu/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:esu/features/auth/presentation/widgets/country_picker_field_widget.dart';
 import 'package:esu/features/auth/presentation/widgets/date_picker_field_widget.dart';
+import 'package:esu/features/auth/presentation/widgets/submit_registration_check_box_widget.dart';
 import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -171,6 +172,56 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                 AppTextFieldWidget(
                   controller: controller.companyController,
                 ),
+                TitleRequiredFieldWidget(title: LocalizationKeys.facebook.tr, isRequired: false, icon: Assets.icons.facebook.path),
+                AppTextFieldWidget(controller: controller.facebookController),
+                TitleRequiredFieldWidget(
+                  title: LocalizationKeys.instagram.tr,
+                  isRequired: false,
+                  icon: Assets.icons.instagram.path,
+                ),
+                AppTextFieldWidget(controller: controller.instagramController),
+                TitleRequiredFieldWidget(
+                  title: LocalizationKeys.twitter.tr,
+                  isRequired: false,
+                  icon: Assets.icons.twitter.path,
+                ),
+                AppTextFieldWidget(controller: controller.twitterController),
+                TitleRequiredFieldWidget(
+                  title: LocalizationKeys.linkedin.tr,
+                  isRequired: false,
+                  icon: Assets.icons.linkedin.path,
+                ),
+                AppTextFieldWidget(controller: controller.linkedinController),
+                TitleRequiredFieldWidget(
+                  title: LocalizationKeys.whatsApp.tr,
+                  icon: Assets.icons.whatsapp.path,
+                ),
+                AppTextFieldWidget(
+                  controller: controller.whatsappController,
+                  validator: phoneValidator,
+                  inputType: TextInputType.phone,
+                ),
+                TitleRequiredFieldWidget(
+                  title: '${LocalizationKeys.whatsApp.tr} (${LocalizationKeys.optional.tr})',
+                  isRequired: false,
+                  icon: Assets.icons.whatsapp.path,
+                ),
+                AppTextFieldWidget(controller: controller.whatsappController2, inputType: TextInputType.phone),
+                TitleRequiredFieldWidget(
+                  title: '${LocalizationKeys.whatsApp.tr} (${LocalizationKeys.optional.tr})',
+                  isRequired: false,
+                  icon: Assets.icons.whatsapp.path,
+                ),
+                AppTextFieldWidget(controller: controller.whatsappController3, inputType: TextInputType.phone),
+                TitleRequiredFieldWidget(
+                  title: LocalizationKeys.whatsAppPin.tr,
+                  icon: Assets.icons.whatsapp.path,
+                ),
+                AppTextFieldWidget(
+                  controller: controller.whatsAppPinController,
+                  inputType: TextInputType.phone,
+                  validator: notLessThanSixChar,
+                ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -178,9 +229,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                     Expanded(
                       child: Column(
                         children: [
-                          TitleRequiredFieldWidget(
-                            title: LocalizationKeys.currentAddress.tr,
-                          ),
+                          TitleRequiredFieldWidget(title: LocalizationKeys.currentAddress.tr),
                           AppTextFieldWidget(
                             validator: addressValidator,
                             controller: controller.addressController,
@@ -197,6 +246,12 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                       child: const Icon(Icons.location_on_rounded),
                     )
                   ],
+                ),
+                SizedBox(height: 30.h),
+                CheckboxWithTextWidget(
+                  value: controller.isAgreeToPublishPersonalInfo.value,
+                  onChanged: (v) => controller.isAgreeToPublishPersonalInfo.value  = v,
+                  title: LocalizationKeys.iWantToPublishPersonalInfo.tr,
                 ),
                 SizedBox(height: 30.h),
                 AppButton(

@@ -1,4 +1,5 @@
 import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/theme/theme_controller.dart';
 import 'package:esu/core/src/theme/theme_mode.dart';
 import 'package:esu/features/home/presentation/controller/setting_controller.dart';
@@ -22,7 +23,7 @@ class SettingScreen extends GetView<SettingController> {
         child: Column(
           children: [
             ListTile(
-              title: Text(LocalizationKeys.language.tr),
+              title: Text(LocalizationKeys.language.tr,style: const TextStyle(color: AppColors.primaryColor),),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -44,7 +45,7 @@ class SettingScreen extends GetView<SettingController> {
               builder: (themeController) => SwitchListTile(
                 value: SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value ? true : false,
                 onChanged: (newValue) => themeController.changeTheme(),
-                title: const Text('Dark Mode'),
+                title: Text(LocalizationKeys.darkMode.tr,style: const TextStyle(color: AppColors.primaryColor)),
               ),
             ),
           ],

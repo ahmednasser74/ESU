@@ -75,6 +75,14 @@ class LocalizationKeys {
   static const String selectLocation = 'selectLocation';
   static const String locationPermissionNotAllowed = 'locationPermissionNotAllowed';
   static const String errorInLocation = 'errorInLocation';
+  static const String facebook = 'facebook';
+  static const String whatsApp = 'whatsApp';
+  static const String instagram = 'instagram';
+  static const String twitter = 'twitter';
+  static const String linkedin = 'linkedin';
+  static const String optional = 'optional';
+  static const String whatsAppPin = 'whatsAppPin';
+  static const String iWantToPublishPersonalInfo = 'iWantToPublishPersonalInfo';
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -176,6 +184,7 @@ class LocalizationKeys {
   ///Settings
   static const String settings = 'settings';
   static const String language = 'language';
+  static const String darkMode = 'darkMode';
 
   //-------------------------------------------------------------------------
   ///study plans
@@ -313,4 +322,5 @@ class LocalizationKeys {
   static const String updatedAt = 'updatedAt';
   static const String deletedAt = 'deletedAt';
   static const String closedAt = 'closedAt';
+
 }
