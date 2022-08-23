@@ -83,6 +83,7 @@ class LocalizationKeys {
   static const String optional = 'optional';
   static const String whatsAppPin = 'whatsAppPin';
   static const String iWantToPublishPersonalInfo = 'iWantToPublishPersonalInfo';
+  static const String publishPersonalInfoMessage = 'publishPersonalInfoMessage';
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -322,5 +323,7 @@ class LocalizationKeys {
   static const String updatedAt = 'updatedAt';
   static const String deletedAt = 'deletedAt';
   static const String closedAt = 'closedAt';
+  static const String close = 'close';
+  static const String ok = 'ok';
 
 }

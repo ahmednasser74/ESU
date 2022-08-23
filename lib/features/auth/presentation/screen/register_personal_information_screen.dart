@@ -18,6 +18,7 @@ import 'package:get/get.dart';
 import '../../../../core/src/assets.gen.dart';
 import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/app_container.dart';
+import '../widgets/share_info_message_dialog.dart';
 
 // ignore: must_be_immutable
 class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with ValidatorProperties {
@@ -248,10 +249,20 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   ],
                 ),
                 SizedBox(height: 30.h),
-                CheckboxWithTextWidget(
-                  value: controller.isAgreeToPublishPersonalInfo.value,
-                  onChanged: (v) => controller.isAgreeToPublishPersonalInfo.value  = v,
-                  title: LocalizationKeys.iWantToPublishPersonalInfo.tr,
+                Row(
+                  children: [
+                    Expanded(
+                      child: CheckboxWithTextWidget(
+                        value: controller.isAgreeToPublishPersonalInfo.value,
+                        onChanged: (v) => controller.isAgreeToPublishPersonalInfo.value = v,
+                        title: LocalizationKeys.iWantToPublishPersonalInfo.tr,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () => Get.dialog(const ShareInfoDialog()),
+                      icon: const Icon(Icons.info_outline_rounded, color: Colors.blueGrey),
+                    )
+                  ],
                 ),
                 SizedBox(height: 30.h),
                 AppButton(

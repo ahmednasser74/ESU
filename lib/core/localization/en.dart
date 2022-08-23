@@ -84,6 +84,8 @@ const Map<String, String> en = {
   LocalizationKeys.optional: 'Optional',
   LocalizationKeys.whatsAppPin: 'WhatsApp Pin',
   LocalizationKeys.iWantToPublishPersonalInfo: 'I want to publish personal information (name, job, photo.)',
+  LocalizationKeys.publishPersonalInfoMessage:
+      'The university seeks to introduce students to social media platforms in order to contribute to the dissemination of student data and to obtain better practical opportunities in the labor market.',
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -102,7 +104,7 @@ const Map<String, String> en = {
   LocalizationKeys.submitRegistration: 'Submit Registration',
   LocalizationKeys.weRecommendToUseEmail: 'We recommend not to use the e-mail from (hotmail.com) company, as they have a problem with some e-mails not being sent to them.',
   LocalizationKeys.youShouldToReadTermsAndCondition:
-      'Dear applicant in order to finish your application, you have to read and agree with the terms and conditions of the university.',
+  'Dear applicant in order to finish your application, you have to read and agree with the terms and conditions of the university.',
   LocalizationKeys.iReadAndAgree: 'I agree to ',
   LocalizationKeys.termsAndCondition: 'The terms and conditions of admission',
   LocalizationKeys.mustToApproveOnTermsAndCondition: 'Must to approve on terms and condition',
@@ -322,4 +324,6 @@ const Map<String, String> en = {
   LocalizationKeys.deletedAt: 'Deleted At',
   LocalizationKeys.closedAt: 'Closed At',
   LocalizationKeys.darkMode: 'Dark Mode',
+  LocalizationKeys.close: 'Close',
+  LocalizationKeys.ok: 'OK',
 };

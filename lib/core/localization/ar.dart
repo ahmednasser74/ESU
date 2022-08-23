@@ -83,8 +83,9 @@ const Map<String, String> ar = {
   LocalizationKeys.linkedin: 'لينكدان',
   LocalizationKeys.optional: 'اختياري',
   LocalizationKeys.whatsAppPin: 'كود الواتس اب',
-  LocalizationKeys.iWantToPublishPersonalInfo : 'أريد أن أنشر معلومات شخصية (الاسم ، الوظيفة ، الصورة).',
-
+  LocalizationKeys.iWantToPublishPersonalInfo: 'ارغب باشهار معلوماتي الشخصية (الاسم ، الوظيفة ، الصورة).',
+  LocalizationKeys.publishPersonalInfoMessage:
+      'تسعي الجامعة بالتعريف عن الطلاب في منصات التواصل الاجتماعي و ذلك للمساهمه في نشر بيانات الطلبه و الحصول علي فرص عملية افضل في سوق العمل.',
 
   ///files upload
   LocalizationKeys.filesUpload: 'تحميل الملفات',
@@ -320,4 +321,6 @@ const Map<String, String> ar = {
   LocalizationKeys.deletedAt: 'حُذفت في',
   LocalizationKeys.closedAt: 'أغلقت في',
   LocalizationKeys.darkMode: 'الوضع الداكن',
+  LocalizationKeys.close: 'إغلاق',
+  LocalizationKeys.ok: 'حسنا',
 };
