@@ -1,6 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/widgets/app_empty_widget.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/student_data/presentation/controller/schedule_controller.dart';
 import 'package:flutter/material.dart';

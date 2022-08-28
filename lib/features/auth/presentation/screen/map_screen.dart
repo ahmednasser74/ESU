@@ -4,8 +4,8 @@ import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
-import 'package:esu/features/auth/presentation/controller/personal_info_controller.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
+import 'package:esu/features/auth/presentation/controller/register_personal_info_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocoding/geocoding.dart';
@@ -104,7 +104,7 @@ class _MapScreenState extends State<MapScreen> {
                 18.heightBox,
                 AppButton(
                   onPressed: () {
-                    Get.find<PersonalInfoController>().addressController.text = locationTEC.text;
+                    Get.find<RegisterPersonalInfoController>().addressController.text = locationTEC.text;
                     Get.back();
                   },
                   minimumSize: Size(double.infinity, 40.h),

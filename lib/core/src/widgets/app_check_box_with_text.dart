@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 
 // ignore: must_be_immutable
-class CheckboxWithTextWidget extends StatefulWidget {
-  CheckboxWithTextWidget({
+class AppCheckboxWithTextWidget extends StatefulWidget {
+  AppCheckboxWithTextWidget({
     Key? key,
     required this.value,
     required this.onChanged,
@@ -16,12 +16,12 @@ class CheckboxWithTextWidget extends StatefulWidget {
   final String title;
 
   @override
-  State<CheckboxWithTextWidget> createState() =>
-      _CheckboxWithTextWidgetState();
+  State<AppCheckboxWithTextWidget> createState() =>
+      _AppCheckboxWithTextWidgetState();
 }
 
-class _CheckboxWithTextWidgetState
-    extends State<CheckboxWithTextWidget> {
+class _AppCheckboxWithTextWidgetState
+    extends State<AppCheckboxWithTextWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

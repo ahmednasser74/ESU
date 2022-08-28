@@ -1,7 +1,7 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/horizontal_list_builder.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/core/utils/helper_methods.dart';

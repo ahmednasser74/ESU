@@ -29,7 +29,7 @@ import 'package:esu/features/auth/domin/usecases/delete_fcm_token_usecase.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
-import 'package:esu/features/auth/presentation/controller/personal_info_controller.dart';
+import 'package:esu/features/auth/presentation/controller/register_personal_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/reset_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/splash_controller.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
@@ -160,8 +160,8 @@ class Injection {
     di.registerFactory<AcademicInfoController>(
       () => AcademicInfoController(lookupUseCase: di()),
     );
-    di.registerFactory<PersonalInfoController>(
-      () => PersonalInfoController(lookupUseCase: di()),
+    di.registerFactory<RegisterPersonalInfoController>(
+      () => RegisterPersonalInfoController(lookupUseCase: di()),
     );
     di.registerFactory<ForgetPasswordController>(
       () => ForgetPasswordController(forgetPasswordUseCase: di()),

@@ -1,22 +1,17 @@
 import 'package:esu/core/const/list_const.dart';
-import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
-import 'package:esu/core/src/styles.dart';
 import 'package:esu/core/src/widgets/app_container.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:esu/features/auth/presentation/widgets/contract_links_widget.dart';
 import 'package:esu/features/auth/presentation/widgets/lookup_drop_down_button.dart';
-import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
+import 'package:esu/core/src/widgets/app_title_required_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../../../core/src/assets.gen.dart';
-import '../../../../core/src/colors.dart';
 
 class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
   const RegisterAcademicInfoScreen({Key? key}) : super(key: key);
@@ -44,7 +39,7 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
                 SizedBox(height: 12.h),
                 const ContractLinksWidget(),
                 const Spacer(),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.currentCertificate.tr,
                 ),
                 TitleDropDownButton(
@@ -61,7 +56,7 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
                   },
                 ),
                 SizedBox(height: 18.h),
-                TitleRequiredFieldWidget(title: LocalizationKeys.program.tr),
+                AppTitleRequiredWidget(title: LocalizationKeys.program.tr),
                 LookupDropDownButton(
                   list: state!,
                   isDense: true,

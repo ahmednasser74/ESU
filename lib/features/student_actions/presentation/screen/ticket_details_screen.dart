@@ -1,7 +1,7 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/widgets/app_empty_widget.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/student_actions/presentation/controller/ticket_details_controller.dart';
 import 'package:esu/features/student_actions/presentation/widget/cannot_add_reply_widget.dart';

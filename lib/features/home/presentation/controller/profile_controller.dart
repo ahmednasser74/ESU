@@ -32,6 +32,15 @@ class ProfileController extends GetxController with FileProperties {
   final passwordTEC = TextEditingController();
   final confirmPasswordTEC = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final facebookController = TextEditingController(text: '');
+  final twitterController = TextEditingController(text: '');
+  final instagramController = TextEditingController(text: '');
+  final linkedinController = TextEditingController(text: '');
+  final whatsappController = TextEditingController(text: '');
+  final whatsappController2 = TextEditingController(text: '');
+  final whatsappController3 = TextEditingController(text: '');
+  final whatsAppPinController = TextEditingController(text: '');
+  RxBool isAgreeToPublishPersonalInfo = false.obs;
   bool isLoadingUpdateProfile = false;
   bool isError = false;
   String errorMessage = '';
@@ -140,6 +149,8 @@ class ProfileController extends GetxController with FileProperties {
     isLoadingUpdateProfile = false;
     update();
   }
+
+  String getFirstChar(String name) => name.isNotEmpty ? name.trim().split(' ').map((l) => l[0]).take(2).join() : '';
 
   Future<bool> onBack() {
     if (haveUnCompleteFiles!) {

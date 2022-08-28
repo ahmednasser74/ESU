@@ -1,6 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/widgets/file_picker_widget.dart';
-import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
+import 'package:esu/core/src/widgets/app_title_required_widget.dart';
 import 'package:esu/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';
 import 'package:esu/features/home/presentation/controller/profile_controller.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
           visible: state?.nationalPassportFile ?? false,
           child: Column(
             children: [
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.copyOfYourIdOrPassport.tr,
               ),
               FilePickerWidget(
@@ -42,7 +42,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
           visible: state?.transcriptFile ?? false,
           child: Column(
             children: [
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.copyOfTranscript.tr,
               ),
               FilePickerWidget(
@@ -61,7 +61,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
           visible: state?.latestAcademicQualificationFile ?? false,
           child: Column(
             children: [
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.copyOfTheAcademicCertificate.tr,
               ),
               FilePickerWidget(
@@ -80,7 +80,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
           visible: state?.contractFile ?? false,
           child: Column(
             children: [
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys
                     .copyOfTheStudentsContractWithTheUniversity.tr,
                 titleSize: 18,
@@ -101,7 +101,7 @@ class ForgetFilesOfProfileWidget extends StatelessWidget {
           visible: state?.cv ?? false,
           child: Column(
             children: [
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.uploadCv.tr,
                 isRequired: false,
               ),

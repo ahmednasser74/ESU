@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class TitleRequiredFieldWidget extends StatelessWidget {
-  const TitleRequiredFieldWidget({
+class AppTitleRequiredWidget extends StatelessWidget {
+  const AppTitleRequiredWidget({
     Key? key,
     required this.title,
     this.titleSize,

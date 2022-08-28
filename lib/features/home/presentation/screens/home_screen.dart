@@ -3,7 +3,7 @@ import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/home/presentation/controller/home_controller.dart';
 import 'package:esu/features/home/presentation/widgets/drawer_widget.dart';

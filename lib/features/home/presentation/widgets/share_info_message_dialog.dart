@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../../../core/src/widgets/custom_button.dart';
+import '../../../../core/src/widgets/app_button.dart';
 
 class ShareInfoDialog extends StatelessWidget {
   const ShareInfoDialog({Key? key}) : super(key: key);

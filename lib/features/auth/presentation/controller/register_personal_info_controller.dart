@@ -12,8 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class PersonalInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
-  PersonalInfoController({required this.lookupUseCase});
+class RegisterPersonalInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
+  RegisterPersonalInfoController({required this.lookupUseCase});
 
   LookupUseCase lookupUseCase;
   final formKey = GlobalKey<FormState>();
@@ -30,15 +30,6 @@ class PersonalInfoController extends GetxController with StateMixin<List<LookupD
   final jobController = TextEditingController(text: '');
   final companyController = TextEditingController(text: '');
   final addressController = TextEditingController(text: '');
-  final facebookController = TextEditingController(text: '');
-  final twitterController = TextEditingController(text: '');
-  final instagramController = TextEditingController(text: '');
-  final linkedinController = TextEditingController(text: '');
-  final whatsappController = TextEditingController(text: '');
-  final whatsappController2 = TextEditingController(text: '');
-  final whatsappController3 = TextEditingController(text: '');
-  final whatsAppPinController = TextEditingController(text: '');
-  RxBool isAgreeToPublishPersonalInfo = false.obs;
   late DateTime birthDateController;
   late int countryId;
   late int nationalityId;

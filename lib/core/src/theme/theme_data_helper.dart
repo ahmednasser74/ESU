@@ -8,7 +8,7 @@ enum ThemeDataHelper {
   dark,
 }
 
-extension ThemeModeExtension on ThemeDataHelper {
+extension ThemeDataHelperExtention on ThemeDataHelper {
   String get value {
     switch (this) {
       case ThemeDataHelper.light:

@@ -4,7 +4,7 @@ import 'package:esu/core/src/theme/theme_controller.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
-import 'package:esu/features/auth/presentation/controller/personal_info_controller.dart';
+import 'package:esu/features/auth/presentation/controller/register_personal_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/reset_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/splash_controller.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
@@ -51,7 +51,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => Injection.di<ResetPasswordController>(), fenix: true);
     Get.lazyPut(() => Injection.di<SubmitAdmissionController>(), fenix: true);
     Get.lazyPut(() => Injection.di<AcademicInfoController>(), fenix: true);
-    Get.lazyPut(() => Injection.di<PersonalInfoController>(), fenix: true);
+    Get.lazyPut(() => Injection.di<RegisterPersonalInfoController>(), fenix: true);
     //-----------------------------------------------------------------------
     ///home
     Get.lazyPut(() => Injection.di<ProfileController>(), fenix: true);
