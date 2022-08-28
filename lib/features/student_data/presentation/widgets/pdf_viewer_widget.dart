@@ -1,5 +1,4 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
-import 'package:esu/core/file_helper/file_download_manager.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,8 @@ import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-import '../../../../core/utils/helper_methods.dart';
+import '../../../../core/helper/file_download_helper/file_download_manager.dart';
+import '../../../../core/helper/helper_methods.dart';
 
 class PdfViewerWidget extends StatefulWidget {
   const PdfViewerWidget({

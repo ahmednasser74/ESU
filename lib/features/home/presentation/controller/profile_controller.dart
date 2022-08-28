@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/file_properties.dart';
 import 'package:esu/core/usecases/usecase.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/home/data/models/request/edit_profile_request_model.dart';
 import 'package:esu/features/home/data/models/response/chec_profile_files/check_edit_profile_files_data_response_model.dart';

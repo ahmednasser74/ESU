@@ -6,8 +6,6 @@ import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/dio/dio_helper.dart';
 import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/dio/wrapper.dart';
-import 'package:esu/core/file_helper/file_downloader_db/file_downloader_db.dart';
-import 'package:esu/core/file_helper/file_downloader_db/file_downloader_model.dart';
 import 'package:esu/core/helper/firebase_analytics_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/network/network_information.dart';
@@ -93,6 +91,9 @@ import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../helper/file_download_helper/file_downloader_db/file_downloader_db.dart';
+import '../helper/file_download_helper/file_downloader_db/file_downloader_model.dart';
 
 class Injection {
   static final di = GetIt.instance;

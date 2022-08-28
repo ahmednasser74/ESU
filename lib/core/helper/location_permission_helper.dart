@@ -1,4 +1,6 @@
 import 'package:app_settings/app_settings.dart';
+import 'package:esu/core/localization/localization_keys.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -51,11 +53,9 @@ class LocationPermissionHelper {
             title: const Text('Location Permission Denied'),
             content: const Text('Location permissions are denied, please enable location permission from settings'),
             actions: <Widget>[
-              FlatButton(
-                child: const Text('Ok'),
-                onPressed: () {
-                  AppSettings.openAppSettings();
-                },
+              AppButton(
+                title: LocalizationKeys.ok.tr,
+                onPressed: () => AppSettings.openAppSettings(),
               ),
             ],
           ),
@@ -70,8 +70,8 @@ class LocationPermissionHelper {
         AlertDialog(
           title: const Text('Location permissions are permanently denied, we cannot request permissions. please enable location permission from settings'),
           actions: <Widget>[
-            FlatButton(
-              child: const Text('OK'),
+            AppButton(
+              title: LocalizationKeys.ok.tr,
               onPressed: () async {
                 Get.back();
                 if (!await LocationPermissionHelper.isPermissionGranted()) {

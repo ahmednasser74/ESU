@@ -1,6 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/auth/data/model/data_holder/academic_info_data_holder_model.dart';
 import 'package:esu/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
 import 'package:esu/features/auth/data/model/data_holder/personal_info_data_holder_model.dart';

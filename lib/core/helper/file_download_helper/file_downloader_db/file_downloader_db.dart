@@ -1,6 +1,6 @@
 import 'package:hive_flutter/adapters.dart';
 
-import '../../flavor/flavors.dart';
+import '../../../flavor/flavors.dart';
 import 'file_downloader_model.dart';
 
 abstract class FileDownloadedDbHelper {

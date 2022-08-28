@@ -1,8 +1,8 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/src/theme/theme_controller.dart';
-import 'package:esu/core/src/theme/theme_data_helper.dart';
-import 'package:esu/core/utils/enums.dart';
+import 'package:esu/core/enum/theme_data_helper.dart';
+import 'package:esu/core/enum/language.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -3,7 +3,7 @@ import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:esu/core/src/widgets/app_check_box_with_text.dart';
 import 'package:flutter/material.dart';

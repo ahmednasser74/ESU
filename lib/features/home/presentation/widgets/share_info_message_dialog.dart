@@ -2,8 +2,6 @@ import 'package:esu/core/localization/localization_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../../core/src/widgets/app_button.dart';
 
 class ShareInfoDialog extends StatelessWidget {

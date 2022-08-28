@@ -1,6 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/auth/data/model/request/forget_password/forget_password_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/forget_password_usecase.dart';
 import 'package:flutter/material.dart';

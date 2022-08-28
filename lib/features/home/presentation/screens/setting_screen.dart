@@ -1,15 +1,11 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
-import 'package:esu/core/src/theme/theme_controller.dart';
-import 'package:esu/core/src/theme/theme_data_helper.dart';
 import 'package:esu/features/home/presentation/controller/setting_controller.dart';
 import 'package:esu/features/home/presentation/widgets/lagnuage_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/const/shared_prefs_keys.dart';
-import '../../../../core/utils/pref_util.dart';
 
 class SettingScreen extends GetView<SettingController> {
   const SettingScreen({Key? key}) : super(key: key);

@@ -1,9 +1,8 @@
-import 'package:esu/core/file_helper/file_download_manager.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/src/widgets/keep_live_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/student_actions/data/models/response/tickets/tickets_data_replies_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -11,6 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../../../../core/helper/file_download_helper/file_download_manager.dart';
 
 class TicketRepliesItemWidget extends StatelessWidget {
   const TicketRepliesItemWidget({

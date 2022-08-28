@@ -5,7 +5,6 @@ import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/styles.dart';
 import 'package:esu/features/student_actions/data/models/response/tickets/tickets_data_response_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
