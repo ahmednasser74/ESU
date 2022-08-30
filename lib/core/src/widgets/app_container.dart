@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/src/colors.dart';
 
 class AppContainer extends StatelessWidget {
@@ -13,7 +14,15 @@ class AppContainer extends StatelessWidget {
     this.boxShadowBlurRadius = 4,
     this.borderRadius = 8,
     this.boxShadowOffset = Offset.zero,
-    this.boxShadowBlurColor = Colors.blue,
+    this.boxShadowBlurColor = AppColors.primaryColor,
+    this.hasShadow = true,
+    this.height,
+    this.width,
+    this.padding,
+    this.margin,
+    this.alignment,
+    this.hasBorder = true,
+    this.shadowSpreadRadius = 0,
   }) : super(key: key);
 
   final Widget child;
@@ -26,22 +35,37 @@ class AppContainer extends StatelessWidget {
   final Offset? boxShadowOffset;
   final double boxShadowBlurRadius;
   final Color boxShadowBlurColor;
+  final bool hasShadow;
+  final double? height;
+  final double? width;
+  final EdgeInsets? padding;
+  final EdgeInsets? margin;
+  final Alignment? alignment;
+  final bool hasBorder;
+  final double shadowSpreadRadius;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+      height: height?.h,
+      width: width?.w,
+      padding: padding,
+      margin: margin,
+      alignment: alignment,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(borderRadius),
-        border: Border.all(color: borderColor, width: borderWidth),
-        boxShadow: [
-          BoxShadow(
-            color: boxShadowBlurColor,
-            offset: boxShadowOffset ?? const Offset(1, 2),
-            blurRadius: boxShadowBlurRadius,
-          )
-        ],
+        borderRadius: BorderRadius.circular(borderRadius.r),
+        border: hasBorder ? Border.all(color: borderColor, width: borderWidth) : null,
+        boxShadow: hasShadow
+            ? [
+                BoxShadow(
+                  color: boxShadowBlurColor,
+                  offset: boxShadowOffset ?? const Offset(0, 12),
+                  blurRadius: 12,
+                  spreadRadius: shadowSpreadRadius,
+                )
+              ]
+            : null,
       ),
       child: child,
     );

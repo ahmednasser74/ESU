@@ -20,15 +20,10 @@ class HomeHeaderWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: .28.sh,
+          height: .18.sh,
           width: double.infinity,
           margin: EdgeInsets.only(top: 45.h, left: 18.w, right: 18.w),
-          padding: EdgeInsets.only(
-            top: 45.h,
-            left: 14.w,
-            right: 14.w,
-            bottom: 14.h,
-          ),
+          padding: EdgeInsets.only(top: 45.h, left: 12.w, right: 12.w, bottom: 12.h),
           decoration: BoxDecoration(
             color: AppColors.primaryColor,
             borderRadius: BorderRadius.circular(12.r),
@@ -60,50 +55,6 @@ class HomeHeaderWidget extends StatelessWidget {
                 student.academicId,
                 style: const TextStyle(color: Colors.white),
               ),
-              SizedBox(height: 2.h),
-              const Divider(color: Colors.black45),
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          LocalizationKeys.programAmount.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                        Text('${data.programCost}'),
-                      ],
-                    ),
-                  ),
-                  _verticalDivider(),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: 70.w,
-                          child: Text(
-                            LocalizationKeys.paidAmount.tr,
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Text('${data.paid}'),
-                      ],
-                    ),
-                  ),
-                  _verticalDivider(),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          LocalizationKeys.unPaidAmount.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                        Text('${data.unpaid}'),
-                      ],
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
         ),

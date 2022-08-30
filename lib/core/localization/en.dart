@@ -127,6 +127,7 @@ const Map<String, String> en = {
   LocalizationKeys.goToInvoice: 'Go to Invoice',
   LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess: 'You must complete profile files to complete any process',
   LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess: 'You must pay invoice to complete any process',
+  LocalizationKeys.knowledgeAmbassadorCredit: 'Knowledge Ambassador Credit',
 
   //-------------------------------------------------------------------------
   ///Profile

@@ -127,6 +127,7 @@ class LocalizationKeys {
   static const String goToProfile = 'goToProfile';
   static const String youMustPayInvoiceToCompleteAnyProcess = 'You must pay invoice to complete any process';
   static const String youMustCompleteProfileFilesToCompleteAnyProcess = 'You must complete profile files to complete any process';
+  static const String knowledgeAmbassadorCredit = 'knowledgeAmbassadorCredit';
 
   //-------------------------------------------------------------------------
   ///Profile

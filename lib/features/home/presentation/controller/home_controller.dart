@@ -25,6 +25,7 @@ class HomeController extends GetxController with StateMixin<HomeResponseModel> {
       (l) => change(null, status: RxStatus.error()),
       (r) {
         if (r.status) {
+          final response = r;
           change(r, status: RxStatus.success());
         } else {
           change(null, status: RxStatus.error());

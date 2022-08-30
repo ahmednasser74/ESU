@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../widgets/finance_header_item_widget.dart';
+
 class FinanceScreen extends GetView<FinanceController> {
   const FinanceScreen({Key? key}) : super(key: key);
 
@@ -18,14 +20,51 @@ class FinanceScreen extends GetView<FinanceController> {
       child: Scaffold(
         appBar: AppBar(title: Text(LocalizationKeys.finance.tr)),
         body: controller.obx(
-          (state) => ListView.separated(
-            itemCount: state?.length ?? 0,
-            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
-            separatorBuilder: (_, index) => SizedBox(height: 14.h),
-            itemBuilder: (_, index) => FinanceItemWidget(
-              finance: state!.elementAt(index),
-              index: index,
-            ),
+          (state) => Column(
+            children: [
+              Row(
+                children: [
+                  FinanceHeaderItemWidget(
+                    color: Colors.blue,
+                    title: LocalizationKeys.balance.tr,
+                    amount: '20',
+                  ),
+                  FinanceHeaderItemWidget(
+                    color: Colors.orangeAccent,
+                    title: LocalizationKeys.totalAmount.tr,
+                    amount: '20',
+                  ),
+                ],
+              ),
+              SizedBox(height: 14.h),
+              Row(
+                children: [
+                  FinanceHeaderItemWidget(
+                    color: Colors.green,
+                    title: LocalizationKeys.totalAmountPaid.tr,
+                    amount: '20',
+                  ),
+                  FinanceHeaderItemWidget(
+                    color: Colors.red,
+                    title: LocalizationKeys.totalAmountUnpaid.tr,
+                    amount: '20',
+                  ),
+                ],
+              ),
+              SizedBox(height: 14.h),
+
+              Expanded(
+                child: ListView.separated(
+                  itemCount: state?.length ?? 0,
+                  padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+                  separatorBuilder: (_, index) => SizedBox(height: 14.h),
+                  itemBuilder: (_, index) => FinanceItemWidget(
+                    finance: state!.elementAt(index),
+                    index: index,
+                  ),
+                ),
+              ),
+            ],
           ),
           onError: (e) => AppErrorWidget(errorMessage: e),
           onLoading: const LoadingIndicatorWidget(),
