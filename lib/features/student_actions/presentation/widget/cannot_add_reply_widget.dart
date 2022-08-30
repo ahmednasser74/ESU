@@ -26,7 +26,7 @@ class CannotAddReplyWidget extends StatelessWidget {
           Expanded(
             child: Text(
               LocalizationKeys.sorryCannotAddReplyBecauseTicketIsClosed.tr,
-              style: TextStyle(fontSize: 16.sp, color: Colors.black),
+              style: TextStyle(fontSize: 16.sp),
               textAlign: TextAlign.center,
             ),
           ),

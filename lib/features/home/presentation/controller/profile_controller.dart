@@ -25,13 +25,13 @@ class ProfileController extends GetxController with FileProperties {
   final EditProfileUseCase editProfileUseCase;
   final bool? haveUnCompleteFiles = Get.arguments ?? false;
 
-  final fullNameEnTEC = TextEditingController();
-  final fullNameArTEC = TextEditingController();
-  final mobileTEC = TextEditingController();
-  final emailTEC = TextEditingController();
-  final passwordTEC = TextEditingController();
-  final confirmPasswordTEC = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final fullNameEnTEC = TextEditingController(text: '');
+  final fullNameArTEC = TextEditingController(text: '');
+  final mobileTEC = TextEditingController(text: '');
+  final emailTEC = TextEditingController(text: '');
+  final passwordTEC = TextEditingController(text: '');
+  final confirmPasswordTEC = TextEditingController(text: '');
   final facebookController = TextEditingController(text: '');
   final twitterController = TextEditingController(text: '');
   final instagramController = TextEditingController(text: '');
@@ -40,14 +40,10 @@ class ProfileController extends GetxController with FileProperties {
   final whatsappController2 = TextEditingController(text: '');
   final whatsappController3 = TextEditingController(text: '');
   final whatsAppPinController = TextEditingController(text: '');
-  RxBool isAgreeToPublishPersonalInfo = false.obs;
-  bool isLoadingUpdateProfile = false;
-  bool isError = false;
-  String errorMessage = '';
   CheckEditProfileFilesDataResponseModel? checkEditProfileData;
+  String errorMessage = '';
   File? photoFile;
   String? photoUrl;
-
   File? nationalPassportFile;
   File? latestAcademicQualificationFile;
   File? transcriptFile;
@@ -55,6 +51,9 @@ class ProfileController extends GetxController with FileProperties {
   File? cvFile;
   String? password;
   String? passwordConfirm;
+  bool isAgreeToPublishPersonalInfo = false;
+  bool isLoadingUpdateProfile = false;
+  bool isError = false;
 
   @override
   void onInit() async {
@@ -65,15 +64,8 @@ class ProfileController extends GetxController with FileProperties {
     mobileTEC.text = student.mobile;
     emailTEC.text = student.email;
     photoUrl = student.photo;
+    isAgreeToPublishPersonalInfo = student.isAgreePublishSocialProfile;
     await checkEditProfileFiles();
-  }
-
-  Future<void> pickPhoto({required ImageSource source}) async {
-    final imagePath = await pickedImage(source: source);
-    if (imagePath != null) {
-      photoFile = File(imagePath);
-      update();
-    }
   }
 
   Future<void> editProfile() async {
@@ -86,6 +78,15 @@ class ProfileController extends GetxController with FileProperties {
       contractFile: contractFile,
       cvFile: cvFile,
       photo: photoFile,
+      facebook: facebookController.text,
+      twitter: twitterController.text,
+      instagram: instagramController.text,
+      linkedin: linkedinController.text,
+      whatsapp: whatsappController.text,
+      whatsapp2: whatsappController2.text,
+      whatsapp3: whatsappController3.text,
+      whatsappPin: whatsAppPinController.text,
+      isAgreeToPublishPersonalInfo: isAgreeToPublishPersonalInfo,
     );
     final isValid = formKey.currentState?.validate() ?? false;
     if (isValid) {
@@ -105,10 +106,7 @@ class ProfileController extends GetxController with FileProperties {
       },
       (r) {
         if (r.status) {
-          HelperMethod.showSnackBar(
-            title: LocalizationKeys.success.tr,
-            message: r.message!,
-          );
+          HelperMethod.showSnackBar(title: LocalizationKeys.success.tr, message: r.message!);
           SharedPrefs.instance.saveUser(studentModel: r.data);
           checkEditProfileFiles();
         } else {
@@ -148,6 +146,14 @@ class ProfileController extends GetxController with FileProperties {
     );
     isLoadingUpdateProfile = false;
     update();
+  }
+
+  Future<void> pickPhoto({required ImageSource source}) async {
+    final imagePath = await pickedImage(source: source);
+    if (imagePath != null) {
+      photoFile = File(imagePath);
+      update();
+    }
   }
 
   String getFirstChar(String name) => name.isNotEmpty ? name.trim().split(' ').map((l) => l[0]).take(2).join() : '';

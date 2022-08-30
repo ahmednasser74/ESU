@@ -36,7 +36,7 @@ class LetterItemWidget extends StatelessWidget {
         children: [
           Text(
             Get.locale.toString() == 'ar' ? letter.titleAr : letter.titleEn,
-            style: TextStyle(fontSize: 18.sp,color: Colors.black),
+            style: TextStyle(fontSize: 18.sp),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 10.h),

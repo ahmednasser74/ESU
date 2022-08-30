@@ -23,6 +23,7 @@ const Map<String, String> en = {
   LocalizationKeys.enterValidFormat: "Enter valid format",
   LocalizationKeys.atLeast3Characters: "At least 3 characters",
   LocalizationKeys.atLeast6Characters: "At least 6 characters",
+  LocalizationKeys.onlyAcceptSixNumbers: "Only accept 6 numbers",
   LocalizationKeys.atLeast8Characters: "At least 8 characters",
   LocalizationKeys.atLeast10Characters: "At least 10 characters",
   LocalizationKeys.forgetPassword: "Forget Password ?",

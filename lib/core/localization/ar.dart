@@ -23,6 +23,7 @@ const Map<String, String> ar = {
   LocalizationKeys.enterValidFormat: "أدخل صيغة صحيحة",
   LocalizationKeys.atLeast3Characters: "يجب أن تكون من 3 أحرف على الأقل",
   LocalizationKeys.atLeast6Characters: "يجب أن تكون من 6 أحرف على الأقل",
+  LocalizationKeys.onlyAcceptSixNumbers: 'يقبل فقط ٦ ارقام',
   LocalizationKeys.atLeast8Characters: "يجب أن تكون كلمة السر من 8 أحرف على الأقل",
   LocalizationKeys.atLeast10Characters: "يجب أن تكون من 10 أحرف على الأقل",
   LocalizationKeys.forgetPassword: "هل نسيت كلمة المرور؟",

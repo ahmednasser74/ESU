@@ -19,6 +19,7 @@ class LocalizationKeys {
   static const String atLeast8Characters = 'atleast8Characters';
   static const String atLeast3Characters = 'atleast3Characters';
   static const String atLeast6Characters = 'atleast6Characters';
+  static const String onlyAcceptSixNumbers = 'onlyAcceptSixNumbers';
   static const String atLeast10Characters = 'atleast10Characters';
   static const String passwordMustContain = 'passwordMustContain';
   static const String enterValidEmailFormat = 'enterValidEmailFormat';
@@ -325,5 +326,4 @@ class LocalizationKeys {
   static const String closedAt = 'closedAt';
   static const String close = 'close';
   static const String ok = 'ok';
-
 }

@@ -36,7 +36,7 @@ class FinanceItemWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          FittedBox(child: Text(finance.item, style: const TextStyle(color: Colors.black))),
+          FittedBox(child: Text(finance.item)),
           SizedBox(height: 8.h),
           Row(
             children: [

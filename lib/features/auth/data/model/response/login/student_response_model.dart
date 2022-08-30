@@ -14,6 +14,7 @@ class StudentResponseModel {
     required this.admissionYear,
     required this.archiveStatus,
     required this.locale,
+    required this.publishSocialProfile,
   });
 
   final int id;
@@ -30,6 +31,7 @@ class StudentResponseModel {
   final String admissionYear;
   final String archiveStatus;
   final String locale;
+  final int publishSocialProfile;
 
   factory StudentResponseModel.fromJson(Map<String, dynamic> json) =>
       StudentResponseModel(
@@ -47,9 +49,11 @@ class StudentResponseModel {
         admissionYear: json["admission_year"],
         archiveStatus: json["archive_status"],
         locale: json["locale"],
+        publishSocialProfile: json["publish_social_profile"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() =>
+      {
         "id": id,
         "name_en": nameEn,
         "name_ar": nameAr,
@@ -64,5 +68,8 @@ class StudentResponseModel {
         "admission_year": admissionYear,
         "archive_status": archiveStatus,
         "locale": locale,
+        "publish_social_profile": publishSocialProfile == true ? 1 : 0,
       };
+
+  bool get isAgreePublishSocialProfile => publishSocialProfile == 1 ? true : false;
 }

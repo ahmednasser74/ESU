@@ -12,13 +12,13 @@ class ThemeController extends GetxController {
   @override
   void onInit() async {
     setDarkMode();
-    Get.changeTheme(_isDarkMode ? CustomsThemes.darkThemeData : CustomsThemes.lightThemeData);
+    Get.changeTheme(_isDarkMode ? AppThemes.darkThemeData : AppThemes.lightThemeData);
     super.onInit();
   }
 
   void changeTheme() {
     final isDarkMode = SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value;
-    Get.changeTheme(isDarkMode ? CustomsThemes.lightThemeData : CustomsThemes.darkThemeData);
+    Get.changeTheme(isDarkMode ? AppThemes.lightThemeData : AppThemes.darkThemeData);
     SharedPrefs.instance.saveString(key: SharedPrefsKeys.themeMode, value: isDarkMode ? ThemeDataHelper.light.value : ThemeDataHelper.dark.value);
     setDarkMode();
     update();

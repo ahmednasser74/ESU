@@ -40,9 +40,9 @@ class TicketItemWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text('${LocalizationKeys.subject.tr} : ', style: const TextStyle(color: Colors.black)),
+                Text('${LocalizationKeys.subject.tr} : '),
                 Expanded(
-                  child: Text(ticket.subject, style: const TextStyle(color: Colors.black)),
+                  child: Text(ticket.subject),
                 ),
               ],
             ),
@@ -55,8 +55,8 @@ class TicketItemWidget extends StatelessWidget {
             12.heightBox,
             Row(
               children: [
-                Text('${LocalizationKeys.category.tr} : ', style: const TextStyle(color: Colors.black)),
-                Expanded(child: Text(ticket.category, style: const TextStyle(color: Colors.black))),
+                Text('${LocalizationKeys.category.tr} : '),
+                Expanded(child: Text(ticket.category)),
               ],
             ),
             12.heightBox,

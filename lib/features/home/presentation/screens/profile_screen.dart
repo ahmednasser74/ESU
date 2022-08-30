@@ -208,7 +208,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                           controller: controller,
                           state: controller.checkEditProfileData,
                         ),
-                        SizedBox(height: 18.h),
+                        SizedBox(height: 8.h),
                         AppTitleRequiredWidget(
                           title: LocalizationKeys.facebook.tr,
                           isRequired: false,
@@ -282,7 +282,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                         AppTextFieldWidget(
                           controller: controller.whatsAppPinController,
                           inputType: TextInputType.phone,
-                          validator: notLessThanSixChar,
+                          validator: onlyAcceptSixNumbers,
                           dispose: false,
                         ),
                         30.heightBox,
@@ -290,8 +290,8 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                           children: [
                             Expanded(
                               child: AppCheckboxWithTextWidget(
-                                value: controller.isAgreeToPublishPersonalInfo.value,
-                                onChanged: (v) => controller.isAgreeToPublishPersonalInfo.value = v,
+                                value: controller.isAgreeToPublishPersonalInfo,
+                                onChanged: (v) => controller.isAgreeToPublishPersonalInfo = v,
                                 title: LocalizationKeys.iWantToPublishPersonalInfo.tr,
                               ),
                             ),

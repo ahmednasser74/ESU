@@ -117,17 +117,14 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       text: LocalizationKeys.doNotHaveAccount.tr,
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style: TextStyle(
+                        color: Get.isDarkMode ? Colors.white : Colors.black,
                         fontFamily: 'din',
                       ),
                       children: [
                         TextSpan(
                           text: LocalizationKeys.admission.tr,
-                          style: const TextStyle(
-                            color: AppColors.primaryColor,
-                            fontFamily: 'din',
-                          ),
+                          style: const TextStyle(color: AppColors.primaryColor, fontFamily: 'din'),
                         ),
                       ],
                     ),

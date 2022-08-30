@@ -88,7 +88,7 @@ class LogoutDialogState extends State<LogoutDialog> with SingleTickerProviderSta
                   child: Text(
                     LocalizationKeys.logout.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16.sp),
+                    style: TextStyle(fontSize: 16.sp, color: Get.isDarkMode ? Colors.white : Colors.black),
                   ),
                 ),
                 SizedBox(height: 12.h),
@@ -99,7 +99,7 @@ class LogoutDialogState extends State<LogoutDialog> with SingleTickerProviderSta
                   child: Text(
                     LocalizationKeys.doYouWantToLogout.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14.sp),
+                    style: TextStyle(fontSize: 14.sp, color: Get.isDarkMode ? Colors.white : Colors.black),
                   ),
                 ),
                 SizedBox(height: 24.h),

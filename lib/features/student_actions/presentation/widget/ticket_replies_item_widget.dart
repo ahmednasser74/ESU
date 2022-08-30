@@ -53,11 +53,11 @@ class TicketRepliesItemWidget extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.topRight,
-                child: Text(reply.by, style: TextStyle(fontSize: 8.sp, color: Colors.black)),
+                child: Text(reply.by, style: TextStyle(fontSize: 8.sp)),
               ),
               Html(
                 data: reply.body,
-                style: {'p': Style(fontSize: FontSize(12.sp), color: Colors.black)},
+                style: {'p': Style(fontSize: FontSize(12.sp))},
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
