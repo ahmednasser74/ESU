@@ -25,6 +25,6 @@ class ThemeController extends GetxController {
   }
 
   void setDarkMode() {
-    _isDarkMode = SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value;
+    _isDarkMode = SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.light.value;
   }
 }
