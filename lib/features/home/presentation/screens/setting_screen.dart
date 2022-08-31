@@ -40,14 +40,14 @@ class SettingScreen extends GetView<SettingController> {
                 ],
               ),
             ),
-            GetBuilder<SettingController>(
-              builder: (controller) => SwitchListTile(
-                value: controller.isDarkMode,
-                onChanged: (newValue) => controller.changeTheme(),
-                title: Text(LocalizationKeys.darkMode.tr, style: const TextStyle(color: AppColors.primaryColor)),
-                // activeTrackColor: AppColors.primaryColor.withOpacity(.7),
-              ),
-            ),
+            // GetBuilder<SettingController>(
+            //   builder: (controller) => SwitchListTile(
+            //     value: controller.isDarkMode,
+            //     onChanged: (newValue) => controller.changeTheme(),
+            //     title: Text(LocalizationKeys.darkMode.tr, style: const TextStyle(color: AppColors.primaryColor)),
+            //     // activeTrackColor: AppColors.primaryColor.withOpacity(.7),
+            //   ),
+            // ),
           ],
         ),
       ),

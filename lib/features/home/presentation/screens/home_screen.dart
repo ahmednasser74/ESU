@@ -3,6 +3,7 @@ import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/src/widgets/app_container.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
@@ -39,10 +40,7 @@ class HomeScreen extends GetView<HomeController> {
             ),
             actions: [
               IconButton(
-                icon: Assets.icons.notificationIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 18.h,
-                ),
+                icon: Assets.icons.notificationIcon.image(color: AppColors.primaryColor, height: 18.h),
                 onPressed: () => Get.toNamed(Routes.notificationScreen),
               ),
             ],
@@ -54,6 +52,17 @@ class HomeScreen extends GetView<HomeController> {
               physics: const AlwaysScrollableScrollPhysics(),
               children: [
                 HomeHeaderWidget(data: state.data!),
+                SizedBox(height: 20.h),
+                AppContainer(
+                  margin: EdgeInsets.symmetric(horizontal: .2.sw),
+                  padding: EdgeInsets.symmetric(vertical: 8.h),
+                  hasShadow: false,
+                  alignment: Alignment.center,
+                  child: Text(
+                    '${LocalizationKeys.gpa.tr} : ${state.data!.gpa}',
+                    style: TextStyle(fontSize: 18.sp),
+                  ),
+                ),
                 SizedBox(height: 20.h),
                 LinearPercentIndicator(
                   width: .92.sw,

@@ -23,6 +23,7 @@ class AppContainer extends StatelessWidget {
     this.alignment,
     this.hasBorder = true,
     this.shadowSpreadRadius = 0,
+    this.constraints,
   }) : super(key: key);
 
   final Widget child;
@@ -43,6 +44,7 @@ class AppContainer extends StatelessWidget {
   final Alignment? alignment;
   final bool hasBorder;
   final double shadowSpreadRadius;
+  final BoxConstraints? constraints;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,7 @@ class AppContainer extends StatelessWidget {
       padding: padding,
       margin: margin,
       alignment: alignment,
+      constraints: constraints,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(borderRadius.r),
@@ -59,9 +62,9 @@ class AppContainer extends StatelessWidget {
         boxShadow: hasShadow
             ? [
                 BoxShadow(
-                  color: boxShadowBlurColor,
-                  offset: boxShadowOffset ?? const Offset(0, 12),
-                  blurRadius: 12,
+                  color: boxShadowBlurColor.withOpacity(.7),
+                  offset: boxShadowOffset ?? const Offset(0, 8),
+                  blurRadius: 8,
                   spreadRadius: shadowSpreadRadius,
                 )
               ]

@@ -128,6 +128,7 @@ const Map<String, String> ar = {
   LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess: 'يجب تحميل الملفات الشخصية لتكملة أي عملية',
   LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess: 'يجب دفع الفاتورة لتكملة أي عملية',
   LocalizationKeys.knowledgeAmbassadorCredit: 'محفظة سفير المعرفة',
+  LocalizationKeys.gpa: 'المعدل التراكمي',
 
   //-------------------------------------------------------------------------
   ///Profile
