@@ -22,8 +22,7 @@ class FinanceHeaderItemWidget extends StatelessWidget {
     return Expanded(
       child: AppContainer(
         margin: EdgeInsets.symmetric(horizontal: 18.w),
-        padding: EdgeInsets.all(8.r),
-        height: 80.h,
+        height: 70.h,
         color: color.withOpacity(.2),
         boxShadowBlurColor: color.withOpacity(.2),
         hasBorder: false,

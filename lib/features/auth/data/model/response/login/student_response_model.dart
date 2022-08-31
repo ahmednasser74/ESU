@@ -43,7 +43,7 @@ class StudentResponseModel {
 
   Map<String, dynamic> toJson() => _$StudentResponseModelToJson(this);
 
-  String? get whatsNumber1 => optionalWhatsNumbers.first;
+  String? get whatsNumber2 => optionalWhatsNumbers.first;
 
-  String? get whatsNumber2 => optionalWhatsNumbers.elementAt(1);
+  String? get whatsNumber3 => optionalWhatsNumbers.elementAt(1);
 }

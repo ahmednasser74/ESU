@@ -1,22 +1,19 @@
-import 'package:esu/features/student_data/data/models/response/finance/finance_data_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/finance/invoice_item/invoice_item_response_model.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'finance_statics/finance_statics_response_model.dart';
 
+part 'finance_response_model.g.dart';
+
+@JsonSerializable()
 class FinanceResponseModel {
-  FinanceResponseModel({
-    required this.status,
-    required this.code,
-    required this.data,
-  });
+  FinanceResponseModel();
 
-  final bool status;
-  final int code;
-  final List<FinanceDataResponseModel> data;
+  late final bool status;
+  late final int code;
+  late final List<InvoiceItemResponseModel> data;
+  @JsonKey(name: 'invoices_statics')
+  late final FinanceStaticsResponseModel invoiceStatics;
 
-  factory FinanceResponseModel.fromJson(Map<String, dynamic> json) =>
-      FinanceResponseModel(
-        status: json["status"],
-        code: json["code"],
-        data: List<FinanceDataResponseModel>.from(
-          json["data"].map((x) => FinanceDataResponseModel.fromJson(x)),
-        ),
-      );
+  factory FinanceResponseModel.fromJson(Map<String, dynamic> json) => _$FinanceResponseModelFromJson(json);
 }
+

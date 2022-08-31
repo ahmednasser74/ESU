@@ -1,7 +1,7 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/custom_rich_text.dart';
-import 'package:esu/features/student_data/data/models/response/finance/finance_data_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/finance/invoice_item/invoice_item_response_model.dart';
 import 'package:esu/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +15,7 @@ class FinanceItemWidget extends StatelessWidget {
     required this.index,
   }) : super(key: key);
   final int index;
-  final FinanceDataResponseModel finance;
+  final InvoiceItemResponseModel finance;
 
   @override
   Widget build(BuildContext context) {
