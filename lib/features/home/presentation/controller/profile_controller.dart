@@ -64,7 +64,15 @@ class ProfileController extends GetxController with FileProperties {
     mobileTEC.text = student.mobile;
     emailTEC.text = student.email;
     photoUrl = student.photo;
-    isAgreeToPublishPersonalInfo = student.isAgreePublishSocialProfile;
+    facebookController.text = student.facebook ?? '';
+    twitterController.text = student.twitter ?? '';
+    instagramController.text = student.instagram ?? '';
+    linkedinController.text = student.linkedin ?? '';
+    whatsappController.text = student.whatsNumber ?? '';
+    whatsappController2.text = student.optionalWhatsNumbers?.elementAt(0) ?? '';
+    whatsappController3.text = student.optionalWhatsNumbers?.elementAt(1) ?? '';
+    whatsAppPinController.text = student.whatsPin ?? '';
+    isAgreeToPublishPersonalInfo = student.publishSocialProfile;
     await checkEditProfileFiles();
   }
 

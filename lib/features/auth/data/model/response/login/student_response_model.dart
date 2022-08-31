@@ -1,75 +1,49 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'student_response_model.g.dart';
+
+@JsonSerializable()
 class StudentResponseModel {
-  StudentResponseModel({
-    required this.id,
-    required this.nameEn,
-    required this.nameAr,
-    required this.academicId,
-    required this.email,
-    required this.mobile,
-    required this.nationalPassport,
-    required this.photo,
-    required this.country,
-    required this.nationality,
-    required this.gender,
-    required this.admissionYear,
-    required this.archiveStatus,
-    required this.locale,
-    required this.publishSocialProfile,
-  });
+  StudentResponseModel();
 
-  final int id;
-  final String nameEn;
-  final String nameAr;
-  final String academicId;
-  final String email;
-  final String mobile;
-  final String nationalPassport;
+  late final int id;
+  @JsonKey(name: 'name_en')
+  late final String nameEn;
+  @JsonKey(name: 'name_ar')
+  late final String nameAr;
+  @JsonKey(name: 'academic_id')
+  late final String academicId;
+  late final String email;
+  late final String mobile;
+  @JsonKey(name: 'national_passport')
+  late final String nationalPassport;
+  late final String country;
+  late final String nationality;
+  late final String gender;
+  @JsonKey(name: 'admission_year')
+  late final String admissionYear;
+  @JsonKey(name: 'archive_status')
+  late final String archiveStatus;
+  late final String locale;
+  @JsonKey(name: 'publish_social_profile')
+  late final bool publishSocialProfile;
+  @JsonKey(name: 'whats_pin')
+  late final String? whatsPin;
+  @JsonKey(name: 'whats_number')
+  late final String? whatsNumber;
+  late final String? twitter;
+  late final String? facebook;
+  late final String? linkedin;
+  late final String? instagram;
+  @JsonKey(name: 'optional_whats_numbers', defaultValue: [], includeIfNull: true)
+  late final List<String?> optionalWhatsNumbers;
   String? photo;
-  final String country;
-  final String nationality;
-  final String gender;
-  final String admissionYear;
-  final String archiveStatus;
-  final String locale;
-  final int publishSocialProfile;
 
-  factory StudentResponseModel.fromJson(Map<String, dynamic> json) =>
-      StudentResponseModel(
-        id: json["id"],
-        nameEn: json["name_en"],
-        nameAr: json["name_ar"],
-        academicId: json["academic_id"],
-        email: json["email"],
-        mobile: json["mobile"],
-        nationalPassport: json["national_passport"],
-        photo: json["photo"] is Map ? null : json["photo"],
-        country: json["country"],
-        nationality: json["nationality"],
-        gender: json["gender"],
-        admissionYear: json["admission_year"],
-        archiveStatus: json["archive_status"],
-        locale: json["locale"],
-        publishSocialProfile: json["publish_social_profile"],
-      );
+  factory StudentResponseModel.fromJson(Map<String, dynamic> json) => _$StudentResponseModelFromJson(json);
 
-  Map<String, dynamic> toJson() =>
-      {
-        "id": id,
-        "name_en": nameEn,
-        "name_ar": nameAr,
-        "academic_id": academicId,
-        "email": email,
-        "mobile": mobile,
-        "national_passport": nationalPassport,
-        "photo": photo,
-        "country": country,
-        "nationality": nationality,
-        "gender": gender,
-        "admission_year": admissionYear,
-        "archive_status": archiveStatus,
-        "locale": locale,
-        "publish_social_profile": publishSocialProfile == true ? 1 : 0,
-      };
+  Map<String, dynamic> toJson() => _$StudentResponseModelToJson(this);
 
-  bool get isAgreePublishSocialProfile => publishSocialProfile == 1 ? true : false;
+  String? get whatsNumber1 => optionalWhatsNumbers.first;
+
+  String? get whatsNumber2 => optionalWhatsNumbers.elementAt(1);
 }
