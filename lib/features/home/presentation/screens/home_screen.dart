@@ -68,7 +68,7 @@ class HomeScreen extends GetView<HomeController> {
                   width: .92.sw,
                   animation: true,
                   alignment: MainAxisAlignment.center,
-                  lineHeight: 36.h,
+                  lineHeight: 45.h,
                   percent: state.data!.knowledgePointsAverage / 100,
                   center: Column(
                     children: [

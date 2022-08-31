@@ -51,7 +51,7 @@ class ProfileController extends GetxController with FileProperties {
   File? cvFile;
   String? password;
   String? passwordConfirm;
-  bool isAgreeToPublishPersonalInfo = false;
+  late bool isAgreeToPublishPersonalInfo;
   bool isLoadingUpdateProfile = false;
   bool isError = false;
 
