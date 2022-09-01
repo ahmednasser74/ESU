@@ -21,8 +21,9 @@ class MyApp extends StatelessWidget {
       builder: (c, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: Flavors.title,
-        theme: Get.isDarkMode ? AppThemes.darkThemeData : AppThemes.lightThemeData,
-        darkTheme: AppThemes.darkThemeData,
+        theme: AppThemes.lightThemeData,
+        // theme: Get.isDarkMode ? AppThemes.darkThemeData : AppThemes.lightThemeData,
+        // darkTheme: AppThemes.darkThemeData,
         initialRoute: Routes.splashScreen,
         getPages: Routes.setScreens(),
         initialBinding: ControllerBinding(),
