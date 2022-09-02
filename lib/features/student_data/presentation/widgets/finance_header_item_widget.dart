@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class HomeItemWidget extends StatelessWidget {
-  const HomeItemWidget({
+import '../../../../core/src/widgets/app_container.dart';
+
+class FinanceHeaderItemWidget extends StatelessWidget {
+  const FinanceHeaderItemWidget({
     Key? key,
     required this.title,
     required this.amount,
@@ -18,13 +20,12 @@ class HomeItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
+      child: AppContainer(
         margin: EdgeInsets.symmetric(horizontal: 18.w),
-        padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 12.w),
-        decoration: BoxDecoration(
-          color: color.withOpacity(.2),
-          borderRadius: BorderRadius.circular(10.w),
-        ),
+        height: 70.h,
+        color: color.withOpacity(.2),
+        boxShadowBlurColor: color.withOpacity(.2),
+        hasBorder: false,
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +34,7 @@ class HomeItemWidget extends StatelessWidget {
               title,
               style: TextStyle(
                 color: color,
-                fontSize: 16.sp,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -43,15 +44,12 @@ class HomeItemWidget extends StatelessWidget {
               amount,
               style: TextStyle(
                 color: color,
-                fontSize: 16.sp,
+                fontSize: 14.sp,
               ),
             ),
             Text(
               LocalizationKeys.aed.tr,
-              style: TextStyle(
-                color: color,
-                fontSize: 12.sp,
-              ),
+              style: TextStyle(color: color, fontSize: 8.sp),
             ),
           ],
         ),

@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -36,8 +36,7 @@ class LogoutDialog extends StatefulWidget {
   }
 }
 
-class LogoutDialogState extends State<LogoutDialog>
-    with SingleTickerProviderStateMixin {
+class LogoutDialogState extends State<LogoutDialog> with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> scaleAnimation;
 
@@ -74,7 +73,7 @@ class LogoutDialogState extends State<LogoutDialog>
             margin: EdgeInsets.all(20.r),
             padding: EdgeInsets.all(16.r),
             decoration: ShapeDecoration(
-              color: Colors.white,
+              color: Get.isDarkMode ? AppColors.darkModeGreyColor : Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.r),
               ),
@@ -89,7 +88,7 @@ class LogoutDialogState extends State<LogoutDialog>
                   child: Text(
                     LocalizationKeys.logout.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16.sp),
+                    style: TextStyle(fontSize: 16.sp, color: Get.isDarkMode ? Colors.white : Colors.black),
                   ),
                 ),
                 SizedBox(height: 12.h),
@@ -100,7 +99,7 @@ class LogoutDialogState extends State<LogoutDialog>
                   child: Text(
                     LocalizationKeys.doYouWantToLogout.tr,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14.sp),
+                    style: TextStyle(fontSize: 14.sp, color: Get.isDarkMode ? Colors.white : Colors.black),
                   ),
                 ),
                 SizedBox(height: 24.h),

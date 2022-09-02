@@ -2,7 +2,7 @@ import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/styles.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/features/student_data/data/models/response/transcript/transcript_item_response_model.dart';
 import 'package:esu/features/student_data/presentation/widgets/pdf_viewer_widget.dart';
 import 'package:flutter/material.dart';

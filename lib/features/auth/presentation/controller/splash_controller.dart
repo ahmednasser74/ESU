@@ -2,9 +2,10 @@ import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/helper/app_info_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/src/theme/theme_controller.dart';
 import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/minimum_version_usecase.dart';
@@ -39,6 +40,7 @@ class SplashController extends GetxController {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.find<DioRequestHandlingController>();
       Get.find<TranslationController>();
+      Get.find<ThemeController>();
     });
     await AppInfoHelper.init();
     appVersion = AppInfoHelper.getAppVersion;

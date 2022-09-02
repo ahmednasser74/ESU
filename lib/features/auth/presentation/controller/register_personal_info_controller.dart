@@ -2,7 +2,7 @@ import 'package:esu/core/const/lookup_const.dart';
 import 'package:esu/core/helper/location_permission_helper.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/auth/data/model/data_holder/personal_info_data_holder_model.dart';
 import 'package:esu/features/auth/data/model/request/lookup/lookup_request_model.dart';
 import 'package:esu/features/auth/data/model/response/lookup/lookup_data_response_model.dart';
@@ -10,10 +10,9 @@ import 'package:esu/features/auth/domin/usecases/lookup_use_case.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:permission_handler/permission_handler.dart';
 
-class PersonalInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
-  PersonalInfoController({required this.lookupUseCase});
+class RegisterPersonalInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
+  RegisterPersonalInfoController({required this.lookupUseCase});
 
   LookupUseCase lookupUseCase;
   final formKey = GlobalKey<FormState>();

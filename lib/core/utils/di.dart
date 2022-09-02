@@ -6,12 +6,11 @@ import 'package:esu/core/const/end_point.dart';
 import 'package:esu/core/dio/dio_helper.dart';
 import 'package:esu/core/dio/dio_request_handling.dart';
 import 'package:esu/core/dio/wrapper.dart';
-import 'package:esu/core/file_helper/file_downloader_db/file_downloader_db.dart';
-import 'package:esu/core/file_helper/file_downloader_db/file_downloader_model.dart';
 import 'package:esu/core/helper/firebase_analytics_helper.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
+import 'package:esu/core/src/theme/theme_controller.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:esu/features/auth/data/datasources/auth_remote_data_source.dart';
@@ -28,7 +27,7 @@ import 'package:esu/features/auth/domin/usecases/delete_fcm_token_usecase.dart';
 import 'package:esu/features/auth/presentation/controller/academic_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/login_controller.dart';
-import 'package:esu/features/auth/presentation/controller/personal_info_controller.dart';
+import 'package:esu/features/auth/presentation/controller/register_personal_info_controller.dart';
 import 'package:esu/features/auth/presentation/controller/reset_password_controller.dart';
 import 'package:esu/features/auth/presentation/controller/splash_controller.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
@@ -93,6 +92,9 @@ import 'package:hive/hive.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../helper/file_download_helper/file_downloader_db/file_downloader_db.dart';
+import '../helper/file_download_helper/file_downloader_db/file_downloader_model.dart';
+
 class Injection {
   static final di = GetIt.instance;
 
@@ -127,6 +129,7 @@ class Injection {
     );
     //controller
     di.registerFactory<TranslationController>(() => TranslationController());
+    di.registerFactory<ThemeController>(() => ThemeController());
 
     //Network
     di.registerLazySingleton<NetworkInformation>(
@@ -158,8 +161,8 @@ class Injection {
     di.registerFactory<AcademicInfoController>(
       () => AcademicInfoController(lookupUseCase: di()),
     );
-    di.registerFactory<PersonalInfoController>(
-      () => PersonalInfoController(lookupUseCase: di()),
+    di.registerFactory<RegisterPersonalInfoController>(
+      () => RegisterPersonalInfoController(lookupUseCase: di()),
     );
     di.registerFactory<ForgetPasswordController>(
       () => ForgetPasswordController(forgetPasswordUseCase: di()),

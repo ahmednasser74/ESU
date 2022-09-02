@@ -36,9 +36,9 @@ class _LookupDropDownButtonState extends State<LookupDropDownButton> {
           return null;
         }
       },
-      hint: Text(LocalizationKeys.select.tr),
+      hint: Text(LocalizationKeys.select.tr, style: const TextStyle(color: Colors.grey)),
       isDense: widget.isDense,
-      icon: const Icon(Icons.keyboard_arrow_down_rounded),
+      icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey),
       elevation: 2,
       dropdownColor: Colors.white,
       decoration: const InputDecoration(),

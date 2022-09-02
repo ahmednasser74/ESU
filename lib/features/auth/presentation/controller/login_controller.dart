@@ -1,7 +1,9 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
+import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/src/routes.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/enum/language.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
@@ -41,16 +43,16 @@ class LoginController extends GetxController {
   Future<void> login() async {
     final isValid = loginFormKey.currentState?.validate() ?? false;
     if (!isValid) {
-      HelperMethod.showToast(msg: 'Complete the form');
+      HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);
     } else {
       _loadingIndicator.value = true;
-      final params = LoginRequestModel(
-        studentId: studentIdTEC.text,
-        password: passwordTEC.text,
-      );
+      final params = LoginRequestModel(studentId: studentIdTEC.text, password: passwordTEC.text);
       final response = await loginUseCase(params: params);
       response.fold(
-        (l) => HelperMethod.showToast(msg: l ?? 'Something went wrong'),
+        (l) {
+          HelperMethod.showToast(msg: l ?? 'Something went wrong');
+          _loadingIndicator.value = false;
+        },
         (r) async {
           if (r.status == true) {
             prefs.saveString(key: SharedPrefsKeys.token, value: r.data!.token);
@@ -59,10 +61,10 @@ class LoginController extends GetxController {
             Get.offNamed(Routes.homeScreen);
           } else {
             HelperMethod.showToast(msg: r.message!);
+            _loadingIndicator.value = false;
           }
         },
       );
-      _loadingIndicator.value = false;
     }
   }
 
@@ -71,13 +73,14 @@ class LoginController extends GetxController {
     final requestModel = FcmTokenRequestModel(fcmToken: fcmToken);
     await registerFcmTokenUseCase(params: requestModel);
     prefs.saveString(key: SharedPrefsKeys.fcmToken, value: fcmToken);
+    _loadingIndicator.value = false;
   }
 
   void changeLanguage() {
-    if (translateController!.appLocale == 'en') {
-      translateController!.changeLanguage('ar');
-    } else if (translateController!.appLocale == 'ar') {
-      translateController!.changeLanguage('en');
+    if (translateController!.language.value == Language.english.value) {
+      translateController!.changeLanguage(Language.arabic);
+    } else if (translateController!.language.value == Language.arabic.value) {
+      translateController!.changeLanguage(Language.english);
     }
   }
 }

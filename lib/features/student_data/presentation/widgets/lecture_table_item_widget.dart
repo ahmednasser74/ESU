@@ -40,7 +40,7 @@ class LectureTableItemWidget extends StatelessWidget {
               child: Text(
                 course.courseName,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14.sp),
+                style: TextStyle(fontSize: 14.sp,color: Colors.black),
               ),
             ),
           ),

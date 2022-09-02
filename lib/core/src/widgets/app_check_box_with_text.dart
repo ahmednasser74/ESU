@@ -1,25 +1,25 @@
-import 'package:esu/core/localization/localization_keys.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
 
 // ignore: must_be_immutable
-class SubmitRegistrationCheckBoxWidget extends StatefulWidget {
-  SubmitRegistrationCheckBoxWidget({
+class AppCheckboxWithTextWidget extends StatefulWidget {
+  AppCheckboxWithTextWidget({
     Key? key,
     required this.value,
     required this.onChanged,
+    required this.title,
   }) : super(key: key);
 
   final Function(bool) onChanged;
   bool value;
+  final String title;
 
   @override
-  State<SubmitRegistrationCheckBoxWidget> createState() =>
-      _SubmitRegistrationCheckBoxWidgetState();
+  State<AppCheckboxWithTextWidget> createState() =>
+      _AppCheckboxWithTextWidgetState();
 }
 
-class _SubmitRegistrationCheckBoxWidgetState
-    extends State<SubmitRegistrationCheckBoxWidget> {
+class _AppCheckboxWithTextWidgetState
+    extends State<AppCheckboxWithTextWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -43,7 +43,7 @@ class _SubmitRegistrationCheckBoxWidgetState
             ),
           ),
           Expanded(
-            child: Text(LocalizationKeys.iReadAndAgree.tr),
+            child: Text(widget.title),
           ),
         ],
       ),

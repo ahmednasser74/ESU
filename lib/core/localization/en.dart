@@ -23,6 +23,7 @@ const Map<String, String> en = {
   LocalizationKeys.enterValidFormat: "Enter valid format",
   LocalizationKeys.atLeast3Characters: "At least 3 characters",
   LocalizationKeys.atLeast6Characters: "At least 6 characters",
+  LocalizationKeys.onlyAcceptSixNumbers: "Only accept 6 numbers",
   LocalizationKeys.atLeast8Characters: "At least 8 characters",
   LocalizationKeys.atLeast10Characters: "At least 10 characters",
   LocalizationKeys.forgetPassword: "Forget Password ?",
@@ -76,6 +77,16 @@ const Map<String, String> en = {
   LocalizationKeys.selectLocation: 'Select Location',
   LocalizationKeys.locationPermissionNotAllowed: 'Location Permission Not Allowed',
   LocalizationKeys.errorInLocation: 'Error In Location',
+  LocalizationKeys.facebook: 'Facebook',
+  LocalizationKeys.whatsApp: 'WhatsApp',
+  LocalizationKeys.instagram: 'Instagram',
+  LocalizationKeys.twitter: 'Twitter',
+  LocalizationKeys.linkedin: 'Linkedin',
+  LocalizationKeys.optional: 'Optional',
+  LocalizationKeys.whatsAppPin: 'WhatsApp Pin',
+  LocalizationKeys.iWantToPublishPersonalInfo: 'I want to publish personal information (name, job, photo.)',
+  LocalizationKeys.publishPersonalInfoMessage:
+      'The university seeks to introduce students to social media platforms in order to contribute to the dissemination of student data and to obtain better practical opportunities in the labor market.',
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -94,7 +105,7 @@ const Map<String, String> en = {
   LocalizationKeys.submitRegistration: 'Submit Registration',
   LocalizationKeys.weRecommendToUseEmail: 'We recommend not to use the e-mail from (hotmail.com) company, as they have a problem with some e-mails not being sent to them.',
   LocalizationKeys.youShouldToReadTermsAndCondition:
-      'Dear applicant in order to finish your application, you have to read and agree with the terms and conditions of the university.',
+  'Dear applicant in order to finish your application, you have to read and agree with the terms and conditions of the university.',
   LocalizationKeys.iReadAndAgree: 'I agree to ',
   LocalizationKeys.termsAndCondition: 'The terms and conditions of admission',
   LocalizationKeys.mustToApproveOnTermsAndCondition: 'Must to approve on terms and condition',
@@ -116,6 +127,8 @@ const Map<String, String> en = {
   LocalizationKeys.goToInvoice: 'Go to Invoice',
   LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess: 'You must complete profile files to complete any process',
   LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess: 'You must pay invoice to complete any process',
+  LocalizationKeys.knowledgeAmbassadorCredit: 'Knowledge Ambassador Credit',
+  LocalizationKeys.gpa: 'GPA',
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -313,4 +326,7 @@ const Map<String, String> en = {
   LocalizationKeys.updatedAt: 'Updated At',
   LocalizationKeys.deletedAt: 'Deleted At',
   LocalizationKeys.closedAt: 'Closed At',
+  LocalizationKeys.darkMode: 'Dark Mode',
+  LocalizationKeys.close: 'Close',
+  LocalizationKeys.ok: 'OK',
 };

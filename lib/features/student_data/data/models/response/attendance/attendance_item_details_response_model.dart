@@ -11,7 +11,7 @@ class AttendanceItemDetailsResponseModel {
   final String name;
   final String openTime;
   final String timeClose;
-  final int isFinished;
+  final int? isFinished;
 
   factory AttendanceItemDetailsResponseModel.fromJson(Map<String, dynamic> json) => AttendanceItemDetailsResponseModel(
         id: json["id"],

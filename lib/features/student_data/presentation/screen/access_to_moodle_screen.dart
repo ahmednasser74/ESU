@@ -1,10 +1,10 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/horizontal_list_builder.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/student_data/presentation/controller/access_to_moodle_controller.dart';
 import 'package:esu/features/student_data/presentation/widgets/video_player_item_widget.dart';
 import 'package:flutter/material.dart';

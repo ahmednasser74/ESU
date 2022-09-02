@@ -1,3 +1,4 @@
+import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/assets.gen.dart';
@@ -5,8 +6,8 @@ import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/styles.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/features/home/presentation/controller/profile_controller.dart';
 import 'package:esu/features/home/presentation/widgets/show_image_source_bottom_sheet_dialog.dart';
 import 'package:esu/features/student_data/presentation/widgets/forget_files_of_profile_widget.dart';
@@ -16,10 +17,12 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../../../../core/src/widgets/app_check_box_with_text.dart';
+import '../../../../core/src/widgets/app_title_required_widget.dart';
+import '../widgets/share_info_message_dialog.dart';
+
 class ProfileScreen extends StatelessWidget with ValidatorProperties {
   const ProfileScreen({Key? key}) : super(key: key);
-
-  String getFirstChar(String name) => name.isNotEmpty ? name.trim().split(' ').map((l) => l[0]).take(2).join() : '';
 
   @override
   Widget build(BuildContext context) {
@@ -83,9 +86,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                     ),
                                     fallback: (context) => Center(
                                       child: Text(
-                                        getFirstChar(
-                                          controller.fullNameEnTEC.text,
-                                        ),
+                                        controller.getFirstChar(controller.fullNameEnTEC.text),
                                         style: TextStyle(fontSize: 30.sp),
                                       ),
                                     ),
@@ -174,7 +175,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                         SizedBox(height: 16.h),
                         AppTextFieldWidget(
                           controller: controller.passwordTEC,
-                          labelText: LocalizationKeys.password.tr,
+                          hint: LocalizationKeys.password.tr,
                           onChanged: (value) => controller.password = value,
                           dispose: false,
                           obscureText: true,
@@ -192,23 +193,8 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                           onChanged: (value) => controller.passwordConfirm = value,
                           dispose: false,
                           obscureText: true,
-                          validator: (value) {
-                            if (controller.passwordTEC.text.isEmpty) {
-                              return null;
-                            }
-                            if (value!.isEmpty) {
-                              return LocalizationKeys.thisFieldIsRequired.tr;
-                            }
-                            if (value.length < 8) {
-                              return LocalizationKeys.atLeast8Characters.tr;
-                            }
-                            if (value.trim() != controller.passwordTEC.text.trim()) {
-                              return LocalizationKeys.passwordConfirmationNotMatchedWithPassword.tr;
-                            } else {
-                              return null;
-                            }
-                          },
-                          labelText: LocalizationKeys.passwordConfirmation.tr,
+                          validator: (confirmPassword) => confirmPasswordValidator(controller.passwordTEC.text, confirmPassword),
+                          hint: LocalizationKeys.passwordConfirmation.tr,
                           prefixIcon: Padding(
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.lock.image(
@@ -222,7 +208,100 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                           controller: controller,
                           state: controller.checkEditProfileData,
                         ),
-                        SizedBox(height: 18.h),
+                        SizedBox(height: 8.h),
+                        AppTitleRequiredWidget(
+                          title: LocalizationKeys.facebook.tr,
+                          isRequired: false,
+                          icon: Assets.icons.facebook.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.facebookController,
+                          dispose: false,
+                        ),
+                        AppTitleRequiredWidget(
+                          title: LocalizationKeys.instagram.tr,
+                          isRequired: false,
+                          icon: Assets.icons.instagram.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.instagramController,
+                          dispose: false,
+                        ),
+                        AppTitleRequiredWidget(
+                          title: LocalizationKeys.twitter.tr,
+                          isRequired: false,
+                          icon: Assets.icons.twitter.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.twitterController,
+                          dispose: false,
+                        ),
+                        AppTitleRequiredWidget(
+                          title: LocalizationKeys.linkedin.tr,
+                          isRequired: false,
+                          icon: Assets.icons.linkedin.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.linkedinController,
+                          dispose: false,
+                        ),
+                        AppTitleRequiredWidget(
+                          title: LocalizationKeys.whatsApp.tr,
+                          icon: Assets.icons.whatsapp.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.whatsappController,
+                          validator: phoneValidator,
+                          inputType: TextInputType.phone,
+                          dispose: false,
+                        ),
+                        AppTitleRequiredWidget(
+                          title: '${LocalizationKeys.whatsApp.tr} (${LocalizationKeys.optional.tr})',
+                          isRequired: false,
+                          icon: Assets.icons.whatsapp.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.whatsappController2,
+                          inputType: TextInputType.phone,
+                          dispose: false,
+                        ),
+                        AppTitleRequiredWidget(
+                          title: '${LocalizationKeys.whatsApp.tr} (${LocalizationKeys.optional.tr})',
+                          isRequired: false,
+                          icon: Assets.icons.whatsapp.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.whatsappController3,
+                          inputType: TextInputType.phone,
+                          dispose: false,
+                        ),
+                        AppTitleRequiredWidget(
+                          title: LocalizationKeys.whatsAppPin.tr,
+                          icon: Assets.icons.whatsapp.path,
+                        ),
+                        AppTextFieldWidget(
+                          controller: controller.whatsAppPinController,
+                          inputType: TextInputType.phone,
+                          validator: onlyAcceptSixNumbers,
+                          dispose: false,
+                        ),
+                        30.heightBox,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: AppCheckboxWithTextWidget(
+                                value: controller.isAgreeToPublishPersonalInfo,
+                                onChanged: (v) => controller.isAgreeToPublishPersonalInfo = v,
+                                title: LocalizationKeys.iWantToPublishPersonalInfo.tr,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () => Get.dialog(const ShareInfoDialog()),
+                              icon: const Icon(Icons.info_outline_rounded, color: Colors.blueGrey),
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 30.h),
                         AppButton(
                           title: LocalizationKeys.updateProfile.tr,
                           fonSize: 18.sp,

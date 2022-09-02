@@ -2,14 +2,14 @@ import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
-import 'package:esu/features/auth/presentation/controller/personal_info_controller.dart';
+import 'package:esu/features/auth/presentation/controller/register_personal_info_controller.dart';
 import 'package:esu/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:esu/features/auth/presentation/widgets/country_picker_field_widget.dart';
 import 'package:esu/features/auth/presentation/widgets/date_picker_field_widget.dart';
-import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
+import 'package:esu/core/src/widgets/app_title_required_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -19,7 +19,7 @@ import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/app_container.dart';
 
 // ignore: must_be_immutable
-class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with ValidatorProperties {
+class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController> with ValidatorProperties {
   RegisterPersonalInfoScreen({Key? key}) : super(key: key);
 
   @override
@@ -64,34 +64,34 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                     ],
                   ),
                 ),
-                TitleRequiredFieldWidget(title: LocalizationKeys.email.tr),
+                AppTitleRequiredWidget(title: LocalizationKeys.email.tr),
                 AppTextFieldWidget(
                   controller: controller.emailController,
                   validator: emailValidator,
                   inputType: TextInputType.emailAddress,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourFirstNameEnglish.tr,
                 ),
                 AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourFirstNameEnController,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourSecondNameEnglish.tr,
                 ),
                 AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourSecondNameEnController,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourLastNameEnglish.tr,
                 ),
                 AppTextFieldWidget(
                   validator: nameValidator,
                   controller: controller.yourLastNameEnController,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourFirstNameArabic.tr,
                 ),
                 AppTextFieldWidget(
@@ -99,7 +99,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   controller: controller.yourFirstNameArController,
                   acceptArabicCharOnly: true,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourSecondNameArabic.tr,
                 ),
                 AppTextFieldWidget(
@@ -107,7 +107,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   controller: controller.yourSecondNameArController,
                   acceptArabicCharOnly: true,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourLastNameArabic.tr,
                 ),
                 AppTextFieldWidget(
@@ -115,7 +115,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   controller: controller.yourLastNameArController,
                   acceptArabicCharOnly: true,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.identificationNumber.tr,
                 ),
                 AppTextFieldWidget(
@@ -123,7 +123,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   inputType: TextInputType.number,
                   controller: controller.nationalPassportController,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.mobileNumber.tr,
                 ),
                 AppTextFieldWidget(
@@ -131,13 +131,13 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   validator: phoneValidator,
                   inputType: TextInputType.phone,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.dateOfBirth.tr,
                 ),
                 DatePickerFieldWidget(
                   dateCallBack: (dateCallBack) => controller.birthDateController = dateCallBack,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.gender.tr,
                 ),
                 TitleDropDownButton(
@@ -145,26 +145,26 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                   isDense: true,
                   onChangeValue: (gender) => controller.genderController.text = gender,
                 ),
-                TitleRequiredFieldWidget(title: LocalizationKeys.country.tr),
+                AppTitleRequiredWidget(title: LocalizationKeys.country.tr),
                 CountryPickerFieldWidget(
                   list: state!,
                   countryNameCallBack: (country) => controller.countryId = country.id,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.nationality.tr,
                 ),
                 CountryPickerFieldWidget(
                   list: state,
                   countryNameCallBack: (nationality) => controller.nationalityId = nationality.id,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourJob.tr,
                   isRequired: false,
                 ),
                 AppTextFieldWidget(
                   controller: controller.jobController,
                 ),
-                TitleRequiredFieldWidget(
+                AppTitleRequiredWidget(
                   title: LocalizationKeys.yourCompany.tr,
                   isRequired: false,
                 ),
@@ -178,9 +178,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                     Expanded(
                       child: Column(
                         children: [
-                          TitleRequiredFieldWidget(
-                            title: LocalizationKeys.currentAddress.tr,
-                          ),
+                          AppTitleRequiredWidget(title: LocalizationKeys.currentAddress.tr),
                           AppTextFieldWidget(
                             validator: addressValidator,
                             controller: controller.addressController,
@@ -198,7 +196,7 @@ class RegisterPersonalInfoScreen extends GetView<PersonalInfoController> with Va
                     )
                   ],
                 ),
-                SizedBox(height: 30.h),
+                30.heightBox,
                 AppButton(
                   onPressed: controller.goToUploadFilesScreen,
                   title: LocalizationKeys.next.tr,

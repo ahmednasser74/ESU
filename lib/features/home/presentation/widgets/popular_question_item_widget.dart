@@ -1,6 +1,6 @@
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/keep_live_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/home/data/models/response/popular_question/popular_question_response_model.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +66,9 @@ class PopularQuestionItemWidget extends StatelessWidget {
             ),
             child: Html(
               data: question.answer,
+              style: {
+                'p': Style(fontSize: FontSize(14.sp), color: Colors.black),
+              },
               onLinkTap: (url, _, attributes, element) async {
                 if (url != null) {
                   await HelperMethod.launchToBrowser(url);

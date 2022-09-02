@@ -1,15 +1,17 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/screen/payment_web_view_screen.dart';
 import 'package:esu/core/usecases/usecase.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/home/presentation/controller/home_controller.dart';
-import 'package:esu/features/student_data/data/models/response/finance/finance_data_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/finance/invoice_item/invoice_item_response_model.dart';
 import 'package:esu/features/student_data/domain/usecase/finance_pay_url_use_case.dart';
 import 'package:esu/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:get/get.dart';
 
+import '../../data/models/response/finance/finance_response_model.dart';
+
 class FinanceController extends GetxController
-    with StateMixin<List<FinanceDataResponseModel>> {
+    with StateMixin<FinanceResponseModel> {
   FinanceController({
     required this.financeUseCase,
     required this.financePayUrlUseCase,
@@ -17,7 +19,7 @@ class FinanceController extends GetxController
 
   final FinanceUseCase financeUseCase;
   final FinancePayUrlUseCase financePayUrlUseCase;
-  List<FinanceDataResponseModel> financeList = [];
+  List<InvoiceItemResponseModel> financeList = [];
   final bool haveUnpaidInvoice = Get.arguments ?? false;
 
   @override
@@ -37,7 +39,7 @@ class FinanceController extends GetxController
             change(null, status: RxStatus.empty());
           } else {
             financeList = r.data;
-            change(financeList, status: RxStatus.success());
+            change(r, status: RxStatus.success());
           }
         } else {
           change(

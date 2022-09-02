@@ -69,7 +69,7 @@ class CourseItemWidget extends StatelessWidget {
                   visible: course.prerequisite.isNotEmpty,
                   child: Column(
                     children: [
-                      Text(LocalizationKeys.prerequisites.tr),
+                      Text(LocalizationKeys.prerequisites.tr, style: const TextStyle(color: Colors.black)),
                       SizedBox(height: 6.h),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -80,9 +80,7 @@ class CourseItemWidget extends StatelessWidget {
                           children: course.prerequisite
                               .map(
                                 (prerequisite) => PrerequisiteItemWidget(
-                                  title: Get.locale.toString() == 'en'
-                                      ? prerequisite.name
-                                      : prerequisite.nameAr,
+                                  title: Get.locale.toString() == 'en' ? prerequisite.name : prerequisite.nameAr,
                                 ),
                               )
                               .toList(),
@@ -121,7 +119,7 @@ class PrerequisiteItemWidget extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(12.r),
       ),
-      child: Text(title, textAlign: TextAlign.start),
+      child: Text(title, textAlign: TextAlign.start, style: const TextStyle(color: Colors.black)),
     );
   }
 }

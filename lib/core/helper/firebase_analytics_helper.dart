@@ -4,5 +4,4 @@ class FirebaseAnalyticsHelper {
   final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
 
   FirebaseAnalyticsObserver getFirebaseAnalyticsObserver() => FirebaseAnalyticsObserver(analytics: _analytics);
-
 }

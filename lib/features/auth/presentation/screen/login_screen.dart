@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../core/src/colors.dart';
-import '../../../../core/src/widgets/custom_button.dart';
+import '../../../../core/src/widgets/app_button.dart';
 import '../../../../core/src/widgets/loading_indicator_widget.dart';
 
 class LoginScreen extends GetView<LoginController> with ValidatorProperties {
@@ -117,17 +117,14 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       text: LocalizationKeys.doNotHaveAccount.tr,
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style: TextStyle(
+                        color: Get.isDarkMode ? Colors.white : Colors.black,
                         fontFamily: 'din',
                       ),
                       children: [
                         TextSpan(
                           text: LocalizationKeys.admission.tr,
-                          style: const TextStyle(
-                            color: AppColors.primaryColor,
-                            fontFamily: 'din',
-                          ),
+                          style: const TextStyle(color: AppColors.primaryColor, fontFamily: 'din'),
                         ),
                       ],
                     ),

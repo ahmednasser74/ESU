@@ -53,6 +53,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: const TextStyle(color:Colors.black),
       obscureText: passwordVisibility,
       controller: widget.controller,
       validator: widget.validator,

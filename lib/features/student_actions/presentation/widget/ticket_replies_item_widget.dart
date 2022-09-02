@@ -1,9 +1,8 @@
-import 'package:esu/core/file_helper/file_download_manager.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/src/widgets/keep_live_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/student_actions/data/models/response/tickets/tickets_data_replies_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -11,6 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../../../../core/helper/file_download_helper/file_download_manager.dart';
 
 class TicketRepliesItemWidget extends StatelessWidget {
   const TicketRepliesItemWidget({
@@ -22,16 +23,12 @@ class TicketRepliesItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: reply.isReplyFromStudent
-          ? MainAxisAlignment.start
-          : MainAxisAlignment.end,
+      mainAxisAlignment: reply.isReplyFromStudent ? MainAxisAlignment.start : MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           decoration: BoxDecoration(
-            color: reply.isReplyFromStudent
-                ? AppColors.primaryLightColor
-                : Colors.grey[300],
+            color: reply.isReplyFromStudent ? AppColors.primaryLightColor : Colors.grey[300],
             borderRadius: BorderRadiusDirectional.only(
               bottomStart: reply.isReplyFromStudent
                   ? Radius.zero
@@ -58,7 +55,10 @@ class TicketRepliesItemWidget extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: Text(reply.by, style: TextStyle(fontSize: 8.sp)),
               ),
-              Html(data: reply.body),
+              Html(
+                data: reply.body,
+                style: {'p': Style(fontSize: FontSize(12.sp))},
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -67,11 +67,10 @@ class TicketRepliesItemWidget extends StatelessWidget {
                     DateFormat('E d MMM yyyy hh:mm aaa').format(
                       DateTime.parse(reply.createdAt),
                     ),
-                    style: TextStyle(fontSize: 8.sp),
+                    style: TextStyle(fontSize: 8.sp, color: Colors.black),
                   ),
                   ConditionalBuilder(
-                    condition: reply.file!.isNotEmpty &&
-                        reply.file!.startsWith('https:'),
+                    condition: reply.file!.isNotEmpty && reply.file!.startsWith('https:'),
                     builder: (_) => DownloadFileWidget(fileUrl: reply.file!),
                   ),
                 ],
@@ -134,8 +133,7 @@ class _DownloadFileWidgetState extends State<DownloadFileWidget> {
                   await fileManager.downloadFile();
                   HelperMethod.showSnackBar(
                     title: LocalizationKeys.done.tr,
-                    message: LocalizationKeys
-                        .successfullyDownloadedFileOnYourDevice.tr,
+                    message: LocalizationKeys.successfullyDownloadedFileOnYourDevice.tr,
                     backgroundColor: Colors.green,
                     textColor: Colors.white,
                   );
@@ -143,8 +141,7 @@ class _DownloadFileWidgetState extends State<DownloadFileWidget> {
                 } else {
                   HelperMethod.showSnackBar(
                     title: LocalizationKeys.error.tr,
-                    message:
-                        LocalizationKeys.shouldToGivePermissionToAccessFiles.tr,
+                    message: LocalizationKeys.shouldToGivePermissionToAccessFiles.tr,
                     backgroundColor: Colors.red,
                     textColor: Colors.white,
                   );

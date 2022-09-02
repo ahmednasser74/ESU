@@ -1,16 +1,22 @@
+import 'package:esu/core/extentions/spaces_box.dart';
+import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
-class TitleRequiredFieldWidget extends StatelessWidget {
-  const TitleRequiredFieldWidget({
+class AppTitleRequiredWidget extends StatelessWidget {
+  const AppTitleRequiredWidget({
     Key? key,
     required this.title,
     this.titleSize,
     this.isRequired = true,
+    this.icon,
   }) : super(key: key);
   final String title;
   final double? titleSize;
   final bool isRequired;
+  final String? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +29,13 @@ class TitleRequiredFieldWidget extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: .8.sw),
             child: Text(
               title,
-              style: TextStyle(fontSize: titleSize ?? 16.sp),
+              style: TextStyle(fontSize: titleSize ?? 16.sp, color: Get.isDarkMode ? Colors.white : Colors.black),
             ),
+          ),
+          8.widthBox,
+          ConditionalBuilder(
+            condition: icon != null,
+            builder: (context) => SvgPicture.asset(icon!, height: 16.h, color: Colors.blueGrey),
           ),
           Visibility(
             visible: isRequired,

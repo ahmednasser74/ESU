@@ -1,18 +1,21 @@
+import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
+import 'package:esu/core/src/widgets/app_container.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/home/presentation/controller/home_controller.dart';
 import 'package:esu/features/home/presentation/widgets/drawer_widget.dart';
 import 'package:esu/features/home/presentation/widgets/home_header_widget.dart';
-import 'package:esu/features/home/presentation/widgets/home_item_widget.dart';
+import 'package:esu/features/home/presentation/widgets/program_progress_item_widget.dart';
 import 'package:esu/features/home/presentation/widgets/redirect_to_profile_or_invoice_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class HomeScreen extends GetView<HomeController> {
   HomeScreen({Key? key}) : super(key: key);
@@ -37,10 +40,7 @@ class HomeScreen extends GetView<HomeController> {
             ),
             actions: [
               IconButton(
-                icon: Assets.icons.notificationIcon.image(
-                  color: AppColors.primaryColor,
-                  height: 18.h,
-                ),
+                icon: Assets.icons.notificationIcon.image(color: AppColors.primaryColor, height: 18.h),
                 onPressed: () => Get.toNamed(Routes.notificationScreen),
               ),
             ],
@@ -53,34 +53,42 @@ class HomeScreen extends GetView<HomeController> {
               children: [
                 HomeHeaderWidget(data: state.data!),
                 SizedBox(height: 20.h),
-                Row(
-                  children: [
-                    HomeItemWidget(
-                      color: Colors.blue,
-                      title: LocalizationKeys.balance.tr,
-                      amount: '${state.data!.balance}',
-                    ),
-                    HomeItemWidget(
-                      color: Colors.orange,
-                      title: LocalizationKeys.totalAmount.tr,
-                      amount: '${state.data!.total}',
-                    ),
-                  ],
+                AppContainer(
+                  margin: EdgeInsets.symmetric(horizontal: .2.sw),
+                  padding: EdgeInsets.symmetric(vertical: 8.h),
+                  hasShadow: false,
+                  alignment: Alignment.center,
+                  child: Text(
+                    '${LocalizationKeys.gpa.tr} : ${state.data!.gpa}',
+                    style: TextStyle(fontSize: 18.sp),
+                  ),
                 ),
                 SizedBox(height: 20.h),
-                Row(
-                  children: [
-                    HomeItemWidget(
-                      color: Colors.green,
-                      title: LocalizationKeys.totalAmountPaid.tr,
-                      amount: '${state.data!.paid}',
-                    ),
-                    HomeItemWidget(
-                      color: Colors.red,
-                      title: LocalizationKeys.totalAmountUnpaid.tr,
-                      amount: '${state.data!.unpaid}',
-                    ),
-                  ],
+                LinearPercentIndicator(
+                  width: .92.sw,
+                  animation: true,
+                  alignment: MainAxisAlignment.center,
+                  lineHeight: 45.h,
+                  percent: state.data!.knowledgePointsAverage / 100,
+                  center: Column(
+                    children: [
+                      2.heightBox,
+                      Text(LocalizationKeys.knowledgeAmbassadorCredit.tr),
+                      2.heightBox,
+                      Text("${state.data!.knowledgePointsAverage}%"),
+                    ],
+                  ),
+                  barRadius: Radius.circular(30.r),
+                  progressColor: AppColors.primaryColor,
+                  backgroundColor: Colors.grey.shade300,
+                ),
+                GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 18.w, mainAxisSpacing: 18.w),
+                  itemCount: state.data!.programProgress.length,
+                  itemBuilder: (context, index) => ProgramProgressItemWidget(programProgress: state.data!.programProgress[index]),
                 ),
               ],
             ),
