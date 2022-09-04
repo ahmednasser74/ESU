@@ -1,8 +1,8 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/enum/language.dart';
+import 'package:esu/core/helper/firebase_analytics_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'core/flavor/flavors.dart';
 import 'core/src/theme/theme.dart';
@@ -29,6 +29,9 @@ class MyApp extends StatelessWidget {
         initialBinding: ControllerBinding(),
         translations: Translation(),
         fallbackLocale: Locale(Language.arabic.value),
+        navigatorObservers: <NavigatorObserver>[
+          if (Flavors.isProd) FirebaseAnalyticsHelper().getFirebaseAnalyticsObserver(),
+        ],
         locale: Locale(SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? Language.arabic.value),
         builder: (context, widget) {
           return MediaQuery(

@@ -1,14 +1,17 @@
 import 'package:esu/core/const/shared_prefs_keys.dart';
+import 'package:esu/core/helper/firebase_analytics_helper.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/localization/translation_controller.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/enum/language.dart';
 import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
+import 'package:esu/core/utils/di.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/data/model/request/login/login_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -31,6 +34,7 @@ class LoginController extends GetxController {
   final prefs = SharedPrefs.instance;
 
   get getLoadingIndicator => _loadingIndicator.value;
+  final FirebaseAnalyticsHelper analyticsHelper = Injection.di<FirebaseAnalyticsHelper>();
 
   @override
   void onInit() async {
@@ -49,15 +53,17 @@ class LoginController extends GetxController {
       final params = LoginRequestModel(studentId: studentIdTEC.text, password: passwordTEC.text);
       final response = await loginUseCase(params: params);
       response.fold(
-        (l) {
+        (l) async {
           HelperMethod.showToast(msg: l ?? 'Something went wrong');
           _loadingIndicator.value = false;
+          analyticsHelper.logEvent('LOGIN FAILED', parameters: {'error': l});
         },
         (r) async {
           if (r.status == true) {
             prefs.saveString(key: SharedPrefsKeys.token, value: r.data!.token);
             prefs.saveUser(studentModel: r.data!.student);
             await registerFcmToken();
+            analyticsHelper.logEvent('LOGIN SUCCESS', parameters: {'Student Id': r.data!.student.academicId});
             Get.offNamed(Routes.homeScreen);
           } else {
             HelperMethod.showToast(msg: r.message!);
