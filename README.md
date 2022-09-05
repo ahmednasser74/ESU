@@ -1,28 +1,25 @@
-# esu
 
-A new Flutter project.
+# Everyone's Smart University - ESU
 
-## Getting Started
+A Flutter project for Student of Everyone's Smart University - ESU .
 
-This project is a starting point for a Flutter application.
+### To Run App
 
-A few resources to get you started if this is your first Flutter project:
-## To Run App
-#Development
-flutter run --flavor dev --dart-define=env_type=dev
-#Production
-flutter run --flavor prod --dart-define=env_type=prod
+**Development**<br/>
+flutter run --flavor dev --dart-define=env_type=dev<br/>
 
-## Build Android APK & Bundle
-#Development
-flutter build apk --release --flavor dev --dart-define=env_type=dev  --release --obfuscate --split-debug-info=symbol_map_android -t lib/main_dev.dart
-#Production
-flutter build apk --release --flavor prod --dart-define=env_type=prod  --release --obfuscate --split-debug-info=symbol_map_android -t lib/main_prod.dart
-flutter build appbundle --flavor prod --dart-define=env_type=prod  --release --obfuscate --split-debug-info=symbol_map_android -t lib/main_prod.dart
+**Production**<br/>
+flutter run --flavor prod --dart-define=env_type=prod<br/><br/>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Build Android APK & Bundle
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Development**<br/>
+
+**APK :** flutter build apk --release --flavor dev --dart-define=env_type=dev  --release --obfuscate --split-debug-info=symbol_map_android -t lib/main_dev.dart<br/><br/>
+
+**Production**<br/>
+
+**APK :** flutter build apk --release --flavor prod --dart-define=env_type=prod  --release --obfuscate --split-debug-info=symbol_map_android -t lib/main_prod.dart<br/><br/>
+
+**Bundle :** flutter build appbundle --flavor prod --dart-define=env_type=prod  --release --obfuscate --split-debug-info=symbol_map_android -t lib/main_prod.dart<br/>
+
