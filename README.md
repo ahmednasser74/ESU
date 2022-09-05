@@ -6,11 +6,11 @@ A Flutter project for Student of Everyone's Smart University - ESU .
 ### To Run App
 
 **Development**<br/>
-flutter run --flavor dev --dart-define=env_type=dev
+ - flutter run --flavor dev --dart-define=env_type=dev -t lib/main_dev.dart
 <br/>
 
 **Production**<br/>
-flutter run --flavor prod --dart-define=env_type=prod
+flutter run --flavor prod --dart-define=env_type=prod -t lib/main_prod.dart
 <br/><br/>
 
 ### Build Android APK & Bundle
