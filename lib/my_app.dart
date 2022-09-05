@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         translations: Translation(),
         fallbackLocale: Locale(Language.arabic.value),
         navigatorObservers: <NavigatorObserver>[
-          if (Flavors.isProd) FirebaseAnalyticsHelper().getFirebaseAnalyticsObserver(),
+          if (Flavors.isProd) FirebaseAnalyticsHelper.getFirebaseAnalyticsObserver,
         ],
         locale: Locale(SharedPrefs.instance.getString(key: SharedPrefsKeys.language) ?? Language.arabic.value),
         builder: (context, widget) {
