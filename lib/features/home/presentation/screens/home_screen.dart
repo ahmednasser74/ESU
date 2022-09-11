@@ -12,6 +12,7 @@ import 'package:esu/features/home/presentation/widgets/drawer_widget.dart';
 import 'package:esu/features/home/presentation/widgets/home_header_widget.dart';
 import 'package:esu/features/home/presentation/widgets/program_progress_item_widget.dart';
 import 'package:esu/features/home/presentation/widgets/redirect_to_profile_or_invoice_widget.dart';
+import 'package:esu/features/student_data/presentation/widgets/finance_header_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -53,42 +54,74 @@ class HomeScreen extends GetView<HomeController> {
               children: [
                 HomeHeaderWidget(data: state.data!),
                 SizedBox(height: 20.h),
-                AppContainer(
-                  margin: EdgeInsets.symmetric(horizontal: .2.sw),
-                  padding: EdgeInsets.symmetric(vertical: 8.h),
-                  hasShadow: false,
-                  alignment: Alignment.center,
-                  child: Text(
-                    '${LocalizationKeys.gpa.tr} : ${state.data!.gpa}',
-                    style: TextStyle(fontSize: 18.sp),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(width: 18.w),
+                    Expanded(
+                      child: AppContainer(
+                        height: 80.h,
+                        hasBorder: false,
+                        hasShadow: false,
+                        color: Colors.blue.shade900,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              LocalizationKeys.gpa.tr,
+                              style: TextStyle(fontSize: 18.sp,color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              '${state.data!.gpa}',
+                              style: TextStyle(fontSize: 18.sp, color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: .06.sw),
+                    Expanded(
+                      child: AppContainer(
+                        height: 80.h,
+                        hasBorder: false,
+                        hasShadow: false,
+                        color: AppColors.primaryLightColor,
+                        boxShadowBlurColor: Colors.red,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              LocalizationKeys.knowledgeAmbassadorCredit.tr,
+                              style: TextStyle(fontSize: 18.sp,  color: Colors.blue.shade900),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              '${state.data!.knowledgePointsAverage}',
+                              style: TextStyle(fontSize: 18.sp, color: Colors.blue.shade900),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 18.w),
+                  ],
                 ),
                 SizedBox(height: 20.h),
-                LinearPercentIndicator(
-                  width: .92.sw,
-                  animation: true,
-                  alignment: MainAxisAlignment.center,
-                  lineHeight: 45.h,
-                  percent: state.data!.knowledgePointsAverage / 100,
-                  center: Column(
-                    children: [
-                      2.heightBox,
-                      Text(LocalizationKeys.knowledgeAmbassadorCredit.tr),
-                      2.heightBox,
-                      Text("${state.data!.knowledgePointsAverage}%"),
-                    ],
-                  ),
-                  barRadius: Radius.circular(30.r),
-                  progressColor: AppColors.primaryColor,
-                  backgroundColor: Colors.grey.shade300,
-                ),
                 GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 18.w, mainAxisSpacing: 18.w),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 18.w,
+                    mainAxisSpacing: 18.w,
+                  ),
                   itemCount: state.data!.programProgress.length,
-                  itemBuilder: (context, index) => ProgramProgressItemWidget(programProgress: state.data!.programProgress[index]),
+                  itemBuilder: (context, index) => ProgramProgressItemWidget(
+                    programProgress: state.data!.programProgress[index],
+                  ),
                 ),
               ],
             ),

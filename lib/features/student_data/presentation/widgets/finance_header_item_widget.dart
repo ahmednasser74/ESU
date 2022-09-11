@@ -10,12 +10,14 @@ class FinanceHeaderItemWidget extends StatelessWidget {
     Key? key,
     required this.title,
     required this.amount,
-    required this.color,
+    required this.textColor,
+    required this.backgroundColor,
   }) : super(key: key);
 
   final String title;
   final String amount;
-  final Color color;
+  final Color textColor;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +25,8 @@ class FinanceHeaderItemWidget extends StatelessWidget {
       child: AppContainer(
         margin: EdgeInsets.symmetric(horizontal: 18.w),
         height: 70.h,
-        color: color.withOpacity(.2),
-        boxShadowBlurColor: color.withOpacity(.2),
+        color: backgroundColor,
+        boxShadowBlurColor: backgroundColor,
         hasBorder: false,
         alignment: Alignment.center,
         child: Column(
@@ -33,7 +35,7 @@ class FinanceHeaderItemWidget extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: color,
+                color: textColor,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
               ),
@@ -43,13 +45,13 @@ class FinanceHeaderItemWidget extends StatelessWidget {
             Text(
               amount,
               style: TextStyle(
-                color: color,
+                color: textColor,
                 fontSize: 14.sp,
               ),
             ),
             Text(
               LocalizationKeys.aed.tr,
-              style: TextStyle(color: color, fontSize: 8.sp),
+              style: TextStyle(color: textColor, fontSize: 8.sp),
             ),
           ],
         ),

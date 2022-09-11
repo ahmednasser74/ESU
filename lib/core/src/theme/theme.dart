@@ -4,6 +4,13 @@ import '../colors.dart';
 
 class AppThemes {
   AppThemes();
+  // static ThemeData get getTheme {
+  //   if ((SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) ?? ThemeDataHelper.light.value) == ThemeDataHelper.dark.value) {
+  //     return darkThemeData;
+  //   } else {
+  //     return lightThemeData;
+  //   }
+  // }
 
   // ThemeData get getTheme => SharedPrefs.instance.getString(key: SharedPrefsKeys.themeMode) == ThemeDataHelper.dark.value ? darkThemeData : lightThemeData;
   ThemeData get getTheme => Get.isDarkMode ? darkThemeData : lightThemeData;

@@ -25,21 +25,17 @@ class FinanceScreen extends GetView<FinanceController> {
           (state) => Column(
             children: [
               SizedBox(height: 12.h),
-              AppContainer(
-                hasShadow: false,
-                padding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 20.w),
-                child: Text('${LocalizationKeys.programAmount.tr} : ${state!.invoiceStatics.programCost}'),
-              ),
-              SizedBox(height: 14.h),
               Row(
                 children: [
                   FinanceHeaderItemWidget(
-                    color: Colors.blue,
+                    textColor: Colors.blue.shade800,
+                    backgroundColor: Colors.blue.shade100,
                     title: LocalizationKeys.balance.tr,
-                    amount: state.invoiceStatics.balance.toString(),
+                    amount: state!.invoiceStatics.balance.toString(),
                   ),
                   FinanceHeaderItemWidget(
-                    color: Colors.orangeAccent,
+                    textColor: Colors.orange.shade800,
+                    backgroundColor: Colors.orangeAccent.shade100,
                     title: LocalizationKeys.totalAmount.tr,
                     amount: state.invoiceStatics.total.toString(),
                   ),
@@ -49,12 +45,14 @@ class FinanceScreen extends GetView<FinanceController> {
               Row(
                 children: [
                   FinanceHeaderItemWidget(
-                    color: Colors.green,
+                    textColor: Colors.green.shade800,
+                    backgroundColor: Colors.green.shade100,
                     title: LocalizationKeys.totalAmountPaid.tr,
                     amount: state.invoiceStatics.paid.toString(),
                   ),
                   FinanceHeaderItemWidget(
-                    color: Colors.red,
+                    textColor: Colors.red.shade700,
+                    backgroundColor: Colors.red.shade100,
                     title: LocalizationKeys.totalAmountUnpaid.tr,
                     amount: state.invoiceStatics.unpaid.toString(),
                   ),
