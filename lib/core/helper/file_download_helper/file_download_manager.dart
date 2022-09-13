@@ -5,7 +5,7 @@ import 'dart:ui';
 
 import 'package:esu/core/utils/di.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:open_file/open_file.dart';
+import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'file_downloader_db/file_downloader_db.dart';
@@ -49,12 +49,12 @@ class FileDownloadManager {
       filePath = fileUrl;
     }
     if (Platform.isIOS) {
-      await OpenFile.open(filePath);
+      await OpenFilex.open(filePath);
     } else {
       if (taskId != null) {
         await FlutterDownloader.open(taskId: taskId!);
       } else {
-        await OpenFile.open(filePath);
+        await OpenFilex.open(filePath);
       }
     }
   }
