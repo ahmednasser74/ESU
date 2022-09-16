@@ -105,7 +105,7 @@ const Map<String, String> en = {
   LocalizationKeys.submitRegistration: 'Submit Registration',
   LocalizationKeys.weRecommendToUseEmail: 'We recommend not to use the e-mail from (hotmail.com) company, as they have a problem with some e-mails not being sent to them.',
   LocalizationKeys.youShouldToReadTermsAndCondition:
-  'Dear applicant in order to finish your application, you have to read and agree with the terms and conditions of the university.',
+      'Dear applicant in order to finish your application, you have to read and agree with the terms and conditions of the university.',
   LocalizationKeys.iReadAndAgree: 'I agree to ',
   LocalizationKeys.termsAndCondition: 'The terms and conditions of admission',
   LocalizationKeys.mustToApproveOnTermsAndCondition: 'Must to approve on terms and condition',
@@ -190,6 +190,10 @@ const Map<String, String> en = {
   ///Settings
   LocalizationKeys.settings: 'Settings',
   LocalizationKeys.language: 'Language',
+  LocalizationKeys.dangerZone: 'Danger Zone',
+  LocalizationKeys.deleteUserAccount: 'Delete User Account',
+  LocalizationKeys.delete: 'Delete',
+  LocalizationKeys.ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain: 'If you delete your account, you will not be able to login again',
 
   //-------------------------------------------------------------------------
   ///study plans

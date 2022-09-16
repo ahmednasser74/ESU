@@ -15,6 +15,7 @@ class Endpoints {
   static const String registerFcmToken = 'student-tokens';
   static const String updateFcmToken = 'student-tokens/update';
   static const String deleteFcmToken = 'student-tokens/delete';
+  static const String deleteUserAccount = 'account/delete';
 
   //-----------------------------------------------------------------------
   ///lookup

@@ -85,8 +85,7 @@ class AuthRepositoryImp implements AuthRepository {
   }
 
   @override
-  Future<Either<String?, MinimumVersionResponseModel>>
-      getMinimumVersion() async {
+  Future<Either<String?, MinimumVersionResponseModel>> getMinimumVersion() async {
     return _responseHandling<MinimumVersionResponseModel>(
       onSuccess: () async => await userRemoteDataSource.getMinimumVersion(),
     );
@@ -111,6 +110,13 @@ class AuthRepositoryImp implements AuthRepository {
       onSuccess: () async => await userRemoteDataSource.deleteFcmToken(
         requestModel: requestModel,
       ),
+    );
+  }
+
+  @override
+  Future<Either<String?, GenericResponseModel>> deleteUserAccount() {
+    return _responseHandling<GenericResponseModel>(
+      onSuccess: () async => await userRemoteDataSource.deleteUserAccount(),
     );
   }
 }

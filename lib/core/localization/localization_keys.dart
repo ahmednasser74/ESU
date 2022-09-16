@@ -189,6 +189,10 @@ class LocalizationKeys {
   static const String settings = 'settings';
   static const String language = 'language';
   static const String darkMode = 'darkMode';
+  static const String dangerZone = 'dangerZone';
+  static const String deleteUserAccount = 'deleteUserAccount';
+  static const String delete = 'delete';
+  static const String ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain = 'ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain';
 
   //-------------------------------------------------------------------------
   ///study plans

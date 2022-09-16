@@ -43,6 +43,8 @@ abstract class AuthRemoteDataSource {
   Future<GenericResponseModel> deleteFcmToken({
     required FcmTokenRequestModel requestModel,
   });
+
+  Future<GenericResponseModel> deleteUserAccount();
 }
 
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
@@ -146,6 +148,14 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
       url: Endpoints.deleteFcmToken,
       data: requestModel.toJson(),
     );
+    final json = response.data;
+    final data = GenericResponseModel.fromJson(json);
+    return data;
+  }
+
+  @override
+  Future<GenericResponseModel> deleteUserAccount() async {
+    final response = await dioHelper.delete(url: Endpoints.deleteUserAccount);
     final json = response.data;
     final data = GenericResponseModel.fromJson(json);
     return data;

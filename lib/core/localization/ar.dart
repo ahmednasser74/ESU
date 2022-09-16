@@ -188,6 +188,10 @@ const Map<String, String> ar = {
   ///Settings
   LocalizationKeys.settings: 'الإعدادات',
   LocalizationKeys.language: 'اللغة',
+  LocalizationKeys.dangerZone: 'المنطقة الخطرة',
+  LocalizationKeys.deleteUserAccount: 'حذف الحساب',
+  LocalizationKeys.delete: 'حذف',
+  LocalizationKeys.ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain: 'إذا قمت بحذف حسابك لن تتمكن من تسجيل الدخول مرة أخرى',
 
   //-------------------------------------------------------------------------
   ///study plans

@@ -17,6 +17,7 @@ import 'package:esu/features/auth/data/datasources/auth_remote_data_source.dart'
 import 'package:esu/features/auth/data/repositories/auth_repository_imp.dart';
 import 'package:esu/features/auth/domin/repositories/auth_repository.dart';
 import 'package:esu/features/auth/domin/usecases/admission_usecase.dart';
+import 'package:esu/features/auth/domin/usecases/delete_user_account_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/forget_password_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/login_usecase.dart';
 import 'package:esu/features/auth/domin/usecases/lookup_use_case.dart';
@@ -196,6 +197,9 @@ class Injection {
     di.registerLazySingleton<DeleteFcmTokenUseCase>(
       () => DeleteFcmTokenUseCase(authRepository: di()),
     );
+    di.registerLazySingleton<DeleteUserAccountUseCase>(
+      () => DeleteUserAccountUseCase(authRepository: di()),
+    );
 
     //repo
     di.registerLazySingleton<AuthRepository>(
@@ -222,7 +226,9 @@ class Injection {
         editProfileUseCase: di(),
       ),
     );
-    di.registerFactory<SettingController>(() => SettingController());
+    di.registerFactory<SettingController>(
+      () => SettingController(deleteUserAccountUseCase: di()),
+    );
     di.registerFactory<PopularQuestionController>(
       () => PopularQuestionController(popularQuestionUseCase: di()),
     );
