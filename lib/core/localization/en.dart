@@ -77,6 +77,7 @@ const Map<String, String> en = {
   LocalizationKeys.selectLocation: 'Select Location',
   LocalizationKeys.locationPermissionNotAllowed: 'Location Permission Not Allowed',
   LocalizationKeys.errorInLocation: 'Error In Location',
+  LocalizationKeys.tapToEditLocationPermission: 'Tap To Edit Location Permission',
   LocalizationKeys.facebook: 'Facebook',
   LocalizationKeys.whatsApp: 'WhatsApp',
   LocalizationKeys.instagram: 'Instagram',

@@ -92,12 +92,6 @@ class RegisterPersonalInfoController extends GetxController with StateMixin<List
     final bool isPermissionGranted = await LocationPermissionHelper.isPermissionGranted();
     if (isPermissionGranted) {
       Get.toNamed(Routes.mapScreen);
-    } else {
-      HelperMethod.showSnackBar(
-        message: LocalizationKeys.locationPermissionNotAllowed.tr,
-        title: LocalizationKeys.errorInLocation.tr,
-        backgroundColor: Colors.red,
-      );
     }
   }
 }

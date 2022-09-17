@@ -27,6 +27,7 @@ class HelperMethod {
   static SnackbarController showSnackBar({
     required String message,
     required String title,
+    Function(GetSnackBar snack)? onTap,
     int durationSeconds = 3,
     Color backgroundColor = Colors.white,
     Color textColor = Colors.black,
@@ -34,6 +35,7 @@ class HelperMethod {
     return Get.snackbar(
       title,
       message,
+      onTap: onTap,
       colorText: textColor,
       duration: Duration(seconds: durationSeconds),
       backgroundColor: backgroundColor,

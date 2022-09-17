@@ -76,6 +76,7 @@ class LocalizationKeys {
   static const String selectLocation = 'selectLocation';
   static const String locationPermissionNotAllowed = 'locationPermissionNotAllowed';
   static const String errorInLocation = 'errorInLocation';
+  static const String tapToEditLocationPermission = 'tapToEditLocationPermission';
   static const String facebook = 'facebook';
   static const String whatsApp = 'whatsApp';
   static const String instagram = 'instagram';

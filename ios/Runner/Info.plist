@@ -34,15 +34,15 @@
 	<key>NSCameraUsageDescription</key>
 	<string>ESU need camera permission to change profile photo.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>ESU need location permission to give you better experience to get your address</string>
+	<string>Turning on location services allows us to get address more easier from map .</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>ESU need location permission to give you better experience to get your address</string>
+	<string>Turning on location services allows us to get address more easier from map .</string>
 	<key>NSLocationUsageDescription</key>
-	<string>ESU need location permission to give you better experience to get your address</string>
+	<string>Turning on location services allows us to get address more easier from map .</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>ESU need location permission to give you better experience to get your address</string>
+	<string>Turning on location services allows us to get address more easier from map .</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>ESU need photo permission to change profile photo.</string>
+	<string>Turning on location services allows us to get address more easier from map .</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

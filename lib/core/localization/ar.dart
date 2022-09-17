@@ -77,6 +77,7 @@ const Map<String, String> ar = {
   LocalizationKeys.selectLocation: 'أختر الموقع',
   LocalizationKeys.locationPermissionNotAllowed: 'الموقع غير مسموح به',
   LocalizationKeys.errorInLocation: 'خطأ في الموقع',
+  LocalizationKeys.tapToEditLocationPermission: 'اضغط لتعديل إذن الموقع',
   LocalizationKeys.facebook: 'فيسبوك',
   LocalizationKeys.whatsApp: 'واتس اب',
   LocalizationKeys.instagram: 'انستجرام',

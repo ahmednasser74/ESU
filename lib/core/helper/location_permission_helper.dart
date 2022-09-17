@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
+import 'helper_methods.dart';
+
 class LocationPermissionHelper {
   static Future<bool> isPermissionGranted() async {
     bool serviceEnabled;
@@ -48,43 +50,28 @@ class LocationPermissionHelper {
         // Android's shouldShowRequestPermissionRationale
         // returned true. According to Android guidelines
         // your App should show an explanatory UI now.
-        Get.dialog(
-          AlertDialog(
-            title: const Text('Location Permission Denied'),
-            content: const Text('Location permissions are denied, please enable location permission from settings'),
-            actions: <Widget>[
-              AppButton(
-                title: LocalizationKeys.ok.tr,
-                onPressed: () => AppSettings.openAppSettings(),
-              ),
-            ],
-          ),
-        );
+        _showErrorLocationSnackBar();
         return false;
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
       // Permissions are denied forever, handle appropriately.
-      Get.dialog(
-        AlertDialog(
-          title: const Text('Location permissions are permanently denied, we cannot request permissions. please enable location permission from settings'),
-          actions: <Widget>[
-            AppButton(
-              title: LocalizationKeys.ok.tr,
-              onPressed: () async {
-                Get.back();
-                if (!await LocationPermissionHelper.isPermissionGranted()) {
-                  AppSettings.openLocationSettings();
-                }
-              },
-            ),
-          ],
-        ),
-      );
+      _showErrorLocationSnackBar();
 
       return false;
     }
     return true;
+  }
+
+  static void _showErrorLocationSnackBar() {
+    HelperMethod.showSnackBar(
+      title: LocalizationKeys.errorInLocation.tr,
+      message: '${LocalizationKeys.locationPermissionNotAllowed.tr} [ ${LocalizationKeys.tapToEditLocationPermission.tr} ]',
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      durationSeconds: 4,
+      onTap: (snackBar) => AppSettings.openLocationSettings(),
+    );
   }
 }
