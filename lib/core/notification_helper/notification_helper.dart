@@ -9,6 +9,7 @@ import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:html/parser.dart';
 
 import '../src/routes.dart';
 import 'notification_data_model.dart';
@@ -61,7 +62,7 @@ class NotificationHelper {
       await FlutterLocalNotificationsPlugin().show(
         Random().nextInt(100),
         event.notification!.title,
-        event.notification!.body,
+        parse(event.notification!.body).documentElement!.text,
         NotificationDetails(
           android: const AndroidNotificationDetails(
             'default_notification_channel',
