@@ -13,6 +13,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/cache/cache.dart';
+import '../../../../core/const/shared_prefs_keys.dart';
+import '../../../../core/dependencies/dependency_init.dart';
+
 // ignore: must_be_immutable
 class RegisterFileUploadsScreen extends StatelessWidget {
   RegisterFileUploadsScreen({Key? key}) : super(key: key);
@@ -112,6 +116,8 @@ class RegisterFileUploadsScreen extends StatelessWidget {
         rule: 1,
       );
       Get.toNamed(Routes.submitRegistrationScreen);
+      final CacheHelper cacheHelper = getIt<CacheHelper>();
+      cacheHelper.set(SharedPrefsKeys.fileUploadInfoRegister, admissionController.fileUploadInfo.toJson());
     } else {
       HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);
     }

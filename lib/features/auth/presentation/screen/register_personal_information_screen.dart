@@ -1,3 +1,4 @@
+import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
@@ -5,6 +6,8 @@ import 'package:esu/core/src/widgets/app_text_field_widget.dart';
 import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
+import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/auth/data/model/data_holder/academic_info_data_holder_model.dart';
 import 'package:esu/features/auth/presentation/controller/register_personal_info_controller.dart';
 import 'package:esu/features/auth/presentation/widgets/auth_drop_down_button.dart';
 import 'package:esu/features/auth/presentation/widgets/country_picker_field_widget.dart';
@@ -34,6 +37,10 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
             child: Column(
               children: [
                 10.heightBox,
+                // if(SharedPrefs.instance.getObject(key: SharedPrefsKeys.academicInfoRegister) != null)
+                // Text('NULLLL ${academicInfo.currentCertificate}', style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold))
+                // else
+                // Text('VALUEEE ${academicInfo.currentCertificate}', style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold)),
                 AppContainer(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -1,3 +1,5 @@
+import 'package:esu/core/cache/cache.dart';
+import 'package:esu/core/dependencies/dependency_init.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/helper/helper_methods.dart';
@@ -7,6 +9,8 @@ import 'package:esu/features/auth/data/model/data_holder/personal_info_data_hold
 import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/admission_usecase.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/const/shared_prefs_keys.dart';
 
 class SubmitAdmissionController extends GetxController {
   SubmitAdmissionController({
@@ -49,6 +53,10 @@ class SubmitAdmissionController extends GetxController {
   }
 
   AdmissionRequestModel requestModel() {
+    final CacheHelper cacheHelper = getIt<CacheHelper>();
+    academicInfo = AcademicInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.academicInfoRegister));
+    personalInfo = PersonalInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.personalInfoRegister));
+    fileUploadInfo = FileUploadDataHolder.fromJson(cacheHelper.get(SharedPrefsKeys.fileUploadInfoRegister));
     final requestModel = AdmissionRequestModel(
       currentCertificate: academicInfo.currentCertificate,
       programId: academicInfo.programId,
@@ -71,8 +79,7 @@ class SubmitAdmissionController extends GetxController {
       currentAddress: personalInfo.currentAddress,
       //-----------------------------------------------------
       nationalPassportFile: fileUploadInfo.nationalPassportFile,
-      latestAcademicQualificationFile:
-          fileUploadInfo.latestAcademicQualificationFile,
+      latestAcademicQualificationFile: fileUploadInfo.latestAcademicQualificationFile,
       transcriptFile: fileUploadInfo.transcriptFile,
       contractFile: fileUploadInfo.contractFile,
       cvFile: fileUploadInfo.cvFile,

@@ -1,3 +1,5 @@
+import 'package:esu/core/cache/cache.dart';
+import 'package:esu/core/dependencies/dependency_init.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/assets.gen.dart';
@@ -9,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../../../../core/const/shared_prefs_keys.dart';
 import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/app_button.dart';
 import '../../../../core/src/widgets/loading_indicator_widget.dart';
@@ -111,7 +114,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 ),
                 SizedBox(height: .08.sh),
                 AppButton(
-                  onPressed: () => Get.toNamed(Routes.registerAcademicInfo),
+                  onPressed: controller.navToRegister,
                   backgroundColor: Colors.transparent,
                   child: RichText(
                     textAlign: TextAlign.center,

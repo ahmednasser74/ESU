@@ -34,4 +34,44 @@ class PersonalInformationDataHolderModel {
     this.yourJob,
     this.yourCompany,
   });
+
+  Map<String, dynamic> toJson() => {
+        'email': email,
+        'firstNameEnglish': firstNameEnglish,
+        'lastNameEnglish': lastNameEnglish,
+        'secondNameEnglish': secondNameEnglish,
+        'firstNameArabic': firstNameArabic,
+        'secondNameArabic': secondNameArabic,
+        'lastNameArabic': lastNameArabic,
+        'nationalPassport': nationalPassport,
+        'mobileNumber': mobileNumber,
+        'birthDate': birthDate,
+        'gender': gender,
+        'countryId': countryId,
+        'nationalityId': nationalityId,
+        'currentAddress': currentAddress,
+        'yourJob': yourJob,
+        'yourCompany': yourCompany,
+      };
+
+  factory PersonalInformationDataHolderModel.fromJson(Map<String, dynamic> json) {
+    return PersonalInformationDataHolderModel(
+      email: json['email'],
+      firstNameEnglish: json['firstNameEnglish'],
+      lastNameEnglish: json['lastNameEnglish'],
+      secondNameEnglish: json['secondNameEnglish'],
+      firstNameArabic: json['firstNameArabic'],
+      secondNameArabic: json['secondNameArabic'],
+      lastNameArabic: json['lastNameArabic'],
+      nationalPassport: json['nationalPassport'],
+      mobileNumber: json['mobileNumber'],
+      birthDate: json['birthDate'],
+      gender: json['gender'],
+      countryId: json['countryId'],
+      nationalityId: json['nationalityId'],
+      currentAddress: json['currentAddress'],
+      yourJob: json['yourJob'],
+      yourCompany: json['yourCompany'],
+    );
+  }
 }

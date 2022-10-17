@@ -1,8 +1,7 @@
-library cache;
-
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class CacheHelper {
   T? get<T>(String key);
@@ -14,10 +13,11 @@ abstract class CacheHelper {
   void set(String key, dynamic value);
 }
 
-class CacheImpl extends CacheHelper {
+@Singleton(as: CacheHelper)
+class CacheHelperImpl implements CacheHelper {
   final SharedPreferences _sharedPreferences;
 
-  CacheImpl(this._sharedPreferences);
+  CacheHelperImpl(this._sharedPreferences);
 
   @override
   bool has(String key) {

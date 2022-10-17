@@ -123,11 +123,9 @@ class Injection {
     di.registerLazySingleton<InternetConnectionChecker>(
       () => InternetConnectionChecker(),
     );
-    di.registerLazySingleton<CacheHelper>(
-      () => CacheImpl(
-        di<SharedPreferences>(),
-      ),
-    );
+    // di.registerLazySingleton<CacheHelper>(
+    //   () => CacheHelperImpl(di<SharedPreferences>()),
+    // );
     //controller
     di.registerFactory<TranslationController>(() => TranslationController());
     di.registerFactory<ThemeController>(() => ThemeController());

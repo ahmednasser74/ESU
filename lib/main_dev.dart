@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'core/dependencies/dependency_init.dart';
 import 'core/helper/file_download_helper/file_downloader_db/file_downloader_db.dart';
 import 'core/utils/di.dart';
 import 'my_app.dart';
@@ -22,6 +23,7 @@ void main() async {
     systemNavigationBarColor: AppColors.primaryLightColor,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
+  configureDependencies();
   await Firebase.initializeApp();
   await FlutterDownloader.initialize();
   await FileDownloadedDbHelper.init();

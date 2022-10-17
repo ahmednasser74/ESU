@@ -15,6 +15,8 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/cache/cache.dart';
+import '../../../../core/dependencies/dependency_init.dart';
 import '../../domin/usecases/login_usecase.dart';
 
 class LoginController extends GetxController {
@@ -88,5 +90,25 @@ class LoginController extends GetxController {
     } else if (translateController!.language.value == Language.arabic.value) {
       translateController!.changeLanguage(Language.english);
     }
+  }
+
+  void navToRegister() {
+    final cacheHelper = getIt<CacheHelper>();
+    final isAcademicCompleted = cacheHelper.has(SharedPrefsKeys.academicInfoRegister);
+    final isPersonalCompleted = cacheHelper.has(SharedPrefsKeys.personalInfoRegister);
+    final isFileInfoCompleted = cacheHelper.has(SharedPrefsKeys.fileUploadInfoRegister);
+    if (isFileInfoCompleted) {
+      Get.toNamed(Routes.submitRegistrationScreen);
+      return;
+    }
+    if (isPersonalCompleted) {
+      Get.toNamed(Routes.registerFileUploadScreen);
+      return;
+    }
+    if (isAcademicCompleted) {
+      Get.toNamed(Routes.registerPersonalInfo);
+      return;
+    }
+    Get.toNamed(Routes.registerAcademicInfo);
   }
 }

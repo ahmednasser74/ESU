@@ -1,3 +1,4 @@
+import 'package:esu/core/cache/cache.dart';
 import 'package:esu/core/const/lookup_const.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
@@ -10,6 +11,9 @@ import 'package:esu/features/auth/presentation/controller/submit_admission_contr
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/const/shared_prefs_keys.dart';
+import '../../../../core/dependencies/dependency_init.dart';
+
 class AcademicInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
   AcademicInfoController({required this.lookupUseCase});
 
@@ -17,6 +21,7 @@ class AcademicInfoController extends GetxController with StateMixin<List<LookupD
   late String currentCertificate;
   late int programId;
   LookupUseCase lookupUseCase;
+  final CacheHelper cacheHelper = getIt<CacheHelper>();
 
   @override
   void onInit() async {
@@ -57,5 +62,6 @@ class AcademicInfoController extends GetxController with StateMixin<List<LookupD
       currentCertificate: currentCertificate,
       programId: programId,
     );
+    cacheHelper.set(SharedPrefsKeys.academicInfoRegister, submitAdmission.academicInfo);
   }
 }
