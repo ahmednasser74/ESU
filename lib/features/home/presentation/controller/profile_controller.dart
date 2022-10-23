@@ -14,7 +14,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class ProfileController extends GetxController with FileProperties {
   ProfileController({
     required this.checkEditProfileFilesUseCase,
@@ -59,6 +61,8 @@ class ProfileController extends GetxController with FileProperties {
   void onInit() async {
     super.onInit();
     final student = SharedPrefs.instance.getUser();
+    isAgreeToPublishPersonalInfo = student.publishSocialProfile;
+    print('student data: ${student.publishSocialProfile}');
     fullNameEnTEC.text = student.nameEn;
     fullNameArTEC.text = student.nameAr;
     mobileTEC.text = student.mobile;
@@ -72,7 +76,6 @@ class ProfileController extends GetxController with FileProperties {
     whatsappController2.text = student.whatsNumber2 ?? '';
     whatsappController3.text = student.whatsNumber3 ?? '';
     whatsAppPinController.text = student.whatsPin ?? '';
-    isAgreeToPublishPersonalInfo = student.publishSocialProfile;
     await checkEditProfileFiles();
   }
 

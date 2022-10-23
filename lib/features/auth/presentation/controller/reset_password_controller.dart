@@ -5,7 +5,9 @@ import 'package:esu/features/auth/domin/usecases/reset_password_usecase.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class ResetPasswordController extends GetxController {
   final ResetPasswordUseCase resetPasswordUseCase;
 

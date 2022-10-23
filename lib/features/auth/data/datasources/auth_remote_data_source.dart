@@ -14,6 +14,7 @@ import 'package:esu/features/auth/data/model/response/forget_password/reset_pass
 import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:esu/features/auth/data/model/response/lookup/lookup_respone_model.dart';
 import 'package:esu/features/auth/data/model/response/minimum_version/minimum_version_response_model.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class AuthRemoteDataSource {
   Future<LoginResponseModel> login({required LoginRequestModel requestModel});
@@ -46,7 +47,7 @@ abstract class AuthRemoteDataSource {
 
   Future<GenericResponseModel> deleteUserAccount();
 }
-
+@Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   AuthRemoteDataSourceImp({required this.dioHelper});
 

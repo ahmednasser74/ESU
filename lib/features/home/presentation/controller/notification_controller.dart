@@ -7,7 +7,9 @@ import 'package:esu/features/home/domin/usecases/mark_single_notification_as_rea
 import 'package:esu/features/home/domin/usecases/notification_usecase.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class NotificationController extends GetxController
     with StateMixin<List<NotificationItemResponseModel>> {
   NotificationController({

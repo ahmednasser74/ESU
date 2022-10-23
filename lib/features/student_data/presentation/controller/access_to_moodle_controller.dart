@@ -2,6 +2,9 @@ import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/features/student_data/domain/usecase/access_to_moodle_use_case.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class AccessToMoodleController extends GetxController {
   AccessToMoodleController({

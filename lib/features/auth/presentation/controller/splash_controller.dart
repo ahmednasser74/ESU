@@ -12,9 +12,11 @@ import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart
 import 'package:esu/features/auth/presentation/widgets/update_app_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/const/shared_prefs_keys.dart';
 
+@Injectable()
 class SplashController extends GetxController {
   SplashController({
     required this.registerFcmTokenUseCase,

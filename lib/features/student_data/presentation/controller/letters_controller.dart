@@ -3,6 +3,9 @@ import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/features/student_data/data/models/response/letters/letters_data_response_model.dart';
 import 'package:esu/features/student_data/domain/usecase/letters_use_case.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class LettersController extends GetxController
     with StateMixin<List<LettersDataResponseModel>> {

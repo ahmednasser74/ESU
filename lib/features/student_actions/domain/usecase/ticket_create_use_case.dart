@@ -3,6 +3,9 @@ import 'package:esu/features/student_actions/data/models/request/ticket_create/t
 import 'package:esu/features/student_actions/data/models/response/ticket_details/tickets_details_response_model.dart';
 import 'package:esu/features/student_actions/domain/repository/student_actions_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class TicketCreateUseCase extends UseCase<
     Future<Either<String?, TicketDetailsResponseModel>>,

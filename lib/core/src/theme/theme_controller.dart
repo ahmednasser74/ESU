@@ -3,7 +3,9 @@ import 'package:esu/core/src/theme/theme.dart';
 import 'package:esu/core/enum/theme_data_helper.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class ThemeController extends GetxController {
   bool _isDarkMode = false;
 

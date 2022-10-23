@@ -3,7 +3,9 @@ import 'package:esu/features/auth/data/model/response/minimum_version/minimum_ve
 
 import '../../../../core/usecases/usecase.dart';
 import '../repositories/auth_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class MinimumVersionUseCase extends UseCase<
     Future<Either<String?, MinimumVersionResponseModel>>, NoParams> {
   final AuthRepository authRepository;

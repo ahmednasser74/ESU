@@ -14,11 +14,13 @@ import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/cache/cache.dart';
 import '../../../../core/dependencies/dependency_init.dart';
 import '../../domin/usecases/login_usecase.dart';
 
+@Injectable()
 class LoginController extends GetxController {
   LoginController({
     required this.loginUseCase,
@@ -36,7 +38,7 @@ class LoginController extends GetxController {
   final prefs = SharedPrefs.instance;
 
   get getLoadingIndicator => _loadingIndicator.value;
-  final FirebaseAnalyticsHelper analyticsHelper = Injection.di<FirebaseAnalyticsHelper>();
+  final FirebaseAnalyticsHelper analyticsHelper = di<FirebaseAnalyticsHelper>();
 
   @override
   void onInit() async {
@@ -93,7 +95,7 @@ class LoginController extends GetxController {
   }
 
   void navToRegister() {
-    final cacheHelper = getIt<CacheHelper>();
+    final cacheHelper = di<CacheHelper>();
     final isAcademicCompleted = cacheHelper.has(SharedPrefsKeys.academicInfoRegister);
     final isPersonalCompleted = cacheHelper.has(SharedPrefsKeys.personalInfoRegister);
     final isFileInfoCompleted = cacheHelper.has(SharedPrefsKeys.fileUploadInfoRegister);

@@ -8,6 +8,7 @@ import 'package:esu/features/home/data/models/response/home/home_response_model.
 import 'package:esu/features/home/data/models/response/notification/notification_item_response_model.dart';
 import 'package:esu/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class HomeRemoteDataSource {
   Future<NotificationResponseModel> getNotifications();
@@ -27,6 +28,7 @@ abstract class HomeRemoteDataSource {
   Future<GenericResponseModel> markSingleNotificationAsRead({required int id});
 }
 
+@Injectable(as: HomeRemoteDataSource)
 class HomeRemoteDataSourceImp implements HomeRemoteDataSource {
   HomeRemoteDataSourceImp({required this.dioHelper});
 

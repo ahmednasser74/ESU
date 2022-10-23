@@ -8,6 +8,9 @@ import 'package:esu/features/student_actions/domain/usecase/course_registration_
 import 'package:get/get.dart';
 
 import 'courses_registered_controller.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class AddCourseController extends GetxController
     with StateMixin<AvailableCoursesResponseModel> {

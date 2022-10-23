@@ -4,7 +4,9 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/usecases/usecase.dart';
 import '../repositories/auth_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class ForgetPasswordUseCase extends UseCase<
     Future<Either<String?, ForgetPasswordResponseModel>>,
     ForgetPasswordRequestModel> {

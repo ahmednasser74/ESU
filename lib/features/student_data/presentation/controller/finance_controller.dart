@@ -9,6 +9,9 @@ import 'package:esu/features/student_data/domain/usecase/finance_use_case.dart';
 import 'package:get/get.dart';
 
 import '../../data/models/response/finance/finance_response_model.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class FinanceController extends GetxController
     with StateMixin<FinanceResponseModel> {

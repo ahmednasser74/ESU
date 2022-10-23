@@ -10,9 +10,12 @@ import 'package:esu/features/home/data/models/response/popular_question/popular_
 import 'package:esu/features/home/domin/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../../../core/dependencies/dependency_init.dart';
 import '../../../../core/network/network_information.dart';
 
+@Injectable(as: HomeRepository)
 class HomeRepositoryImp implements HomeRepository {
   HomeRepositoryImp({required this.remoteDataSource});
 
@@ -97,7 +100,7 @@ extension on HomeRepository {
     required Future<T> Function() onSuccess,
     Future<String> Function(Exception exception)? onOtherError,
   }) async {
-    final isConnected = await Injection.di<NetworkInformation>().isConnected;
+    final isConnected = await di<NetworkInformation>().isConnected;
     if (isConnected) {
       try {
         final f = await onSuccess();

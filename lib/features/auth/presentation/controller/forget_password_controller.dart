@@ -6,7 +6,9 @@ import 'package:esu/features/auth/domin/usecases/forget_password_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class ForgetPasswordController extends GetxController {
   ForgetPasswordController({
     required this.forgetPasswordUseCase,

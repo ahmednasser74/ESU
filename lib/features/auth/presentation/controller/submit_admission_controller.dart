@@ -9,9 +9,11 @@ import 'package:esu/features/auth/data/model/data_holder/personal_info_data_hold
 import 'package:esu/features/auth/data/model/request/admission/admission_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/admission_usecase.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/const/shared_prefs_keys.dart';
 
+@Injectable()
 class SubmitAdmissionController extends GetxController {
   SubmitAdmissionController({
     required this.admissionUseCase,
@@ -53,7 +55,7 @@ class SubmitAdmissionController extends GetxController {
   }
 
   AdmissionRequestModel requestModel() {
-    final CacheHelper cacheHelper = getIt<CacheHelper>();
+    final CacheHelper cacheHelper = di<CacheHelper>();
     academicInfo = AcademicInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.academicInfoRegister));
     personalInfo = PersonalInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.personalInfoRegister));
     fileUploadInfo = FileUploadDataHolder.fromJson(cacheHelper.get(SharedPrefsKeys.fileUploadInfoRegister));

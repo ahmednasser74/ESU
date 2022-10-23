@@ -3,7 +3,9 @@ import 'package:esu/core/enum/language.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class TranslationController extends GetxController {
   late Language _language;
 

@@ -6,6 +6,9 @@ import 'package:esu/features/student_actions/data/models/response/availability_t
 import 'package:esu/features/student_actions/domain/usecase/term_register_pay_use_case.dart';
 import 'package:esu/features/student_actions/domain/usecase/term_registration_availability_use_case.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class TermRegistrationController extends GetxController
     with StateMixin<AvailabilityTermRegistrationResponseModel> {

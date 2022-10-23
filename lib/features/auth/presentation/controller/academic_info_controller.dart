@@ -10,10 +10,12 @@ import 'package:esu/features/auth/domin/usecases/lookup_use_case.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/const/shared_prefs_keys.dart';
 import '../../../../core/dependencies/dependency_init.dart';
 
+@Injectable()
 class AcademicInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
   AcademicInfoController({required this.lookupUseCase});
 
@@ -21,7 +23,7 @@ class AcademicInfoController extends GetxController with StateMixin<List<LookupD
   late String currentCertificate;
   late int programId;
   LookupUseCase lookupUseCase;
-  final CacheHelper cacheHelper = getIt<CacheHelper>();
+  final CacheHelper cacheHelper = di<CacheHelper>();
 
   @override
   void onInit() async {

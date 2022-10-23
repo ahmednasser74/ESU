@@ -1,5 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class FirebaseAnalyticsHelper {
   static final FirebaseAnalytics _analyticsInstance = FirebaseAnalytics.instance;
 

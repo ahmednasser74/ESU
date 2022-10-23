@@ -3,6 +3,9 @@ import 'package:esu/features/student_data/data/models/response/transcript/transc
 import 'package:esu/features/student_data/domain/repository/student_data_repository.dart';
 
 import '../../../../core/usecases/usecase.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class TranscriptUseCase extends UseCase<
     Future<Either<String?, TranscriptResponseModel>>, NoParams> {

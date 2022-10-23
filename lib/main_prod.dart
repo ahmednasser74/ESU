@@ -7,6 +7,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'core/dependencies/dependency_init.dart';
 import 'core/helper/file_download_helper/file_downloader_db/file_downloader_db.dart';
 import 'core/utils/di.dart';
 import 'my_app.dart';
@@ -28,7 +29,8 @@ void main() async {
     await Firebase.initializeApp();
     FlutterDownloader.initialize();
     FileDownloadedDbHelper.init();
-    await Injection.init();
+    // await Injection.init();
+    configureDependencies();
     await NotificationHelper.instance.init();
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
     runApp(const MyApp());

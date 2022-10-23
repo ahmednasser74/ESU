@@ -116,7 +116,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
         rule: 1,
       );
       Get.toNamed(Routes.submitRegistrationScreen);
-      final CacheHelper cacheHelper = getIt<CacheHelper>();
+      final CacheHelper cacheHelper = di<CacheHelper>();
       cacheHelper.set(SharedPrefsKeys.fileUploadInfoRegister, admissionController.fileUploadInfo.toJson());
     } else {
       HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);

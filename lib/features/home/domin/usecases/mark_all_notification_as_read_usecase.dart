@@ -2,7 +2,9 @@ import 'package:esu/core/models/response/generic_model.dart';
 import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/features/home/domin/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class MarkAllNotificationAsReadUseCase
     extends UseCase<Future<Either<String?, GenericResponseModel>>, NoParams> {
   MarkAllNotificationAsReadUseCase({required this.repository});

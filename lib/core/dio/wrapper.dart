@@ -2,6 +2,7 @@ import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/core/dio/dio_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:esu/core/utils/pref_util.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'interceptors/app_interceptor.dart';
@@ -10,6 +11,7 @@ typedef RequestCallback = Future<Map<String, dynamic>> Function();
 typedef ResponseCallback = Future<void> Function(Response);
 typedef ErrorCallback = Future<void> Function(DioError);
 
+// @Singleton(as: DioHelper)
 class DioImpl extends DioHelper {
   final RequestCallback? onRequest;
   final ResponseCallback? onResponse;

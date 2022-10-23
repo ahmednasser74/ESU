@@ -8,6 +8,7 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../dependencies/dependency_init.dart';
 import 'file_downloader_db/file_downloader_db.dart';
 
 ///[FileDownloadManager] is a class that manages the download of files in device
@@ -18,8 +19,8 @@ import 'file_downloader_db/file_downloader_db.dart';
 /// [downloadFile] this function is used to download file from url and save it in device
 
 class FileDownloadManager {
-  final _port = Injection.di<ReceivePort>();
-  final _eventController = Injection.di<StreamController>();
+  final _port = di<ReceivePort>();
+  final _eventController = di<StreamController>();
 
   String fileUrl;
   Map<String, String>? headers;
@@ -63,7 +64,7 @@ class FileDownloadManager {
     if (fileUrl.startsWith('/')) {
       return true;
     }
-    final exitDownload = Injection.di<FileDownloadedDbHelper>().getByUrl(
+    final exitDownload = di<FileDownloadedDbHelper>().getByUrl(
       fileUrl,
     );
     if (exitDownload != null) {

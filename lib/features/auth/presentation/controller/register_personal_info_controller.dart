@@ -10,11 +10,13 @@ import 'package:esu/features/auth/domin/usecases/lookup_use_case.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/cache/cache.dart';
 import '../../../../core/const/shared_prefs_keys.dart';
 import '../../../../core/dependencies/dependency_init.dart';
 
+@Injectable()
 class RegisterPersonalInfoController extends GetxController with StateMixin<List<LookupDataResponseModel>> {
   RegisterPersonalInfoController({required this.lookupUseCase});
 
@@ -90,7 +92,7 @@ class RegisterPersonalInfoController extends GetxController with StateMixin<List
       yourJob: jobController.text,
       yourCompany: companyController.text,
     );
-    getIt<CacheHelper>().set(SharedPrefsKeys.personalInfoRegister, submitAdmission.personalInfo);
+    di<CacheHelper>().set(SharedPrefsKeys.personalInfoRegister, submitAdmission.personalInfo);
   }
 
   Future<void> locationPermissionHandler() async {

@@ -4,10 +4,11 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/usecases/usecase.dart';
 import '../repositories/auth_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class RegisterFcmTokenUseCase extends UseCase<
-    Future<Either<String?, GenericResponseModel>>,
-    FcmTokenRequestModel> {
+    Future<Either<String?, GenericResponseModel>>, FcmTokenRequestModel> {
   final AuthRepository authRepository;
 
   RegisterFcmTokenUseCase({required this.authRepository});

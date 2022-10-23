@@ -11,10 +11,12 @@ import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/home/presentation/controller/logout_controler_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/usecases/usecase.dart';
 import '../../../auth/domin/usecases/delete_user_account_usecase.dart';
 
+@Injectable()
 class SettingController extends GetxController {
   SettingController({
     required this.deleteUserAccountUseCase,

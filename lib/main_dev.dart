@@ -23,11 +23,11 @@ void main() async {
     systemNavigationBarColor: AppColors.primaryLightColor,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
-  configureDependencies();
   await Firebase.initializeApp();
   await FlutterDownloader.initialize();
   await FileDownloadedDbHelper.init();
-  await Injection.init();
+  configureDependencies();
+  // await Injection.init();
   await NotificationHelper.instance.init();
   runApp(const MyApp());
 }

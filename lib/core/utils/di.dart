@@ -96,377 +96,373 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../helper/file_download_helper/file_downloader_db/file_downloader_db.dart';
 import '../helper/file_download_helper/file_downloader_db/file_downloader_model.dart';
 
-class Injection {
-  static final di = GetIt.instance;
-
-  static Future<void> init() async {
-    await _core();
-    _dioHelper();
-    _homeCycle();
-    _studentDataCycle();
-    _studentActionsCycle();
-    _hiveDb();
-    _authCycle();
-  }
-
-  static Future<void> _core() async {
-    di.registerFactory(
-      () => FcmTokenUpdate(registerFcmTokenUseCase: di()),
-    );
-    // shared preference
-    final sp = await SharedPreferences.getInstance();
-    di.registerLazySingleton<SharedPreferences>(() => sp);
-
-    final sharedPreferences = await SharedPrefs.instance.init();
-    di.registerSingleton<SharedPrefs>(sharedPreferences);
-    // localization
-    di.registerLazySingleton<InternetConnectionChecker>(
-      () => InternetConnectionChecker(),
-    );
-    // di.registerLazySingleton<CacheHelper>(
-    //   () => CacheHelperImpl(di<SharedPreferences>()),
-    // );
-    //controller
-    di.registerFactory<TranslationController>(() => TranslationController());
-    di.registerFactory<ThemeController>(() => ThemeController());
-
-    //Network
-    di.registerLazySingleton<NetworkInformation>(
-      () => NetworkInformationImp(internetConnectionChecker: di()),
-    );
-    //analytics
-    di.registerLazySingleton<FirebaseAnalyticsHelper>(() => FirebaseAnalyticsHelper());
-  }
-
-  static void _authCycle() {
-    // Controller
-    di.registerFactory<LoginController>(
-      () => LoginController(
-        loginUseCase: di(),
-        registerFcmTokenUseCase: di(),
-      ),
-    );
-    di.registerFactory<SubmitAdmissionController>(
-      () => SubmitAdmissionController(
-        admissionUseCase: di(),
-      ),
-    );
-    di.registerFactory<SplashController>(
-      () => SplashController(
-        minimumVersionUseCase: di(),
-        registerFcmTokenUseCase: di(),
-      ),
-    );
-    di.registerFactory<AcademicInfoController>(
-      () => AcademicInfoController(lookupUseCase: di()),
-    );
-    di.registerFactory<RegisterPersonalInfoController>(
-      () => RegisterPersonalInfoController(lookupUseCase: di()),
-    );
-    di.registerFactory<ForgetPasswordController>(
-      () => ForgetPasswordController(forgetPasswordUseCase: di()),
-    );
-    di.registerFactory<ResetPasswordController>(
-      () => ResetPasswordController(resetPasswordUseCase: di()),
-    );
-
-    // Use cases
-    di.registerLazySingleton<LoginUseCase>(
-      () => LoginUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<AdmissionUseCase>(
-      () => AdmissionUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<LookupUseCase>(
-      () => LookupUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<ForgetPasswordUseCase>(
-      () => ForgetPasswordUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<ResetPasswordUseCase>(
-      () => ResetPasswordUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<MinimumVersionUseCase>(
-      () => MinimumVersionUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<RegisterFcmTokenUseCase>(
-      () => RegisterFcmTokenUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<DeleteFcmTokenUseCase>(
-      () => DeleteFcmTokenUseCase(authRepository: di()),
-    );
-    di.registerLazySingleton<DeleteUserAccountUseCase>(
-      () => DeleteUserAccountUseCase(authRepository: di()),
-    );
-
-    //repo
-    di.registerLazySingleton<AuthRepository>(
-      () => AuthRepositoryImp(
-        userLocalDataSource: di(),
-        userRemoteDataSource: di(),
-      ),
-    );
-
-    // Data sources
-    di.registerLazySingleton<AuthRemoteDataSource>(
-      () => AuthRemoteDataSourceImp(dioHelper: di()),
-    );
-    di.registerLazySingleton<AuthLocalDataSource>(
-      () => AuthLocalDataSourceImp(sharedPreferences: di()),
-    );
-  }
-
-  static void _homeCycle() {
-    // Controller
-    di.registerFactory<ProfileController>(
-      () => ProfileController(
-        checkEditProfileFilesUseCase: di(),
-        editProfileUseCase: di(),
-      ),
-    );
-    di.registerFactory<SettingController>(
-      () => SettingController(deleteUserAccountUseCase: di()),
-    );
-    di.registerFactory<PopularQuestionController>(
-      () => PopularQuestionController(popularQuestionUseCase: di()),
-    );
-    di.registerFactory<HomeController>(
-      () => HomeController(homeUseCase: di()),
-    );
-    di.registerFactory<NotificationController>(
-      () => NotificationController(
-        getNotificationUseCase: di(),
-        markAllNotificationAsReadUseCase: di(),
-        markSingleNotificationAsReadUseCase: di(),
-      ),
-    );
-    di.registerFactory<LogoutController>(
-      () => LogoutController(deleteFcmTokenUseCase: di()),
-    );
-
-    // Use cases
-    di.registerLazySingleton<GetNotificationUseCase>(
-      () => GetNotificationUseCase(repository: di()),
-    );
-    di.registerLazySingleton<HomeUseCase>(
-      () => HomeUseCase(repository: di()),
-    );
-    di.registerLazySingleton<MarkAllNotificationAsReadUseCase>(
-      () => MarkAllNotificationAsReadUseCase(repository: di()),
-    );
-    di.registerLazySingleton<MarkSingleNotificationAsReadUseCase>(
-      () => MarkSingleNotificationAsReadUseCase(repository: di()),
-    );
-    di.registerLazySingleton<CheckEditProfileFilesUseCase>(
-      () => CheckEditProfileFilesUseCase(repository: di()),
-    );
-    di.registerLazySingleton<EditProfileUseCase>(
-      () => EditProfileUseCase(repository: di()),
-    );
-    di.registerLazySingleton<PopularQuestionUseCase>(
-      () => PopularQuestionUseCase(repository: di()),
-    );
-
-    //repo
-    di.registerLazySingleton<HomeRepository>(
-      () => HomeRepositoryImp(remoteDataSource: di()),
-    );
-
-    // Data sources
-    di.registerLazySingleton<HomeRemoteDataSource>(
-      () => HomeRemoteDataSourceImp(dioHelper: di()),
-    );
-  }
-
-  static void _studentDataCycle() {
-    // Controller
-    di.registerFactory<LettersController>(
-      () => LettersController(lettersUseCase: di()),
-    );
-    di.registerFactory<TranscriptController>(
-      () => TranscriptController(transcriptUseCase: di()),
-    );
-    di.registerFactory<FinanceController>(
-      () => FinanceController(
-        financeUseCase: di(),
-        financePayUrlUseCase: di(),
-      ),
-    );
-    di.registerFactory<StudyPlansController>(
-      () => StudyPlansController(studyPlansUseCase: di()),
-    );
-    di.registerFactory<ScheduleController>(
-      () => ScheduleController(scheduleUseCase: di()),
-    );
-    di.registerFactory<AccessToMoodleController>(
-      () => AccessToMoodleController(accessToMoodleUseCase: di()),
-    );
-    di.registerFactory<LectureTableController>(
-      () => LectureTableController(lectureTableUseCase: di()),
-    );
-    di.registerFactory<AttendanceController>(
-      () => AttendanceController(attendanceUseCase: di()),
-    );
-
-    //Use cases
-    di.registerLazySingleton<LettersUseCase>(
-      () => LettersUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<StudyPlansUseCase>(
-      () => StudyPlansUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<FinanceUseCase>(
-      () => FinanceUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<FinancePayUrlUseCase>(
-      () => FinancePayUrlUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<ScheduleUseCase>(
-      () => ScheduleUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<AccessToMoodleUseCase>(
-      () => AccessToMoodleUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<LectureTableUseCase>(
-      () => LectureTableUseCase(studentDataRepository: di()),
-    );
-    di.registerLazySingleton<AttendanceUseCase>(
-      () => AttendanceUseCase(studentDataRepository: di()),
-    );
-    di.registerFactory<TranscriptUseCase>(
-      () => TranscriptUseCase(studentDataRepository: di()),
-    );
-
-    //repo
-    di.registerLazySingleton<StudentDataRepository>(
-      () => StudentDataRepositoryImp(remoteDataSource: di()),
-    );
-
-    // Data sources
-    di.registerLazySingleton<StudentDataRemoteDataSource>(
-      () => StudentDataRemoteDataSourceImp(dioHelper: di()),
-    );
-  }
-
-  static void _studentActionsCycle() {
-    // Controller
-    di.registerFactory<TermRegistrationController>(
-      () => TermRegistrationController(
-        availabilityTermRegistrationUseCase: di(),
-        termRegisterPayUseCase: di(),
-      ),
-    );
-    di.registerFactory<TicketCreateController>(
-      () => TicketCreateController(
-        ticketCreateUseCase: di(),
-        ticketCategoriesUseCase: di(),
-      ),
-    );
-    di.registerFactory<TicketsController>(
-      () => TicketsController(ticketsUseCase: di()),
-    );
-    di.registerFactory<TicketDetailsController>(
-      () => TicketDetailsController(
-        ticketDetailsUseCase: di(),
-        ticketReplyUseCase: di(),
-      ),
-    );
-    di.registerFactory<AddCourseController>(
-      () => AddCourseController(
-        coursesAvailableUseCase: di(),
-        addCoursesUseCase: di(),
-      ),
-    );
-    di.registerFactory<CourseRegisteredController>(
-      () => CourseRegisteredController(
-        coursesRegisteredUseCase: di(),
-        removeCourseUseCase: di(),
-      ),
-    );
-
-    //Use cases
-    di.registerLazySingleton<TermRegisterPayUseCase>(
-      () => TermRegisterPayUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<TermRegistrationAvailabilityUseCase>(
-      () => TermRegistrationAvailabilityUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<TicketCategoriesUseCase>(
-      () => TicketCategoriesUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<TicketCreateUseCase>(
-      () => TicketCreateUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<TicketReplyUseCase>(
-      () => TicketReplyUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<TicketDetailsUseCase>(
-      () => TicketDetailsUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<TicketsUseCase>(
-      () => TicketsUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<CoursesAvailableUseCase>(
-      () => CoursesAvailableUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<AddCoursesUseCase>(
-      () => AddCoursesUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<CoursesRegisteredUseCase>(
-      () => CoursesRegisteredUseCase(studentActionsRepository: di()),
-    );
-    di.registerLazySingleton<RemoveCourseUseCase>(
-      () => RemoveCourseUseCase(studentActionsRepository: di()),
-    );
-
-    //repo
-    di.registerLazySingleton<StudentActionsRepository>(
-      () => StudentActionsRepositoryImp(remoteDataSource: di()),
-    );
-
-    // Data sources
-    di.registerLazySingleton<StudentActionsRemoteDataSource>(
-      () => StudentActionsRemoteDataSourceImp(dioHelper: di()),
-    );
-
-    //ticket files
-    di.registerLazySingleton<ReceivePort>(
-      () => ReceivePort(),
-    );
-
-    di.registerLazySingleton<StreamController>(
-      () {
-        final stream = StreamController<dynamic>.broadcast();
-        di<ReceivePort>().listen((message) {
-          di<StreamController>().add(message);
-        });
-        return stream;
-      },
-    );
-  }
-
-  static void _hiveDb() async {
-    final fileDownloaderBox = await FileDownloadedDbHelper.openBox();
-    di.registerLazySingleton<Box<FileDownloadedModel>>(
-      () => fileDownloaderBox,
-    );
-    di.registerLazySingleton<FileDownloadedDbHelper>(
-      () => FileDownloadedDbHelperImpl(di<Box<FileDownloadedModel>>()),
-    );
-  }
-
-  static void _dioHelper() {
-    di.registerFactory<DioRequestHandlingController>(
-      () => DioRequestHandlingController(networkInformation: di()),
-    );
-
-    di.registerLazySingleton<DioHelper>(
-      () => DioImpl(
-        baseURL: Endpoints.baseUrl,
-        onRequest: di<DioRequestHandlingController>().onRequestCallback,
-        onResponse: di<DioRequestHandlingController>().onResponseCallback,
-        onError: di<DioRequestHandlingController>().onErrorCallback,
-      ),
-    );
-  }
-}
+// class Injection {
+//   static final di = GetIt.instance;
+//
+//   static Future<void> init() async {
+//     await _core();
+//     _dioHelper();
+//     _homeCycle();
+//     _studentDataCycle();
+//     _studentActionsCycle();
+//     _hiveDb();
+//     _authCycle();
+//   }
+//
+//   static Future<void> _core() async {
+//     di.registerFactory(
+//       () => FcmTokenUpdate(registerFcmTokenUseCase: di()),
+//     );
+//     // shared preference
+//     final sp = await SharedPreferences.getInstance();
+//     di.registerLazySingleton<SharedPreferences>(() => sp);
+//
+//     final sharedPreferences = await SharedPrefs.instance.init();
+//     di.registerSingleton<SharedPrefs>(sharedPreferences);
+//     // localization
+//     di.registerLazySingleton<InternetConnectionChecker>(
+//       () => InternetConnectionChecker(),
+//     );
+//     // di.registerLazySingleton<CacheHelper>(
+//     //   () => CacheHelperImpl(di<SharedPreferences>()),
+//     // );
+//     //controller
+//     di.registerFactory<TranslationController>(() => TranslationController());
+//     di.registerFactory<ThemeController>(() => ThemeController());
+//
+//     //Network
+//     di.registerLazySingleton<NetworkInformation>(
+//       () => NetworkInformationImp(internetConnectionChecker: di()),
+//     );
+//     //analytics
+//     di.registerLazySingleton<FirebaseAnalyticsHelper>(() => FirebaseAnalyticsHelper());
+//   }
+//
+//   static void _authCycle() {
+//     // Controller
+//     di.registerFactory<LoginController>(
+//       () => LoginController(
+//         loginUseCase: di(),
+//         registerFcmTokenUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<SubmitAdmissionController>(
+//       () => SubmitAdmissionController(
+//         admissionUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<SplashController>(
+//       () => SplashController(
+//         minimumVersionUseCase: di(),
+//         registerFcmTokenUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<AcademicInfoController>(
+//       () => AcademicInfoController(lookupUseCase: di()),
+//     );
+//     di.registerFactory<RegisterPersonalInfoController>(
+//       () => RegisterPersonalInfoController(lookupUseCase: di()),
+//     );
+//     di.registerFactory<ForgetPasswordController>(
+//       () => ForgetPasswordController(forgetPasswordUseCase: di()),
+//     );
+//     di.registerFactory<ResetPasswordController>(
+//       () => ResetPasswordController(resetPasswordUseCase: di()),
+//     );
+//
+//     // Use cases
+//     di.registerLazySingleton<LoginUseCase>(
+//       () => LoginUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<AdmissionUseCase>(
+//       () => AdmissionUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<LookupUseCase>(
+//       () => LookupUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<ForgetPasswordUseCase>(
+//       () => ForgetPasswordUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<ResetPasswordUseCase>(
+//       () => ResetPasswordUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<MinimumVersionUseCase>(
+//       () => MinimumVersionUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<RegisterFcmTokenUseCase>(
+//       () => RegisterFcmTokenUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<DeleteFcmTokenUseCase>(
+//       () => DeleteFcmTokenUseCase(authRepository: di()),
+//     );
+//     di.registerLazySingleton<DeleteUserAccountUseCase>(
+//       () => DeleteUserAccountUseCase(authRepository: di()),
+//     );
+//
+//     //repo
+//     di.registerLazySingleton<AuthRepository>(
+//       () => AuthRepositoryImp(
+//         userRemoteDataSource: di(),
+//       ),
+//     );
+//
+//     // Data sources
+//     di.registerLazySingleton<AuthRemoteDataSource>(
+//       () => AuthRemoteDataSourceImp(dioHelper: di()),
+//     );
+//   }
+//
+//   static void _homeCycle() {
+//     // Controller
+//     di.registerFactory<ProfileController>(
+//       () => ProfileController(
+//         checkEditProfileFilesUseCase: di(),
+//         editProfileUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<SettingController>(
+//       () => SettingController(deleteUserAccountUseCase: di()),
+//     );
+//     di.registerFactory<PopularQuestionController>(
+//       () => PopularQuestionController(popularQuestionUseCase: di()),
+//     );
+//     di.registerFactory<HomeController>(
+//       () => HomeController(homeUseCase: di()),
+//     );
+//     di.registerFactory<NotificationController>(
+//       () => NotificationController(
+//         getNotificationUseCase: di(),
+//         markAllNotificationAsReadUseCase: di(),
+//         markSingleNotificationAsReadUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<LogoutController>(
+//       () => LogoutController(deleteFcmTokenUseCase: di()),
+//     );
+//
+//     // Use cases
+//     di.registerLazySingleton<GetNotificationUseCase>(
+//       () => GetNotificationUseCase(repository: di()),
+//     );
+//     di.registerLazySingleton<HomeUseCase>(
+//       () => HomeUseCase(repository: di()),
+//     );
+//     di.registerLazySingleton<MarkAllNotificationAsReadUseCase>(
+//       () => MarkAllNotificationAsReadUseCase(repository: di()),
+//     );
+//     di.registerLazySingleton<MarkSingleNotificationAsReadUseCase>(
+//       () => MarkSingleNotificationAsReadUseCase(repository: di()),
+//     );
+//     di.registerLazySingleton<CheckEditProfileFilesUseCase>(
+//       () => CheckEditProfileFilesUseCase(repository: di()),
+//     );
+//     di.registerLazySingleton<EditProfileUseCase>(
+//       () => EditProfileUseCase(repository: di()),
+//     );
+//     di.registerLazySingleton<PopularQuestionUseCase>(
+//       () => PopularQuestionUseCase(repository: di()),
+//     );
+//
+//     //repo
+//     di.registerLazySingleton<HomeRepository>(
+//       () => HomeRepositoryImp(remoteDataSource: di()),
+//     );
+//
+//     // Data sources
+//     di.registerLazySingleton<HomeRemoteDataSource>(
+//       () => HomeRemoteDataSourceImp(dioHelper: di()),
+//     );
+//   }
+//
+//   static void _studentDataCycle() {
+//     // Controller
+//     di.registerFactory<LettersController>(
+//       () => LettersController(lettersUseCase: di()),
+//     );
+//     di.registerFactory<TranscriptController>(
+//       () => TranscriptController(transcriptUseCase: di()),
+//     );
+//     di.registerFactory<FinanceController>(
+//       () => FinanceController(
+//         financeUseCase: di(),
+//         financePayUrlUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<StudyPlansController>(
+//       () => StudyPlansController(studyPlansUseCase: di()),
+//     );
+//     di.registerFactory<ScheduleController>(
+//       () => ScheduleController(scheduleUseCase: di()),
+//     );
+//     di.registerFactory<AccessToMoodleController>(
+//       () => AccessToMoodleController(accessToMoodleUseCase: di()),
+//     );
+//     di.registerFactory<LectureTableController>(
+//       () => LectureTableController(lectureTableUseCase: di()),
+//     );
+//     di.registerFactory<AttendanceController>(
+//       () => AttendanceController(attendanceUseCase: di()),
+//     );
+//
+//     //Use cases
+//     di.registerLazySingleton<LettersUseCase>(
+//       () => LettersUseCase(studentDataRepository: di()),
+//     );
+//     di.registerLazySingleton<StudyPlansUseCase>(
+//       () => StudyPlansUseCase(studentDataRepository: di()),
+//     );
+//     di.registerLazySingleton<FinanceUseCase>(
+//       () => FinanceUseCase(studentDataRepository: di()),
+//     );
+//     di.registerLazySingleton<FinancePayUrlUseCase>(
+//       () => FinancePayUrlUseCase(studentDataRepository: di()),
+//     );
+//     di.registerLazySingleton<ScheduleUseCase>(
+//       () => ScheduleUseCase(studentDataRepository: di()),
+//     );
+//     di.registerLazySingleton<AccessToMoodleUseCase>(
+//       () => AccessToMoodleUseCase(studentDataRepository: di()),
+//     );
+//     di.registerLazySingleton<LectureTableUseCase>(
+//       () => LectureTableUseCase(studentDataRepository: di()),
+//     );
+//     di.registerLazySingleton<AttendanceUseCase>(
+//       () => AttendanceUseCase(studentDataRepository: di()),
+//     );
+//     di.registerFactory<TranscriptUseCase>(
+//       () => TranscriptUseCase(studentDataRepository: di()),
+//     );
+//
+//     //repo
+//     di.registerLazySingleton<StudentDataRepository>(
+//       () => StudentDataRepositoryImp(remoteDataSource: di()),
+//     );
+//
+//     // Data sources
+//     di.registerLazySingleton<StudentDataRemoteDataSource>(
+//       () => StudentDataRemoteDataSourceImp(dioHelper: di()),
+//     );
+//   }
+//
+//   static void _studentActionsCycle() {
+//     // Controller
+//     di.registerFactory<TermRegistrationController>(
+//       () => TermRegistrationController(
+//         availabilityTermRegistrationUseCase: di(),
+//         termRegisterPayUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<TicketCreateController>(
+//       () => TicketCreateController(
+//         ticketCreateUseCase: di(),
+//         ticketCategoriesUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<TicketsController>(
+//       () => TicketsController(ticketsUseCase: di()),
+//     );
+//     di.registerFactory<TicketDetailsController>(
+//       () => TicketDetailsController(
+//         ticketDetailsUseCase: di(),
+//         ticketReplyUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<AddCourseController>(
+//       () => AddCourseController(
+//         coursesAvailableUseCase: di(),
+//         addCoursesUseCase: di(),
+//       ),
+//     );
+//     di.registerFactory<CourseRegisteredController>(
+//       () => CourseRegisteredController(
+//         coursesRegisteredUseCase: di(),
+//         removeCourseUseCase: di(),
+//       ),
+//     );
+//
+//     //Use cases
+//     di.registerLazySingleton<TermRegisterPayUseCase>(
+//       () => TermRegisterPayUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<TermRegistrationAvailabilityUseCase>(
+//       () => TermRegistrationAvailabilityUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<TicketCategoriesUseCase>(
+//       () => TicketCategoriesUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<TicketCreateUseCase>(
+//       () => TicketCreateUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<TicketReplyUseCase>(
+//       () => TicketReplyUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<TicketDetailsUseCase>(
+//       () => TicketDetailsUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<TicketsUseCase>(
+//       () => TicketsUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<CoursesAvailableUseCase>(
+//       () => CoursesAvailableUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<AddCoursesUseCase>(
+//       () => AddCoursesUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<CoursesRegisteredUseCase>(
+//       () => CoursesRegisteredUseCase(studentActionsRepository: di()),
+//     );
+//     di.registerLazySingleton<RemoveCourseUseCase>(
+//       () => RemoveCourseUseCase(studentActionsRepository: di()),
+//     );
+//
+//     //repo
+//     di.registerLazySingleton<StudentActionsRepository>(
+//       () => StudentActionsRepositoryImp(remoteDataSource: di()),
+//     );
+//
+//     // Data sources
+//     di.registerLazySingleton<StudentActionsRemoteDataSource>(
+//       () => StudentActionsRemoteDataSourceImp(dioHelper: di()),
+//     );
+//
+//     //ticket files
+//     di.registerLazySingleton<ReceivePort>(
+//       () => ReceivePort(),
+//     );
+//
+//     di.registerLazySingleton<StreamController>(
+//       () {
+//         final stream = StreamController<dynamic>.broadcast();
+//         di<ReceivePort>().listen((message) {
+//           di<StreamController>().add(message);
+//         });
+//         return stream;
+//       },
+//     );
+//   }
+//
+//   static void _hiveDb() async {
+//     final fileDownloaderBox = await FileDownloadedDbHelper.openBox();
+//     di.registerLazySingleton<Box<FileDownloadedModel>>(
+//       () => fileDownloaderBox,
+//     );
+//     di.registerLazySingleton<FileDownloadedDbHelper>(
+//       () => FileDownloadedDbHelperImpl(di<Box<FileDownloadedModel>>()),
+//     );
+//   }
+//
+//   static void _dioHelper() {
+//     di.registerFactory<DioRequestHandlingController>(
+//       () => DioRequestHandlingController(networkInformation: di()),
+//     );
+//
+//     di.registerLazySingleton<DioHelper>(
+//       () => DioImpl(
+//         baseURL: Endpoints.baseUrl,
+//         onRequest: di<DioRequestHandlingController>().onRequestCallback,
+//         onResponse: di<DioRequestHandlingController>().onResponseCallback,
+//         onError: di<DioRequestHandlingController>().onErrorCallback,
+//       ),
+//     );
+//   }
+// }

@@ -10,6 +10,9 @@ import 'package:esu/features/student_actions/domain/usecase/ticket_reply_use_cas
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class TicketDetailsController extends GetxController
     with StateMixin<TicketDetailsDataResponseModel> {

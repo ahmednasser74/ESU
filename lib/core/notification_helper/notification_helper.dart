@@ -10,7 +10,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:html/parser.dart';
+import 'package:injectable/injectable.dart';
 
+import '../dependencies/dependency_init.dart';
 import '../src/routes.dart';
 import 'notification_data_model.dart';
 
@@ -29,7 +31,7 @@ class NotificationHelper {
     messaging = FirebaseMessaging.instance;
     userToken = SharedPrefs.instance.getString(key: SharedPrefsKeys.token);
     await messaging.requestPermission();
-    Injection.di<FcmTokenUpdate>().onFcmTokenUpdate();
+    di<FcmTokenUpdate>().onFcmTokenUpdate();
     await FlutterLocalNotificationsPlugin().initialize(
       const InitializationSettings(
         android: AndroidInitializationSettings('@drawable/launch_background'),
