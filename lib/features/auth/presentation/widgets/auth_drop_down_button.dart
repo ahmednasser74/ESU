@@ -1,5 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
+import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_utils/get_utils.dart';
@@ -10,12 +11,14 @@ class TitleDropDownButton extends StatefulWidget {
     Key? key,
     required this.list,
     required this.onChangeValue,
+    this.initValue,
     this.isDense = false,
   }) : super(key: key);
 
   final List<String> list;
   final void Function(String value) onChangeValue;
   final bool isDense;
+  final String? initValue;
 
   @override
   State<TitleDropDownButton> createState() => _TitleDropDownButtonState();
@@ -30,13 +33,17 @@ class _TitleDropDownButtonState extends State<TitleDropDownButton> {
       value: dropdownValue,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) {
-        if (value == null) {
+        if (value == null && widget.initValue == null) {
           return LocalizationKeys.thisFieldIsRequired.tr;
         } else {
           return null;
         }
       },
-      hint: Text(LocalizationKeys.select.tr,style: const TextStyle(color: Colors.grey),),
+      hint: ConditionalBuilder(
+        condition: widget.initValue != null,
+        builder: (context) => Text(widget.initValue!, style: const TextStyle(color: AppColors.primaryColor)),
+        fallback: (context) => Text(LocalizationKeys.select.tr, style: const TextStyle(color: Colors.grey)),
+      ),
       isDense: widget.isDense,
       icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey),
       elevation: 2,

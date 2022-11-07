@@ -94,23 +94,23 @@ class LoginController extends GetxController {
     }
   }
 
-  void navToRegister() {
-    final cacheHelper = di<CacheHelper>();
-    final isAcademicCompleted = cacheHelper.has(SharedPrefsKeys.academicInfoRegister);
-    final isPersonalCompleted = cacheHelper.has(SharedPrefsKeys.personalInfoRegister);
-    final isFileInfoCompleted = cacheHelper.has(SharedPrefsKeys.fileUploadInfoRegister);
-    if (isFileInfoCompleted) {
-      Get.toNamed(Routes.submitRegistrationScreen);
-      return;
-    }
-    if (isPersonalCompleted) {
-      Get.toNamed(Routes.registerFileUploadScreen);
-      return;
-    }
-    if (isAcademicCompleted) {
-      Get.toNamed(Routes.registerPersonalInfo);
-      return;
-    }
-    Get.toNamed(Routes.registerAcademicInfo);
-  }
+  // void navToRegister() {
+  //   final cacheHelper = di<CacheHelper>();
+  //   final isAcademicCompleted = cacheHelper.has(SharedPrefsKeys.academicInfoRegister);
+  //   final isPersonalCompleted = cacheHelper.has(SharedPrefsKeys.personalInfoRegister);
+  //   final isFileInfoCompleted = cacheHelper.has(SharedPrefsKeys.fileUploadInfoRegister);
+  //   if (isFileInfoCompleted) {
+  //     Get.toNamed(Routes.submitRegistrationScreen);
+  //     return;
+  //   }
+  //   if (isPersonalCompleted) {
+  //     Get.toNamed(Routes.registerFileUploadScreen);
+  //     return;
+  //   }
+  //   if (isAcademicCompleted) {
+  //     Get.toNamed(Routes.registerPersonalInfo);
+  //     return;
+  //   }
+  //   Get.toNamed(Routes.registerAcademicInfo);
+  // }
 }

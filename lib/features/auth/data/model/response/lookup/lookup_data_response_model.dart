@@ -1,7 +1,10 @@
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
 class LookupDataResponseModel {
   LookupDataResponseModel({
     required this.id,
-    required this.name,
+    required this.nameEn,
     required this.nameAr,
     this.code,
     this.shortName,
@@ -12,7 +15,7 @@ class LookupDataResponseModel {
   });
 
   final int id;
-  final String name;
+  final String nameEn;
   final String nameAr;
   final int? code;
   final String? shortName;
@@ -21,10 +24,9 @@ class LookupDataResponseModel {
   final String? updatedAt;
   final String? deletedAt;
 
-  factory LookupDataResponseModel.fromJson(Map<String, dynamic> json) =>
-      LookupDataResponseModel(
+  factory LookupDataResponseModel.fromJson(Map<String, dynamic> json) => LookupDataResponseModel(
         id: json["id"],
-        name: json["name"],
+        nameEn: json["name"],
         nameAr: json["name_ar"],
         moodleId: json["moodle_id"],
         createdAt: json["created_at"],
@@ -33,4 +35,6 @@ class LookupDataResponseModel {
         code: json["code"],
         shortName: json["short_name"],
       );
+
+  String get name => Get.locale.toString() == 'ar' ? nameAr : nameEn;
 }

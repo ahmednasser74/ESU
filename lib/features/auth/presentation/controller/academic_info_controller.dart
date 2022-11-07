@@ -1,4 +1,5 @@
 import 'package:esu/core/cache/cache.dart';
+import 'package:esu/core/const/list_const.dart';
 import 'package:esu/core/const/lookup_const.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
@@ -20,22 +21,29 @@ class AcademicInfoController extends GetxController with StateMixin<List<LookupD
   AcademicInfoController({required this.lookupUseCase});
 
   final formKey = GlobalKey<FormState>();
-  late String currentCertificate;
-  late int programId;
+  CertificateType? currentCertificate;
+  String? programName;
+  int? programId;
   LookupUseCase lookupUseCase;
   final CacheHelper cacheHelper = di<CacheHelper>();
 
   @override
   void onInit() async {
     super.onInit();
+    if (cacheHelper.has(SharedPrefsKeys.academicInfoRegister)) {
+      final savedModel = AcademicInformationDataHolderModel.fromJson(
+        cacheHelper.get(SharedPrefsKeys.academicInfoRegister),
+      );
+      currentCertificate = savedModel.currentCertificate;
+      programId = savedModel.programId;
+    }
+
     await getLookup();
   }
 
   Future<void> getLookup() async {
     change(null, status: RxStatus.loading());
-    final requestModel = LookupRequestModel(
-      lookupType: LookupConst.programs,
-    );
+    final requestModel = LookupRequestModel(lookupType: LookupConst.programs);
     final lookupData = await lookupUseCase(params: requestModel);
     lookupData.fold(
       (l) => change(null, status: RxStatus.error()),
@@ -51,18 +59,20 @@ class AcademicInfoController extends GetxController with StateMixin<List<LookupD
 
   void goToPersonalInfoScreen() {
     if (formKey.currentState!.validate()) {
-      setData();
+      setInfoData();
       Get.toNamed(Routes.registerPersonalInfo);
     } else {
       HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);
     }
   }
 
-  void setData() {
+  void setInfoData() {
+    cacheHelper.clear(SharedPrefsKeys.academicInfoRegister);
     final submitAdmission = Get.find<SubmitAdmissionController>();
     submitAdmission.academicInfo = AcademicInformationDataHolderModel(
-      currentCertificate: currentCertificate,
-      programId: programId,
+      currentCertificate: currentCertificate!,
+      programId: programId!,
+      programName: state!.firstWhere((element) => element.id == programId).name,
     );
     cacheHelper.set(SharedPrefsKeys.academicInfoRegister, submitAdmission.academicInfo);
   }

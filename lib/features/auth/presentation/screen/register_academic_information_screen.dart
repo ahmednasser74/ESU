@@ -26,9 +26,11 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
           key: controller.formKey,
           child: controller.obx(
             (state) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppContainer(
-                  borderColor: Colors.red.shade900,
+                  padding: EdgeInsets.all(8.sp),
+                  hasBorder: false,
                   boxShadowBlurColor: Colors.redAccent,
                   child: Text(
                     LocalizationKeys.pleaseToCompleteRegistrationBeSureToDownloadContractAndHaveYourSignature.tr,
@@ -45,14 +47,17 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
                 TitleDropDownButton(
                   list: ListConst().certificateList,
                   isDense: true,
+                  initValue: controller.currentCertificate?.name,
                   onChangeValue: (value) {
-                    if (value == ListConst().certificateList[0]) {
-                      controller.currentCertificate = 'secondary_school';
-                    } else if (value == ListConst().certificateList[1]) {
-                      controller.currentCertificate = 'bachelor';
-                    } else {
-                      controller.currentCertificate = 'master';
+                    if (value == CertificateType.bachelor.name) {
+                      controller.currentCertificate = CertificateType.bachelor;
+                      return;
+                    } else if (value == CertificateType.master.name) {
+                      controller.currentCertificate = CertificateType.master;
+                      return;
                     }
+                    controller.currentCertificate = CertificateType.secondarySchool;
+                    return;
                   },
                 ),
                 SizedBox(height: 18.h),
@@ -61,6 +66,8 @@ class RegisterAcademicInfoScreen extends GetView<AcademicInfoController> {
                   list: state!,
                   isDense: true,
                   onChangeValue: (value) => controller.programId = value,
+                  initId: controller.programId,
+                  programName: controller.programName,
                 ),
                 const Spacer(),
                 AppButton(

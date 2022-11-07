@@ -1,4 +1,5 @@
 import 'package:esu/core/cache/cache.dart';
+import 'package:esu/core/const/list_const.dart';
 import 'package:esu/core/dependencies/dependency_init.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
@@ -60,7 +61,7 @@ class SubmitAdmissionController extends GetxController {
     personalInfo = PersonalInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.personalInfoRegister));
     fileUploadInfo = FileUploadDataHolder.fromJson(cacheHelper.get(SharedPrefsKeys.fileUploadInfoRegister));
     final requestModel = AdmissionRequestModel(
-      currentCertificate: academicInfo.currentCertificate,
+      currentCertificate: academicInfo.currentCertificate.value,
       programId: academicInfo.programId,
       email: personalInfo.email,
       //-----------------------------------------------------

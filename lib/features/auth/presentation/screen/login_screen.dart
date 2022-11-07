@@ -114,7 +114,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 ),
                 SizedBox(height: .08.sh),
                 AppButton(
-                  onPressed: controller.navToRegister,
+                  onPressed: () => Get.toNamed(Routes.registerAcademicInfo),
                   backgroundColor: Colors.transparent,
                   child: RichText(
                     textAlign: TextAlign.center,
