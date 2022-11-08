@@ -10,8 +10,10 @@ class DatePickerFieldWidget extends StatefulWidget {
   const DatePickerFieldWidget({
     Key? key,
     required this.dateCallBack,
+    this.initDate,
   }) : super(key: key);
   final void Function(DateTime) dateCallBack;
+  final String? initDate;
 
   @override
   State<DatePickerFieldWidget> createState() => _DateTimePickerWidgetState();
@@ -20,6 +22,11 @@ class DatePickerFieldWidget extends StatefulWidget {
 class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
   final dateTimeTEC = TextEditingController(text: '');
 
+  @override
+  void initState() {
+    super.initState();
+    dateTimeTEC.text = widget.initDate ?? '';
+  }
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -33,9 +40,7 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
           return null;
         }
       },
-      onTap: () => Platform.isAndroid
-          ? _androidDatePicker(context)
-          : _iosDatePicker(context),
+      onTap: () => Platform.isAndroid ? _androidDatePicker(context) : _iosDatePicker(context),
     );
   }
 
@@ -65,8 +70,7 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
               mode: CupertinoDatePickerMode.date,
               onDateTimeChanged: (picked) {
                 widget.dateCallBack(picked);
-                dateTimeTEC.text =
-                    '${picked.day} / ${picked.month} / ${picked.year}';
+                dateTimeTEC.text = '${picked.day} / ${picked.month} / ${picked.year}';
               },
               initialDateTime: DateTime.now(),
               minimumYear: 1800,

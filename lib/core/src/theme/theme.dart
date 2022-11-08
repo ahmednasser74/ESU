@@ -44,7 +44,7 @@ class AppThemes {
     textTheme: const TextTheme(
       headline5: TextStyle(fontSize: 14, fontFamily: 'din', color: Colors.teal),
       headline6: TextStyle(fontSize: 12, fontFamily: 'din', color: Colors.red),
-      subtitle1: TextStyle(fontSize: 16, fontFamily: 'din', color: Colors.cyanAccent),
+      subtitle1: TextStyle(fontSize: 16, fontFamily: 'din', color: Colors.black),
       subtitle2: TextStyle(fontSize: 14, fontFamily: 'din', color: Colors.purple),
       headline1: TextStyle(fontSize: 24, fontFamily: 'din', color: Colors.deepPurple),
       headline2: TextStyle(fontSize: 22, fontFamily: 'din', color: Colors.deepOrange),
@@ -164,7 +164,7 @@ class AppThemes {
     textTheme: const TextTheme(
       headline5: TextStyle(fontSize: 14, fontFamily: 'din', color: Colors.teal),
       headline6: TextStyle(fontSize: 12, fontFamily: 'din', color: Colors.red),
-      subtitle1: TextStyle(fontSize: 16, fontFamily: 'din', color: Colors.cyanAccent),
+      subtitle1: TextStyle(fontSize: 16, fontFamily: 'din', color: Colors.black),
       subtitle2: TextStyle(fontSize: 14, fontFamily: 'din', color: Colors.purple),
       headline1: TextStyle(fontSize: 24, fontFamily: 'din', color: Colors.deepPurple),
       headline2: TextStyle(fontSize: 22, fontFamily: 'din', color: Colors.deepOrange),

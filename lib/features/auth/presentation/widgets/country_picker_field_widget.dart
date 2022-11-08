@@ -11,9 +11,11 @@ class CountryPickerFieldWidget extends StatefulWidget {
     Key? key,
     required this.countryNameCallBack,
     required this.list,
+    this.initValue,
   }) : super(key: key);
   final void Function(LookupDataResponseModel country) countryNameCallBack;
   final List<LookupDataResponseModel> list;
+  final int? initValue;
 
   @override
   State<CountryPickerFieldWidget> createState() => _CountryPickerFieldState();
@@ -21,7 +23,12 @@ class CountryPickerFieldWidget extends StatefulWidget {
 
 class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
   final countryNameTEC = TextEditingController();
-  String? countryName;
+
+  @override
+  void initState() {
+    super.initState();
+    countryNameTEC.text = widget.list.firstWhere((element) => element.id == widget.initValue).name;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +53,7 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
           builder: (country) => ListTile(
             onTap: () {
               Get.back();
-              countryNameTEC.text =
-                  Get.locale.toString() == 'ar' ? country.nameAr : country.name;
+              countryNameTEC.text = Get.locale.toString() == 'ar' ? country.nameAr : country.name;
               widget.countryNameCallBack(country);
               setState(() {});
             },

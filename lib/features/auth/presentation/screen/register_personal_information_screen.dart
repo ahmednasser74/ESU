@@ -34,6 +34,7 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
               children: [
                 10.heightBox,
                 AppContainer(
+                  padding: EdgeInsets.all(8.sp),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -135,6 +136,7 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
                 ),
                 DatePickerFieldWidget(
                   dateCallBack: (dateCallBack) => controller.birthDateController = dateCallBack,
+                  initDate: '${controller.birthDateController.month}/${controller.birthDateController.day}/${controller.birthDateController.year}',
                 ),
                 AppTitleRequiredWidget(
                   title: LocalizationKeys.gender.tr,
@@ -143,11 +145,13 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
                   list: [LocalizationKeys.male.tr, LocalizationKeys.female.tr],
                   isDense: true,
                   onChangeValue: (gender) => controller.genderController.text = gender,
+                  initValue: controller.genderController.text,
                 ),
                 AppTitleRequiredWidget(title: LocalizationKeys.country.tr),
                 CountryPickerFieldWidget(
                   list: state!,
                   countryNameCallBack: (country) => controller.countryId = country.id,
+                  initValue: controller.countryId,
                 ),
                 AppTitleRequiredWidget(
                   title: LocalizationKeys.nationality.tr,
@@ -155,6 +159,7 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
                 CountryPickerFieldWidget(
                   list: state,
                   countryNameCallBack: (nationality) => controller.nationalityId = nationality.id,
+                  initValue: controller.nationalityId,
                 ),
                 AppTitleRequiredWidget(
                   title: LocalizationKeys.yourJob.tr,

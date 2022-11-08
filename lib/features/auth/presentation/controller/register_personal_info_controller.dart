@@ -37,11 +37,34 @@ class RegisterPersonalInfoController extends GetxController with StateMixin<List
   final addressController = TextEditingController(text: '');
   late DateTime birthDateController;
   late int countryId;
+  String? countryName;
   late int nationalityId;
+  String? nationalityName;
+  final cacheHelper = di<CacheHelper>();
 
   @override
   void onInit() async {
     super.onInit();
+    if (cacheHelper.has(SharedPrefsKeys.personalInfoRegister)) {
+      final savedModel = PersonalInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.personalInfoRegister));
+      emailController.text = savedModel.email;
+      yourFirstNameEnController.text = savedModel.firstNameEnglish;
+      yourLastNameEnController.text = savedModel.lastNameEnglish;
+      yourSecondNameEnController.text = savedModel.secondNameEnglish;
+      yourFirstNameArController.text = savedModel.firstNameArabic;
+      yourLastNameArController.text = savedModel.lastNameArabic;
+      yourSecondNameArController.text = savedModel.secondNameArabic;
+      phoneNumberController.text = savedModel.mobileNumber;
+      nationalPassportController.text = savedModel.nationalPassport;
+      addressController.text = savedModel.currentAddress;
+      birthDateController = DateTime.parse(savedModel.birthDate);
+      countryId = savedModel.countryId;
+      genderController.text = savedModel.gender;
+      nationalityId = savedModel.nationalityId;
+      if (savedModel.yourJob != null) jobController.text = savedModel.yourJob!;
+      if (savedModel.yourCompany != null) companyController.text = savedModel.yourCompany!;
+    }
+
     await getLookupNationality();
   }
 
@@ -92,7 +115,7 @@ class RegisterPersonalInfoController extends GetxController with StateMixin<List
       yourJob: jobController.text,
       yourCompany: companyController.text,
     );
-    di<CacheHelper>().set(SharedPrefsKeys.personalInfoRegister, submitAdmission.personalInfo);
+    cacheHelper.set(SharedPrefsKeys.personalInfoRegister, submitAdmission.personalInfo);
   }
 
   Future<void> locationPermissionHandler() async {
