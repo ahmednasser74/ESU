@@ -13,7 +13,7 @@ class DatePickerFieldWidget extends StatefulWidget {
     this.initDate,
   }) : super(key: key);
   final void Function(DateTime) dateCallBack;
-  final String? initDate;
+  final DateTime? initDate;
 
   @override
   State<DatePickerFieldWidget> createState() => _DateTimePickerWidgetState();
@@ -25,8 +25,11 @@ class _DateTimePickerWidgetState extends State<DatePickerFieldWidget> {
   @override
   void initState() {
     super.initState();
-    dateTimeTEC.text = widget.initDate ?? '';
+    if (widget.initDate != null) {
+      dateTimeTEC.text = '${widget.initDate?.month}/${widget.initDate?.day}/${widget.initDate?.year}';
+    }
   }
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(

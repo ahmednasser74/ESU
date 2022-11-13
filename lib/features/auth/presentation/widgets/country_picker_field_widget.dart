@@ -27,7 +27,12 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
   @override
   void initState() {
     super.initState();
-    countryNameTEC.text = widget.list.firstWhere((element) => element.id == widget.initValue).name;
+    if (widget.initValue != null && widget.list.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        final country = widget.list.firstWhere((element) => element.id == widget.initValue);
+        countryNameTEC.text = country.name;
+      });
+    }
   }
 
   @override

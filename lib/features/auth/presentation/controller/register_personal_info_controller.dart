@@ -35,10 +35,10 @@ class RegisterPersonalInfoController extends GetxController with StateMixin<List
   final jobController = TextEditingController(text: '');
   final companyController = TextEditingController(text: '');
   final addressController = TextEditingController(text: '');
-  late DateTime birthDateController;
-  late int countryId;
+  DateTime? birthDateController;
+  int? countryId;
   String? countryName;
-  late int nationalityId;
+  int? nationalityId;
   String? nationalityName;
   final cacheHelper = di<CacheHelper>();
 
@@ -107,10 +107,10 @@ class RegisterPersonalInfoController extends GetxController with StateMixin<List
       lastNameArabic: yourLastNameArController.text,
       nationalPassport: nationalPassportController.text,
       mobileNumber: phoneNumberController.text,
-      birthDate: birthDateController.toIso8601String(),
+      birthDate: birthDateController!.toIso8601String(),
       gender: genderController.text,
-      countryId: countryId,
-      nationalityId: nationalityId,
+      countryId: countryId!,
+      nationalityId: nationalityId!,
       currentAddress: addressController.text,
       yourJob: jobController.text,
       yourCompany: companyController.text,

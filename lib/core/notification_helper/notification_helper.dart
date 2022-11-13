@@ -39,6 +39,7 @@ class NotificationHelper {
           requestSoundPermission: true,
           requestBadgePermission: true,
           requestAlertPermission: true,
+
         ),
       ),
       onSelectNotification: _onTapLocalNotification,
