@@ -67,11 +67,11 @@ class LocationPermissionHelper {
   static void _showErrorLocationSnackBar() {
     HelperMethod.showSnackBar(
       title: LocalizationKeys.errorInLocation.tr,
-      message: '${LocalizationKeys.locationPermissionNotAllowed.tr} [ ${LocalizationKeys.tapToEditLocationPermission.tr} ]',
+      message: LocalizationKeys.locationPermissionNotAllowed.tr,
       backgroundColor: Colors.red,
       textColor: Colors.white,
       durationSeconds: 4,
-      onTap: (snackBar) => AppSettings.openLocationSettings(),
+      // onTap: (snackBar) => AppSettings.openLocationSettings(),
     );
   }
 }
