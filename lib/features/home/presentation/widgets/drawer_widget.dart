@@ -48,15 +48,16 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 condition: student.photo != null,
                 builder: (_) => CircleAvatar(
                   backgroundImage: NetworkImage(student.photo!),
+                  backgroundColor: Theme.of(context).primaryColor,
                   radius: 40.r,
                 ),
                 fallback: (_) => Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.whiteColor, width: 2),
+                    border: Border.all(color: AppColors.whiteColor, width: 2.w),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(12),
+                    padding: EdgeInsets.all(12.sp),
                     child: Assets.icons.profileIcon.image(
                       color: AppColors.whiteColor,
                       height: 30.h,

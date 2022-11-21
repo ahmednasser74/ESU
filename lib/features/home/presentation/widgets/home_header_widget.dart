@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/flavor/flavors.dart';
+
 class HomeHeaderWidget extends StatelessWidget {
   HomeHeaderWidget({
     Key? key,
@@ -67,7 +69,7 @@ class HomeHeaderWidget extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.black),
             ),
-            child: Assets.images.esuTitleLogo.image(height: 60.r),
+            child: Flavors.isMidocean ? Assets.images.midoceanAppIcon.image(height: 60.h, width: 60.w, fit: BoxFit.fill) : Assets.images.esuTitleLogo.image(height: 60.r),
           ),
         ),
       ],
