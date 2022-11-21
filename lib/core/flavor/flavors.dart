@@ -2,7 +2,6 @@ import 'package:esu/core/src/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../src/assets.gen.dart';
-import '../src/theme/theme.dart';
 
 enum Flavor {
   prod,
@@ -31,6 +30,19 @@ class Flavors {
         return 'Midocean';
       default:
         return 'title';
+    }
+  }
+
+  static String get baseUrl {
+    switch (appFlavor) {
+      case Flavor.prod:
+        return 'https://sis.esu.ac.ae/api/';
+      case Flavor.dev:
+        return 'https://sisdev.esu.ac.ae/api/';
+      case Flavor.midocean:
+        return 'https://sis.midocean.edu.km/api/';
+      default:
+        return 'baseUrl';
     }
   }
 
