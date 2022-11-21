@@ -43,7 +43,7 @@ class _SuccessfulAdmissionScreenState extends State<SuccessfulAdmissionScreen> {
                 'Congratulation you had Successful Admission',
                 style: TextStyle(
                   fontSize: 22.sp,
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 textAlign: TextAlign.center,
               ),

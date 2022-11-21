@@ -20,7 +20,7 @@ class TicketDetailsHeaderWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 8.h),
       decoration: CustomStyle.containerShadowDecoration.copyWith(
-        color: AppColors.primaryLightColor,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16.w),
           bottomRight: Radius.circular(16.w),

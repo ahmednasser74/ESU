@@ -21,7 +21,7 @@ class CourseItemWidget extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryColor.withOpacity(0.1),
+            color: Theme.of(context).primaryColor.withOpacity(0.1),
             blurRadius: 2,
             offset: const Offset(0, 8),
           ),
@@ -35,7 +35,7 @@ class CourseItemWidget extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.symmetric(vertical: 6.h),
             decoration: BoxDecoration(
-              color: AppColors.primaryColor,
+              color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Text(
@@ -115,7 +115,7 @@ class PrerequisiteItemWidget extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 4.h),
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.primaryColor.withOpacity(.8),
+          color: Theme.of(context).primaryColor.withOpacity(.8),
         ),
         borderRadius: BorderRadius.circular(12.r),
       ),

@@ -41,7 +41,7 @@ class _TitleDropDownButtonState extends State<TitleDropDownButton> {
       },
       hint: ConditionalBuilder(
         condition: widget.initValue != null,
-        builder: (context) => Text(widget.initValue!, style: const TextStyle(color: AppColors.primaryColor)),
+        builder: (context) => Text(widget.initValue!, style: TextStyle(color: Theme.of(context).primaryColor)),
         fallback: (context) => Text(LocalizationKeys.select.tr, style: const TextStyle(color: Colors.grey)),
       ),
       isDense: widget.isDense,
@@ -49,8 +49,8 @@ class _TitleDropDownButtonState extends State<TitleDropDownButton> {
       elevation: 2,
       dropdownColor: Colors.white,
       decoration: const InputDecoration(),
-      style: const TextStyle(
-        color: AppColors.primaryColor,
+      style:  TextStyle(
+        color: Theme.of(context).primaryColor,
         fontFamily: 'din',
       ),
       onChanged: (newValue) {

@@ -36,12 +36,12 @@ class HomeScreen extends GetView<HomeController> {
           appBar: AppBar(
             title: Text(LocalizationKeys.home.tr),
             leading: IconButton(
-              icon: Assets.icons.menu.image(height: 20.sp),
+              icon: Assets.icons.menu.image(height: 20.sp, color: Theme.of(context).primaryColor),
               onPressed: () => _scaffoldKey.currentState!.openDrawer(),
             ),
             actions: [
               IconButton(
-                icon: Assets.icons.notificationIcon.image(color: AppColors.primaryColor, height: 18.h),
+                icon: Assets.icons.notificationIcon.image(color: Theme.of(context).primaryColor, height: 18.h),
                 onPressed: () => Get.toNamed(Routes.notificationScreen),
               ),
             ],
@@ -63,13 +63,13 @@ class HomeScreen extends GetView<HomeController> {
                         height: 80.h,
                         hasBorder: false,
                         hasShadow: false,
-                        color: Colors.blue.shade900,
+                        color: Theme.of(context).primaryColor,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               LocalizationKeys.gpa.tr,
-                              style: TextStyle(fontSize: 18.sp,color: Colors.white),
+                              style: TextStyle(fontSize: 18.sp, color: Colors.white),
                               textAlign: TextAlign.center,
                             ),
                             Text(
@@ -87,19 +87,19 @@ class HomeScreen extends GetView<HomeController> {
                         height: 80.h,
                         hasBorder: false,
                         hasShadow: false,
-                        color: AppColors.primaryLightColor,
+                        color:  Theme.of(context).colorScheme.secondary,
                         boxShadowBlurColor: Colors.red,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               LocalizationKeys.knowledgeAmbassadorCredit.tr,
-                              style: TextStyle(fontSize: 18.sp,  color: Colors.blue.shade900),
+                              style: TextStyle(fontSize: 18.sp, color:  Theme.of(context).primaryColor),
                               textAlign: TextAlign.center,
                             ),
                             Text(
                               '${state.data!.knowledgePointsAverage}',
-                              style: TextStyle(fontSize: 18.sp, color: Colors.blue.shade900),
+                              style: TextStyle(fontSize: 18.sp, color:  Theme.of(context).primaryColor),
                             ),
                           ],
                         ),

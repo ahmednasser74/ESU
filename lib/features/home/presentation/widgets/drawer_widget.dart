@@ -40,7 +40,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           height: 200.h,
           alignment: Alignment.center,
           padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-          color: AppColors.primaryColor,
+          color: Theme.of(context).primaryColor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -88,7 +88,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.profile.tr),
                 leading: Assets.icons.profileIcon.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 18.h,
                 ),
                 onTap: () {
@@ -105,7 +105,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.notification.tr),
                 leading: Assets.icons.notificationIcon.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -116,7 +116,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.finance.tr),
                 leading: Assets.icons.financeIcon.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 24.h,
                 ),
                 onTap: () {
@@ -127,7 +127,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.letters.tr),
                 leading: Assets.icons.letterIcon.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 22.h,
                 ),
                 onTap: () {
@@ -138,7 +138,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.transcript.tr),
                 leading: Assets.icons.transcriptIcon.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -149,7 +149,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.studentCard.tr),
                 leading: Assets.icons.identity.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -160,7 +160,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.studyPlans.tr),
                 leading: Assets.icons.studyPlan.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -171,7 +171,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.termRegistration.tr),
                 leading: Assets.icons.termRegistration.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 26.h,
                 ),
                 onTap: () {
@@ -182,7 +182,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.editCourses.tr),
                 leading: Assets.icons.termRegistration.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 26.h,
                 ),
                 onTap: () {
@@ -193,7 +193,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.attendance.tr),
                 leading: Assets.icons.attendance.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 22.h,
                 ),
                 onTap: () {
@@ -204,7 +204,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.accessToMoodle.tr),
                 leading: Assets.icons.accessToMoodle.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 22.h,
                 ),
                 onTap: () {
@@ -215,7 +215,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.lectureTable.tr),
                 leading: Assets.icons.lecture.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -226,7 +226,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.schedule.tr),
                 leading: Assets.icons.schedule.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -237,7 +237,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.ticketSupport.tr),
                 leading: Assets.icons.ticket.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 26.h,
                 ),
                 onTap: () {
@@ -248,7 +248,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.faq.tr),
                 leading: Assets.icons.faq.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 26.h,
                 ),
                 onTap: () {
@@ -259,7 +259,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.settings.tr),
                 leading: Assets.icons.settingIcon.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -270,7 +270,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ListTile(
                 title: Text(LocalizationKeys.logout.tr),
                 leading: Assets.icons.logout.image(
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   height: 20.h,
                 ),
                 onTap: () {
@@ -280,7 +280,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   ).show(context);
                 },
               ),
-              const Divider(color: AppColors.primaryLightColor),
+              Divider(color:  Theme.of(context).colorScheme.secondary),
               Container(
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).padding.bottom + 10.h,
@@ -288,7 +288,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 child: Center(
                   child: Text(
                     'v$appVersion',
-                    style: const TextStyle(color: AppColors.primaryColor),
+                    style: TextStyle(color: Theme.of(context).primaryColor),
                   ),
                 ),
               )

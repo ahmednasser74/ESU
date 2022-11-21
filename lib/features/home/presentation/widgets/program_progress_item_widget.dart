@@ -14,7 +14,7 @@ class ProgramProgressItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppContainer(
       boxShadowOffset: const Offset(0, 6),
-      boxShadowBlurColor: AppColors.primaryColor.withOpacity(0.5),
+      boxShadowBlurColor: Theme.of(context).colorScheme.secondary,
       padding: EdgeInsets.all(4.r),
       child: CircularPercentIndicator(
         radius: 40.r,
@@ -31,8 +31,8 @@ class ProgramProgressItemWidget extends StatelessWidget {
           child: Text(programProgress.name,textAlign: TextAlign.center,),
         ),
         circularStrokeCap: CircularStrokeCap.round,
-        progressColor: AppColors.primaryColor,
-        backgroundColor: AppColors.primaryColor.withOpacity(0.15),
+        progressColor:  Theme.of(context).primaryColor,
+        backgroundColor:  Theme.of(context).colorScheme.secondary,
       ),
     );
   }

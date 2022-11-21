@@ -45,7 +45,7 @@ class _LookupDropDownButtonState extends State<LookupDropDownButton> {
         condition: widget.initId != null,
         builder: (context) => Text(
           widget.list.firstWhere((element) => element.id == widget.initId).name,
-          style: const TextStyle(color: AppColors.primaryColor),
+          style: TextStyle(color: Theme.of(context).primaryColor),
         ),
         fallback: (context) => Text(LocalizationKeys.select.tr, style: const TextStyle(color: Colors.grey)),
       ),
@@ -54,7 +54,7 @@ class _LookupDropDownButtonState extends State<LookupDropDownButton> {
       elevation: 2,
       dropdownColor: Colors.white,
       decoration: const InputDecoration(),
-      style: const TextStyle(color: AppColors.primaryColor, fontFamily: 'din'),
+      style: TextStyle(color: Theme.of(context).primaryColor, fontFamily: 'din'),
       onChanged: (newValue) {
         widget.onChangeValue(newValue!.id);
         widget.programName = newValue.name;

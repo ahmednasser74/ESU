@@ -50,7 +50,7 @@ const Map<String, String> ar = {
       'من فضلك لاكمال التقديم الرجاء التأكد من تحميل العقود و الامضاء عليها علي جميع الصفحات',
 
   ///personal info
-  LocalizationKeys.personalInformation: 'المعلومات الشخضية',
+  LocalizationKeys.personalInformation: 'المعلومات الشخصية',
   LocalizationKeys.email: 'البريد الالكتروني',
   LocalizationKeys.yourFirstNameEnglish: 'الأسم الأول (بالانجليزية)',
   LocalizationKeys.yourSecondNameEnglish: 'الأسم الثاني (بالانجليزية)',

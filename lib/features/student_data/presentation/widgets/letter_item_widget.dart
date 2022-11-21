@@ -23,10 +23,10 @@ class LetterItemWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.w),
         color: Colors.white,
-        border: Border.all(color: AppColors.primaryColor),
+        border: Border.all(color:  Theme.of(context).colorScheme.secondary),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryColor.withOpacity(0.1),
+            color:  Theme.of(context).colorScheme.secondary,
             blurRadius: 2,
             offset: const Offset(0, 8),
           ),
@@ -49,7 +49,7 @@ class LetterItemWidget extends StatelessWidget {
                     PdfViewerWidget(pdfUrl: '${Endpoints.baseUrl}letters/${letter.id}?lang=en'),
                   ),
                   backgroundColor: Colors.white,
-                  borderColor: AppColors.primaryColor,
+                  borderColor:  Theme.of(context).primaryColor,
                   child: Row(
                     children: [
                       Assets.icons.pdf.image(height: 20.h),
@@ -58,7 +58,7 @@ class LetterItemWidget extends StatelessWidget {
                         LocalizationKeys.englishVersion.tr,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: AppColors.primaryColor,
+                          color:  Theme.of(context).primaryColor,
                         ),
                       ),
                     ],
@@ -72,7 +72,7 @@ class LetterItemWidget extends StatelessWidget {
                     PdfViewerWidget(pdfUrl: '${Endpoints.baseUrl}letters/${letter.id}?lang=ar'),
                   ),
                   backgroundColor: Colors.white,
-                  borderColor: AppColors.primaryColor,
+                  borderColor: Theme.of(context).primaryColor,
                   child: Row(
                     children: [
                       Assets.icons.pdf.image(height: 20.h),
@@ -81,7 +81,7 @@ class LetterItemWidget extends StatelessWidget {
                         LocalizationKeys.arabicVersion.tr,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: AppColors.primaryColor,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                     ],

@@ -8,6 +8,7 @@ import 'package:esu/core/dio/wrapper.dart';
 import 'package:esu/core/network/network_information.dart';
 import 'package:esu/core/notification_helper/notification_helper.dart';
 import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/student_data/domain/usecase/Study_plans_use_case.dart';
 import 'package:esu/features/student_data/presentation/controller/study_plans_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
@@ -37,6 +38,7 @@ Future<GetIt> configureDependencies() async {
   di.registerSingleton<SharedPrefs>(sharedPreferences);
 
   di.registerFactory(() => StudyPlansController(studyPlansUseCase: di()));
+  di.registerFactory(() => StudyPlansUseCase(studentDataRepository: di()));
 
   _core();
   _dioHelper();

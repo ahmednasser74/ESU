@@ -44,13 +44,16 @@ android {
             dimension "flavor-type"
             applicationId "com.sis.esu"
             resValue "string", "app_name", "ESU"
-//            applicationIdSuffix ".prod"
         }
         dev {
             dimension "flavor-type"
             applicationId "com.sis.esu.dev"
             resValue "string", "app_name", "ESU Dev"
-//            applicationIdSuffix ".dev"
+        }
+        midocean {
+            dimension "flavor-type"
+            applicationId "com.sis.midocean.edu"
+            resValue "string", "app_name", "Midocean"
         }
     }
 

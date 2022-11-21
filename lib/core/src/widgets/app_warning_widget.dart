@@ -16,7 +16,7 @@ class AppWarningWidget extends StatelessWidget {
         children: [
           Icon(
             Icons.warning_rounded,
-            color: AppColors.primaryColor,
+            color: Theme.of(context).primaryColor,
             size: 150.r,
           ),
           SizedBox(height: 8.h),

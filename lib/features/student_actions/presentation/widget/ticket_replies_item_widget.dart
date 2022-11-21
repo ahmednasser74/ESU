@@ -28,7 +28,7 @@ class TicketRepliesItemWidget extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: reply.isReplyFromStudent ? AppColors.primaryLightColor : Colors.grey[300],
+            color: reply.isReplyFromStudent ? Theme.of(context).colorScheme.secondary : Colors.grey[300],
             borderRadius: BorderRadiusDirectional.only(
               bottomStart: reply.isReplyFromStudent
                   ? Radius.zero

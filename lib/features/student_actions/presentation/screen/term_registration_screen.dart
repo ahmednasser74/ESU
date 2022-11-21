@@ -28,7 +28,7 @@ class TermRegistrationScreen extends GetView<TermRegistrationController> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Assets.icons.termRegistration.image(
-                    color: AppColors.primaryColor,
+                    color: Theme.of(context).primaryColor,
                     height: 100.r,
                     fit: BoxFit.contain,
                   ),

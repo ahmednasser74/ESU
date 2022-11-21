@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../core/const/shared_prefs_keys.dart';
+import '../../../../core/flavor/flavors.dart';
 import '../../../../core/src/colors.dart';
 import '../../../../core/src/widgets/app_button.dart';
 import '../../../../core/src/widgets/loading_indicator_widget.dart';
@@ -36,7 +37,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                   child: AppButton(
                     onPressed: controller.changeLanguage,
                     backgroundColor: Colors.transparent,
-                    borderColor: AppColors.primaryColor,
+                    borderColor: Theme.of(context).primaryColor,
                     child: Text(
                       Get.locale.toString() == 'ar' ? 'English' : 'العربية',
                     ),
@@ -46,9 +47,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                 Center(
                   child: Hero(
                     tag: 'splash_tag',
-                    child: Assets.images.appIconTransparent.image(
-                      height: .24.sh,
-                    ),
+                    child: Image.asset(Flavors.appIcon, height: .24.sh),
                   ),
                 ),
                 SizedBox(height: .06.sh),
@@ -65,9 +64,9 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                           return null;
                         }
                       },
-                      prefixIcon: const Icon(
+                      prefixIcon: Icon(
                         Icons.person_outline,
-                        color: AppColors.primaryColor,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                     SizedBox(height: .02.sh),
@@ -85,9 +84,9 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                       },
                       inputType: TextInputType.visiblePassword,
                       obscureText: true,
-                      prefixIcon: const Icon(
+                      prefixIcon: Icon(
                         Icons.lock_outline,
-                        color: AppColors.primaryColor,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ],
@@ -99,8 +98,8 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: Text(
                       LocalizationKeys.forgetPassword.tr,
-                      style: const TextStyle(
-                        color: AppColors.primaryColor,
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),
@@ -127,7 +126,7 @@ class LoginScreen extends GetView<LoginController> with ValidatorProperties {
                       children: [
                         TextSpan(
                           text: LocalizationKeys.admission.tr,
-                          style: const TextStyle(color: AppColors.primaryColor, fontFamily: 'din'),
+                          style: TextStyle(color: Theme.of(context).primaryColor, fontFamily: 'din'),
                         ),
                       ],
                     ),

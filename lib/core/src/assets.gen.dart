@@ -123,6 +123,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/esu_title_logo.jpeg
   AssetGenImage get esuTitleLogo => const AssetGenImage('assets/images/esu_title_logo.jpeg');
 
+  /// File path: assets/images/midocean_app_icon.png
+  AssetGenImage get midoceanAppIcon => const AssetGenImage('assets/images/midocean_app_icon.png');
+
   /// File path: assets/images/student_id.png
   AssetGenImage get studentId => const AssetGenImage('assets/images/student_id.png');
 }

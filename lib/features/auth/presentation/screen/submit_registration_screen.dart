@@ -33,11 +33,11 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                   decoration: BoxDecoration(
                     color: AppColors.whiteColor,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: AppColors.primaryColor),
-                    boxShadow: const [
+                    border: Border.all(color: Theme.of(context).primaryColor),
+                    boxShadow: [
                       BoxShadow(
-                        color: Colors.blue,
-                        offset: Offset(1, 2),
+                        color: Theme.of(context).primaryColor,
+                        offset: const Offset(1, 2),
                         blurRadius: 4,
                       )
                     ],
@@ -50,20 +50,20 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: AppColors.primaryColor,
+                            color: Theme.of(context).primaryColor,
                             width: 1.5,
                           ),
                         ),
                         child: Assets.icons.notificationIcon.image(
                           height: 24.sp,
-                          color: AppColors.primaryColor,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                       SizedBox(height: 8.h),
                       Text(
                         LocalizationKeys.youShouldToReadTermsAndCondition.tr,
                         style: TextStyle(
-                          color: AppColors.primaryColor,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 16.sp,
                         ),
                         textAlign: TextAlign.center,
@@ -92,9 +92,9 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                         ),
                         child: Text(
                           LocalizationKeys.termsAndCondition.tr,
-                          style: const TextStyle(
+                          style:  TextStyle(
                             decoration: TextDecoration.underline,
-                            color: AppColors.primaryColor,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),

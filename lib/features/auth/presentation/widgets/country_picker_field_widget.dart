@@ -47,6 +47,8 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
         delegate: SearchPage<LookupDataResponseModel>(
           onQueryUpdate: (s) {},
           items: widget.list,
+          showItemsOnEmpty: true,
+          searchStyle: const TextStyle(color: Colors.black),
           searchLabel: LocalizationKeys.search.tr,
           suggestion: Center(
             child: Text(LocalizationKeys.searchToFindCountry.tr),
@@ -64,11 +66,11 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
             },
             title: Text(
               Get.locale.toString() == 'ar' ? country.nameAr : country.name,
-              style: const TextStyle(color: AppColors.primaryColor),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             ),
             subtitle: Text(
               Get.locale.toString() == 'ar' ? country.name : country.nameAr,
-              style: const TextStyle(color: AppColors.primaryLightColor),
+              style: TextStyle(color: Theme.of(context).primaryColor.withOpacity(.5)),
             ),
           ),
         ),

@@ -43,20 +43,20 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: AppColors.primaryColor,
+                            color: Theme.of(context).primaryColor,
                             width: 1.5,
                           ),
                         ),
                         child: Assets.icons.notificationIcon.image(
                           height: 24.sp,
-                          color: AppColors.primaryColor,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                       SizedBox(height: 8.h),
                       Text(
                         LocalizationKeys.weRecommendToUseEmail.tr,
                         style: TextStyle(
-                          color: AppColors.primaryColor,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 16.sp,
                         ),
                         textAlign: TextAlign.center,
@@ -64,6 +64,7 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
                     ],
                   ),
                 ),
+                10.heightBox,
                 AppTitleRequiredWidget(title: LocalizationKeys.email.tr),
                 AppTextFieldWidget(
                   controller: controller.emailController,
@@ -194,7 +195,7 @@ class RegisterPersonalInfoScreen extends GetView<RegisterPersonalInfoController>
                     AppButton(
                       onPressed: controller.locationPermissionHandler,
                       backgroundColor: Colors.white,
-                      borderColor: AppColors.primaryColor,
+                      borderColor: Theme.of(context).primaryColor,
                       paddingVertical: 11.h,
                       child: const Icon(Icons.location_on_rounded),
                     )

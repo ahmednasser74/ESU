@@ -21,7 +21,7 @@ class TranscriptItemWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8.h),
       decoration: CustomStyle.containerShadowDecoration.copyWith(
-        border: Border.all(color: AppColors.primaryLightColor),
+        border: Border.all(color:  Theme.of(context).colorScheme.secondary),
       ),
       child: Column(
         children: [

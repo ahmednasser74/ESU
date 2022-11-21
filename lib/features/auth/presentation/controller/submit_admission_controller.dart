@@ -27,36 +27,38 @@ class SubmitAdmissionController extends GetxController {
   late FileUploadDataHolder fileUploadInfo;
   RxBool isTermsAndConditionApproved = false.obs;
   RxBool loadingIndicator = false.obs;
+  final CacheHelper cacheHelper = di<CacheHelper>();
 
   void submitAdmission() async {
-    if (isTermsAndConditionApproved.value == true) {
-      loadingIndicator.value = true;
-      final response = await admissionUseCase(params: requestModel());
-      response.fold(
-        (l) {
-          loadingIndicator.value = false;
-          HelperMethod.showToast(msg: l!);
-        },
-        (r) {
-          if (r.status == true) {
-            HelperMethod.showToast(msg: LocalizationKeys.success.tr);
-            loadingIndicator.value = false;
-            Get.offAllNamed(Routes.successfulAdmissionScreen);
-          } else {
-            loadingIndicator.value = false;
-            HelperMethod.showToast(msg: r.message);
-          }
-        },
-      );
-    } else {
+    if (isTermsAndConditionApproved.value == false) {
       HelperMethod.showToast(
         msg: LocalizationKeys.mustToApproveOnTermsAndCondition.tr,
       );
+      return;
     }
+    loadingIndicator.value = true;
+    final response = await admissionUseCase(params: requestModel());
+    response.fold(
+      (l) {
+        loadingIndicator.value = false;
+        HelperMethod.showToast(msg: l!);
+      },
+      (r) {
+        if (r.status == true) {
+          HelperMethod.showToast(msg: LocalizationKeys.success.tr);
+          loadingIndicator.value = false;
+          cacheHelper.clear(SharedPrefsKeys.academicInfoRegister);
+          cacheHelper.clear(SharedPrefsKeys.personalInfoRegister);
+          Get.offAllNamed(Routes.successfulAdmissionScreen);
+        } else {
+          loadingIndicator.value = false;
+          HelperMethod.showToast(msg: r.message);
+        }
+      },
+    );
   }
 
   AdmissionRequestModel requestModel() {
-    final CacheHelper cacheHelper = di<CacheHelper>();
     academicInfo = AcademicInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.academicInfoRegister));
     personalInfo = PersonalInformationDataHolderModel.fromJson(cacheHelper.get(SharedPrefsKeys.personalInfoRegister));
     fileUploadInfo = FileUploadDataHolder.fromJson(cacheHelper.get(SharedPrefsKeys.fileUploadInfoRegister));

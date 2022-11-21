@@ -35,6 +35,7 @@ class _AppCheckboxWithTextWidgetState
             height: 30,
             child: Checkbox(
               value: widget.value,
+              activeColor: Theme.of(context).primaryColor,
               onChanged: (newValue) {
                 widget.value = !widget.value;
                 widget.onChanged(widget.value);

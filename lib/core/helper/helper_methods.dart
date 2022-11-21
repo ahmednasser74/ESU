@@ -1,3 +1,4 @@
+import 'package:esu/core/flavor/flavors.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,11 +7,13 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HelperMethod {
+  Flavors flavors = Flavors();
+
   static void showToast({
     required String msg,
     ToastGravity gravity = ToastGravity.BOTTOM,
     Toast toastLength = Toast.LENGTH_SHORT,
-    Color backgroundColor = AppColors.primaryColor,
+    Color? backgroundColor,
     Color textColor = AppColors.whiteColor,
     double fontSize = 16,
   }) {
@@ -19,7 +22,7 @@ class HelperMethod {
       toastLength: toastLength,
       gravity: gravity,
       fontSize: fontSize,
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor ?? Flavors.primaryColor,
       textColor: textColor,
     );
   }
@@ -39,7 +42,7 @@ class HelperMethod {
       colorText: textColor,
       duration: Duration(seconds: durationSeconds),
       backgroundColor: backgroundColor,
-      borderColor: AppColors.primaryColor,
+      borderColor:  Flavors.primaryColor,
       borderWidth: 1.w,
       padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
       margin: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),

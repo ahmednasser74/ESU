@@ -8,6 +8,7 @@ import 'package:esu/core/src/widgets/app_text_field_widget.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/core/src/widgets/app_error_widget.dart';
+import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/home/presentation/controller/profile_controller.dart';
 import 'package:esu/features/home/presentation/widgets/show_image_source_bottom_sheet_dialog.dart';
 import 'package:esu/features/student_data/presentation/widgets/forget_files_of_profile_widget.dart';
@@ -33,15 +34,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
           appBar: AppBar(title: Text(LocalizationKeys.profile.tr)),
           body: ConditionalBuilder(
             condition: controller.isLoadingUpdateProfile,
-            builder: (context) => Center(
-              child: Container(
-                height: 100.h,
-                width: 100.w,
-                decoration: CustomStyle.containerShadowDecoration,
-                padding: const EdgeInsets.all(14),
-                child: Lottie.asset(Assets.lottie.loading),
-              ),
-            ),
+            builder: (context) => const LoadingIndicatorWidget(),
             fallback: (context) => ConditionalBuilder(
               condition: controller.isError,
               builder: (context) => AppErrorWidget(
@@ -69,7 +62,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                 width: 90.w,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  border: Border.all(color: AppColors.primaryColor),
+                                  border: Border.all(color: Theme.of(context).primaryColor),
                                 ),
                                 child: ConditionalBuilder(
                                   condition: controller.photoUrl != null && controller.photoFile == null,
@@ -101,11 +94,11 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle,
-                                    border: Border.all(color: AppColors.primaryColor),
+                                    border: Border.all(color: Theme.of(context).primaryColor),
                                   ),
                                   child: Assets.icons.addImage.image(
                                     height: 18.h,
-                                    color: AppColors.primaryColor,
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               )
@@ -123,7 +116,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.profileIcon.image(
                               height: 18.r,
-                              color: AppColors.primaryColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -138,7 +131,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.profileIcon.image(
                               height: 18.r,
-                              color: AppColors.primaryColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -153,7 +146,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.mobile.image(
                               height: 18.r,
-                              color: AppColors.primaryColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -168,7 +161,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.email.image(
                               height: 18.r,
-                              color: AppColors.primaryColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -183,7 +176,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.lock.image(
                               height: 18.r,
-                              color: AppColors.primaryColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -199,7 +192,7 @@ class ProfileScreen extends StatelessWidget with ValidatorProperties {
                             padding: EdgeInsets.all(12.sp),
                             child: Assets.icons.lock.image(
                               height: 18.r,
-                              color: AppColors.primaryColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),

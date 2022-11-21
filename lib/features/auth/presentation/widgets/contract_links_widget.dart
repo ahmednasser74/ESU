@@ -18,8 +18,8 @@ class ContractLinksWidget extends StatelessWidget {
           ),
           child: Text(
             LocalizationKeys.bachelorMasterContractDownloadLink.tr,
-            style: const TextStyle(
-              color: AppColors.primaryColor,
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
               decoration: TextDecoration.underline,
             ),
           ),
@@ -31,8 +31,8 @@ class ContractLinksWidget extends StatelessWidget {
           ),
           child: Text(
             LocalizationKeys.phdContractDownloadLink.tr,
-            style: const TextStyle(
-              color: AppColors.primaryColor,
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
               decoration: TextDecoration.underline,
             ),
           ),

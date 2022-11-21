@@ -30,20 +30,20 @@ class SettingScreen extends GetView<SettingController> {
                 ListTile(
                   title: Text(
                     LocalizationKeys.language.tr,
-                    style: const TextStyle(color: AppColors.primaryColor),
+                    style:  TextStyle(color: Theme.of(context).primaryColor),
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       LanguageButtonWidget(
                         language: 'English',
-                        color: Get.locale.toString() == 'en' ? Colors.blue : Colors.grey,
+                        color: Get.locale.toString() == 'en' ? Theme.of(context).primaryColor : Colors.grey,
                         onTap: controller.changeLanguage,
                       ),
                       SizedBox(width: 10.w),
                       LanguageButtonWidget(
                         language: 'عربي',
-                        color: Get.locale.toString() == 'ar' ? Colors.blue : Colors.grey,
+                        color: Get.locale.toString() == 'ar' ? Theme.of(context).primaryColor : Colors.grey,
                         onTap: controller.changeLanguage,
                       ),
                     ],

@@ -7,16 +7,13 @@ class AppButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String? title, fontFamily;
   final Alignment alignment;
-  final double elevation,
-      fonSize,
-      paddingHorizontal,
-      paddingVertical,
-      marginHorizontal,
-      marginVertical;
+  final double elevation, fonSize, paddingHorizontal, paddingVertical, marginHorizontal, marginVertical;
   final double? borderRadius;
   final FontWeight? fontWeight;
   final Widget? child;
-  final Color textColor, backgroundColor, borderColor;
+  final Color textColor;
+  final Color? borderColor;
+  final Color? backgroundColor;
   final Size? minimumSize;
 
   const AppButton({
@@ -24,7 +21,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     this.title,
     this.alignment = Alignment.center,
-    this.backgroundColor = AppColors.primaryColor,
+    this.backgroundColor,
     this.elevation = 0,
     this.child,
     this.paddingHorizontal = 20,
@@ -34,7 +31,7 @@ class AppButton extends StatelessWidget {
     this.textColor = AppColors.whiteColor,
     this.fonSize = 20,
     this.fontFamily = 'din',
-    this.borderColor = Colors.transparent,
+    this.borderColor,
     this.borderRadius,
     this.fontWeight,
     this.minimumSize,
@@ -55,12 +52,12 @@ class AppButton extends StatelessWidget {
             vertical: paddingVertical,
           ),
           minimumSize: minimumSize,
-          side: BorderSide(color: borderColor),
-          backgroundColor: backgroundColor,
+          side: BorderSide(color: borderColor ?? Colors.transparent),
+          backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
           elevation: elevation,
           alignment: alignment,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(borderRadius??10.r)),
+            borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 10.r)),
           ),
         ),
         child: child ??

@@ -23,7 +23,7 @@ class PopularQuestionItemWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primaryColor.withOpacity(0.2),
+              color: Theme.of(context).colorScheme.secondary,
               spreadRadius: 0,
               blurRadius: 4,
               offset: const Offset(0, 2),
@@ -58,7 +58,7 @@ class PopularQuestionItemWidget extends StatelessWidget {
             ),
             constraints: const BoxConstraints(minWidth: double.infinity),
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor.withOpacity(.1),
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(6),
                 bottomRight: Radius.circular(6),

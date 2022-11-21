@@ -9,12 +9,12 @@ class AppContainer extends StatelessWidget {
     this.horizontalPadding = 8,
     this.verticalPadding = 8,
     this.color = AppColors.whiteColor,
-    this.borderColor = AppColors.primaryColor,
+    this.borderColor,
     this.borderWidth = 0,
     this.boxShadowBlurRadius = 4,
     this.borderRadius = 8,
     this.boxShadowOffset = Offset.zero,
-    this.boxShadowBlurColor = AppColors.primaryColor,
+    this.boxShadowBlurColor,
     this.hasShadow = true,
     this.height,
     this.width,
@@ -31,11 +31,11 @@ class AppContainer extends StatelessWidget {
   final double verticalPadding;
   final double borderRadius;
   final Color color;
-  final Color borderColor;
+  final Color? borderColor;
   final double borderWidth;
   final Offset? boxShadowOffset;
   final double boxShadowBlurRadius;
-  final Color boxShadowBlurColor;
+  final Color? boxShadowBlurColor;
   final bool hasShadow;
   final double? height;
   final double? width;
@@ -58,11 +58,11 @@ class AppContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(borderRadius.r),
-        border: hasBorder ? Border.all(color: borderColor, width: borderWidth) : null,
+        border: hasBorder ? Border.all(color: borderColor ?? Theme.of(context).primaryColor, width: borderWidth) : null,
         boxShadow: hasShadow
             ? [
                 BoxShadow(
-                  color: boxShadowBlurColor.withOpacity(.7),
+                  color: boxShadowBlurColor?.withOpacity(.7) ?? Theme.of(context).colorScheme.secondary,
                   offset: boxShadowOffset ?? const Offset(0, 8),
                   blurRadius: 8,
                   spreadRadius: shadowSpreadRadius,

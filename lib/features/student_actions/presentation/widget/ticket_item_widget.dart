@@ -27,10 +27,10 @@ class TicketItemWidget extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 8.h),
         margin: EdgeInsets.symmetric(horizontal: 18.w),
         decoration: CustomStyle.containerShadowDecoration.copyWith(
-          border: Border.all(color: AppColors.primaryLightColor),
+          border: Border.all(color: Theme.of(context).colorScheme.secondary),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primaryColor.withOpacity(0.2),
+              color: Theme.of(context).colorScheme.secondary,
               blurRadius: 6,
               offset: const Offset(2, 4),
             ),
@@ -71,7 +71,7 @@ class TicketItemWidget extends StatelessWidget {
                       if (ticket.isStatusClosed) {
                         return Colors.red;
                       } else if (ticket.isStatusReply) {
-                        return AppColors.primaryColor;
+                        return Theme.of(context).primaryColor;
                       } else {
                         return Colors.green;
                       }

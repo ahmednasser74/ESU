@@ -25,11 +25,11 @@ class HomeHeaderWidget extends StatelessWidget {
           margin: EdgeInsets.only(top: 45.h, left: 18.w, right: 18.w),
           padding: EdgeInsets.only(top: 45.h, left: 12.w, right: 12.w, bottom: 12.h),
           decoration: BoxDecoration(
-            color: AppColors.primaryColor,
+            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(12.r),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primaryColor.withOpacity(0.5),
+                color: Theme.of(context).primaryColor.withOpacity(0.5),
                 blurRadius: 10.r,
                 offset: Offset(0, 10.r),
               ),

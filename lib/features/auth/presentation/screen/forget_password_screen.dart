@@ -10,8 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class ForgetPasswordScreen extends GetView<ForgetPasswordController>
-    with ValidatorProperties {
+import '../../../../core/flavor/flavors.dart';
+
+class ForgetPasswordScreen extends GetView<ForgetPasswordController> with ValidatorProperties {
   const ForgetPasswordScreen({Key? key}) : super(key: key);
 
   @override
@@ -29,9 +30,7 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController>
               child: Column(
                 children: [
                   SizedBox(height: .06.sh),
-                  Assets.images.appIconTransparent.image(
-                    height: .24.sh,
-                  ),
+                  Image.asset(Flavors.appIcon, height: .24.sh),
                   SizedBox(height: .03.sh),
                   AppTextFieldWidget(
                     controller: controller.forgetPasswordEmailTEC,
@@ -39,10 +38,7 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController>
                     labelText: LocalizationKeys.email.tr,
                     prefixIcon: Padding(
                       padding: EdgeInsets.all(12.sp),
-                      child: Assets.icons.email.image(
-                        height: 8,
-                        color: AppColors.primaryColor,
-                      ),
+                      child: Assets.icons.email.image(height: 8, color: Theme.of(context).primaryColor),
                     ),
                   ),
                   SizedBox(height: .03.sh),

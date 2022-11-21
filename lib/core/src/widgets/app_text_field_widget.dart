@@ -76,7 +76,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
             ? IconButton(
                 icon: Icon(
                   passwordVisibility ? Icons.visibility_off : Icons.visibility,
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 onPressed: () =>
                     setState(() => passwordVisibility = !passwordVisibility),
