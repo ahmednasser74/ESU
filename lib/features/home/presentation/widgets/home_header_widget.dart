@@ -24,8 +24,8 @@ class HomeHeaderWidget extends StatelessWidget {
         Container(
           height: .18.sh,
           width: double.infinity,
-          margin: EdgeInsets.only(top: 45.h, left: 18.w, right: 18.w),
-          padding: EdgeInsets.only(top: 45.h, left: 12.w, right: 12.w, bottom: 12.h),
+          margin: EdgeInsets.only(top: 38.h, left: 18.w, right: 18.w),
+          padding: EdgeInsets.only(top: 34.h, left: 12.w, right: 12.w, bottom: 12.h),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(12.r),
@@ -69,7 +69,7 @@ class HomeHeaderWidget extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.black),
             ),
-            child: Flavors.isMidocean ? Assets.images.midoceanAppIcon.image(height: 60.h, width: 60.w, fit: BoxFit.fill) : Assets.images.esuTitleLogo.image(height: 60.r),
+            child: Flavors.isMidocean ? Assets.images.midoceanAppIcon.image(height: 50.h, width: 50.w, fit: BoxFit.fill) : Assets.images.esuTitleLogo.image(height: 60.r),
           ),
         ),
       ],
