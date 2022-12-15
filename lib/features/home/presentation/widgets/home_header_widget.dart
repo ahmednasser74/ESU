@@ -22,10 +22,10 @@ class HomeHeaderWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: .18.sh,
+          height: .2.sh,
           width: double.infinity,
-          margin: EdgeInsets.only(top: 38.h, left: 18.w, right: 18.w),
-          padding: EdgeInsets.only(top: 34.h, left: 12.w, right: 12.w, bottom: 12.h),
+          margin: EdgeInsets.only(top: 45.h, left: 18.w, right: 18.w),
+          padding: EdgeInsets.only(top: 48.h, left: 12.w, right: 12.w, bottom: 12.h),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(12.r),

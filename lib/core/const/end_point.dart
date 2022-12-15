@@ -13,6 +13,7 @@ class Endpoints {
   static const String updateFcmToken = 'student-tokens/update';
   static const String deleteFcmToken = 'student-tokens/delete';
   static const String deleteUserAccount = 'account/delete';
+  static const String moodleLogin = 'moodle-login';
 
   //-----------------------------------------------------------------------
   ///lookup

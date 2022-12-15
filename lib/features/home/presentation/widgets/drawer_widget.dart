@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../screens/moodle_login_screen.dart';
+
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
@@ -211,6 +213,17 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 onTap: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.accessToMoodleScreen);
+                },
+              ),
+              ListTile(
+                title: Text(LocalizationKeys.moodleLogin.tr),
+                leading: Assets.icons.accessToMoodle.image(
+                  color: Theme.of(context).primaryColor,
+                  height: 22.h,
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Get.dialog(MoodleLoginScreen());
                 },
               ),
               ListTile(

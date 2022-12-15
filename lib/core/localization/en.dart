@@ -221,6 +221,13 @@ const Map<String, String> en = {
   LocalizationKeys.playVideo: 'Play Video',
 
   //-------------------------------------------------------------------------
+  ///moodle login
+  LocalizationKeys.moodleLogin: 'Moodle Login',
+  LocalizationKeys.youShouldToCaptureClearImageOfYourFace: 'You should to capture clear image of your face',
+  LocalizationKeys.pleaseCaptureClearImageOfYourFaceToLogin: 'Please capture clear image of your face to login',
+  LocalizationKeys.capture: 'Capture',
+
+  //-------------------------------------------------------------------------
   ///lecture table
   LocalizationKeys.lectureTable: 'Lecture Table',
   LocalizationKeys.noLectureFound: 'No Lecture Found',

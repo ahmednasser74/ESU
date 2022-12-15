@@ -30,6 +30,7 @@ import 'package:esu/features/student_data/presentation/controller/study_plans_co
 import 'package:esu/features/student_data/presentation/controller/transcript_controller.dart';
 import 'package:get/get.dart';
 
+import '../../features/home/presentation/controller/moodle_login_controller.dart';
 import '../dependencies/dependency_init.dart';
 import 'di.dart';
 
@@ -58,6 +59,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => di<HomeController>(), fenix: true);
     Get.lazyPut(() => di<PopularQuestionController>(), fenix: true);
     Get.lazyPut(() => di<LogoutController>(), fenix: true);
+    Get.lazyPut(() => di<MoodleLoginController>(), fenix: true);
     //-----------------------------------------------------------------------
     ///student data
     Get.lazyPut(() => di<LettersController>(), fenix: true);

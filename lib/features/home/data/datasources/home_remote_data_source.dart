@@ -10,12 +10,17 @@ import 'package:esu/features/home/data/models/response/popular_question/popular_
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+import '../models/request/moodle_login_request_model.dart';
+import '../models/response/moodle_login/moodle_login_response_model.dart';
+
 abstract class HomeRemoteDataSource {
   Future<NotificationResponseModel> getNotifications();
 
   Future<PopularQuestionResponseModel> getPopularQuestion();
 
   Future<CheckEditProfileFilesResponseModel> checkEditProfileFiles();
+
+  Future<MoodleLoginResponseModel> moodleLogin({required MoodleLoginRequestModel requestModel});
 
   Future<EditProfileResponseModel> editProfile({
     required EditProfileRequestModel requestModel,
@@ -89,5 +94,14 @@ class HomeRemoteDataSourceImp implements HomeRemoteDataSource {
       data: FormData.fromMap(await requestModel.toJson()),
     );
     return EditProfileResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<MoodleLoginResponseModel> moodleLogin({required MoodleLoginRequestModel requestModel}) async {
+    final response = await dioHelper.post(
+      url: Endpoints.moodleLogin,
+      data: FormData.fromMap(await requestModel.toJson()),
+    );
+    return MoodleLoginResponseModel.fromJson(response.data);
   }
 }

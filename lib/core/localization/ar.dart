@@ -218,6 +218,14 @@ const Map<String, String> ar = {
   LocalizationKeys.playVideo: 'تشغيل الفيديو',
 
   //-------------------------------------------------------------------------
+  ///moodle login
+  LocalizationKeys.moodleLogin:   'تسجيل الدخول إلى Moodle',
+  LocalizationKeys.youShouldToCaptureClearImageOfYourFace:  'يجب عليك التقاط صورة واضحة من وجهك',
+  LocalizationKeys.pleaseCaptureClearImageOfYourFaceToLogin:  'الرجاء التقاط صورة واضحة من وجهك لتسجيل الدخول',
+  LocalizationKeys.capture:  'التقاط',
+
+
+  //-------------------------------------------------------------------------
   ///lecture table
   LocalizationKeys.lectureTable: 'المحاضرات',
   LocalizationKeys.noLectureFound: 'لا يوجد محاضرات',

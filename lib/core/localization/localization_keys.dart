@@ -220,6 +220,14 @@ class LocalizationKeys {
   static const String playVideo = 'playVideo';
 
   //-------------------------------------------------------------------------
+  ///moodle login
+  static const String moodleLogin = 'moodleLogin';
+  static const String youShouldToCaptureClearImageOfYourFace = 'youShouldToCaptureClearImageOfYourFace';
+  static const String pleaseCaptureClearImageOfYourFaceToLogin = 'pleaseCaptureClearImageOfYourFaceToLogin';
+  static const String capture = 'capture';
+
+
+  //-------------------------------------------------------------------------
   ///lecture table
   static const String lectureTable = 'lectureTable';
   static const String noLectureFound = 'noLectureFound';
