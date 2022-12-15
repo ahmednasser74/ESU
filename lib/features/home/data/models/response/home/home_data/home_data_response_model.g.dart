@@ -19,7 +19,8 @@ HomeDataResponseModel _$HomeDataResponseModelFromJson(
               e as Map<String, dynamic>))
           .toList()
       ..knowledgePointsAverage = json['Knowledge_points_avg'] as int
-      ..gpa = (json['gpa'] as num).toDouble();
+      ..gpa = (json['gpa'] as num).toDouble()
+      ..loginWithFaceId = json['login_with_face_id'];
 
 Map<String, dynamic> _$HomeDataResponseModelToJson(
         HomeDataResponseModel instance) =>
@@ -32,4 +33,5 @@ Map<String, dynamic> _$HomeDataResponseModelToJson(
       'programs_progress': instance.programProgress,
       'Knowledge_points_avg': instance.knowledgePointsAverage,
       'gpa': instance.gpa,
+      'login_with_face_id': instance.loginWithFaceId,
     };

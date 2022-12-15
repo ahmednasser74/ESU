@@ -5,6 +5,7 @@ import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/conditional_builder.dart';
 import 'package:esu/core/utils/pref_util.dart';
+import 'package:esu/features/home/presentation/controller/home_controller.dart';
 import 'package:esu/features/home/presentation/controller/logout_controler_controller.dart';
 import 'package:esu/features/home/presentation/widgets/log_out_dialog.dart';
 import 'package:flutter/material.dart';
@@ -215,16 +216,21 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Get.toNamed(Routes.accessToMoodleScreen);
                 },
               ),
-              ListTile(
-                title: Text(LocalizationKeys.moodleLogin.tr),
-                leading: Assets.icons.accessToMoodle.image(
-                  color: Theme.of(context).primaryColor,
-                  height: 22.h,
+              GetBuilder<HomeController>(
+                builder: (controller) => Visibility(
+                  visible: controller.homeResponse.data?.allowToLoginWithFaceId ?? false,
+                  child: ListTile(
+                    title: Text(LocalizationKeys.moodleLogin.tr),
+                    leading: Assets.icons.accessToMoodle.image(
+                      color: Theme.of(context).primaryColor,
+                      height: 22.h,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                      Get.dialog(MoodleLoginScreen());
+                    },
+                  ),
                 ),
-                onTap: () {
-                  Navigator.pop(context);
-                  Get.dialog(MoodleLoginScreen());
-                },
               ),
               ListTile(
                 title: Text(LocalizationKeys.lectureTable.tr),
@@ -294,7 +300,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   ).show(context);
                 },
               ),
-              Divider(color:  Theme.of(context).colorScheme.secondary),
+              Divider(color: Theme.of(context).colorScheme.secondary),
               Container(
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).padding.bottom + 10.h,

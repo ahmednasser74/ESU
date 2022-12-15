@@ -12,6 +12,8 @@ class HomeController extends GetxController with StateMixin<HomeResponseModel> {
 
   HomeController({required this.homeUseCase});
 
+  late HomeResponseModel homeResponse;
+
   @override
   void onInit() async {
     super.onInit();
@@ -27,7 +29,7 @@ class HomeController extends GetxController with StateMixin<HomeResponseModel> {
       (l) => change(null, status: RxStatus.error()),
       (r) {
         if (r.status) {
-          final response = r;
+          homeResponse = r;
           change(r, status: RxStatus.success());
         } else {
           change(null, status: RxStatus.error());

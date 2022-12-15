@@ -20,6 +20,10 @@ class HomeDataResponseModel {
   @JsonKey(name: 'Knowledge_points_avg')
   late final int knowledgePointsAverage;
   late final double gpa;
+  @JsonKey(name: 'login_with_face_id')
+  late final dynamic loginWithFaceId;
+
+  bool get allowToLoginWithFaceId => loginWithFaceId == 1;
 
   factory HomeDataResponseModel.fromJson(Map<String, dynamic> json) => _$HomeDataResponseModelFromJson(json);
 }
