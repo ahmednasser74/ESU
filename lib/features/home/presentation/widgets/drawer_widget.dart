@@ -117,6 +117,22 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Get.toNamed(Routes.notificationScreen);
                 },
               ),
+              GetBuilder<HomeController>(
+                builder: (controller) => Visibility(
+                  visible: controller.homeResponse.data?.allowToLoginWithFaceId ?? false,
+                  child: ListTile(
+                    title: Text(LocalizationKeys.moodleLogin.tr),
+                    leading: Assets.icons.accessToMoodle.image(
+                      color: Theme.of(context).primaryColor,
+                      height: 22.h,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                      Get.dialog(MoodleLoginScreen());
+                    },
+                  ),
+                ),
+              ),
               ListTile(
                 title: Text(LocalizationKeys.finance.tr),
                 leading: Assets.icons.financeIcon.image(
@@ -215,22 +231,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Navigator.pop(context);
                   Get.toNamed(Routes.accessToMoodleScreen);
                 },
-              ),
-              GetBuilder<HomeController>(
-                builder: (controller) => Visibility(
-                  visible: controller.homeResponse.data?.allowToLoginWithFaceId ?? false,
-                  child: ListTile(
-                    title: Text(LocalizationKeys.moodleLogin.tr),
-                    leading: Assets.icons.accessToMoodle.image(
-                      color: Theme.of(context).primaryColor,
-                      height: 22.h,
-                    ),
-                    onTap: () {
-                      Navigator.pop(context);
-                      Get.dialog(MoodleLoginScreen());
-                    },
-                  ),
-                ),
               ),
               ListTile(
                 title: Text(LocalizationKeys.lectureTable.tr),

@@ -220,9 +220,11 @@ const Map<String, String> ar = {
   //-------------------------------------------------------------------------
   ///moodle login
   LocalizationKeys.moodleLogin:   'تسجيل الدخول إلى Moodle',
-  LocalizationKeys.youShouldToCaptureClearImageOfYourFace:  'يجب عليك التقاط صورة واضحة من وجهك',
+  LocalizationKeys.toLoginTheLearningManagement:  'لدخول المنصة التعليمية يجب التقاط صورة للوجة لمطابقتها مع صورة الملف الشخصي',
   LocalizationKeys.pleaseCaptureClearImageOfYourFaceToLogin:  'الرجاء التقاط صورة واضحة من وجهك لتسجيل الدخول',
   LocalizationKeys.capture:  'التقاط',
+  LocalizationKeys.attention:  'تنبيه',
+  LocalizationKeys.moodleLoginWarning :'يُرجى العلم أن صور الدخول الخاصة بكم على المنصة الأكاديمية سوف يتم الاطلاع عليها، وذلك ضمن اجراءات التحقق من هوية المستخدم واتباعه لتعليمات الدخول السليمة، وبخصوص الطالبات ستكون المراجعة من قِبل الموظفات المسؤولات عن مراقبة دخول النظام.',
 
 
   //-------------------------------------------------------------------------

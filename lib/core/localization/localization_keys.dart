@@ -222,9 +222,11 @@ class LocalizationKeys {
   //-------------------------------------------------------------------------
   ///moodle login
   static const String moodleLogin = 'moodleLogin';
-  static const String youShouldToCaptureClearImageOfYourFace = 'youShouldToCaptureClearImageOfYourFace';
+  static const String toLoginTheLearningManagement = 'toLoginTheLearningManagement';
   static const String pleaseCaptureClearImageOfYourFaceToLogin = 'pleaseCaptureClearImageOfYourFaceToLogin';
   static const String capture = 'capture';
+  static const String attention = 'warning';
+  static const String moodleLoginWarning = 'moodleLoginWarning';
 
 
   //-------------------------------------------------------------------------

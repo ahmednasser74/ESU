@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:esu/core/extentions/spaces_box.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/app_button.dart';
@@ -21,12 +22,12 @@ class MoodleLoginScreen extends GetView<MoodleLoginController> with FileProperti
   Widget build(BuildContext context) {
     return Dialog(
       child: SizedBox(
-        height: .3.sh,
+        height: .42.sh,
         child: Obx(
           () => AppFloatLoading(
             inAsyncCall: controller.isLoading.value,
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Align(
                   alignment: Alignment.centerRight,
@@ -36,16 +37,32 @@ class MoodleLoginScreen extends GetView<MoodleLoginController> with FileProperti
                     child: const Icon(CupertinoIcons.clear_thick_circled),
                   ),
                 ),
-                Text(
-                  LocalizationKeys.youShouldToCaptureClearImageOfYourFace.tr,
-                  style: TextStyle(fontSize: 20.sp),
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 18.w),
+                  child: Text(
+                    LocalizationKeys.toLoginTheLearningManagement.tr,
+                    style: TextStyle(fontSize: 18.sp),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(height: 12.h),
-                Text(
-                  LocalizationKeys.pleaseCaptureClearImageOfYourFaceToLogin.tr,
-                  style: TextStyle(fontSize: 12.sp, color: AppColors.greyColor),
-                  textAlign: TextAlign.center,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const Icon(Icons.warning_rounded, color: CupertinoColors.activeOrange),
+                    6.widthBox,
+                    Text(LocalizationKeys.attention.tr, style: const TextStyle(color: CupertinoColors.activeOrange)),
+                  ],
+                ),
+                SizedBox(height: 8.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 18.w),
+                  child: Text(
+                    LocalizationKeys.moodleLoginWarning.tr,
+                    style: TextStyle(color: AppColors.greyColor, fontSize: 10.sp),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(height: 20.h),
                 AppButton(onPressed: pickImage, title: LocalizationKeys.capture.tr),

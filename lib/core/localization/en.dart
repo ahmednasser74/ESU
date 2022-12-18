@@ -223,9 +223,11 @@ const Map<String, String> en = {
   //-------------------------------------------------------------------------
   ///moodle login
   LocalizationKeys.moodleLogin: 'Moodle Login',
-  LocalizationKeys.youShouldToCaptureClearImageOfYourFace: 'You should to capture clear image of your face',
+  LocalizationKeys.toLoginTheLearningManagement: 'To login to the learning management system, please take a face photo to be compared with your profile photo.',
   LocalizationKeys.pleaseCaptureClearImageOfYourFaceToLogin: 'Please capture clear image of your face to login',
   LocalizationKeys.capture: 'Capture',
+  LocalizationKeys.attention: 'Attention',
+  LocalizationKeys.moodleLoginWarning:'Please be notified that the login photo you are taking is saved on the system to be reviewed under the identity verification procedures and assuring the following of the login guidelines. For the female student, their photos are reviewed by female staff only.',
 
   //-------------------------------------------------------------------------
   ///lecture table
