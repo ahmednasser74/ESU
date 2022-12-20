@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "430668124216",
+    "project_id": "midocean-prod",
+    "storage_bucket": "midocean-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430668124216:android:99a28f37da32ab56ff96cd",
+        "android_client_info": {
+          "package_name": "com.sis.midocean.edu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430668124216-mui2mn6j9v4vpmf4bjng4l2he8oh7veh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeZccwWkPpLLyH4mj_QVK-DcEO87Zp11k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430668124216-mui2mn6j9v4vpmf4bjng4l2he8oh7veh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

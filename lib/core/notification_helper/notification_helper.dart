@@ -6,11 +6,13 @@ import 'package:esu/core/utils/di.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/register_fcm_token_usecase.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:html/parser.dart';
+import 'package:injectable/injectable.dart';
 
+import '../dependencies/dependency_init.dart';
 import '../src/routes.dart';
 import 'notification_data_model.dart';
 
@@ -29,7 +31,7 @@ class NotificationHelper {
     messaging = FirebaseMessaging.instance;
     userToken = SharedPrefs.instance.getString(key: SharedPrefsKeys.token);
     await messaging.requestPermission();
-    Injection.di<FcmTokenUpdate>().onFcmTokenUpdate();
+    di<FcmTokenUpdate>().onFcmTokenUpdate();
     await FlutterLocalNotificationsPlugin().initialize(
       const InitializationSettings(
         android: AndroidInitializationSettings('@drawable/launch_background'),
@@ -37,6 +39,7 @@ class NotificationHelper {
           requestSoundPermission: true,
           requestBadgePermission: true,
           requestAlertPermission: true,
+
         ),
       ),
       onSelectNotification: _onTapLocalNotification,
@@ -62,7 +65,7 @@ class NotificationHelper {
       await FlutterLocalNotificationsPlugin().show(
         Random().nextInt(100),
         event.notification!.title,
-        event.notification!.body,
+        parse(event.notification!.body).documentElement!.text,
         NotificationDetails(
           android: const AndroidNotificationDetails(
             'default_notification_channel',

@@ -46,7 +46,7 @@ class _FilePickerWidgetState extends State<FilePickerWidget>
         hintText: LocalizationKeys.selectFile.tr + (widget.hint ?? ''),
         prefixIcon: Padding(
           padding: EdgeInsetsDirectional.all(12.w),
-          child: widget.prefixIcon ?? Assets.icons.addFile.image(height: 18),
+          child: widget.prefixIcon ?? Assets.icons.addFile.image(height: 18.h,color: Theme.of(context).primaryColor),
         ),
       ),
       autovalidateMode: AutovalidateMode.onUserInteraction,

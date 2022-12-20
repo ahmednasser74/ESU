@@ -1,11 +1,11 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
-import 'package:esu/features/auth/presentation/widgets/submit_registration_check_box_widget.dart';
+import 'package:esu/core/src/widgets/app_check_box_with_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -33,11 +33,11 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                   decoration: BoxDecoration(
                     color: AppColors.whiteColor,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: AppColors.primaryColor),
-                    boxShadow: const [
+                    border: Border.all(color: Theme.of(context).primaryColor),
+                    boxShadow: [
                       BoxShadow(
-                        color: Colors.blue,
-                        offset: Offset(1, 2),
+                        color: Theme.of(context).primaryColor,
+                        offset: const Offset(1, 2),
                         blurRadius: 4,
                       )
                     ],
@@ -50,20 +50,20 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: AppColors.primaryColor,
+                            color: Theme.of(context).primaryColor,
                             width: 1.5,
                           ),
                         ),
                         child: Assets.icons.notificationIcon.image(
                           height: 24.sp,
-                          color: AppColors.primaryColor,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ),
                       SizedBox(height: 8.h),
                       Text(
                         LocalizationKeys.youShouldToReadTermsAndCondition.tr,
                         style: TextStyle(
-                          color: AppColors.primaryColor,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 16.sp,
                         ),
                         textAlign: TextAlign.center,
@@ -77,9 +77,10 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                     SizedBox(
                       width: .45.sw,
                       child: GetBuilder<SubmitAdmissionController>(
-                        builder: (controller) => SubmitRegistrationCheckBoxWidget(
+                        builder: (controller) => AppCheckboxWithTextWidget(
                           value: controller.isTermsAndConditionApproved.value,
                           onChanged: (v) => controller.isTermsAndConditionApproved.value = v,
+                          title: LocalizationKeys.iReadAndAgree.tr,
                         ),
                       ),
                     ),
@@ -91,9 +92,9 @@ class SubmitRegistrationScreen extends GetView<SubmitAdmissionController> {
                         ),
                         child: Text(
                           LocalizationKeys.termsAndCondition.tr,
-                          style: const TextStyle(
+                          style:  TextStyle(
                             decoration: TextDecoration.underline,
-                            color: AppColors.primaryColor,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),

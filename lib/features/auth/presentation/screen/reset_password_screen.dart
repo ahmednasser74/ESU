@@ -4,7 +4,7 @@ import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/features/auth/presentation/controller/reset_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +35,7 @@ class ResetPasswordScreen extends GetView<ResetPasswordController>
                     LocalizationKeys.verificationCodeSentToEmail.tr,
                     style: TextStyle(
                       fontSize: 18.sp,
-                      color: AppColors.primaryColor,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
@@ -46,8 +46,8 @@ class ResetPasswordScreen extends GetView<ResetPasswordController>
                   prefixIcon: Padding(
                     padding: EdgeInsets.all(12.sp),
                     child: Assets.icons.lock.image(
-                      height: 8,
-                      color: AppColors.primaryColor,
+                      height: 8.h,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
@@ -59,7 +59,7 @@ class ResetPasswordScreen extends GetView<ResetPasswordController>
                     padding: EdgeInsets.all(12.sp),
                     child: Assets.icons.lock.image(
                       height: 8,
-                      color: AppColors.primaryColor,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
@@ -71,7 +71,7 @@ class ResetPasswordScreen extends GetView<ResetPasswordController>
                     padding: EdgeInsets.all(12.sp),
                     child: Assets.icons.lock.image(
                       height: 8,
-                      color: AppColors.primaryColor,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   autovalidateMode: AutovalidateMode.onUserInteraction,

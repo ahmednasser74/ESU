@@ -1,8 +1,11 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class FirebaseAnalyticsHelper {
-  final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
+  static final FirebaseAnalytics _analyticsInstance = FirebaseAnalytics.instance;
 
-  FirebaseAnalyticsObserver getFirebaseAnalyticsObserver() => FirebaseAnalyticsObserver(analytics: _analytics);
+  static FirebaseAnalyticsObserver get getFirebaseAnalyticsObserver => FirebaseAnalyticsObserver(analytics: _analyticsInstance);
 
+  void logEvent(String name, {Map<String, dynamic>? parameters}) => _analyticsInstance.logEvent(name: name, parameters: parameters);
 }

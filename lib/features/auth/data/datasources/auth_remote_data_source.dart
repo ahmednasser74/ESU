@@ -14,6 +14,7 @@ import 'package:esu/features/auth/data/model/response/forget_password/reset_pass
 import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:esu/features/auth/data/model/response/lookup/lookup_respone_model.dart';
 import 'package:esu/features/auth/data/model/response/minimum_version/minimum_version_response_model.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class AuthRemoteDataSource {
   Future<LoginResponseModel> login({required LoginRequestModel requestModel});
@@ -43,8 +44,10 @@ abstract class AuthRemoteDataSource {
   Future<GenericResponseModel> deleteFcmToken({
     required FcmTokenRequestModel requestModel,
   });
-}
 
+  Future<GenericResponseModel> deleteUserAccount();
+}
+@Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   AuthRemoteDataSourceImp({required this.dioHelper});
 
@@ -146,6 +149,14 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
       url: Endpoints.deleteFcmToken,
       data: requestModel.toJson(),
     );
+    final json = response.data;
+    final data = GenericResponseModel.fromJson(json);
+    return data;
+  }
+
+  @override
+  Future<GenericResponseModel> deleteUserAccount() async {
+    final response = await dioHelper.delete(url: Endpoints.deleteUserAccount);
     final json = response.data;
     final data = GenericResponseModel.fromJson(json);
     return data;

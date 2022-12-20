@@ -11,9 +11,11 @@ class CountryPickerFieldWidget extends StatefulWidget {
     Key? key,
     required this.countryNameCallBack,
     required this.list,
+    this.initValue,
   }) : super(key: key);
   final void Function(LookupDataResponseModel country) countryNameCallBack;
   final List<LookupDataResponseModel> list;
+  final int? initValue;
 
   @override
   State<CountryPickerFieldWidget> createState() => _CountryPickerFieldState();
@@ -21,7 +23,17 @@ class CountryPickerFieldWidget extends StatefulWidget {
 
 class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
   final countryNameTEC = TextEditingController();
-  String? countryName;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.initValue != null && widget.list.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        final country = widget.list.firstWhere((element) => element.id == widget.initValue);
+        countryNameTEC.text = country.name;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +47,8 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
         delegate: SearchPage<LookupDataResponseModel>(
           onQueryUpdate: (s) {},
           items: widget.list,
+          showItemsOnEmpty: true,
+          searchStyle: const TextStyle(color: Colors.black),
           searchLabel: LocalizationKeys.search.tr,
           suggestion: Center(
             child: Text(LocalizationKeys.searchToFindCountry.tr),
@@ -46,18 +60,17 @@ class _CountryPickerFieldState extends State<CountryPickerFieldWidget> {
           builder: (country) => ListTile(
             onTap: () {
               Get.back();
-              countryNameTEC.text =
-                  Get.locale.toString() == 'ar' ? country.nameAr : country.name;
+              countryNameTEC.text = Get.locale.toString() == 'ar' ? country.nameAr : country.name;
               widget.countryNameCallBack(country);
               setState(() {});
             },
             title: Text(
               Get.locale.toString() == 'ar' ? country.nameAr : country.name,
-              style: const TextStyle(color: AppColors.primaryColor),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             ),
             subtitle: Text(
               Get.locale.toString() == 'ar' ? country.name : country.nameAr,
-              style: const TextStyle(color: AppColors.primaryLightColor),
+              style: TextStyle(color: Theme.of(context).primaryColor.withOpacity(.5)),
             ),
           ),
         ),

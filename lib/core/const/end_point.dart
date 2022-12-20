@@ -1,10 +1,7 @@
 import 'package:esu/core/flavor/flavors.dart';
 
 class Endpoints {
-  static const String baseUrlProduction = 'https://sis.esu.ac.ae/api/';
-  static const String baseUrlDev = 'https://sisdev.esu.ac.ae/api/';
-
-  static String get baseUrl => Flavors.isDev ? baseUrlDev : baseUrlProduction;
+  static String get baseUrl => Flavors.baseUrl;
 
   //-----------------------------------------------------------------------
   ///Auth
@@ -15,6 +12,8 @@ class Endpoints {
   static const String registerFcmToken = 'student-tokens';
   static const String updateFcmToken = 'student-tokens/update';
   static const String deleteFcmToken = 'student-tokens/delete';
+  static const String deleteUserAccount = 'account/delete';
+  static const String moodleLogin = 'moodle-login';
 
   //-----------------------------------------------------------------------
   ///lookup

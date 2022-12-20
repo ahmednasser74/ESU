@@ -3,7 +3,7 @@ import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
 import 'package:esu/core/src/styles.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/home/presentation/controller/home_controller.dart';
 import 'package:esu/features/home/presentation/widgets/log_out_dialog.dart';
@@ -64,8 +64,7 @@ class RedirectToProfileOrInvoiceWidget extends StatelessWidget {
                         SizedBox(width: 8.w),
                         Expanded(
                           child: Text(
-                            LocalizationKeys
-                                .youMustPayInvoiceToCompleteAnyProcess.tr,
+                            LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess.tr,
                             style: TextStyle(fontSize: 16.sp),
                             textAlign: TextAlign.center,
                           ),
@@ -103,10 +102,8 @@ class RedirectToProfileOrInvoiceWidget extends StatelessWidget {
                         SizedBox(width: 8.w),
                         Expanded(
                           child: Text(
-                            LocalizationKeys
-                                .youMustCompleteProfileFilesToCompleteAnyProcess
-                                .tr,
-                            style: TextStyle(fontSize: 16.sp),
+                            LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess.tr,
+                            style: TextStyle(fontSize: 16.sp,color: Colors.black),
                             textAlign: TextAlign.center,
                           ),
                         ),

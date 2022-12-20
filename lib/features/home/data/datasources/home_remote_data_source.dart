@@ -8,6 +8,10 @@ import 'package:esu/features/home/data/models/response/home/home_response_model.
 import 'package:esu/features/home/data/models/response/notification/notification_item_response_model.dart';
 import 'package:esu/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+
+import '../models/request/moodle_login_request_model.dart';
+import '../models/response/moodle_login/moodle_login_response_model.dart';
 
 abstract class HomeRemoteDataSource {
   Future<NotificationResponseModel> getNotifications();
@@ -15,6 +19,8 @@ abstract class HomeRemoteDataSource {
   Future<PopularQuestionResponseModel> getPopularQuestion();
 
   Future<CheckEditProfileFilesResponseModel> checkEditProfileFiles();
+
+  Future<MoodleLoginResponseModel> moodleLogin({required MoodleLoginRequestModel requestModel});
 
   Future<EditProfileResponseModel> editProfile({
     required EditProfileRequestModel requestModel,
@@ -27,6 +33,7 @@ abstract class HomeRemoteDataSource {
   Future<GenericResponseModel> markSingleNotificationAsRead({required int id});
 }
 
+@Injectable(as: HomeRemoteDataSource)
 class HomeRemoteDataSourceImp implements HomeRemoteDataSource {
   HomeRemoteDataSourceImp({required this.dioHelper});
 
@@ -87,5 +94,14 @@ class HomeRemoteDataSourceImp implements HomeRemoteDataSource {
       data: FormData.fromMap(await requestModel.toJson()),
     );
     return EditProfileResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<MoodleLoginResponseModel> moodleLogin({required MoodleLoginRequestModel requestModel}) async {
+    final response = await dioHelper.post(
+      url: Endpoints.moodleLogin,
+      data: FormData.fromMap(await requestModel.toJson()),
+    );
+    return MoodleLoginResponseModel.fromJson(response.data);
   }
 }

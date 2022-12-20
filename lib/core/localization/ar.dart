@@ -23,6 +23,7 @@ const Map<String, String> ar = {
   LocalizationKeys.enterValidFormat: "أدخل صيغة صحيحة",
   LocalizationKeys.atLeast3Characters: "يجب أن تكون من 3 أحرف على الأقل",
   LocalizationKeys.atLeast6Characters: "يجب أن تكون من 6 أحرف على الأقل",
+  LocalizationKeys.onlyAcceptSixNumbers: 'يقبل فقط ٦ ارقام',
   LocalizationKeys.atLeast8Characters: "يجب أن تكون كلمة السر من 8 أحرف على الأقل",
   LocalizationKeys.atLeast10Characters: "يجب أن تكون من 10 أحرف على الأقل",
   LocalizationKeys.forgetPassword: "هل نسيت كلمة المرور؟",
@@ -49,7 +50,7 @@ const Map<String, String> ar = {
       'من فضلك لاكمال التقديم الرجاء التأكد من تحميل العقود و الامضاء عليها علي جميع الصفحات',
 
   ///personal info
-  LocalizationKeys.personalInformation: 'المعلومات الشخضية',
+  LocalizationKeys.personalInformation: 'المعلومات الشخصية',
   LocalizationKeys.email: 'البريد الالكتروني',
   LocalizationKeys.yourFirstNameEnglish: 'الأسم الأول (بالانجليزية)',
   LocalizationKeys.yourSecondNameEnglish: 'الأسم الثاني (بالانجليزية)',
@@ -76,7 +77,17 @@ const Map<String, String> ar = {
   LocalizationKeys.selectLocation: 'أختر الموقع',
   LocalizationKeys.locationPermissionNotAllowed: 'الموقع غير مسموح به',
   LocalizationKeys.errorInLocation: 'خطأ في الموقع',
-
+  LocalizationKeys.tapToEditLocationPermission: 'اضغط لتعديل إذن الموقع',
+  LocalizationKeys.facebook: 'فيسبوك',
+  LocalizationKeys.whatsApp: 'واتس اب',
+  LocalizationKeys.instagram: 'انستجرام',
+  LocalizationKeys.twitter: 'تويتر',
+  LocalizationKeys.linkedin: 'لينكدان',
+  LocalizationKeys.optional: 'اختياري',
+  LocalizationKeys.whatsAppPin: 'كود الواتس اب',
+  LocalizationKeys.iWantToPublishPersonalInfo: 'ارغب باشهار معلوماتي الشخصية (الاسم ، الوظيفة ، الصورة).',
+  LocalizationKeys.publishPersonalInfoMessage:
+      'تسعي الجامعة بالتعريف عن الطلاب في منصات التواصل الاجتماعي و ذلك للمساهمه في نشر بيانات الطلبه و الحصول علي فرص عملية افضل في سوق العمل.',
 
   ///files upload
   LocalizationKeys.filesUpload: 'تحميل الملفات',
@@ -117,6 +128,8 @@ const Map<String, String> ar = {
   LocalizationKeys.goToInvoice: 'الذهاب إلى الفاتورة',
   LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess: 'يجب تحميل الملفات الشخصية لتكملة أي عملية',
   LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess: 'يجب دفع الفاتورة لتكملة أي عملية',
+  LocalizationKeys.knowledgeAmbassadorCredit: 'محفظة سفير المعرفة',
+  LocalizationKeys.gpa: 'المعدل التراكمي',
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -176,6 +189,10 @@ const Map<String, String> ar = {
   ///Settings
   LocalizationKeys.settings: 'الإعدادات',
   LocalizationKeys.language: 'اللغة',
+  LocalizationKeys.dangerZone: 'المنطقة الخطرة',
+  LocalizationKeys.deleteUserAccount: 'حذف الحساب',
+  LocalizationKeys.delete: 'حذف',
+  LocalizationKeys.ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain: 'إذا قمت بحذف حسابك لن تتمكن من تسجيل الدخول مرة أخرى',
 
   //-------------------------------------------------------------------------
   ///study plans
@@ -199,6 +216,16 @@ const Map<String, String> ar = {
   LocalizationKeys.goToMoodle: 'الذهاب إلى مودل',
   LocalizationKeys.moodleUrl: 'رابط مودل',
   LocalizationKeys.playVideo: 'تشغيل الفيديو',
+
+  //-------------------------------------------------------------------------
+  ///moodle login
+  LocalizationKeys.moodleLogin:   'تسجيل الدخول إلى Moodle',
+  LocalizationKeys.toLoginTheLearningManagement:  'لدخول المنصة التعليمية يجب التقاط صورة للوجة لمطابقتها مع صورة الملف الشخصي',
+  LocalizationKeys.pleaseCaptureClearImageOfYourFaceToLogin:  'الرجاء التقاط صورة واضحة من وجهك لتسجيل الدخول',
+  LocalizationKeys.capture:  'التقاط',
+  LocalizationKeys.attention:  'تنبيه',
+  LocalizationKeys.moodleLoginWarning :'يُرجى العلم أن صور الدخول الخاصة بكم على المنصة الأكاديمية سوف يتم الاطلاع عليها، وذلك ضمن اجراءات التحقق من هوية المستخدم واتباعه لتعليمات الدخول السليمة، وبخصوص الطالبات ستكون المراجعة من قِبل الموظفات المسؤولات عن مراقبة دخول النظام.',
+
 
   //-------------------------------------------------------------------------
   ///lecture table
@@ -311,4 +338,7 @@ const Map<String, String> ar = {
   LocalizationKeys.updatedAt: 'حُدثت في',
   LocalizationKeys.deletedAt: 'حُذفت في',
   LocalizationKeys.closedAt: 'أغلقت في',
+  LocalizationKeys.darkMode: 'الوضع الداكن',
+  LocalizationKeys.close: 'إغلاق',
+  LocalizationKeys.ok: 'حسنا',
 };

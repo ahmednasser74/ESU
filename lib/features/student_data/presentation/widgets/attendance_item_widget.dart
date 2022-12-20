@@ -1,7 +1,7 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/styles.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/core/src/widgets/custom_rich_text.dart';
 import 'package:esu/features/student_data/data/models/response/attendance/attendance_item_response_model.dart';
 import 'package:flutter/material.dart';

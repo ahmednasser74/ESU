@@ -1,10 +1,13 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/usecases/usecase.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/student_actions/data/models/response/course_register/courses_registeration_response_model.dart';
 import 'package:esu/features/student_actions/domain/usecase/courses_registrated_use_case.dart';
 import 'package:esu/features/student_actions/domain/usecase/remove_course_use_case.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class CourseRegisteredController extends GetxController
     with StateMixin<CourseRegisterResponseModel> {

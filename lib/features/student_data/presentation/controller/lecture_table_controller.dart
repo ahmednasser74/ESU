@@ -3,6 +3,9 @@ import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/features/student_data/data/models/response/lecture_table/lecture_table_response_model.dart';
 import 'package:esu/features/student_data/domain/usecase/lecture_table_use_case.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class LectureTableController extends GetxController
     with StateMixin<LectureTableResponseModel> {

@@ -10,9 +10,14 @@ import 'package:esu/features/home/data/models/response/popular_question/popular_
 import 'package:esu/features/home/domin/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../../../core/dependencies/dependency_init.dart';
 import '../../../../core/network/network_information.dart';
+import '../models/request/moodle_login_request_model.dart';
+import '../models/response/moodle_login/moodle_login_response_model.dart';
 
+@Injectable(as: HomeRepository)
 class HomeRepositoryImp implements HomeRepository {
   HomeRepositoryImp({required this.remoteDataSource});
 
@@ -28,8 +33,7 @@ class HomeRepositoryImp implements HomeRepository {
   @override
   Future<Either<String?, GenericResponseModel>> markAllNotificationsAsRead() {
     return _responseHandling<GenericResponseModel>(
-      onSuccess: () async =>
-          await remoteDataSource.markAllNotificationsAsRead(),
+      onSuccess: () async => await remoteDataSource.markAllNotificationsAsRead(),
     );
   }
 
@@ -38,8 +42,7 @@ class HomeRepositoryImp implements HomeRepository {
     required int id,
   }) {
     return _responseHandling<GenericResponseModel>(
-      onSuccess: () async =>
-          await remoteDataSource.markSingleNotificationAsRead(id: id),
+      onSuccess: () async => await remoteDataSource.markSingleNotificationAsRead(id: id),
     );
   }
 
@@ -51,8 +54,7 @@ class HomeRepositoryImp implements HomeRepository {
   }
 
   @override
-  Future<Either<String?, CheckEditProfileFilesResponseModel>>
-      checkEditProfileFiles() {
+  Future<Either<String?, CheckEditProfileFilesResponseModel>> checkEditProfileFiles() {
     return _responseHandling<CheckEditProfileFilesResponseModel>(
       onSuccess: () async => await remoteDataSource.checkEditProfileFiles(),
     );
@@ -64,6 +66,17 @@ class HomeRepositoryImp implements HomeRepository {
   }) {
     return _responseHandling<EditProfileResponseModel>(
       onSuccess: () async => await remoteDataSource.editProfile(
+        requestModel: requestModel,
+      ),
+    );
+  }
+
+  @override
+  Future<Either<String?, MoodleLoginResponseModel>> moodleLogin({
+    required MoodleLoginRequestModel requestModel,
+  }) {
+    return _responseHandling<MoodleLoginResponseModel>(
+      onSuccess: () async => await remoteDataSource.moodleLogin(
         requestModel: requestModel,
       ),
     );
@@ -97,7 +110,7 @@ extension on HomeRepository {
     required Future<T> Function() onSuccess,
     Future<String> Function(Exception exception)? onOtherError,
   }) async {
-    final isConnected = await Injection.di<NetworkInformation>().isConnected;
+    final isConnected = await di<NetworkInformation>().isConnected;
     if (isConnected) {
       try {
         final f = await onSuccess();

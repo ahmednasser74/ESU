@@ -19,6 +19,7 @@ class LocalizationKeys {
   static const String atLeast8Characters = 'atleast8Characters';
   static const String atLeast3Characters = 'atleast3Characters';
   static const String atLeast6Characters = 'atleast6Characters';
+  static const String onlyAcceptSixNumbers = 'onlyAcceptSixNumbers';
   static const String atLeast10Characters = 'atleast10Characters';
   static const String passwordMustContain = 'passwordMustContain';
   static const String enterValidEmailFormat = 'enterValidEmailFormat';
@@ -75,6 +76,16 @@ class LocalizationKeys {
   static const String selectLocation = 'selectLocation';
   static const String locationPermissionNotAllowed = 'locationPermissionNotAllowed';
   static const String errorInLocation = 'errorInLocation';
+  static const String tapToEditLocationPermission = 'tapToEditLocationPermission';
+  static const String facebook = 'facebook';
+  static const String whatsApp = 'whatsApp';
+  static const String instagram = 'instagram';
+  static const String twitter = 'twitter';
+  static const String linkedin = 'linkedin';
+  static const String optional = 'optional';
+  static const String whatsAppPin = 'whatsAppPin';
+  static const String iWantToPublishPersonalInfo = 'iWantToPublishPersonalInfo';
+  static const String publishPersonalInfoMessage = 'publishPersonalInfoMessage';
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -117,6 +128,8 @@ class LocalizationKeys {
   static const String goToProfile = 'goToProfile';
   static const String youMustPayInvoiceToCompleteAnyProcess = 'You must pay invoice to complete any process';
   static const String youMustCompleteProfileFilesToCompleteAnyProcess = 'You must complete profile files to complete any process';
+  static const String knowledgeAmbassadorCredit = 'knowledgeAmbassadorCredit';
+  static const String gpa = 'gpa';
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -176,6 +189,11 @@ class LocalizationKeys {
   ///Settings
   static const String settings = 'settings';
   static const String language = 'language';
+  static const String darkMode = 'darkMode';
+  static const String dangerZone = 'dangerZone';
+  static const String deleteUserAccount = 'deleteUserAccount';
+  static const String delete = 'delete';
+  static const String ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain = 'ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain';
 
   //-------------------------------------------------------------------------
   ///study plans
@@ -200,6 +218,16 @@ class LocalizationKeys {
   static const String goToMoodle = 'goToMoodle';
   static const String moodleUrl = 'moodleUrl';
   static const String playVideo = 'playVideo';
+
+  //-------------------------------------------------------------------------
+  ///moodle login
+  static const String moodleLogin = 'moodleLogin';
+  static const String toLoginTheLearningManagement = 'toLoginTheLearningManagement';
+  static const String pleaseCaptureClearImageOfYourFaceToLogin = 'pleaseCaptureClearImageOfYourFaceToLogin';
+  static const String capture = 'capture';
+  static const String attention = 'warning';
+  static const String moodleLoginWarning = 'moodleLoginWarning';
+
 
   //-------------------------------------------------------------------------
   ///lecture table
@@ -313,4 +341,6 @@ class LocalizationKeys {
   static const String updatedAt = 'updatedAt';
   static const String deletedAt = 'deletedAt';
   static const String closedAt = 'closedAt';
+  static const String close = 'close';
+  static const String ok = 'ok';
 }

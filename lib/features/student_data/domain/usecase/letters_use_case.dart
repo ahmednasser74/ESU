@@ -3,6 +3,9 @@ import 'package:esu/features/student_data/domain/repository/student_data_reposit
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/usecases/usecase.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class LettersUseCase
     extends UseCase<Future<Either<String?, LettersResponseModel>>, NoParams> {

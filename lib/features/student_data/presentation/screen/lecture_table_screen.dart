@@ -39,7 +39,7 @@ class LectureTableScreen extends GetView<LectureTableController> {
               child: Text(
                 state!.data!.generalNote,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14.sp),
+                style: TextStyle(fontSize: 14.sp,color: Colors.red),
               ),
             ),
             Expanded(

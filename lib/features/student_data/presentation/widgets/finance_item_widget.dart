@@ -1,7 +1,7 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/custom_rich_text.dart';
-import 'package:esu/features/student_data/data/models/response/finance/finance_data_response_model.dart';
+import 'package:esu/features/student_data/data/models/response/finance/invoice_item/invoice_item_response_model.dart';
 import 'package:esu/features/student_data/presentation/controller/finance_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +15,7 @@ class FinanceItemWidget extends StatelessWidget {
     required this.index,
   }) : super(key: key);
   final int index;
-  final FinanceDataResponseModel finance;
+  final InvoiceItemResponseModel finance;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +24,12 @@ class FinanceItemWidget extends StatelessWidget {
       padding: EdgeInsets.only(left: 18.w, right: 18.w, top: 12.h, bottom: 6.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
-        border: Border.all(color: AppColors.primaryColor),
+        border: Border.all(color: Theme.of(context).primaryColor),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            blurRadius: 3,
+            blurRadius: 3.r,
             offset: const Offset(0, 6),
           ),
         ],
@@ -58,10 +58,7 @@ class FinanceItemWidget extends StatelessWidget {
               CustomRichText(
                 fontSize: 12.sp,
                 title: '${LocalizationKeys.paidAt.tr} : ',
-                value: finance.paidAt == null
-                    ? finance.status
-                    : DateFormat('E d MMM yyyy')
-                        .format(DateTime.parse(finance.paidAt!)),
+                value: finance.paidAt == null ? finance.status : DateFormat('E d MMM yyyy').format(DateTime.parse(finance.paidAt!)),
               ),
               CustomRichText(
                 title: '${LocalizationKeys.total.tr} : ',
@@ -90,7 +87,7 @@ class FinanceItemWidget extends StatelessWidget {
               builder: (controller) => OutlinedButton.icon(
                 style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.white,
-                  side: const BorderSide(color: AppColors.primaryColor),
+                  side: BorderSide(color: Theme.of(context).primaryColor),
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
@@ -102,15 +99,13 @@ class FinanceItemWidget extends StatelessWidget {
                           invoiceId: finance.id,
                           index: index,
                         ),
-                label: isLoadingPayment
-                    ? Text(LocalizationKeys.waiting.tr)
-                    : Text(LocalizationKeys.pay.tr),
+                label: isLoadingPayment ? Text(LocalizationKeys.waiting.tr) : Text(LocalizationKeys.pay.tr),
                 icon: isLoadingPayment
                     ? SizedBox(
                         height: 12.h,
                         width: 12.w,
-                        child: const CircularProgressIndicator(
-                          color: AppColors.primaryColor,
+                        child: CircularProgressIndicator(
+                          color: Theme.of(context).primaryColor,
                           strokeWidth: 1.5,
                         ),
                       )

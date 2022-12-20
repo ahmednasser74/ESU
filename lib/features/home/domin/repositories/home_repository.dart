@@ -7,6 +7,9 @@ import 'package:esu/features/home/data/models/response/notification/notification
 import 'package:esu/features/home/data/models/response/popular_question/popular_question_item_response_model.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../data/models/request/moodle_login_request_model.dart';
+import '../../data/models/response/moodle_login/moodle_login_response_model.dart';
+
 abstract class HomeRepository {
   Future<Either<String?, NotificationResponseModel>> getNotification();
 
@@ -25,5 +28,9 @@ abstract class HomeRepository {
 
   Future<Either<String?, EditProfileResponseModel>> editProfile({
     required EditProfileRequestModel requestModel,
+  });
+
+  Future<Either<String?, MoodleLoginResponseModel>> moodleLogin({
+    required MoodleLoginRequestModel requestModel,
   });
 }

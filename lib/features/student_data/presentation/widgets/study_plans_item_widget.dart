@@ -18,7 +18,7 @@ class StudyPlansItemWidget extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(8.sp),
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.primaryColor),
+            border: Border.all(color: Theme.of(context).primaryColor),
             borderRadius: BorderRadius.circular(12.r),
           ),
           child: Text(

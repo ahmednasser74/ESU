@@ -2,16 +2,20 @@ import 'dart:io';
 
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/routes.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/core/src/widgets/file_picker_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/auth/data/model/data_holder/file_upload_data_holder_model.dart';
 import 'package:esu/features/auth/presentation/controller/submit_admission_controller.dart';
 import 'package:esu/features/auth/presentation/widgets/contract_links_widget.dart';
-import 'package:esu/features/auth/presentation/widgets/title_required_field_widget.dart';
+import 'package:esu/core/src/widgets/app_title_required_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/cache/cache.dart';
+import '../../../../core/const/shared_prefs_keys.dart';
+import '../../../../core/dependencies/dependency_init.dart';
 
 // ignore: must_be_immutable
 class RegisterFileUploadsScreen extends StatelessWidget {
@@ -36,7 +40,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.copyOfYourIdOrPassport.tr,
               ),
               FilePickerWidget(
@@ -45,7 +49,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 allowToPdf: true,
                 allowToImages: true,
               ),
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.copyOfTheAcademicCertificate.tr,
               ),
               FilePickerWidget(
@@ -54,7 +58,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 allowToPdf: true,
                 allowToImages: true,
               ),
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.copyOfTranscript.tr,
               ),
               FilePickerWidget(
@@ -64,7 +68,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 allowToDoc: true,
                 allowToDocx: true,
               ),
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.copyOfTheStudentsContractWithTheUniversity.tr,
                 titleSize: 18,
               ),
@@ -78,7 +82,7 @@ class RegisterFileUploadsScreen extends StatelessWidget {
                 allowToDocx: true,
               ),
               const SizedBox(height: 8),
-              TitleRequiredFieldWidget(
+              AppTitleRequiredWidget(
                 title: LocalizationKeys.uploadCv.tr,
                 isRequired: false,
               ),
@@ -112,6 +116,8 @@ class RegisterFileUploadsScreen extends StatelessWidget {
         rule: 1,
       );
       Get.toNamed(Routes.submitRegistrationScreen);
+      final CacheHelper cacheHelper = di<CacheHelper>();
+      cacheHelper.set(SharedPrefsKeys.fileUploadInfoRegister, admissionController.fileUploadInfo.toJson());
     } else {
       HelperMethod.showToast(msg: LocalizationKeys.completeAllTheFields.tr);
     }

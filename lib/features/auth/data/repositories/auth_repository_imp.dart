@@ -14,20 +14,19 @@ import 'package:esu/features/auth/data/model/response/forget_password/reset_pass
 import 'package:esu/features/auth/data/model/response/login/login_response_model.dart';
 import 'package:esu/features/auth/data/model/response/lookup/lookup_respone_model.dart';
 import 'package:esu/features/auth/data/model/response/minimum_version/minimum_version_response_model.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../../../core/dependencies/dependency_init.dart';
 import '../../../../core/network/network_information.dart';
 import '../../domin/repositories/auth_repository.dart';
 import '../datasources/auth_local_data_source.dart';
 import '../datasources/auth_remote_data_source.dart';
 
+@Injectable(as: AuthRepository)
 class AuthRepositoryImp implements AuthRepository {
-  final AuthLocalDataSource userLocalDataSource;
   final AuthRemoteDataSource userRemoteDataSource;
 
-  AuthRepositoryImp({
-    required this.userLocalDataSource,
-    required this.userRemoteDataSource,
-  });
+  AuthRepositoryImp({required this.userRemoteDataSource});
 
   @override
   Future<Either<String?, AdmissionResponseModel>> admission({
@@ -85,8 +84,7 @@ class AuthRepositoryImp implements AuthRepository {
   }
 
   @override
-  Future<Either<String?, MinimumVersionResponseModel>>
-      getMinimumVersion() async {
+  Future<Either<String?, MinimumVersionResponseModel>> getMinimumVersion() async {
     return _responseHandling<MinimumVersionResponseModel>(
       onSuccess: () async => await userRemoteDataSource.getMinimumVersion(),
     );
@@ -113,6 +111,13 @@ class AuthRepositoryImp implements AuthRepository {
       ),
     );
   }
+
+  @override
+  Future<Either<String?, GenericResponseModel>> deleteUserAccount() {
+    return _responseHandling<GenericResponseModel>(
+      onSuccess: () async => await userRemoteDataSource.deleteUserAccount(),
+    );
+  }
 }
 
 extension on AuthRepository {
@@ -135,7 +140,7 @@ extension on AuthRepository {
     required Future<T> Function() onSuccess,
     Future<String> Function(Exception exception)? onOtherError,
   }) async {
-    final isConnected = await Injection.di<NetworkInformation>().isConnected;
+    final isConnected = await di<NetworkInformation>().isConnected;
     if (isConnected) {
       try {
         final f = await onSuccess();

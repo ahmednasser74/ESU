@@ -21,7 +21,7 @@ class CourseItemWidget extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryColor.withOpacity(0.1),
+            color: Theme.of(context).primaryColor.withOpacity(0.1),
             blurRadius: 2,
             offset: const Offset(0, 8),
           ),
@@ -35,7 +35,7 @@ class CourseItemWidget extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.symmetric(vertical: 6.h),
             decoration: BoxDecoration(
-              color: AppColors.primaryColor,
+              color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Text(
@@ -69,7 +69,7 @@ class CourseItemWidget extends StatelessWidget {
                   visible: course.prerequisite.isNotEmpty,
                   child: Column(
                     children: [
-                      Text(LocalizationKeys.prerequisites.tr),
+                      Text(LocalizationKeys.prerequisites.tr, style: const TextStyle(color: Colors.black)),
                       SizedBox(height: 6.h),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -80,9 +80,7 @@ class CourseItemWidget extends StatelessWidget {
                           children: course.prerequisite
                               .map(
                                 (prerequisite) => PrerequisiteItemWidget(
-                                  title: Get.locale.toString() == 'en'
-                                      ? prerequisite.name
-                                      : prerequisite.nameAr,
+                                  title: Get.locale.toString() == 'en' ? prerequisite.name : prerequisite.nameAr,
                                 ),
                               )
                               .toList(),
@@ -117,11 +115,11 @@ class PrerequisiteItemWidget extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 4.h),
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.primaryColor.withOpacity(.8),
+          color: Theme.of(context).primaryColor.withOpacity(.8),
         ),
         borderRadius: BorderRadius.circular(12.r),
       ),
-      child: Text(title, textAlign: TextAlign.start),
+      child: Text(title, textAlign: TextAlign.start, style: const TextStyle(color: Colors.black)),
     );
   }
 }

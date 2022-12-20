@@ -14,8 +14,29 @@ mixin ValidatorProperties {
   String? nameValidator(String? v) {
     if (v!.isEmpty) {
       return LocalizationKeys.thisFieldIsRequired.tr;
-    } else if (v.length <= 3) {
+    }
+    if (v.length <= 3) {
       return LocalizationKeys.atLeast3Characters.tr;
+    }
+    return null;
+  }
+
+  String? notLessThanSixChar(String? v) {
+    if (v!.isEmpty) {
+      return LocalizationKeys.thisFieldIsRequired.tr;
+    }
+    if (v.length < 6) {
+      return LocalizationKeys.atLeast6Characters.tr;
+    }
+    return null;
+  }
+
+  String? onlyAcceptSixNumbers(String? v) {
+    if (v!.isEmpty) {
+      return LocalizationKeys.thisFieldIsRequired.tr;
+    }
+    if (v.length < 6 || v.length > 6) {
+      return LocalizationKeys.onlyAcceptSixNumbers.tr;
     }
     return null;
   }
@@ -26,7 +47,8 @@ mixin ValidatorProperties {
     );
     if (v!.isEmpty) {
       return LocalizationKeys.emailIsRequired.tr;
-    } else if (!pattern.hasMatch(v)) {
+    }
+    if (!pattern.hasMatch(v)) {
       return LocalizationKeys.enterValidEmailFormat.tr;
     }
     return null;
@@ -35,7 +57,8 @@ mixin ValidatorProperties {
   String? nationalIdValidator(String? v) {
     if (v!.isEmpty) {
       return LocalizationKeys.thisFieldIsRequired.tr;
-    } else if (v.length < 3) {
+    }
+    if (v.length < 3) {
       return LocalizationKeys.atLeast3Characters.tr;
     }
     return null;
@@ -44,7 +67,8 @@ mixin ValidatorProperties {
   String? phoneValidator(String? v) {
     if (v!.isEmpty) {
       return LocalizationKeys.thisFieldIsRequired.tr;
-    } else if (isPhoneNumber(v)) {
+    }
+    if (isPhoneNumber(v)) {
       return LocalizationKeys.enterValidFormat.tr;
     }
     return null;
@@ -56,15 +80,33 @@ mixin ValidatorProperties {
   }
 
   String? passwordValidator(String? value) {
-    String pattern =
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+    String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
     RegExp regExp = RegExp(pattern);
     if (value!.isEmpty) {
       return LocalizationKeys.passwordIsRequired.tr;
-    } else if (value.length < 8) {
+    }
+    if (value.length < 8) {
       return LocalizationKeys.atLeast8Characters.tr;
-    } else if (!regExp.hasMatch(value)) {
+    }
+    if (!regExp.hasMatch(value)) {
       return LocalizationKeys.passwordMustContain.tr;
+    } else {
+      return null;
+    }
+  }
+
+  String? confirmPasswordValidator(String? password, String? confirmPassword) {
+    if (password!.isEmpty) {
+      return null;
+    }
+    if (confirmPassword!.isEmpty) {
+      return LocalizationKeys.thisFieldIsRequired.tr;
+    }
+    if (confirmPassword.length < 8) {
+      return LocalizationKeys.atLeast8Characters.tr;
+    }
+    if (password.trim() != confirmPassword.trim()) {
+      return LocalizationKeys.passwordConfirmationNotMatchedWithPassword.tr;
     } else {
       return null;
     }

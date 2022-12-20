@@ -1,6 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/widgets/app_empty_widget.dart';
-import 'package:esu/core/src/widgets/error_widget.dart';
+import 'package:esu/core/src/widgets/app_error_widget.dart';
 import 'package:esu/core/src/widgets/loading_indicator_widget.dart';
 import 'package:esu/features/home/presentation/controller/notification_controller.dart';
 import 'package:esu/features/home/presentation/widgets/notification_item_widget.dart';

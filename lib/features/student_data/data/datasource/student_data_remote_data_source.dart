@@ -9,6 +9,7 @@ import 'package:esu/features/student_data/data/models/response/letters/letters.d
 import 'package:esu/features/student_data/data/models/response/plans_of_study/plan_of_study_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/schedule/schedule_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/transcript/transcript_response_model.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class StudentDataRemoteDataSource {
   Future<LettersResponseModel> getLetters();
@@ -30,6 +31,7 @@ abstract class StudentDataRemoteDataSource {
   Future<TranscriptResponseModel> getTranscript();
 }
 
+@Injectable(as: StudentDataRemoteDataSource)
 class StudentDataRemoteDataSourceImp implements StudentDataRemoteDataSource {
   StudentDataRemoteDataSourceImp({required this.dioHelper});
 

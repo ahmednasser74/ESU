@@ -36,7 +36,7 @@ class ShowImageSourceBottomSheet extends StatelessWidget {
           SizedBox(height: 12.h),
           Text(
             LocalizationKeys.selectPhotoSource.tr,
-            style: TextStyle(fontSize: 18.sp),
+            style: TextStyle(fontSize: 18.sp,color: Colors.black),
           ),
           SizedBox(height: 12.h),
           InkWell(
@@ -51,7 +51,7 @@ class ShowImageSourceBottomSheet extends StatelessWidget {
                 SizedBox(width: 8.w),
                 Text(
                   LocalizationKeys.gallery.tr,
-                  style: TextStyle(fontSize: 14.sp),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ],
             ),
@@ -69,7 +69,7 @@ class ShowImageSourceBottomSheet extends StatelessWidget {
                 SizedBox(width: 8.w),
                 Text(
                   LocalizationKeys.camera.tr,
-                  style: TextStyle(fontSize: 14.sp),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ],
             ),

@@ -15,7 +15,11 @@ import 'package:esu/features/student_actions/data/models/response/tickets/ticket
 import 'package:esu/features/student_actions/domain/repository/student_actions_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../../../core/dependencies/dependency_init.dart';
+
+@Injectable(as: StudentActionsRepository)
 class StudentActionsRepositoryImp implements StudentActionsRepository {
   StudentActionsRepositoryImp({required this.remoteDataSource});
 
@@ -145,7 +149,7 @@ extension on StudentActionsRepository {
     required Future<T> Function() onSuccess,
     Future<String> Function(Exception exception)? onOtherError,
   }) async {
-    final isConnected = await Injection.di<NetworkInformation>().isConnected;
+    final isConnected = await di<NetworkInformation>().isConnected;
     if (isConnected) {
       try {
         final f = await onSuccess();

@@ -1,7 +1,7 @@
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/routes.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -43,7 +43,7 @@ class _SuccessfulAdmissionScreenState extends State<SuccessfulAdmissionScreen> {
                 'Congratulation you had Successful Admission',
                 style: TextStyle(
                   fontSize: 22.sp,
-                  color: AppColors.primaryColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 textAlign: TextAlign.center,
               ),

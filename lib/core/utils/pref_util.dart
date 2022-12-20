@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:esu/core/const/shared_prefs_keys.dart';
 import 'package:esu/features/auth/data/model/response/login/student_response_model.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {

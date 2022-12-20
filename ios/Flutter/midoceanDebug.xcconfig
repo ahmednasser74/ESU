@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_midocean.dart
+ASSET_PREFIX=midocean
+BUNDLE_NAME=Midocean
+BUNDLE_DISPLAY_NAME=Midocean

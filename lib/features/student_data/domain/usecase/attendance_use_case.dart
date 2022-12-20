@@ -3,6 +3,9 @@ import 'package:esu/features/student_data/data/models/response/attendance/attend
 import 'package:esu/features/student_data/domain/repository/student_data_repository.dart';
 
 import '../../../../core/usecases/usecase.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class AttendanceUseCase extends UseCase<
     Future<Either<String?, AttendanceResponseModel>>, NoParams> {

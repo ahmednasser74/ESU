@@ -4,7 +4,9 @@ import 'package:esu/core/utils/pref_util.dart';
 import 'package:esu/features/auth/data/model/request/fcm_token/register_fcm_token_request_model.dart';
 import 'package:esu/features/auth/domin/usecases/delete_fcm_token_usecase.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class LogoutController extends GetxController {
   LogoutController({
     required this.deleteFcmTokenUseCase,

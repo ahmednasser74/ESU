@@ -12,6 +12,7 @@ import 'package:esu/features/student_actions/data/models/response/ticket_categor
 import 'package:esu/features/student_actions/data/models/response/ticket_details/tickets_details_response_model.dart';
 import 'package:esu/features/student_actions/data/models/response/tickets/tickets_response_model.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class StudentActionsRemoteDataSource {
   Future<TermRegisterPayResponseModel> termRegisterPay({required int termId});
@@ -46,6 +47,7 @@ abstract class StudentActionsRemoteDataSource {
   Future<CourseRegisterResponseModel> removeCourse({required int courseId});
 }
 
+@Injectable(as: StudentActionsRemoteDataSource)
 class StudentActionsRemoteDataSourceImp
     implements StudentActionsRemoteDataSource {
   StudentActionsRemoteDataSourceImp({required this.dioHelper});

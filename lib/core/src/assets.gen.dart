@@ -32,6 +32,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email.png
   AssetGenImage get email => const AssetGenImage('assets/icons/email.png');
 
+  /// File path: assets/icons/facebook.svg
+  SvgGenImage get facebook => const SvgGenImage('assets/icons/facebook.svg');
+
   /// File path: assets/icons/faq.png
   AssetGenImage get faq => const AssetGenImage('assets/icons/faq.png');
 
@@ -41,11 +44,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/identity.png
   AssetGenImage get identity => const AssetGenImage('assets/icons/identity.png');
 
+  /// File path: assets/icons/instagram.svg
+  SvgGenImage get instagram => const SvgGenImage('assets/icons/instagram.svg');
+
   /// File path: assets/icons/lecture.png
   AssetGenImage get lecture => const AssetGenImage('assets/icons/lecture.png');
 
   /// File path: assets/icons/letter_icon.png
   AssetGenImage get letterIcon => const AssetGenImage('assets/icons/letter_icon.png');
+
+  /// File path: assets/icons/linkedin.svg
+  SvgGenImage get linkedin => const SvgGenImage('assets/icons/linkedin.svg');
 
   /// File path: assets/icons/location_icon.png
   AssetGenImage get locationIcon => const AssetGenImage('assets/icons/location_icon.png');
@@ -91,6 +100,12 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/transcript_icon.png
   AssetGenImage get transcriptIcon => const AssetGenImage('assets/icons/transcript_icon.png');
+
+  /// File path: assets/icons/twitter.svg
+  SvgGenImage get twitter => const SvgGenImage('assets/icons/twitter.svg');
+
+  /// File path: assets/icons/whatsapp.svg
+  SvgGenImage get whatsapp => const SvgGenImage('assets/icons/whatsapp.svg');
 }
 
 class $AssetsImagesGen {
@@ -107,6 +122,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/esu_title_logo.jpeg
   AssetGenImage get esuTitleLogo => const AssetGenImage('assets/images/esu_title_logo.jpeg');
+
+  /// File path: assets/images/midocean_app_icon.png
+  AssetGenImage get midoceanAppIcon => const AssetGenImage('assets/images/midocean_app_icon.png');
 
   /// File path: assets/images/student_id.png
   AssetGenImage get studentId => const AssetGenImage('assets/images/student_id.png');

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/flavor/flavors.dart';
+
 class SplashScreen extends GetView<SplashController> {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -17,7 +19,7 @@ class SplashScreen extends GetView<SplashController> {
             Center(
               child: Hero(
                 tag: 'splash_tag',
-                child: Assets.images.appIconTransparent.image(width: .7.sw, height: .5.sh),
+                child: Image.asset(Flavors.appIcon, width: .7.sw, height: .5.sh),
               ),
             ),
             const Spacer(),

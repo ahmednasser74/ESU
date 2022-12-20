@@ -23,6 +23,7 @@ const Map<String, String> en = {
   LocalizationKeys.enterValidFormat: "Enter valid format",
   LocalizationKeys.atLeast3Characters: "At least 3 characters",
   LocalizationKeys.atLeast6Characters: "At least 6 characters",
+  LocalizationKeys.onlyAcceptSixNumbers: "Only accept 6 numbers",
   LocalizationKeys.atLeast8Characters: "At least 8 characters",
   LocalizationKeys.atLeast10Characters: "At least 10 characters",
   LocalizationKeys.forgetPassword: "Forget Password ?",
@@ -76,6 +77,17 @@ const Map<String, String> en = {
   LocalizationKeys.selectLocation: 'Select Location',
   LocalizationKeys.locationPermissionNotAllowed: 'Location Permission Not Allowed',
   LocalizationKeys.errorInLocation: 'Error In Location',
+  LocalizationKeys.tapToEditLocationPermission: 'Tap To Edit Location Permission',
+  LocalizationKeys.facebook: 'Facebook',
+  LocalizationKeys.whatsApp: 'WhatsApp',
+  LocalizationKeys.instagram: 'Instagram',
+  LocalizationKeys.twitter: 'Twitter',
+  LocalizationKeys.linkedin: 'Linkedin',
+  LocalizationKeys.optional: 'Optional',
+  LocalizationKeys.whatsAppPin: 'WhatsApp Pin',
+  LocalizationKeys.iWantToPublishPersonalInfo: 'I want to publish personal information (name, job, photo.)',
+  LocalizationKeys.publishPersonalInfoMessage:
+      'The university seeks to introduce students to social media platforms in order to contribute to the dissemination of student data and to obtain better practical opportunities in the labor market.',
 
   //-------------------------------------------------------------------------
   ///files upload
@@ -116,6 +128,8 @@ const Map<String, String> en = {
   LocalizationKeys.goToInvoice: 'Go to Invoice',
   LocalizationKeys.youMustCompleteProfileFilesToCompleteAnyProcess: 'You must complete profile files to complete any process',
   LocalizationKeys.youMustPayInvoiceToCompleteAnyProcess: 'You must pay invoice to complete any process',
+  LocalizationKeys.knowledgeAmbassadorCredit: 'Knowledge Ambassador Credit',
+  LocalizationKeys.gpa: 'GPA',
 
   //-------------------------------------------------------------------------
   ///Profile
@@ -177,6 +191,10 @@ const Map<String, String> en = {
   ///Settings
   LocalizationKeys.settings: 'Settings',
   LocalizationKeys.language: 'Language',
+  LocalizationKeys.dangerZone: 'Danger Zone',
+  LocalizationKeys.deleteUserAccount: 'Delete User Account',
+  LocalizationKeys.delete: 'Delete',
+  LocalizationKeys.ifYouDeleteYourAccountYouWillNotBeAbleToLoginAgain: 'If you delete your account, you will not be able to login again',
 
   //-------------------------------------------------------------------------
   ///study plans
@@ -201,6 +219,15 @@ const Map<String, String> en = {
   LocalizationKeys.goToMoodle: 'Go To Moodle',
   LocalizationKeys.moodleUrl: 'Moodle Url',
   LocalizationKeys.playVideo: 'Play Video',
+
+  //-------------------------------------------------------------------------
+  ///moodle login
+  LocalizationKeys.moodleLogin: 'Moodle Login',
+  LocalizationKeys.toLoginTheLearningManagement: 'To login to the learning management system, please take a face photo to be compared with your profile photo.',
+  LocalizationKeys.pleaseCaptureClearImageOfYourFaceToLogin: 'Please capture clear image of your face to login',
+  LocalizationKeys.capture: 'Capture',
+  LocalizationKeys.attention: 'Attention',
+  LocalizationKeys.moodleLoginWarning:'Please be notified that the login photo you are taking is saved on the system to be reviewed under the identity verification procedures and assuring the following of the login guidelines. For the female student, their photos are reviewed by female staff only.',
 
   //-------------------------------------------------------------------------
   ///lecture table
@@ -313,4 +340,7 @@ const Map<String, String> en = {
   LocalizationKeys.updatedAt: 'Updated At',
   LocalizationKeys.deletedAt: 'Deleted At',
   LocalizationKeys.closedAt: 'Closed At',
+  LocalizationKeys.darkMode: 'Dark Mode',
+  LocalizationKeys.close: 'Close',
+  LocalizationKeys.ok: 'OK',
 };

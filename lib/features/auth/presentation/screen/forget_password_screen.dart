@@ -3,15 +3,16 @@ import 'package:esu/core/mixin/validator_properties.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/app_text_field_widget.dart';
-import 'package:esu/core/src/widgets/custom_button.dart';
+import 'package:esu/core/src/widgets/app_button.dart';
 import 'package:esu/features/auth/presentation/controller/forget_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class ForgetPasswordScreen extends GetView<ForgetPasswordController>
-    with ValidatorProperties {
+import '../../../../core/flavor/flavors.dart';
+
+class ForgetPasswordScreen extends GetView<ForgetPasswordController> with ValidatorProperties {
   const ForgetPasswordScreen({Key? key}) : super(key: key);
 
   @override
@@ -29,9 +30,7 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController>
               child: Column(
                 children: [
                   SizedBox(height: .06.sh),
-                  Assets.images.appIconTransparent.image(
-                    height: .24.sh,
-                  ),
+                  Image.asset(Flavors.appIcon, height: .24.sh),
                   SizedBox(height: .03.sh),
                   AppTextFieldWidget(
                     controller: controller.forgetPasswordEmailTEC,
@@ -39,10 +38,7 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController>
                     labelText: LocalizationKeys.email.tr,
                     prefixIcon: Padding(
                       padding: EdgeInsets.all(12.sp),
-                      child: Assets.icons.email.image(
-                        height: 8,
-                        color: AppColors.primaryColor,
-                      ),
+                      child: Assets.icons.email.image(height: 8, color: Theme.of(context).primaryColor),
                     ),
                   ),
                   SizedBox(height: .03.sh),

@@ -2,6 +2,9 @@ import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/features/student_actions/data/models/response/tickets/tickets_response_model.dart';
 import 'package:esu/features/student_actions/domain/usecase/tickets_use_case.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class TicketsController extends GetxController
     with StateMixin<TicketsResponseModel> {

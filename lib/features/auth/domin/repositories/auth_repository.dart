@@ -43,4 +43,6 @@ abstract class AuthRepository {
   Future<Either<String?, GenericResponseModel>> deleteFcmToken({
     required FcmTokenRequestModel requestModel,
   });
+
+  Future<Either<String?, GenericResponseModel>> deleteUserAccount();
 }

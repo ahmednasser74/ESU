@@ -1,6 +1,6 @@
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/src/widgets/keep_live_widget.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/home/data/models/response/notification/notification_response_model.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +47,7 @@ class _NotificationItemWidgetState extends State<NotificationItemWidget> {
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(
-              color: AppColors.primaryColor.withOpacity(0.2),
+              color:  Theme.of(context).colorScheme.secondary,
               spreadRadius: 0,
               blurRadius: 4,
               offset: const Offset(0, 2),
@@ -69,14 +69,11 @@ class _NotificationItemWidgetState extends State<NotificationItemWidget> {
                   }
                 },
                 child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
+                  padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 12.h),
                   child: Text(
                     widget.notification.title,
                     style: TextStyle(
-                      color: expandableController!.expanded
-                          ? Theme.of(context).primaryColor
-                          : Colors.black,
+                      color: expandableController!.expanded ? Theme.of(context).primaryColor : Colors.black,
                       fontSize: 14.sp,
                     ),
                   ),
@@ -96,7 +93,7 @@ class _NotificationItemWidgetState extends State<NotificationItemWidget> {
                 ),
                 constraints: const BoxConstraints(minWidth: double.infinity),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor.withOpacity(.1),
+                  color: Theme.of(context).colorScheme.secondary,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(6),
                     bottomRight: Radius.circular(6),
@@ -104,6 +101,9 @@ class _NotificationItemWidgetState extends State<NotificationItemWidget> {
                 ),
                 child: Html(
                   data: widget.notification.body,
+                  style: {
+                    'p': Style(fontSize: FontSize(14.sp), color: Colors.black),
+                  },
                   onLinkTap: (url, _, attributes, element) async {
                     if (url != null) {
                       await HelperMethod.launchToBrowser(url);

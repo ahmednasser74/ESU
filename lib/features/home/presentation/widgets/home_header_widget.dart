@@ -2,10 +2,12 @@ import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
 import 'package:esu/core/utils/pref_util.dart';
-import 'package:esu/features/home/data/models/response/home/home_data_response_model.dart';
+import 'package:esu/features/home/data/models/response/home/home_data/home_data_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/flavor/flavors.dart';
 
 class HomeHeaderWidget extends StatelessWidget {
   HomeHeaderWidget({
@@ -20,21 +22,16 @@ class HomeHeaderWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: .28.sh,
+          height: .2.sh,
           width: double.infinity,
           margin: EdgeInsets.only(top: 45.h, left: 18.w, right: 18.w),
-          padding: EdgeInsets.only(
-            top: 45.h,
-            left: 14.w,
-            right: 14.w,
-            bottom: 14.h,
-          ),
+          padding: EdgeInsets.only(top: 48.h, left: 12.w, right: 12.w, bottom: 12.h),
           decoration: BoxDecoration(
-            color: AppColors.primaryColor,
+            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(12.r),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primaryColor.withOpacity(0.5),
+                color: Theme.of(context).primaryColor.withOpacity(0.5),
                 blurRadius: 10.r,
                 offset: Offset(0, 10.r),
               ),
@@ -60,50 +57,6 @@ class HomeHeaderWidget extends StatelessWidget {
                 student.academicId,
                 style: const TextStyle(color: Colors.white),
               ),
-              SizedBox(height: 2.h),
-              const Divider(color: Colors.black45),
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          LocalizationKeys.programAmount.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                        Text('${data.programCost}'),
-                      ],
-                    ),
-                  ),
-                  _verticalDivider(),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: 70.w,
-                          child: Text(
-                            LocalizationKeys.paidAmount.tr,
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Text('${data.paid}'),
-                      ],
-                    ),
-                  ),
-                  _verticalDivider(),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          LocalizationKeys.unPaidAmount.tr,
-                          textAlign: TextAlign.center,
-                        ),
-                        Text('${data.unpaid}'),
-                      ],
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
         ),
@@ -116,7 +69,7 @@ class HomeHeaderWidget extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.black),
             ),
-            child: Assets.images.esuTitleLogo.image(height: 60.r),
+            child: Flavors.isMidocean ? Assets.images.midoceanAppIcon.image(height: 50.h, width: 50.w, fit: BoxFit.fill) : Assets.images.esuTitleLogo.image(height: 60.r),
           ),
         ),
       ],

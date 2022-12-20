@@ -2,7 +2,9 @@ import 'package:esu/core/usecases/usecase.dart';
 import 'package:esu/features/home/data/models/response/popular_question/popular_question_response_model.dart';
 import 'package:esu/features/home/domin/usecases/popular_question_usecase.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable()
 class PopularQuestionController extends GetxController
     with StateMixin<List<PopularQuestionDataResponseModel>> {
   PopularQuestionController({required this.popularQuestionUseCase});

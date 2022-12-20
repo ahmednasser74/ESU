@@ -8,6 +8,9 @@ import 'package:esu/features/student_actions/domain/usecase/ticket_create_use_ca
 import 'package:esu/features/student_actions/presentation/controller/ticket_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class TicketCreateController extends GetxController {
   final TicketCreateUseCase ticketCreateUseCase;

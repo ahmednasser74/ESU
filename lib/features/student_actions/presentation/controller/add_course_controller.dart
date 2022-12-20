@@ -1,6 +1,6 @@
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/usecases/usecase.dart';
-import 'package:esu/core/utils/helper_methods.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/features/student_actions/data/models/request/add_course/add_course_request_model.dart';
 import 'package:esu/features/student_actions/data/models/response/available_course/available_course_response_model.dart';
 import 'package:esu/features/student_actions/domain/usecase/add_course_use_case.dart';
@@ -8,6 +8,9 @@ import 'package:esu/features/student_actions/domain/usecase/course_registration_
 import 'package:get/get.dart';
 
 import 'courses_registered_controller.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable()
 
 class AddCourseController extends GetxController
     with StateMixin<AvailableCoursesResponseModel> {

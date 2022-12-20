@@ -13,7 +13,11 @@ import 'package:esu/features/student_data/data/models/response/plans_of_study/pl
 import 'package:esu/features/student_data/data/models/response/schedule/schedule_response_model.dart';
 import 'package:esu/features/student_data/data/models/response/transcript/transcript_response_model.dart';
 import 'package:esu/features/student_data/domain/repository/student_data_repository.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../../../core/dependencies/dependency_init.dart';
+
+@Injectable(as: StudentDataRepository)
 class StudentDataRepositoryImp implements StudentDataRepository {
   StudentDataRepositoryImp({required this.remoteDataSource});
 
@@ -107,7 +111,7 @@ extension on StudentDataRepository {
     required Future<T> Function() onSuccess,
     Future<String> Function(Exception exception)? onOtherError,
   }) async {
-    final isConnected = await Injection.di<NetworkInformation>().isConnected;
+    final isConnected = await di<NetworkInformation>().isConnected;
     if (isConnected) {
       try {
         final f = await onSuccess();
