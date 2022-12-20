@@ -17,7 +17,7 @@ class MoodleLoginController extends GetxController with StateMixin<HomeResponseM
   MoodleLoginController({required this.moodleLoginUseCase});
 
   RxBool isLoading = false.obs;
-  late File photo;
+  File? photo;
 
   Future<void> moodleLogin() async {
     isLoading.value = true;
