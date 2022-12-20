@@ -1,4 +1,5 @@
 import 'package:esu/core/helper/app_info_helper.dart';
+import 'package:esu/core/helper/helper_methods.dart';
 import 'package:esu/core/localization/localization_keys.dart';
 import 'package:esu/core/src/assets.gen.dart';
 import 'package:esu/core/src/colors.dart';
@@ -118,19 +119,20 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 },
               ),
               GetBuilder<HomeController>(
-                builder: (controller) => Visibility(
-                  visible: controller.homeResponse.data?.allowToLoginWithFaceId ?? false,
-                  child: ListTile(
-                    title: Text(LocalizationKeys.moodleLogin.tr),
-                    leading: Assets.icons.accessToMoodle.image(
-                      color: Theme.of(context).primaryColor,
-                      height: 22.h,
-                    ),
-                    onTap: () {
-                      Navigator.pop(context);
-                      Get.dialog(MoodleLoginScreen());
-                    },
+                builder: (controller) => ListTile(
+                  title: Text(LocalizationKeys.moodleLogin.tr),
+                  leading: Assets.icons.accessToMoodle.image(
+                    color: Theme.of(context).primaryColor,
+                    height: 22.h,
                   ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    if (controller.homeResponse.data?.allowToLoginWithFaceId ?? false) {
+                      Get.dialog(MoodleLoginScreen());
+                    } else {
+                      HelperMethod.launchToBrowser('https://moodle.esu.ac.ae/login/index.php');
+                    }
+                  },
                 ),
               ),
               ListTile(
