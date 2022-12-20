@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../controller/moodle_login_controller.dart';
 import '../screens/moodle_login_screen.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -119,19 +120,23 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 },
               ),
               GetBuilder<HomeController>(
-                builder: (controller) => ListTile(
-                  title: Text(LocalizationKeys.moodleLogin.tr),
-                  leading: Assets.icons.accessToMoodle.image(
-                    color: Theme.of(context).primaryColor,
-                    height: 22.h,
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    if (controller.homeResponse.data?.allowToLoginWithFaceId ?? false) {
-                      Get.dialog(MoodleLoginScreen());
-                    } else {
-                      HelperMethod.launchToBrowser('https://moodle.esu.ac.ae/login/index.php');
-                    }
+                builder: (homeController) => GetBuilder<MoodleLoginController>(
+                  builder: (moodleLoginController) {
+                    return ListTile(
+                      title: Text(LocalizationKeys.moodleLogin.tr),
+                      leading: Assets.icons.accessToMoodle.image(
+                        color: Theme.of(context).primaryColor,
+                        height: 22.h,
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        if (homeController.homeResponse.data?.allowToLoginWithFaceId ?? false) {
+                          Get.dialog(MoodleLoginScreen());
+                        } else {
+                          moodleLoginController.moodleLogin();
+                        }
+                      },
+                    );
                   },
                 ),
               ),
