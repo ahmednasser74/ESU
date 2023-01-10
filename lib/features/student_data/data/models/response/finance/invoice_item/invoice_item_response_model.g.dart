@@ -15,7 +15,8 @@ InvoiceItemResponseModel _$InvoiceItemResponseModelFromJson(
       ..paidAmount = (json['paid_amount'] as num?)?.toDouble()
       ..remaining = (json['remaining'] as num?)?.toDouble()
       ..status = json['status'] as String
-      ..originalStatus = json['original_status'] as String
+      ..originalStatus =
+          $enumDecode(_$InvoiceStatusEnumMap, json['original_status'])
       ..paidAt = json['paid_at'] as String?
       ..dueDate = json['due_date'] as String?;
 
@@ -28,7 +29,13 @@ Map<String, dynamic> _$InvoiceItemResponseModelToJson(
       'paid_amount': instance.paidAmount,
       'remaining': instance.remaining,
       'status': instance.status,
-      'original_status': instance.originalStatus,
+      'original_status': _$InvoiceStatusEnumMap[instance.originalStatus]!,
       'paid_at': instance.paidAt,
       'due_date': instance.dueDate,
     };
+
+const _$InvoiceStatusEnumMap = {
+  InvoiceStatus.paid: 'paid',
+  InvoiceStatus.halfPaid: 'half_paid',
+  InvoiceStatus.unpaid: 'unpaid',
+};

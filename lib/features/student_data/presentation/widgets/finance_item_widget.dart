@@ -8,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/enum/invoice_status.dart';
+
 class FinanceItemWidget extends StatelessWidget {
   const FinanceItemWidget({
     Key? key,
@@ -82,7 +84,7 @@ class FinanceItemWidget extends StatelessWidget {
           ),
           SizedBox(height: 8.h),
           Visibility(
-            visible: finance.originalStatus == 'unpaid',
+            visible: finance.originalStatus == InvoiceStatus.unpaid || finance.originalStatus == InvoiceStatus.halfPaid,
             child: GetBuilder<FinanceController>(
               builder: (controller) => OutlinedButton.icon(
                 style: OutlinedButton.styleFrom(

@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../../../../../core/enum/invoice_status.dart';
+
 part 'invoice_item_response_model.g.dart';
 
 @JsonSerializable()
@@ -14,7 +16,7 @@ class InvoiceItemResponseModel {
   late final double? remaining;
   late final String status;
   @JsonKey(name: 'original_status')
-  late final String originalStatus;
+  late final InvoiceStatus originalStatus;
   @JsonKey(name: 'paid_at')
   late final String? paidAt;
   @JsonKey(name: 'due_date')

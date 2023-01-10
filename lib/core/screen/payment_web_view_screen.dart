@@ -41,6 +41,14 @@ class WebViewScreenState extends State<WebViewScreen> {
           'Authorization': 'Bearer $token',
           'locale': Get.locale.toString()
         }.toString(),
+        javascriptChannels: <JavascriptChannel>{
+          JavascriptChannel(
+            name: 'Print',
+            onMessageReceived: (JavascriptMessage message) {
+              print(message.message);
+            },
+          ),
+        },
         // zoomEnabled: true,
         // debuggingEnabled: true,
         // gestureNavigationEnabled: true,
