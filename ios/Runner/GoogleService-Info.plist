@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>430668124216-8vh2qg8n9aojg2rd87b8ep2rbp031adv.apps.googleusercontent.com</string>
+	<string>632303956932-a7okpkqip9dobj8k3datdet8st12orpv.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.430668124216-8vh2qg8n9aojg2rd87b8ep2rbp031adv</string>
+	<string>com.googleusercontent.apps.632303956932-a7okpkqip9dobj8k3datdet8st12orpv</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCoFHM0V6d6IIt_Y-zIgGoYPvzRRJlzV4Q</string>
+	<string>AIzaSyDzfaVPJcY6JH1PKd7pVZIfAobRgefh77U</string>
 	<key>GCM_SENDER_ID</key>
-	<string>430668124216</string>
+	<string>632303956932</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sis.midocean.edu</string>
+	<string>com.sis.esu</string>
 	<key>PROJECT_ID</key>
-	<string>midocean-prod</string>
+	<string>esuproject-f2f9c</string>
 	<key>STORAGE_BUCKET</key>
-	<string>midocean-prod.appspot.com</string>
+	<string>esuproject-f2f9c.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:430668124216:ios:b7059346fcaed63dff96cd</string>
+	<string>1:632303956932:ios:396e1a2bc9d2836b2b2a91</string>
 </dict>
 </plist>
