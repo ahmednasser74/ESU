@@ -39,7 +39,6 @@ class NotificationHelper {
           requestSoundPermission: true,
           requestBadgePermission: true,
           requestAlertPermission: true,
-
         ),
       ),
       onSelectNotification: _onTapLocalNotification,
@@ -115,7 +114,13 @@ class NotificationHelper {
 
   Future<void> removeToken() async => await messaging.deleteToken();
 
-  Future<String> get getFcmToken async => await messaging.getToken() ?? '';
+  Future<String> get getFcmToken async {
+    if (Platform.isAndroid) {
+      return await messaging.getToken() ?? '';
+    } else {
+      return await messaging.getAPNSToken() ?? '';
+    }
+  }
 }
 
 class FcmTokenUpdate {
